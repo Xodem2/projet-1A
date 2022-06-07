@@ -2,6 +2,7 @@ package com.example.projet1a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.profileButton = (Button) findViewById(R.id.profil);
+        this.profileButton = (Button) findViewById(R.id.button4);
         this.profileButton.setOnClickListener(this);
     }
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showProfilePage() {
-        System.out.println("show profile page");
+        Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
+        startActivity(profileActivityIntent);
     }
 }
