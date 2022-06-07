@@ -10,16 +10,16 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:scaleX="5"
+        android:scaleY="5"
         android:text="EINSTEIN"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <Button
         android:id="@+id/score"
@@ -60,24 +60,50 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="300dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
         android:layout_marginBottom="300dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6" />
+        tools:layout_editor_absoluteX="158dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="240dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="300dp"
+        android:text="Adulte ( 18-77  ans )"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="240dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="212dp"
+        android:text="Ados ( 11-18 ans )"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="240dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="124dp"
+        android:text="Enfant ( 1 - 10 ans )"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:text="CHOISI TON ÂGE"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="324dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
