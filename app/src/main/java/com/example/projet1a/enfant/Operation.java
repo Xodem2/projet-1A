@@ -5,6 +5,7 @@ public class Operation {
     private int a;
     private int b;
     private Random random;
+    private int nMax = 50;
     public Operation() {
         this.random = new Random();
         this.generate();
@@ -16,8 +17,8 @@ public class Operation {
         return this.b;
     }
     public void generate() {
-        this.a = this.random.nextInt(11);
-        this.b = this.random.nextInt(11);
+        this.a = this.random.nextInt(nMax-1)+1;
+        this.b = this.random.nextInt(nMax-1)+1;
     }
     public boolean plus(int ans) {
         return ans == this.a+this.b;
