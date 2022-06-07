@@ -6,8 +6,8 @@ public class PlayerProfile {
 
     private String id;
     private String nickname;
-    private final PlayerStatistics stats;
     private int age;
+    private final PlayerStatistics stats;
 
     public PlayerProfile(){
         this.generateID();
