@@ -6,11 +6,21 @@ public class PlayerProfile {
 
     private String id;
     private String nickname;
-    private PlayerStatistics stats;
+    private int age;
+    private final PlayerStatistics stats;
 
     public PlayerProfile(){
         this.generateID();
+
         this.stats = new PlayerStatistics(0, 0);
+    }
+
+    private void setAge(int age){
+        this.age = age;
+    }
+
+    private int getAge(){
+        return this.age;
     }
 
     private void generateID() {
