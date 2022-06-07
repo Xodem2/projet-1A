@@ -23,4 +23,16 @@ public class PlayerStatistics {
     public void updateMultiplayerScore(int mpScore){
         this.multiplayerScore += mpScore;
     }
+
+    public int getSingleplayerScore(){
+        return this.singleplayerScore;
+    }
+
+    public int getMultiplayerScore(){
+        return this.multiplayerScore;
+    }
+
+    public int getTotalScore(){
+        return this.totalScore;
+    }
 }
