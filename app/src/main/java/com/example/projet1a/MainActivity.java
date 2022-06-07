@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.profileButton = (Button) findViewById(R.id.button4);
+        this.profileButton = (Button) findViewById(R.id.button_adult);
         this.profileButton.setOnClickListener(this);
     }
 
