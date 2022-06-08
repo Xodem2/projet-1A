@@ -9,7 +9,7 @@ public class VectorQuestion {
     private static final int MAXIMUM_DIMENSION = 4;
 
     private static final int MINIMUM_VALUE = 0;
-    private static final int MAXIMUM_VALUE = 100;
+    private static final int MAXIMUM_VALUE = 10;
 
     private final Random random;
 
@@ -63,6 +63,13 @@ public class VectorQuestion {
         for(int i = 0; i < this.vectorDimension; i++)
             scalarResult += this.vector1.get(i) * this.vector2.get(i);
         this.result = scalarResult;
+    }
+
+    public ArrayList<Integer>[] getVectors(){
+        ArrayList<Integer>[] vectors = new ArrayList[2];
+        vectors[0] = this.vector1;
+        vectors[1] = this.vector2;
+        return vectors;
     }
 
 }

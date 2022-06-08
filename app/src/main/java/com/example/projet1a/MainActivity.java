@@ -55,8 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showTeenPage() {
-        Intent teenActivityIntent = new Intent(this, TeenActivity.class);
-        startActivity(teenActivityIntent);
+        //Intent teenActivityIntent = new Intent(this, TeenActivity.class);
+        //startActivity(teenActivityIntent);
+        Intent vectorActivityIntent = new Intent(this, VectorActivity.class);
+        startActivity(vectorActivityIntent);
     }
 
     private void showChildPage() {
