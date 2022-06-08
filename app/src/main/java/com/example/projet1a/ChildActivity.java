@@ -12,6 +12,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     private Button sommeButton;
     private Button diffButton;
     private Button multButton;
+    private Button divButton;
 
 
     @Override
@@ -26,6 +27,9 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
 
         this.multButton = (Button) findViewById(R.id.button_Mult);
         this.multButton.setOnClickListener(this);
+
+        this.divButton = (Button) findViewById(R.id.button_division);
+        this.divButton.setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +37,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         if(v.getId() == this.sommeButton.getId()) this.showSommePage();
         if(v.getId() == this.diffButton.getId()) this.showDiffPage();
         if(v.getId() == this.multButton.getId()) this.showMultPage();
+        if(v.getId() == this.divButton.getId()) this.showDivPage();
     }
 
     private void showSommePage() {
@@ -50,4 +55,8 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         startActivity(multActivityIntent);
     }
 
+    private void showDivPage() {
+        Intent divActivityIntent = new Intent(this, DivisionActivity.class);
+        startActivity(divActivityIntent);
+    }
 }

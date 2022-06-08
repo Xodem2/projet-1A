@@ -4,58 +4,82 @@ import com.example.projet1a.list.ListNumbers;
 import java.util.Random;
 
 public class Operation {
+
     private int a;
     private int b;
+
     private Random random;
+
     private int nMax = 50;
     int nProps = 3;
+
     public Operation() {
         this.random = new Random();
         this.generate();
     }
+
     public int getA() {
         return this.a;
     }
+
     public int getB() {
         return this.b;
     }
+
     public void setA(int a) {
         this.a = a;
     }
+
     public void setB(int b) {
         this.b = b;
     }
+
     public int ansPlus() {
         return this.a+this.b;
     }
+
     public int ansMinus() {
         return this.a-this.b;
     }
+
     public int ansMult() {
         return this.a*this.b;
     }
+
     public int ansDiv() {
         return this.a/this.b;
     }
+
     public void generate() {
         this.a = this.random.nextInt(nMax-1)+1;
         this.b = this.random.nextInt(nMax-1)+1;
     }
+
+    public void generate_div(){
+        this.b = this.random.nextInt(nMax-1)+1;
+        this.a = this.b * this.random.nextInt(21);
+    }
+
     public boolean plus(int ans) {
         return ans == ansPlus();
     }
+
     public boolean minus(int ans) {
         return ans == ansMinus();
     }
+
     public boolean mult(int ans) {
         return ans == ansMult();
     }
+
     public boolean div(int ans) {
         return ans == ansDiv();
     }
+
     public int getNProps() {
         return nProps;
     }
+
     public ListNumbers propPlus() {
         ListNumbers choices = new ListNumbers(this.nProps);
         int correctProp = ansPlus();
@@ -82,6 +106,7 @@ public class Operation {
         }
         return choices;
     }
+
     public ListNumbers propMinus() {
         ListNumbers choices = new ListNumbers(this.nProps);
         int correctProp = ansMinus();
@@ -111,6 +136,7 @@ public class Operation {
         }
         return choices;
     }
+
     public ListNumbers propMult() {
         ListNumbers choices = new ListNumbers(this.nProps);
         int correctProp = ansMult();
@@ -140,6 +166,7 @@ public class Operation {
         }
         return choices;
     }
+
     public ListNumbers propDiv() {
         ListNumbers choices = new ListNumbers(this.nProps);
         int correctProp = ansDiv();

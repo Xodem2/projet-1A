@@ -27,13 +27,15 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         if(v.getId() == this.VectorButton.getId()) this.showVectorPage();
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
     }
+
     private void showVectorPage() {
         Intent vectorActivityIntent = new Intent(this, VectorActivity.class);
         startActivity(vectorActivityIntent);
     }
+
     private void showEquation1Page(){
-        Intent equationActivityIntent = new Intent(this, Equation1Activity.class);
-        startActivity(equationActivityIntent);
+//        Intent equationActivityIntent = new Intent(this, Equation1Activity.class);
+//        startActivity(equationActivityIntent);
     }
 
 
