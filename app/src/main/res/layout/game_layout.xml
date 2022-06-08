@@ -83,4 +83,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/choice2ID" />
 
+    <TextView
+        android:id="@+id/delta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+3"
+        app:layout_constraintBottom_toBottomOf="@+id/Score"
+        app:layout_constraintStart_toEndOf="@+id/Score" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

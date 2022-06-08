@@ -8,33 +8,12 @@
     tools:context=".ChildActivity">
 
     <Button
-        android:id="@+id/answer1"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="567dp"
-        android:text="ANSWER1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/answer2"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="567dp"
-        android:text="ANWSER2"
-        app:layout_constraintEnd_toStartOf="@+id/answer3"
-        app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/answer3"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="567dp"
-        android:layout_marginEnd="14dp"
-        android:text="ANSWER3"
+        android:id="@+id/somme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Somme"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
