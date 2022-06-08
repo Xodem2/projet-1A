@@ -12,6 +12,7 @@ public class Suite extends ListNumbers {
     int lengthMaxGenerate;
     Random random;
     public Suite() {
+        super(6, 99);
         setLengthMax(6);
         lengthMaxGenerate = 4;
         setNMax(10);

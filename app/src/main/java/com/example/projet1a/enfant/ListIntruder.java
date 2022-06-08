@@ -8,7 +8,13 @@ import java.util.Random;
 public class ListIntruder extends ListNumbers {
     private Random random;
     public ListIntruder() {
+        super(6, 99);
         this.random = this.getRandom();
+        int choice = this.random.nextInt(2);
+        if(choice == 0)
+            generateEven1Odd();
+        else
+            generateOdd1Even();
     }
 
     public void addEven() {

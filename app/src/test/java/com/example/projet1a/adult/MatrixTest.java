@@ -69,4 +69,11 @@ public class MatrixTest extends TestCase {
         M.set(2, 2, 9);
         assert M.det() == 0;
     }
+
+    public void testGenerate() {
+        Matrix M = new Matrix(3, 2);
+        System.out.println(M.get(0, 0) + " " + M.get(0, 1));
+        System.out.println(M.get(1, 0) + " " + M.get(1, 1));
+        System.out.println(M.get(2, 0) + " " + M.get(2, 1));
+    }
 }

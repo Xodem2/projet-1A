@@ -9,11 +9,18 @@ public class ListNumbers {
     private int lengthMax;
     private int nMax;
     private ArrayList<Integer> numbers;
-    public ListNumbers() {
-        random = new Random();
-        length = 0;
-        lengthMax = 10;
-        nMax = 50;
+
+    public ListNumbers(int lengthMax) {
+        this.random = new Random();
+        this.length = 0;
+        this.lengthMax = lengthMax;
+        numbers = new ArrayList<>(lengthMax);
+    }
+    public ListNumbers(int lengthMax, int nMax) {
+        this.random = new Random();
+        this.length = 0;
+        this.lengthMax = lengthMax;
+        this.nMax = nMax;
         numbers = new ArrayList<>(lengthMax);
     }
 
@@ -61,5 +68,9 @@ public class ListNumbers {
 
     public int getLastNumber() {
         return this.getNumber(getLength()-1);
+    }
+
+    public boolean contains(int value) {
+        return this.numbers.contains(value);
     }
 }
