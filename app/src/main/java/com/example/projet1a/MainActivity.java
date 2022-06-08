@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
         profileActivityIntent.putExtra(PLAYER_NICKNAME, this.player.getNickname());
         profileActivityIntent.putExtra(PLAYER_AGE, this.player.getAge());
+
         profileActivityIntent.putExtra(PLAYER_ID, this.player.getID());
         startActivity(profileActivityIntent);
     }
