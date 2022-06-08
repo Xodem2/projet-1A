@@ -89,7 +89,8 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v){
-        if (this.currentProgress[0]!=0) {
+        System.out.println(this.currentProgress[0]);
+        if (this.currentProgress[0]>0) {
             if (v.getId() == this.choix1Button.getId()) {
                 if (op.plus(this.prop[0])) {
                     this.score.incr();
