@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Projet1A"
         tools:targetApi="31">
         <activity
+            android:name=".TeenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChildActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity

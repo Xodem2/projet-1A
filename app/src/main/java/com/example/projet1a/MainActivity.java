@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.projet1a.adult.AdultActivity;
-import com.example.projet1a.enfant.ChildActivity;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -57,13 +54,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showTeenPage() {
-        Intent teenActivityIntent = new Intent(this, AdultActivity.class);
+        Intent teenActivityIntent = new Intent(this, TeenActivity.class);
         startActivity(teenActivityIntent);
     }
-    // ne marche pas encore
+
     private void showChildPage() {
         Intent childActivityIntent = new Intent(this, ChildActivity.class);
         startActivity(childActivityIntent);
-        // ne marche pas encore
     }
 }
