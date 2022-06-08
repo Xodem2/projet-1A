@@ -33,10 +33,10 @@ public class MatrixOperationTest extends TestCase {
         MatrixOperation op = new MatrixOperation();
         Matrix M1 = op.getM1();
         Matrix M2 = op.getM2();
-        M1.print();
-        M2.print();
-        M1.sum(M2).print();
-        op.ansSum().print();
+        System.out.print(M1.toString());
+        System.out.print(M2.toString());
+        System.out.print(M1.sum(M2).toString());
+        System.out.print(op.ansSum().toString());
         assert op.sum(M1.sum(M2));
     }
 
@@ -44,10 +44,10 @@ public class MatrixOperationTest extends TestCase {
         MatrixOperation op = new MatrixOperation();
         Matrix M1 = op.getM1();
         Matrix M2 = op.getM2();
-        M1.print();
-        M2.print();
-        M1.prod(M2).print();
-        op.ansProd().print();
+        System.out.print(M1.toString());
+        System.out.print(M2.toString());
+        System.out.print(M1.sum(M2).toString());
+        System.out.print(op.ansSum().toString());
         assert op.prod(M1.prod(M2));
         assert !op.prod(M2.prod(M1));
     }
@@ -55,14 +55,14 @@ public class MatrixOperationTest extends TestCase {
     public void testPropSum() {
         MatrixOperation op = new MatrixOperation();
         ArrayList<Matrix> props = op.propSum();
-        op.getM1().print();
+        System.out.print(op.getM1().toString());
         System.out.println(" + ");
-        op.getM2().print();
+        System.out.print(op.getM2().toString());
         System.out.println(" = ? ");
         Matrix correct = op.ansSum();
         for (int i = 0; i < op.getNProps(); i++) {
             Matrix prop = props.get(i);
-            prop.print();
+            System.out.print(prop.toString());
             assert (!prop.is(correct) && !(op.sum(prop))) || (prop.is(correct) && op.sum(prop));
         }
     }
@@ -70,14 +70,14 @@ public class MatrixOperationTest extends TestCase {
     public void testPropProd() {
         MatrixOperation op = new MatrixOperation();
         ArrayList<Matrix> props = op.propProd();
-        op.getM1().print();
+        System.out.print(op.getM1().toString());
         System.out.println(" * ");
-        op.getM2().print();
+        System.out.print(op.getM2().toString());
         System.out.println(" = ? ");
         Matrix correct = op.ansProd();
         for(int i = 0; i < op.getNProps(); i++) {
             Matrix prop = props.get(i);
-            prop.print();
+            System.out.print(prop.toString());
             assert (!prop.is(correct) && !(op.prod(prop))) || (prop.is(correct) && op.prod(prop));
         }
     }

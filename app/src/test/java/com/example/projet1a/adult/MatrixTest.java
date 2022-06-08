@@ -31,9 +31,9 @@ public class MatrixTest extends TestCase {
         N.set(1, 0, 9);
         N.set(1, 1, -1);
         Matrix P = M.sum(N);
-        M.print();
-        N.print();
-        P.print();
+        System.out.print(M.toString());
+        System.out.print(N.toString());
+        System.out.print(P.toString());
         assert P.get(0, 0) == 8 && P.get(0, 1) == 10 && P.get(1, 0) == 12 && P.get(1, 1) == 3;
     }
 
@@ -53,9 +53,9 @@ public class MatrixTest extends TestCase {
         N.set(2, 0, -2);
         N.set(2, 1, -3);
         Matrix P = M.prod(N);
-        M.print();
-        N.print();
-        P.print();
+        System.out.print(M.toString());
+        System.out.print(N.toString());
+        System.out.print(P.toString());
         assert P.get(0, 0) == 19 && P.get(0, 1) == -3 && P.get(1, 0) == 61 && P.get(1, 1) == 9;
     }
 
@@ -68,8 +68,8 @@ public class MatrixTest extends TestCase {
         M.set(1, 1, 5);
         M.set(1, 2, 6);
         Matrix tM = M.t();
-        M.print();
-        tM.print();
+        System.out.print(M.toString());
+        System.out.print(tM.toString());
         assert tM.get(0, 0) == 1 && tM.get(0, 1) == 4 && tM.get(1, 0) == 2 && tM.get(1, 1) == 5 && tM.get(2, 0) == 3 && tM.get(2, 1) == 6;
     }
 
@@ -89,6 +89,6 @@ public class MatrixTest extends TestCase {
 
     public void testGenerate() {
         Matrix M = new Matrix(3, 2);
-        M.print();
+        System.out.print(M.toString());
     }
 }

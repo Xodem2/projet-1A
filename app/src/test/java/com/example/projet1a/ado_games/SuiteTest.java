@@ -12,6 +12,7 @@ public class SuiteTest extends TestCase {
 
     public void testGenerate() {
         Suite suite = new Suite();
+        System.out.println(suite.toString());
         for (int i = 0; i < suite.getLength(); i++) {
             int value = suite.getA()*i*i+suite.getB()*i+suite.getC();
             System.out.println(i + " : " + suite.getNumber(i));
@@ -21,6 +22,7 @@ public class SuiteTest extends TestCase {
 
     public void testInput() {
         Suite suite = new Suite();
+        System.out.println(suite.toString());
         for (int i = 0; i < suite.getLength(); i++) {
             System.out.println(i + " : " + suite.getNumber(i));
         }

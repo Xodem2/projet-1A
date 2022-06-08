@@ -18,6 +18,18 @@ public class Matrix {
         this.generate();
     }
 
+    public String toString() {
+        String str = "";
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                str += get(i, j) + " ";
+            }
+            str += "\n";
+        }
+        str += "\n";
+        return str;
+    }
+
     public void set(int m, int n, float value) {
         this.M[m][n] = value;
     }
@@ -54,16 +66,6 @@ public class Matrix {
             }
         }
         return true;
-    }
-
-    public void print() {
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(get(i, j) + " ");
-            }
-            System.out.println(" ");
-        }
-        System.out.println(" ");
     }
 
     public Matrix sum(Matrix N) {

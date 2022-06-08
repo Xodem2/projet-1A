@@ -19,6 +19,10 @@ public class Suite extends ListNumbers {
         this.generate();
     }
 
+    public String toString() {
+        return this.getA() + " n²+" + this.getB() + " n+" + this.getC();
+    }
+
     public int getA() {
         return this.a;
     }
