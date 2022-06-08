@@ -13,8 +13,7 @@ import android.widget.TextView;
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
 
-public class SommeActivity extends AppCompatActivity implements View.OnClickListener{
-
+public class MultActivity extends AppCompatActivity implements View.OnClickListener {
     Operation op;
 
     Button choix1Button;
@@ -27,11 +26,12 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
     int[] currentProgress;
 
     Point score_max;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_somme);
+        setContentView(R.layout.activity_mult);
+
         this.pb = findViewById(R.id.progressBarToday);
 
         // for eg: if countdown is to go for 30 seconds
@@ -64,9 +64,9 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
         this.choix2Button.setOnClickListener(this);
         this.choix3Button = (Button) findViewById(R.id.choice3ID);
         this.choix3Button.setOnClickListener(this);
-        ((TextView) findViewById(R.id.prop1)).setText(String.valueOf(""));
-        ((TextView) findViewById(R.id.prop2)).setText(String.valueOf(""));
-        ((TextView) findViewById(R.id.prop3)).setText(String.valueOf(""));
+        ((TextView) findViewById(R.id.prop1_mult)).setText(String.valueOf(""));
+        ((TextView) findViewById(R.id.prop2_mult)).setText(String.valueOf(""));
+        ((TextView) findViewById(R.id.prop3_mult)).setText(String.valueOf(""));
 
         this.score = new Point();
         this.delta_point = 3;
@@ -90,9 +90,9 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
         this.pb.setMax(maxi);
         ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score.getScore()));
         this.op.generate();
-        ((TextView) findViewById(R.id.op1)).setText(String.valueOf(this.op.getA()));
-        ((TextView) findViewById(R.id.op2)).setText(String.valueOf(this.op.getB()));
-        this.prop = this.op.propPlus().conv();
+        ((TextView) findViewById(R.id.op1_mult)).setText(String.valueOf(this.op.getA()));
+        ((TextView) findViewById(R.id.op2_mult)).setText(String.valueOf(this.op.getB()));
+        this.prop = this.op.propMult().conv();
         ((TextView) findViewById(R.id.choice1ID)).setText(String.valueOf(this.prop[0]));
         ((TextView) findViewById(R.id.choice2ID)).setText(String.valueOf(this.prop[1]));
         ((TextView) findViewById(R.id.choice3ID)).setText(String.valueOf(this.prop[2]));
@@ -103,7 +103,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v){
         if (this.currentProgress[0]>0) {
             if (v.getId() == this.choix1Button.getId()) {
-                if (op.plus(this.prop[0])) {
+                if (op.mult(this.prop[0])) {
                     this.score.incr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
@@ -114,7 +114,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
             if (v.getId() == this.choix2Button.getId()) {
-                if (op.plus(this.prop[1])) {
+                if (op.mult(this.prop[1])) {
                     this.score.incr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
@@ -125,7 +125,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
             if (v.getId() == this.choix3Button.getId()) {
-                if (op.plus(this.prop[2])) {
+                if (op.mult(this.prop[2])) {
                     this.score.incr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
@@ -139,7 +139,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
         }
         else{
             if (v.getId() == this.choix1Button.getId()) {
-                if (op.plus(this.prop[0])) {
+                if (op.mult(this.prop[0])) {
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+0");
                 } else {
@@ -149,7 +149,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
             if (v.getId() == this.choix2Button.getId()) {
-                if (op.plus(this.prop[1])) {
+                if (op.mult(this.prop[1])) {
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+0");
                 } else {
@@ -159,7 +159,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
             if (v.getId() == this.choix3Button.getId()) {
-                if (op.plus(this.prop[2])) {
+                if (op.mult(this.prop[2])) {
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+0");
                 } else {

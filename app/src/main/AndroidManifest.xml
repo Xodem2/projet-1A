@@ -14,7 +14,13 @@
         android:theme="@style/Theme.Projet1A"
         tools:targetApi="31">
         <activity
+            android:name=".MultActivity"
+            android:exported="false" />
+        <activity
             android:name=".MoinsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SquareActivity"
             android:exported="false" />
         <activity
             android:name=".SommeActivity"
@@ -34,6 +40,9 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".Equation1Activity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
