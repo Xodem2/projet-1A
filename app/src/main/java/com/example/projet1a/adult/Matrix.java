@@ -35,7 +35,11 @@ public class Matrix {
     }
 
     public Matrix getMatrix() {
-        return this;
+        Matrix M = new Matrix(this.m, this.n);
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                M.set(i, j, this.get(i, j));
+        return M;
     }
 
     public boolean is(Matrix N) {
@@ -57,9 +61,9 @@ public class Matrix {
             for (int j = 0; j < n; j++) {
                 System.out.print(get(i, j) + " ");
             }
-            System.out.println("");
+            System.out.println(" ");
         }
-        System.out.println("");
+        System.out.println(" ");
     }
 
     public Matrix sum(Matrix N) {

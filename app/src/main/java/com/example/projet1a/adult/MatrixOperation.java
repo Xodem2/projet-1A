@@ -9,7 +9,7 @@ public class MatrixOperation {
     private Matrix M1 = new Matrix(dim, dim);
     private Matrix M2 = new Matrix(dim, dim);
     private Random random = new Random();
-    public void MatrixOperation() {
+    public MatrixOperation() {
         this.generate();
     }
 
@@ -50,33 +50,28 @@ public class MatrixOperation {
             if (i == correctPropPos)
                 choices.add(correctProp);
             else {
-                Matrix falseProp = new Matrix(dim, dim);
+                Matrix falseProp = correctProp.getMatrix();
                 do {
-                    int r = this.random.nextInt(6);
-                    int jf = this.random.nextInt(dim);
-                    int kf = this.random.nextInt(dim);
                     for(int j = 0; j < falseProp.getM(); j++) {
                         for(int k = 0; k < falseProp.getN(); k++) {
-                            if (j == jf && k == kf) {
-                                if(r == 0)
-                                    falseProp.set(j, k, -(M1.get(j, k)+M2.get(j, k)));
-                                else if(r == 1)
-                                    falseProp.set(j, k, M1.get(j, k)-M2.get(j, k));
-                                else if(r == 2)
-                                    falseProp.set(j, k, -M1.get(j, k)+M2.get(j, k));
-                                else if(r == 3)
-                                    falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)+10);
-                                else if(r == 4)
-                                    falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)-10);
-                                else
-                                    falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)+this.random.nextInt(3)+1);
-                            }
-                            else {
-                                falseProp.set(j, k, M1.get(j, k)+M2.get(j, k));
-                            }
+                            int r = this.random.nextInt(44);
+                            if(r == 0)
+                                falseProp.set(j, k, -(M1.get(j, k)+M2.get(j, k)));
+                            else if(r == 1)
+                                falseProp.set(j, k, M1.get(j, k)-M2.get(j, k));
+                            else if(r == 2)
+                                falseProp.set(j, k, -M1.get(j, k)+M2.get(j, k));
+                            else if(r == 3)
+                                falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)+this.random.nextInt(3)+1);
+                            else if(r == 4)
+                                falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)-this.random.nextInt(3)-1);
+                            else if(r >= 5 && r <= 7)
+                                falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)+10);
+                            else if(r >= 8 && r <= 10)
+                                falseProp.set(j, k, M1.get(j, k)+M2.get(j, k)-10);
                         }
                     }
-                } while (choices.contains(falseProp) || falseProp.getMatrix() == correctProp.getMatrix());
+                } while (choices.contains(falseProp) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
         }
@@ -91,37 +86,38 @@ public class MatrixOperation {
             if (i == correctPropPos)
                 choices.add(correctProp);
             else {
-                Matrix falseProp = new Matrix(dim, dim);
+                Matrix falseProp = correctProp.getMatrix();
                 do {
-                    int r = this.random.nextInt(6);
-                    int jf = this.random.nextInt(dim);
-                    int kf = this.random.nextInt(dim);
+                    int r = this.random.nextInt(9);
                     if(r == 0) {
-                        falseProp = ansProd();
-                        falseProp.set(jf, kf, -falseProp.get(jf, kf));
-                    }
-                    else if (r == 1) {
-                        falseProp = ansProd();
-                        falseProp.set(jf, kf, (this.random.nextInt(2)+2)*falseProp.get(jf, kf));
-                    }
-                    else if (r == 2) {
-                        falseProp = ansProd();
-                        falseProp.set(jf, kf, -(this.random.nextInt(2)+2)*falseProp.get(jf, kf));
-                    }
-                    else if (r == 3) {
                         for(int j = 0; j < falseProp.getM(); j++) {
                             for(int k = 0; k < falseProp.getN(); k++) {
                                 falseProp.set(j, k, M1.get(j, k)*M2.get(j, k));
                             }
                         }
                     }
-                    else if (r == 4) {
+                    else if (r == 1) {
                         falseProp = M2.prod(M1);
                     }
-                    else {
+                    else if (r == 2) {
                         falseProp = M1.prod(M2.t());
                     }
-                } while (choices.contains(falseProp) || falseProp.getMatrix() == correctProp.getMatrix());
+                    else {
+                        for(int j = 0; j < falseProp.getM(); j++) {
+                            for(int k = 0; k < falseProp.getN(); k++) {
+                                int r2 = this.random.nextInt(24);
+                                if(r2 == 0)
+                                    falseProp.set(j, k, (this.random.nextInt(2)+2)*falseProp.get(j, k));
+                                else if(r2 == 1)
+                                    falseProp.set(j, k, -(this.random.nextInt(2)+2)*falseProp.get(j, k));
+                                else if(r2 >= 2 && r2 <= 3)
+                                    falseProp.set(j, k, M1.get(j, k)*M2.get(j, k));
+                                else if(r2 >= 4 && r2 <= 6)
+                                    falseProp.set(j, k, -falseProp.get(j, k));
+                            }
+                        }
+                    }
+                } while (choices.contains(falseProp) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
         }
