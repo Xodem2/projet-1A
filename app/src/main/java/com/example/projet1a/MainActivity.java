@@ -1,5 +1,6 @@
 package com.example.projet1a;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,9 +22,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button profileButton;
     private Button teenButton;
     private Button childButton;
+    private MainActivity quit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.quit=this;
         super.onCreate(savedInstanceState);
 
 //        setContentView(R.layout.game_layout);
@@ -67,7 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == this.profileButton.getId()) this.showProfilePage();
         if(v.getId() == this.teenButton.getId()) this.showTeenPage();
         if(v.getId() == this.childButton.getId()) this.showChildPage();
-    }
+        //if(v.getId() == this.childButton.getId()){
+        //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
+        };
+
 
     private void showProfilePage() {
         Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
