@@ -17,6 +17,9 @@
             android:name=".MoinsActivity"
             android:exported="false" />
         <activity
+            android:name=".SquareActivity"
+            android:exported="false" />
+        <activity
             android:name=".SommeActivity"
             android:exported="false" />
         <activity
