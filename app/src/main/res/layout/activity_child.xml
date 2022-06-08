@@ -8,11 +8,53 @@
     tools:context=".ChildActivity">
 
     <Button
-        android:id="@+id/somme"
+        android:id="@+id/button_Vector5"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="328dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_Vector6"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_Vector7"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="328dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_somme"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de somme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title_Mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Somme"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="190dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="CHOISI TON MODE DE JEU"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

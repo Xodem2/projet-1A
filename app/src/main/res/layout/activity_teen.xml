@@ -8,12 +8,54 @@
     tools:context=".TeenActivity">
 
     <Button
-        android:id="@+id/button_Vector"
-        android:layout_width="193dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="185dp"
-        android:layout_marginBottom="419dp"
+        android:id="@+id/button_Vector4"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="328dp"
         android:text="Calcul de vecteur"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_Vector3"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="328dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_Vector"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_Vector2"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/Title_Mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="CHOISI TON MODE DE JEU"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
