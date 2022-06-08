@@ -18,12 +18,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/activity_vector"
         android:layout_width="170dp"
         android:layout_height="75dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="65dp"
-        android:text="Button"
+        android:text="Calcul de vecteur"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/button4" />
 
