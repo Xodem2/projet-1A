@@ -7,24 +7,17 @@ public class ListNumbers {
     private Random random;
     private int length;
     private int lengthMax;
-    private int nMax;
     private ArrayList<Integer> numbers;
 
     public ListNumbers(int lengthMax) {
         this.random = new Random();
         this.length = 0;
         this.lengthMax = lengthMax;
-        numbers = new ArrayList<>(lengthMax);
-    }
-    public ListNumbers(int lengthMax, int nMax) {
-        this.random = new Random();
-        this.length = 0;
-        this.lengthMax = lengthMax;
-        this.nMax = nMax;
-        numbers = new ArrayList<>(lengthMax);
+        this.numbers = new ArrayList<>(lengthMax);
     }
 
     public void add(int n) {
+        assert this.length < this.lengthMax;
         this.numbers.add(n);
         length++;
     }
@@ -48,14 +41,6 @@ public class ListNumbers {
 
     public void setLengthMax(int n) {
         lengthMax = n;
-    }
-
-    public int getNMax() {
-        return nMax;
-    }
-
-    public void setNMax(int n) {
-        nMax = n;
     }
 
     public ArrayList<Integer> getNumbers() {

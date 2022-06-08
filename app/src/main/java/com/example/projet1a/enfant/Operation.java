@@ -74,7 +74,7 @@ public class Operation {
                         falseProp = correctProp-this.random.nextInt(3)-1;
                     }
                     else {
-                        falseProp = ansMinus();
+                        falseProp = correctProp-10;
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);
@@ -92,12 +92,15 @@ public class Operation {
             else {
                 int falseProp;
                 do {
-                    int r = this.random.nextInt(3);
+                    int r = this.random.nextInt(4);
                     if(r == 0) {
                         falseProp = correctProp+this.random.nextInt(3)+1;
                     }
                     else if(r == 1) {
                         falseProp = correctProp-this.random.nextInt(3)-1;
+                    }
+                    else if(r == 2) {
+                        falseProp = correctProp+10;
                     }
                     else {
                         falseProp = ansPlus();

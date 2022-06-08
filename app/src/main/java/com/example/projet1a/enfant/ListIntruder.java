@@ -7,8 +7,9 @@ import java.util.Random;
 
 public class ListIntruder extends ListNumbers {
     private Random random;
+    int nMax = 99;
     public ListIntruder() {
-        super(6, 99);
+        super(6);
         this.random = this.getRandom();
         int choice = this.random.nextInt(2);
         if(choice == 0)
@@ -18,8 +19,6 @@ public class ListIntruder extends ListNumbers {
     }
 
     public void addEven() {
-        int nMax = getNMax();
-        assert getLength() < nMax;
         int n = this.random.nextInt(nMax/2-1)*2+2;
         while(getNumbers().contains(n)) {
             n = this.random.nextInt(nMax/2-1)*2+2;
@@ -28,8 +27,6 @@ public class ListIntruder extends ListNumbers {
     }
 
     public void addOdd() {
-        int nMax = getNMax();
-        assert getLength() < nMax;
         int n = this.random.nextInt(nMax/2)*2+1;
         while(getNumbers().contains(n)) {
             n = this.random.nextInt(nMax/2)*2+1;
@@ -38,7 +35,7 @@ public class ListIntruder extends ListNumbers {
     }
 
     public void generateEven1Odd() {
-        clear();
+        this.clear();
         int lengthMax = getLengthMax();
         int intruderPos = this.random.nextInt(lengthMax);
         for(int i = 0; i < lengthMax; i++) {
@@ -52,7 +49,7 @@ public class ListIntruder extends ListNumbers {
     }
 
     public void generateOdd1Even() {
-        clear();
+        this.clear();
         int lengthMax = getLengthMax();
         int intruderPos = this.random.nextInt(lengthMax);
         for(int i = 0; i < lengthMax; i++) {

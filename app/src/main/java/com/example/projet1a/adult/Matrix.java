@@ -7,7 +7,8 @@ public class Matrix {
     private int n;
     private float[][] M;
     private Random random;
-    private int nMax = 50;
+    private int nMin = -9;
+    private int nMax = 9;
     int n_props = 3;
     public Matrix(int m, int n) {
         this.m = m; //m lignes
@@ -33,8 +34,32 @@ public class Matrix {
         return n;
     }
 
-    public float[][] getMatrix() {
-        return this.M;
+    public Matrix getMatrix() {
+        return this;
+    }
+
+    public boolean is(Matrix N) {
+        int m = this.getM();
+        int n = this.getN();
+        if(m != n)
+            return false;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if(this.get(i, j) != N.get(i, j))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public void print() {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(get(i, j) + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 
     public Matrix sum(Matrix N) {
@@ -81,7 +106,7 @@ public class Matrix {
         return tM;
     }
 
-    public float det() {
+    public float detAns() {
         assert this.getM() <= 3;
         assert this.getN() <= 3;
         assert m == n;
@@ -103,10 +128,14 @@ public class Matrix {
         return d;
     }
 
+    public boolean det(int d) {
+        return d == detAns();
+    }
+
     public void generate() {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                this.set(i, j, this.random.nextInt(nMax));
+                this.set(i, j, this.random.nextInt(nMax-nMin+1)+nMin);
             }
         }
     }

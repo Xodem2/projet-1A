@@ -11,11 +11,10 @@ public class Suite extends ListNumbers {
     int c;
     int lengthMaxGenerate;
     Random random;
+    int nMax = 9;
     public Suite() {
-        super(6, 99);
-        setLengthMax(6);
+        super(6);
         lengthMaxGenerate = 4;
-        setNMax(10);
         this.random = this.getRandom();
         this.generate();
     }
@@ -32,15 +31,15 @@ public class Suite extends ListNumbers {
 
     public int generateTerm() {
         int s;
-        int nMax = getNMax();
         if(this.random.nextInt(2) == 0)
             s = 1;
         else
             s = -1;
-        return s*(this.random.nextInt(nMax-1)+1);
+        return s*(this.random.nextInt(nMax)+1);
     }
 
     public void generate() {
+        this.clear();
         this.a = generateTerm();
         this.b = generateTerm();
         this.c = generateTerm();
