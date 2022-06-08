@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,7 +17,7 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final int OPERATION_ADDITION = 1;
     private static final int OPERATION_SUBSTRACTION = 2;
-    private static final int OPERATION_SCALAR_PRODUT = 3;
+    private static final int OPERATION_SCALAR_PRODUCT = 3;
 
     private Button choice1Button;
     private Button choice2Button;
@@ -63,7 +64,7 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private int chooseRandomQuestion(){
-        int[] choices = {OPERATION_ADDITION, OPERATION_SUBSTRACTION, OPERATION_SCALAR_PRODUT};
+        int[] choices = {OPERATION_ADDITION, OPERATION_SUBSTRACTION, OPERATION_SCALAR_PRODUCT};
         int choice = this.random.nextInt(choices.length);
         return choices[choice];
     }
@@ -71,20 +72,24 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
     private void generateQuestion(){
         int operation = this.chooseRandomQuestion();
 
-        switch(operation){
-            case OPERATION_ADDITION:
-                this.doAddition();
-                break;
-            case OPERATION_SUBSTRACTION:
-                this.doSubstraction();
-                break;
-            case OPERATION_SCALAR_PRODUT:
-                this.doScalarProduct();
-                break;
-            default:
-                // should never go there
-                break;
+        if(operation == OPERATION_ADDITION){
+            this.doAddition();
+            this.generateVectorsPropositions();
         }
+        else if(operation == OPERATION_SUBSTRACTION){
+            this.doSubstraction();
+            this.generateVectorsPropositions();
+        }
+        else if(operation == OPERATION_SCALAR_PRODUCT){
+            this.doScalarProduct();
+            this.generateScalarPropositions();
+        }
+
+        // TODO : shuffle propositions
+
+        this.choice1Button.setText(this.propositions[0].toString());
+        this.choice2Button.setText(this.propositions[1].toString());
+        this.choice3Button.setText(this.propositions[2].toString());
     }
 
     private void doAddition(){
@@ -95,8 +100,6 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vector1TW.setText(vectors[0].toString());
         this.vector2TW.setText(vectors[1].toString());
         this.operationTW.setText("+");
-
-        this.generateVectorsPropositions();
     }
 
     private void doSubstraction(){
@@ -107,8 +110,6 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vector1TW.setText(vectors[0].toString());
         this.vector2TW.setText(vectors[1].toString());
         this.operationTW.setText("-");
-
-        this.generateVectorsPropositions();
     }
 
     private void doScalarProduct(){
@@ -119,16 +120,53 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vector1TW.setText(vectors[0].toString());
         this.vector2TW.setText(vectors[1].toString());
         this.operationTW.setText(".");
-
-        this.generateScalarPropositions();
     }
 
     private void generateVectorsPropositions(){
+        ArrayList<Integer> correctAnswer = (ArrayList<Integer>) this.vq.getResult();
+        int dimension = correctAnswer.size();
 
+        ArrayList<Integer> incorrectAnswer1;
+        ArrayList<Integer> incorrectAnswer2;
+        do {
+            incorrectAnswer1 = new ArrayList<>();
+            incorrectAnswer2 = new ArrayList<>();
+            for (int i = 0; i < dimension; i++) {
+                incorrectAnswer1.add(correctAnswer.get(i) + this.random.nextInt(1 - (-1) + 1) + (-1) * this.random.nextInt(3));
+                incorrectAnswer2.add(correctAnswer.get(i) + this.random.nextInt(1 - (-1) + 1) + (-1) * this.random.nextInt(3));
+            }
+        }while(compareVectors(correctAnswer, incorrectAnswer1) || compareVectors(correctAnswer,incorrectAnswer2) || compareVectors(incorrectAnswer1, incorrectAnswer2));
+
+        this.propositions = new Object[3];
+        this.propositions[0] = correctAnswer;
+        this.propositions[1] = incorrectAnswer1;
+        this.propositions[2] = incorrectAnswer2;
     }
 
     private void generateScalarPropositions(){
+        int correctAnswer = (int) this.answer;
 
+        int incorrectAnswer1 = correctAnswer;
+        int incorrectAnswer2 = correctAnswer;
+        do {
+            incorrectAnswer1 = correctAnswer + this.random.nextInt(12) - this.random.nextInt(7);
+            incorrectAnswer2 = correctAnswer + this.random.nextInt(8) - this.random.nextInt(12);
+        } while((incorrectAnswer1 == correctAnswer) || incorrectAnswer2 == correctAnswer);
+
+        this.propositions = new Object[3];
+        this.propositions[0] = correctAnswer;
+        this.propositions[1] = incorrectAnswer1;
+        this.propositions[2] = incorrectAnswer2;
+    }
+
+    private boolean compareVectors(ArrayList<Integer> v1, ArrayList<Integer> v2){
+        // return true if same vectors
+        if(v1.size() != v2.size()) return false;
+
+        for(int i = 0; i < v1.size(); i++)
+            if(!v1.get(i).equals(v2.get(i))) return false;
+
+        return true;
     }
 
 }
