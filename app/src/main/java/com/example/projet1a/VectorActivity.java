@@ -11,6 +11,9 @@ import com.example.projet1a.adult.VectorQuestion;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class VectorActivity extends AppCompatActivity implements View.OnClickListener {
@@ -58,7 +61,15 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        // TODO : on click
+        String userAnswer = "";
+
+        if(v.getId() == this.choice1Button.getId()) userAnswer = (String) this.choice1Button.getText();
+        else if(v.getId() == this.choice2Button.getId()) userAnswer = (String) this.choice2Button.getText();
+        else if(v.getId() == this.choice3Button.getId()) userAnswer = (String) this.choice3Button.getText();
+
+        // TODO : count score
+        if(userAnswer.equals(this.answer.toString())) System.out.println("correct");
+
         this.vq = new VectorQuestion();
         this.generateQuestion();
     }
@@ -86,6 +97,9 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         // TODO : shuffle propositions
+        List<Object> list = Arrays.asList(this.propositions);
+        Collections.shuffle(list);
+        this.propositions = list.toArray();
 
         this.choice1Button.setText(this.propositions[0].toString());
         this.choice2Button.setText(this.propositions[1].toString());
