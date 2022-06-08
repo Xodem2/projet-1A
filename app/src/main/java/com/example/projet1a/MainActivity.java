@@ -8,6 +8,8 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.projet1a.adult.AdultActivity;
+import com.example.projet1a.enfant.ChildActivity;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,17 +57,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showTeenPage() {
-        Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
-        profileActivityIntent.putExtra(PLAYER_NICKNAME, this.player.getNickname());
-        profileActivityIntent.putExtra(PLAYER_AGE, this.player.getAge());
-        profileActivityIntent.putExtra(PLAYER_ID, this.player.getID());
-        startActivity(profileActivityIntent);
+        Intent teenActivityIntent = new Intent(this, AdultActivity.class);
+        startActivity(teenActivityIntent);
     }
+    // ne marche pas encore
     private void showChildPage() {
-        Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
-        profileActivityIntent.putExtra(PLAYER_NICKNAME, this.player.getNickname());
-        profileActivityIntent.putExtra(PLAYER_AGE, this.player.getAge());
-        profileActivityIntent.putExtra(PLAYER_ID, this.player.getID());
-        startActivity(profileActivityIntent);
+        Intent childActivityIntent = new Intent(this, ChildActivity.class);
+        startActivity(childActivityIntent);
+        // ne marche pas encore
     }
 }
