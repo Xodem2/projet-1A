@@ -13,12 +13,12 @@ public class EquationPremier {
         do {
             a = randomNumber();
             b = randomNumber();
-        } while(solveEquation() != (int)solveEquation());
+        } while( this.a == 0 || this.b == 0 || (solveEquation() != (int)solveEquation()));
     }
 
-    public int solveEquation(){
-        x = (int)(-b / a);
-        return (int)x;
+    public float solveEquation(){
+        x = (float)-b/a;
+        return x;
     }
 
     public int randomNumber(){
@@ -33,7 +33,5 @@ public class EquationPremier {
     public int getB(){
         return b;
     }
-    public float getX(){
-        return x;
-    }
+    public int getX(){return (int)solveEquation();}
 }
