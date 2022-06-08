@@ -2,14 +2,15 @@ package com.example.projet1a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
+import com.example.projet1a.point.Point;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,6 +18,8 @@ import java.util.List;
 import java.util.Random;
 
 public class VectorActivity extends AppCompatActivity implements View.OnClickListener {
+
+    // TODO : timer
 
     private static final int OPERATION_ADDITION = 1;
     private static final int OPERATION_SUBSTRACTION = 2;
@@ -29,6 +32,10 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
     private TextView vector1TW;
     private TextView vector2TW;
     private TextView operationTW;
+
+    private TextView scoreTW;
+    private TextView scoreDeltaTW;
+    private Point score;
 
     private VectorQuestion vq;
     private Object answer;
@@ -44,6 +51,12 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vector1TW = (TextView) findViewById(R.id.vector1ID);
         this.vector2TW = (TextView) findViewById(R.id.vector2ID2);
         this.operationTW = (TextView) findViewById(R.id.vectorOperationID);
+
+        this.scoreTW = (TextView) findViewById(R.id.Score);
+        this.scoreDeltaTW = (TextView) findViewById(R.id.delta);
+        this.score = new Point();
+        this.scoreTW.setText(String.valueOf(this.score.getScore()));
+        this.scoreDeltaTW.setText("");
 
         this.choice1Button = (Button) findViewById(R.id.choice1ID);
         this.choice2Button = (Button) findViewById(R.id.choice2ID);
@@ -67,11 +80,26 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         else if(v.getId() == this.choice2Button.getId()) userAnswer = (String) this.choice2Button.getText();
         else if(v.getId() == this.choice3Button.getId()) userAnswer = (String) this.choice3Button.getText();
 
-        // TODO : count score
-        if(userAnswer.equals(this.answer.toString())) System.out.println("correct");
+        if(userAnswer.equals(this.answer.toString())) this.updateScore(true);
+        else this.updateScore(false);
 
         this.vq = new VectorQuestion();
         this.generateQuestion();
+    }
+
+    private void updateScore(boolean correct){
+        if(correct){
+            this.score.incr();
+            this.scoreDeltaTW.setTextColor(Color.parseColor("#00ff00"));
+            this.scoreDeltaTW.setText("+" + String.valueOf(this.score.getSensibility()));
+            this.scoreTW.setText(String.valueOf(this.score.getScore()));
+        }
+        else{
+            this.score.decr();
+            this.scoreDeltaTW.setTextColor(Color.parseColor("#ff0000"));
+            this.scoreDeltaTW.setText("-" + String.valueOf(this.score.getSensibility()));
+            this.scoreTW.setText(String.valueOf(this.score.getScore()));
+        }
     }
 
     private int chooseRandomQuestion(){

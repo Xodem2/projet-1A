@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/flow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -87,7 +88,9 @@
         android:id="@+id/delta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
         android:text="+3"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="@+id/Score"
         app:layout_constraintStart_toEndOf="@+id/Score" />
 
