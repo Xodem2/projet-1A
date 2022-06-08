@@ -88,6 +88,7 @@ public class SommeActivity extends AppCompatActivity implements View.OnClickList
         }
         this.currentProgress[0] = maxi;
         this.pb.setMax(maxi);
+        System.out.println(maxi);
         ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score.getScore()));
         this.op.generate();
         ((TextView) findViewById(R.id.op1)).setText(String.valueOf(this.op.getA()));
