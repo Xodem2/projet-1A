@@ -18,9 +18,7 @@ import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String PLAYER_NICKNAME = "playerNickname";
-    public static final String PLAYER_AGE = "playerAge";
-    public static final String PLAYER_ID = "playerID";
+    public static final String PLAYER_PROFILE_EXTRA = "playerProfileExtra";
 
     private PlayerProfile player;
     private Button profileButton;
@@ -81,9 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showProfilePage() {
         Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
-        profileActivityIntent.putExtra(PLAYER_NICKNAME, this.player.getNickname());
-        profileActivityIntent.putExtra(PLAYER_AGE, this.player.getAge());
-        profileActivityIntent.putExtra(PLAYER_ID, this.player.getID());
+        profileActivityIntent.putExtra(PLAYER_PROFILE_EXTRA, this.player);
         startActivity(profileActivityIntent);
     }
 

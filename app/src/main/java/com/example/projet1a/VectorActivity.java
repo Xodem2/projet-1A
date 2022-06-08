@@ -124,7 +124,6 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
             this.generateScalarPropositions();
         }
 
-        // TODO : shuffle propositions
         List<Object> list = Arrays.asList(this.propositions);
         Collections.shuffle(list);
         this.propositions = list.toArray();

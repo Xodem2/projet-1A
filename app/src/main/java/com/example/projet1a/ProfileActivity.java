@@ -9,33 +9,23 @@ import com.example.projet1a.profile.PlayerProfile;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView playerNicknameTW;
-    private TextView playerAgeTW;
-    private TextView playerIdTW;
+    private PlayerProfile player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        this.playerNicknameTW = (TextView) findViewById(R.id.nicknameTextFill);
-        this.playerAgeTW = (TextView) findViewById(R.id.ageTextFill);
-        this.playerIdTW = (TextView) findViewById(R.id.idTextFill);
+        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
 
-        this.fillText();
+        this.showPlayerInfo();
     }
 
-    private void fillText(){
-        // get extras
-        Bundle extras = getIntent().getExtras();
-        String nickname = extras.getString(MainActivity.PLAYER_NICKNAME);
-        int age = extras.getInt(MainActivity.PLAYER_AGE);
-        String id = extras.getString(MainActivity.PLAYER_ID);
-
-        // fill text with extras
-        this.playerNicknameTW.setText(nickname);
-        this.playerAgeTW.setText(String.valueOf(age));
-        this.playerIdTW.setText(id);
+    private void showPlayerInfo(){
+        ((TextView) findViewById(R.id.profilePagePlayerNickname)).setText(this.player.getNickname());
+        ((TextView) findViewById(R.id.profilePagePlayerAge)).setText(String.valueOf(this.player.getAge()));
+        ((TextView) findViewById(R.id.profilePagePlayerId)).setText(this.player.getID());
     }
+
 
 }

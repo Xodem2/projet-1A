@@ -1,6 +1,9 @@
 package com.example.projet1a.profile;
 
-public class PlayerStatistics {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PlayerStatistics implements Parcelable {
 
     private int singleplayerScore;
     private int multiplayerScore;
@@ -10,6 +13,36 @@ public class PlayerStatistics {
         this.singleplayerScore = spScore;
         this.multiplayerScore = mpScore;
         this.updateTotalScore();
+    }
+
+    protected PlayerStatistics(Parcel in) {
+        singleplayerScore = in.readInt();
+        multiplayerScore = in.readInt();
+        totalScore = in.readInt();
+    }
+
+    public static final Creator<PlayerStatistics> CREATOR = new Creator<PlayerStatistics>() {
+        @Override
+        public PlayerStatistics createFromParcel(Parcel in) {
+            return new PlayerStatistics(in);
+        }
+
+        @Override
+        public PlayerStatistics[] newArray(int size) {
+            return new PlayerStatistics[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(singleplayerScore);
+        dest.writeInt(multiplayerScore);
+        dest.writeInt(totalScore);
     }
 
     private void updateTotalScore(){
@@ -35,4 +68,5 @@ public class PlayerStatistics {
     public int getTotalScore(){
         return this.totalScore;
     }
+
 }
