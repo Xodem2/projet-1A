@@ -13,7 +13,7 @@ public class VectorQuestion {
 
     private final Random random;
 
-    private  int vectorDimension;
+    private int vectorDimension;
 
     private ArrayList<Integer> vector1;
     private ArrayList<Integer> vector2;
