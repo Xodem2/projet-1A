@@ -24,37 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button profileButton;
     private Button teenButton;
     private Button childButton;
-    private MainActivity quit;
+    private Button quitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.quit=this;
         super.onCreate(savedInstanceState);
-
-//        setContentView(R.layout.game_layout);
-//        final ProgressBar pb = findViewById(R.id.progressBarToday);
-//
-//        // for eg: if countdown is to go for 30 seconds
-//        pb.setMax(500);
-//
-//        // the progress in our progressbar decreases with the decrement
-//        // in the remaining time for countdown to be over
-//        pb.setProgress(500);
-//
-//        final int[] currentProgress = {500};
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                currentProgress[0] -= 1;
-//                pb.setProgress(currentProgress[0]);
-//                if(currentProgress[0] != 0){
-//                    new Handler().postDelayed(this, 10);
-//                }
-//            }
-//        }, 1000);
+        setContentView(R.layout.activity_main);
 
         // TODO: load player profile from XML if existing
-        setContentView(R.layout.activity_main);
         this.player = new PlayerProfile();
 
         this.profileButton = (Button) findViewById(R.id.button_adult);
@@ -65,16 +42,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.childButton = (Button) findViewById(R.id.button_child);
         this.childButton.setOnClickListener(this);
+
+        this.quitButton = (Button) findViewById(R.id.quitButtonId);
+        this.quitButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == this.profileButton.getId()) this.showProfilePage();
-        if(v.getId() == this.teenButton.getId()) this.showTeenPage();
-        if(v.getId() == this.childButton.getId()) this.showChildPage();
+        else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
+        else if(v.getId() == this.childButton.getId()) this.showChildPage();
+        else if(v.getId() == this.quitButton.getId()) this.quitApp();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
-        };
+        }
+
+    private void quitApp() {
+        this.finishAffinity();
+    }
 
 
     private void showProfilePage() {
