@@ -11,7 +11,6 @@ public class PlayerProfile {
 
     public PlayerProfile(){
         this.generateID();
-
         this.stats = new PlayerStatistics(0, 0);
     }
 
@@ -19,7 +18,7 @@ public class PlayerProfile {
         this.age = age;
     }
 
-    private int getAge(){
+    public int getAge(){
         return this.age;
     }
 
