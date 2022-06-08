@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setContentView(R.layout.activity_main);
                 break;
             case R.id.activity_profile:
-                setContentView((R.layout.activity_profile));
+                this.showProfilePage();
                 break;
             case R.id.profile_layout:
                 setContentView((R.layout.profile_layout));
