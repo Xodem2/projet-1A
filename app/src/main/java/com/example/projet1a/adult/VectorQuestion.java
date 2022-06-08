@@ -6,7 +6,7 @@ import java.util.Random;
 public class VectorQuestion {
 
     private static final int MINIMUM_DIMENSION = 2;
-    private static final int MAXIMUM_DIMENSION = 4;
+    private static final int MAXIMUM_DIMENSION = 3;
 
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 10;
@@ -31,7 +31,7 @@ public class VectorQuestion {
     }
 
     private void generateDimension(){
-        this.vectorDimension = this.random.nextInt(MAXIMUM_DIMENSION + 1) + MINIMUM_DIMENSION;
+        this.vectorDimension = this.random.nextInt(MAXIMUM_DIMENSION - MINIMUM_DIMENSION + 1) + MINIMUM_DIMENSION;
     }
 
     private void generateVectors(){
@@ -39,8 +39,8 @@ public class VectorQuestion {
         this.vector2 = new ArrayList<>();
 
         for(int i = 0; i < this.vectorDimension; i++) {
-            this.vector1.add(this.random.nextInt(MAXIMUM_VALUE + 1) + MINIMUM_VALUE);
-            this.vector2.add(this.random.nextInt(MAXIMUM_VALUE + 1) + MINIMUM_VALUE);
+            this.vector1.add(this.random.nextInt(MAXIMUM_VALUE - MINIMUM_VALUE + 1) + MINIMUM_VALUE);
+            this.vector2.add(this.random.nextInt(MAXIMUM_VALUE - MINIMUM_VALUE + 1) + MINIMUM_VALUE);
         }
     }
 

@@ -1,11 +1,15 @@
 package com.example.projet1a;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -86,12 +90,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showTeenPage() {
         //Intent teenActivityIntent = new Intent(this, TeenActivity.class);
         //startActivity(teenActivityIntent);
-        Intent vectorActivityIntent = new Intent(this, VectorActivity.class);
+        Intent vectorActivityIntent = new Intent(this, TeenActivity.class);
         startActivity(vectorActivityIntent);
     }
 
     private void showChildPage() {
         Intent childActivityIntent = new Intent(this, ChildActivity.class);
         startActivity(childActivityIntent);
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.mymenu,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.activity_main:
+                setContentView(R.layout.activity_main);
+                break;
+            case R.id.activity_profile:
+                this.showProfilePage();
+                break;
+            case R.id.profile_layout:
+                setContentView((R.layout.profile_layout));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

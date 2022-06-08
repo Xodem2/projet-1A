@@ -8,33 +8,54 @@
     tools:context=".ChildActivity">
 
     <Button
-        android:id="@+id/answer1"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="567dp"
-        android:text="ANSWER1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/button_Vector5"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="328dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/answer2"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="567dp"
-        android:text="ANWSER2"
-        app:layout_constraintEnd_toStartOf="@+id/answer3"
-        app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/button_Vector6"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/answer3"
-        android:layout_width="127dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="567dp"
-        android:layout_marginEnd="14dp"
-        android:text="ANSWER3"
+        android:id="@+id/button_Vector7"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="328dp"
+        android:text="Calcul de vecteur"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_somme"
+        android:layout_width="168dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="416dp"
+        android:text="Calcul de somme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title_Mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="CHOISI TON MODE DE JEU"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

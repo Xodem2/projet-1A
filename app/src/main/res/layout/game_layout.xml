@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/flow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -51,33 +52,46 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/choix1"
+        android:id="@+id/choice1ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Choix 1"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/choix2"
+        app:layout_constraintEnd_toStartOf="@+id/choice2ID"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/choix2"
+        android:id="@+id/choice2ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Choix 2"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/choix3"
+        android:id="@+id/choice3ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Choix 3"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/choix2" />
+        app:layout_constraintStart_toEndOf="@+id/choice2ID" />
+
+    <TextView
+        android:id="@+id/delta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="+3"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Score"
+        app:layout_constraintStart_toEndOf="@+id/Score" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
