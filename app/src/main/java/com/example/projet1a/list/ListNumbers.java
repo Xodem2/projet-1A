@@ -73,4 +73,12 @@ public class ListNumbers {
     public boolean contains(int value) {
         return this.numbers.contains(value);
     }
+
+    public int[] conv(){
+        int[] retour = new int[this.length];
+        for (int i=0; i<this.length; i++){
+            retour[i] = this.getNumber(i);
+        }
+        return retour;
+    }
 }
