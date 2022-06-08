@@ -1,13 +1,20 @@
 package com.example.projet1a.adult;
 
+import java.util.Random;
+
 public class Matrix {
     private int m;
     private int n;
     private float[][] M;
+    private Random random;
+    private int nMax = 50;
+    int n_props = 3;
     public Matrix(int m, int n) {
         this.m = m; //m lignes
         this.n = n; //n colonnes
         this.M = new float[m][n];
+        this.random = new Random();
+        this.generate();
     }
 
     public void set(int m, int n, float value) {
@@ -94,5 +101,13 @@ public class Matrix {
                     -this.get(0, 0)*this.get(1, 2)*this.get(2, 1);
         }
         return d;
+    }
+
+    public void generate() {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                this.set(i, j, this.random.nextInt(nMax));
+            }
+        }
     }
 }
