@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:scaleX="5"
         android:scaleY="5"
+
         android:text="EINSTEIN"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimary"
