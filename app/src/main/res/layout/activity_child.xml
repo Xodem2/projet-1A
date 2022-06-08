@@ -8,12 +8,12 @@
     tools:context=".ChildActivity">
 
     <Button
-        android:id="@+id/button_Vector5"
+        android:id="@+id/button_Mult"
         android:layout_width="168dp"
         android:layout_height="69dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="328dp"
-        android:text="Calcul de vecteur"
+        android:text="Calcul de multiplication"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
