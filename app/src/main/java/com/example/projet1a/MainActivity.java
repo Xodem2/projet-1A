@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         profileActivityIntent.putExtra(PLAYER_ID, this.player.getID());
         startActivity(profileActivityIntent);
     }
-
+//
     private void showTeenPage() {
         Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
         profileActivityIntent.putExtra(PLAYER_NICKNAME, this.player.getNickname());
