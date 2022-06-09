@@ -135,7 +135,6 @@ public class MultActivity extends AppCompatActivity implements View.OnClickListe
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
                 }
             }
-            this.generate();
         }
         else{
             if (v.getId() == this.choix1Button.getId()) {
@@ -168,7 +167,7 @@ public class MultActivity extends AppCompatActivity implements View.OnClickListe
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
                 }
             }
-            this.generate();
         }
+        this.generate();
     }
 }
