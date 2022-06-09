@@ -26,6 +26,7 @@ public class SquareActivity extends AppCompatActivity {
 
         @Override
         public void onDraw(Canvas canvas) {
+            for(int i=0; i<10; i++)
             paint.setColor(Color.BLACK);
             paint.setStrokeWidth(3);
             canvas.drawRect(30, 30, 80, 80, paint);

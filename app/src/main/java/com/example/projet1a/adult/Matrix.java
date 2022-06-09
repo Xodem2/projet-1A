@@ -9,7 +9,7 @@ public class Matrix {
     private Random random;
     private int nMin = -9;
     private int nMax = 9;
-    int n_props = 3;
+    private int n_props = 3;
     public Matrix(int m, int n) {
         this.m = m; //m lignes
         this.n = n; //n colonnes

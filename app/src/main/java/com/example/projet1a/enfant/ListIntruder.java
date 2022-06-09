@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ListIntruder extends ListNumbers {
     private Random random;
-    int nMax = 99;
+    private int nMax = 99;
     public ListIntruder() {
         super(6);
         this.random = this.getRandom();

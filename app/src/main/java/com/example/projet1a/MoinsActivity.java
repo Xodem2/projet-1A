@@ -30,8 +30,7 @@ public class MoinsActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moins);
-        this.pb = findViewById(R.id.progressBarToday);
+        setContentView(R.layout.activity_moins);this.pb = findViewById(R.id.progressBarToday);
 
         // for eg: if countdown is to go for 30 seconds
         this.pb.setMax(500);
@@ -76,7 +75,6 @@ public class MoinsActivity extends AppCompatActivity implements View.OnClickList
         generate();
         ((TextView) findViewById(R.id.delta)).setText("");
     }
-
     public void generate(){
         int maxi = 250;
         if (this.score_max.getScore()==0){
@@ -87,6 +85,7 @@ public class MoinsActivity extends AppCompatActivity implements View.OnClickList
         }
         this.currentProgress[0] = maxi;
         this.pb.setMax(maxi);
+        System.out.println(maxi);
         ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score.getScore()));
         this.op.generate();
         ((TextView) findViewById(R.id.op1_moins)).setText(String.valueOf(this.op.getA()));
