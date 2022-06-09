@@ -100,17 +100,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
-        switch (item.getItemId()){
-            case R.id.activity_main:
-                setContentView(R.layout.activity_main);
-                break;
-            case R.id.activity_profile:
-                this.showProfilePage();
-                break;
-            case R.id.profile_layout:
-                setContentView((R.layout.profile_layout));
-                break;
-        }
+        if(item.getItemId() == R.id.activity_main) startActivity((new Intent(this, MainActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
+        else if(item.getItemId() == R.id.activity_profile) startActivity((new Intent(this, ProfileActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
+        else if(item.getItemId() == R.id.profile_layout) startActivity((new Intent(this, ProfileActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
+//        switch (item.getItemId()){
+//            case R.id.activity_main:
+//                setContentView(R.layout.activity_main);
+//                break;
+//            case R.id.activity_profile:
+//                this.showProfilePage();
+//                break;
+//            case R.id.profile_layout:
+//                setContentView((R.layout.profile_layout));
+//                break;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
