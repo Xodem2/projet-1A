@@ -15,8 +15,6 @@ import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String PLAYER_PROFILE_EXTRA = "playerProfileExtra";
-
     private PlayerProfile player;
     private Button adultButton;
     private Button teenButton;
@@ -30,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // TODO: load player profile from XML if existing
         this.player = new PlayerProfile();
+        DataProvider.getInstance().setPlayer(this.player);
 
         this.adultButton = (Button) findViewById(R.id.button_adult);
         this.adultButton.setOnClickListener(this);
@@ -67,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showAdultPage() {
         Intent adultActivityIntent = new Intent(this, AdultActivity.class);
-        adultActivityIntent.putExtra(PLAYER_PROFILE_EXTRA, this.player);
         startActivity(adultActivityIntent);
     }
 
@@ -78,13 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showProfilePage() {
         Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
-        profileActivityIntent.putExtra(PLAYER_PROFILE_EXTRA, this.player);
         startActivity(profileActivityIntent);
     }
 
     private void showTeenPage() {
-        //Intent teenActivityIntent = new Intent(this, TeenActivity.class);
-        //startActivity(teenActivityIntent);
         Intent vectorActivityIntent = new Intent(this, TeenActivity.class);
         startActivity(vectorActivityIntent);
     }
@@ -100,20 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
-        if(item.getItemId() == R.id.activity_main) startActivity((new Intent(this, MainActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
-        else if(item.getItemId() == R.id.activity_profile) startActivity((new Intent(this, ProfileActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
-        else if(item.getItemId() == R.id.profile_layout) startActivity((new Intent(this, ProfileActivity.class)).putExtra(PLAYER_PROFILE_EXTRA, this.player));
-//        switch (item.getItemId()){
-//            case R.id.activity_main:
-//                setContentView(R.layout.activity_main);
-//                break;
-//            case R.id.activity_profile:
-//                this.showProfilePage();
-//                break;
-//            case R.id.profile_layout:
-//                setContentView((R.layout.profile_layout));
-//                break;
-//        }
+        if(item.getItemId() == R.id.activity_main) startActivity((new Intent(this, MainActivity.class)));
+        else if(item.getItemId() == R.id.activity_profile) startActivity((new Intent(this, ProfileActivity.class)));
+        else if(item.getItemId() == R.id.profile_layout) startActivity((new Intent(this, ProfileActivity.class)));
         return super.onOptionsItemSelected(item);
     }
 

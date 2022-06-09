@@ -21,7 +21,7 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adult);
 
-        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
+        this.player = DataProvider.getInstance().getPlayer();
 
         this.vectorButton = (ImageButton) findViewById(R.id.adultPageVectorActivityID);
         this.vectorButton.setOnClickListener(this);
@@ -34,7 +34,6 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
     private void showVectorActivity() {
         Intent vectorActivityIntent = new Intent(this, VectorActivity.class);
-        vectorActivityIntent.putExtra(MainActivity.PLAYER_PROFILE_EXTRA, this.player);
         startActivity(vectorActivityIntent);
     }
 }

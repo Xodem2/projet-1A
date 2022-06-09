@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
+        this.player = DataProvider.getInstance().getPlayer();
 
         this.nicknameTW = (TextView) findViewById(R.id.profilePagePseudoFillID);
         this.ageTW = (TextView) findViewById(R.id.profilePageAgeFillID);

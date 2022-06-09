@@ -22,8 +22,6 @@ import java.util.Random;
 
 public class VectorActivity extends AppCompatActivity implements View.OnClickListener {
 
-    // TODO : timer
-
     private static final int OPERATION_ADDITION = 1;
     private static final int OPERATION_SUBSTRACTION = 2;
     private static final int OPERATION_SCALAR_PRODUCT = 3;
@@ -107,7 +105,7 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vq = new VectorQuestion();
         this.random = new Random();
 
-        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
+        this.player = DataProvider.getInstance().getPlayer();
 
         this.generateQuestion();
     }
@@ -151,7 +149,6 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
             this.scoreTW.setText(String.valueOf(this.score.getScore()));
             this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
         }
-        DataProvider.getInstance().setPlayer(this.player);
         this.score_max.incr();
     }
 
