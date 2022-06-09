@@ -36,7 +36,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v.getId() == this.sommeButton.getId()) this.showSommePage();
         if(v.getId() == this.diffButton.getId()) this.showDiffPage();
-   //     if(v.getId() == this.multButton.getId()) this.showMultPage();
+        if(v.getId() == this.multButton.getId()) this.showMultPage();
         if(v.getId() == this.divButton.getId()) this.showDivPage();
     }
 
@@ -50,10 +50,10 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         startActivity(moinsActivityIntent);
     }
 
-   // private void showMultPage() {
-     //   Intent multActivityIntent = new Intent(this, MultActivity.class);
-       // startActivity(multActivityIntent);
-    //}
+    private void showMultPage() {
+        Intent multActivityIntent = new Intent(this, MultActivity.class);
+        startActivity(multActivityIntent);
+    }
 
     private void showDivPage() {
         Intent divActivityIntent = new Intent(this, DivisionActivity.class);

@@ -13,7 +13,7 @@
         android:layout_height="69dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="328dp"
-        android:text="Calcul de vecteur"
+        android:text="Calcul de Multiplication"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
