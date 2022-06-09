@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
@@ -46,6 +48,11 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
 
     private Random random;
 
+    Point score_max;
+
+    ProgressBar pb;
+    int[] currentProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +65,36 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.scoreTW = (TextView) findViewById(R.id.Score);
         this.scoreDeltaTW = (TextView) findViewById(R.id.delta);
         this.score = new Point();
+        this.score_max = new Point(this.score);
         this.scoreTW.setText(String.valueOf(this.score.getScore()));
         this.scoreDeltaTW.setText("");
+
+
+        this.pb = findViewById(R.id.progressBarToday);
+
+        // for eg: if countdown is to go for 30 seconds
+        this.pb.setMax(500);
+
+        // the progress in our progressbar decreases with the decrement
+        // in the remaining time for countdown to be over
+        this.pb.setProgress(500);
+
+        this.currentProgress = new int[1];
+        this.currentProgress[0] = 500;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                currentProgress[0] -= 1;
+                pb.setProgress(currentProgress[0]);
+                if(currentProgress[0] != 0){
+                    new Handler().postDelayed(this, 10);
+                }
+                else{
+                    currentProgress[0] = pb.getProgress();
+                    new Handler().postDelayed(this, 10);
+                }
+            }
+        }, 1000);
 
         this.choice1Button = (Button) findViewById(R.id.choice1ID);
         this.choice2Button = (Button) findViewById(R.id.choice2ID);
@@ -93,6 +128,15 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void updateScore(boolean correct){
+        int maxi = 250;
+        if (this.score_max.getScore()==0){
+            maxi+=250;
+        }
+        else{
+            maxi+=500*(1-((double)this.score.getScore())/((double)this.score_max.getScore()))-1;
+        }
+        this.currentProgress[0] = maxi;
+        this.pb.setMax(maxi);
         if(correct){
             this.score.incr();
             this.scoreDeltaTW.setTextColor(Color.parseColor("#00ff00"));
@@ -108,6 +152,7 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
             this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
         }
         DataProvider.getInstance().setPlayer(this.player);
+        this.score_max.incr();
     }
 
     private int chooseRandomQuestion(){

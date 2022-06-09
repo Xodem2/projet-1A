@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.mymenu,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()){
             case R.id.activity_main:
