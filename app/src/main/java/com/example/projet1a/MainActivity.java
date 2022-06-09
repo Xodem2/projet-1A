@@ -1,18 +1,15 @@
 package com.example.projet1a;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -21,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String PLAYER_PROFILE_EXTRA = "playerProfileExtra";
 
     private PlayerProfile player;
-    private Button profileButton;
+    private Button adultButton;
     private Button teenButton;
     private Button childButton;
     private Button quitButton;
@@ -34,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // TODO: load player profile from XML if existing
         this.player = new PlayerProfile();
 
-        this.profileButton = (Button) findViewById(R.id.button_adult);
-        this.profileButton.setOnClickListener(this);
+        this.adultButton = (Button) findViewById(R.id.button_adult);
+        this.adultButton.setOnClickListener(this);
 
         this.teenButton = (Button) findViewById(R.id.button_teen);
         this.teenButton.setOnClickListener(this);
@@ -49,13 +46,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == this.profileButton.getId()) this.showProfilePage();
+        if(v.getId() == this.adultButton.getId()) this.showAdultPage();
         else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
         }
+
+    private void showAdultPage() {
+        Intent adultActivityIntent = new Intent(this, AdultActivity.class);
+        adultActivityIntent.putExtra(PLAYER_PROFILE_EXTRA, this.player);
+        startActivity(adultActivityIntent);
+    }
 
     private void quitApp() {
         this.finishAffinity();

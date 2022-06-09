@@ -16,11 +16,31 @@ import android.widget.ProgressBar;
 
 import com.example.projet1a.profile.PlayerProfile;
 
-public class AdultActivity extends AppCompatActivity {
+public class AdultActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button vectorButton;
+
+    private PlayerProfile player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_child);
+        setContentView(R.layout.activity_adult);
+
+        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
+
+        this.vectorButton = (Button) findViewById(R.id.adultPageVectorActivityID);
+        this.vectorButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == this.vectorButton.getId()) this.showVectorActivity();
+    }
+
+    private void showVectorActivity() {
+        Intent vectorActivityIntent = new Intent(this, VectorActivity.class);
+        vectorActivityIntent.putExtra(MainActivity.PLAYER_PROFILE_EXTRA, this.player);
+        startActivity(vectorActivityIntent);
     }
 }
