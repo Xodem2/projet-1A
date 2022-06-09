@@ -5,7 +5,7 @@ import java.util.Random;
 public class Matrix {
     private int m;
     private int n;
-    private float[][] M;
+    private int[][] M;
     private Random random;
     private int nMin = -9;
     private int nMax = 9;
@@ -13,7 +13,7 @@ public class Matrix {
     public Matrix(int m, int n) {
         this.m = m; //m lignes
         this.n = n; //n colonnes
-        this.M = new float[m][n];
+        this.M = new int[m][n];
         this.random = new Random();
         this.generate();
     }
@@ -30,11 +30,11 @@ public class Matrix {
         return str;
     }
 
-    public void set(int m, int n, float value) {
+    public void set(int m, int n, int value) {
         this.M[m][n] = value;
     }
 
-    public float get(int m, int n) {
+    public int get(int m, int n) {
         return this.M[m][n];
     }
 
@@ -75,7 +75,21 @@ public class Matrix {
         Matrix P = new Matrix(m, n);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                float c = this.get(i, j)+N.get(i, j);
+                int c = this.get(i, j)+N.get(i, j);
+                P.set(i, j, c);
+            }
+        }
+        return P;
+    }
+
+    public Matrix minus(Matrix N) {
+        int m = this.getM();
+        int n = this.getN();
+        assert m == N.getM() && n == N.getN();
+        Matrix P = new Matrix(m, n);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int c = this.get(i, j)-N.get(i, j);
                 P.set(i, j, c);
             }
         }
@@ -90,7 +104,7 @@ public class Matrix {
         Matrix P = new Matrix(m, p);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < p; j++) {
-                float c = 0;
+                int c = 0;
                 for(int k = 0; k < n; k++) {
                     c += this.get(i, k)*N.get(k, j);
                 }
@@ -116,7 +130,7 @@ public class Matrix {
         assert this.getM() <= 3;
         assert this.getN() <= 3;
         assert m == n;
-        float d = 0;
+        int d = 0;
         if(m == 1) {
             d = this.get(0, 0);
         }

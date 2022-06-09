@@ -52,6 +52,21 @@ public class MatrixOperationTest extends TestCase {
         assert !op.prod(M2.prod(M1));
     }
 
+    public void testPropMinus() {
+        MatrixOperation op = new MatrixOperation();
+        ArrayList<Matrix> props = op.propMinus();
+        System.out.print(op.getM1().toString());
+        System.out.println(" - ");
+        System.out.print(op.getM2().toString());
+        System.out.println(" = ? ");
+        Matrix correct = op.ansMinus();
+        for (int i = 0; i < op.getNProps(); i++) {
+            Matrix prop = props.get(i);
+            System.out.print(prop.toString());
+            assert (!prop.is(correct) && !(op.minus(prop))) || (prop.is(correct) && op.minus(prop));
+        }
+    }
+
     public void testPropSum() {
         MatrixOperation op = new MatrixOperation();
         ArrayList<Matrix> props = op.propSum();
