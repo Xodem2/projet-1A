@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Suite extends ListNumbers {
-    int a;
-    int b;
-    int c;
-    int lengthMaxGenerate;
-    Random random;
-    int nMax = 9;
+    private int a;
+    private int b;
+    private int c;
+    private int lengthMaxGenerate;
+    private Random random;
+    private int nMax = 9;
     public Suite() {
         super(5);
         lengthMaxGenerate = 4;
