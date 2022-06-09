@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,6 +42,8 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
     private Object answer;
     private Object[] propositions;
 
+    private PlayerProfile player;
+
     private Random random;
 
     @Override
@@ -69,6 +72,8 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
         this.vq = new VectorQuestion();
         this.random = new Random();
 
+        this.player = getIntent().getParcelableExtra(MainActivity.PLAYER_PROFILE_EXTRA);
+
         this.generateQuestion();
     }
 
@@ -93,13 +98,16 @@ public class VectorActivity extends AppCompatActivity implements View.OnClickLis
             this.scoreDeltaTW.setTextColor(Color.parseColor("#00ff00"));
             this.scoreDeltaTW.setText("+" + String.valueOf(this.score.getSensibility()));
             this.scoreTW.setText(String.valueOf(this.score.getScore()));
+            this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
         }
         else{
             this.score.decr();
             this.scoreDeltaTW.setTextColor(Color.parseColor("#ff0000"));
             this.scoreDeltaTW.setText("-" + String.valueOf(this.score.getSensibility()));
             this.scoreTW.setText(String.valueOf(this.score.getScore()));
+            this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
         }
+        DataProvider.getInstance().setPlayer(this.player);
     }
 
     private int chooseRandomQuestion(){

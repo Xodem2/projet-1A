@@ -49,12 +49,14 @@ public class PlayerStatistics implements Parcelable {
         this.totalScore = this.singleplayerScore + this.multiplayerScore;
     }
 
-    public void updateSingleplayerScore(int spScore){
-        this.singleplayerScore += spScore;
+    public void updateSingleplayerScore(int scoreToAdd){
+        this.singleplayerScore += scoreToAdd;
+        this.updateTotalScore();
     }
 
-    public void updateMultiplayerScore(int mpScore){
-        this.multiplayerScore += mpScore;
+    public void updateMultiplayerScore(int scoreToAdd){
+        this.multiplayerScore += scoreToAdd;
+        this.updateTotalScore();
     }
 
     public int getSingleplayerScore(){

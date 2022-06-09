@@ -52,7 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
-        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        this.updatePlayerProfile();
+    }
+
+    private void updatePlayerProfile(){
+        PlayerProfile current = DataProvider.getInstance().getPlayer();
+        if(current != null) this.player = current;
+    }
 
     private void showAdultPage() {
         Intent adultActivityIntent = new Intent(this, AdultActivity.class);
@@ -102,4 +113,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
