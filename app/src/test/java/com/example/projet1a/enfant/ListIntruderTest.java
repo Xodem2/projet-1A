@@ -5,12 +5,14 @@ import junit.framework.TestCase;
 public class ListIntruderTest extends TestCase {
     public void testAddEven() {
         ListIntruder listIntruder = new ListIntruder();
+        listIntruder.clear();
         listIntruder.addEven();
         assert listIntruder.getLastNumber()%2 == 0;
     }
 
     public void testAddOdd() {
         ListIntruder listIntruder = new ListIntruder();
+        listIntruder.clear();
         listIntruder.addOdd();
         assert listIntruder.getLastNumber()%2 != 0;
     }

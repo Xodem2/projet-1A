@@ -13,7 +13,7 @@ public class Suite extends ListNumbers {
     Random random;
     int nMax = 9;
     public Suite() {
-        super(6);
+        super(5);
         lengthMaxGenerate = 4;
         this.random = this.getRandom();
         this.generate();
