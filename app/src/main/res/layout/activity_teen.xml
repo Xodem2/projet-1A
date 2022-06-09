@@ -8,12 +8,12 @@
     tools:context=".TeenActivity">
 
     <Button
-        android:id="@+id/button_Vector4"
+        android:id="@+id/button_fraction"
         android:layout_width="168dp"
         android:layout_height="69dp"
         android:layout_marginEnd="216dp"
         android:layout_marginBottom="328dp"
-        android:text="Calcul de vecteur"
+        android:text="Simplification de fraction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
