@@ -16,6 +16,8 @@ import com.example.projet1a.point.Point;
 public class MoinsActivity extends GameMaster{
     Operation op;
 
+    public final static String id="MoinsActivity";
+
     int[] prop;
 
     @Override
@@ -31,6 +33,7 @@ public class MoinsActivity extends GameMaster{
         generate();
     }
     public void generate(){
+        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1_moins)).setText(String.valueOf(this.op.getA()));

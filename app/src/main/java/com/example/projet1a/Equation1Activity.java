@@ -1,8 +1,6 @@
 package com.example.projet1a;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
 import com.example.projet1a.ado_games.EquationPremier;
@@ -10,89 +8,77 @@ import com.example.projet1a.ado_games.EquationPremier;
 
 import java.util.Random;
 
-public class Equation1Activity extends AppCompatActivity implements View.OnClickListener {
-
-    private Button buttonChoice1;
-    private Button buttonChoice2;
-    private Button buttonChoice3;
+public class Equation1Activity extends GameMaster {
 
     private TextView equation;
-    private TextView choice1;
-    private TextView choice2;
-    private TextView choice3;
 
-    private int score = 0;
     private int goodAnswerPosition;
     private int random1;
     private int random2;
 
     private EquationPremier eq1;
 
+    public final static String id="Equation1Activity";
 
     protected void onCreate(Bundle savedInstanceState){
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equation1);
+        super.onCreate(savedInstanceState);
 
-        this.buttonChoice1 = findViewById(R.id.choice1ID);
-        this.buttonChoice2 = findViewById(R.id.choice2ID);
-        this.buttonChoice3 = findViewById(R.id.choice3ID);
-
-        this.buttonChoice1.setOnClickListener(this);
-        this.buttonChoice2.setOnClickListener(this);
-        this.buttonChoice3.setOnClickListener(this);
-
-        initEquation();
-
+        generate();
     }
 
     public void onClick(View v) {
         // Code here executes on main thread after user presses button
-        initEquation();
 
-        if(v.getId() == this.choice1.getId() && this.goodAnswerPosition == 0){score += 1;((TextView) findViewById(R.id.delta)).setText("+1");}
-        else if(v.getId() == this.choice2.getId() && this.goodAnswerPosition == 1){score += 1;((TextView) findViewById(R.id.delta)).setText("+1");}
-        else if(v.getId() == this.choice3.getId() && this.goodAnswerPosition == 2){score += 1;((TextView) findViewById(R.id.delta)).setText("+1");}
-        else{score -= 1;;((TextView) findViewById(R.id.delta)).setText("-1");}
+        if(v.getId() == this.choix1Button.getId()){
+            super.update(this.goodAnswerPosition == 0);
+        }
+        else if(v.getId() == this.choix2Button.getId()){
+            super.update(this.goodAnswerPosition == 1);
+        }
+        else{
+            super.update(this.goodAnswerPosition == 2);
+        }
 
-        setScoreText();
-
+        generate();
     }
 
-    public void initEquation(){
+    @Override
+    public void generate(){
+        super.setId(this.id);
+        super.generate();
         this.equation = (TextView) findViewById(R.id.EQ1);
         this.eq1 = new EquationPremier();
-
-        this.choice1 = (TextView) findViewById(R.id.choice1ID);
-        this.choice2 = (TextView) findViewById(R.id.choice2ID);
-        this.choice3 = (TextView) findViewById(R.id.choice3ID);
 
         writeiteration();
         writeInDisorder();
     }
 
     public void writeiteration(){
-        this.equation.setText(this.eq1.getA() + "x" + "+" + this.eq1.getB() + "=0");
+        this.equation.setText(this.eq1.getA() + "x+" + this.eq1.getB() + "=0");
     }
 
     public void writeInDisorder(){
         goodAnswerPosition = randomNumber(2);
         giveRandomValues();
+        String[] prop = new String[3];
         if(this.goodAnswerPosition == 0){
-            this.choice1.setText("x= " + this.eq1.getX());
-            this.choice2.setText("x= " + this.random1);
-            this.choice3.setText("x= " + this.random2);
+            prop[0] = "x= " + this.eq1.getX();
+            prop[1] = "x= " + this.random1;
+            prop[2] = "x= " + this.random2;
         }
         else if (this.goodAnswerPosition == 1){
-            this.choice2.setText("x= " + this.eq1.getX());
-            this.choice1.setText("x= " + this.random1);
-            this.choice3.setText("x= " + this.random2);
+            prop[1] = "x= " + this.eq1.getX();
+            prop[0] = "x= " + this.random1;
+            prop[2] = "x= " + this.random2;
         }
         else {
-            this.choice3.setText("x= " + this.eq1.getX());
-            this.choice2.setText("x= " + this.random1);
-            this.choice1.setText("x= " + this.random2);
+            prop[2] = "x= " + this.eq1.getX();
+            prop[1] = "x= " + this.random1;
+            prop[0] = "x= " + this.random2;
         }
+        super.setProp(prop);
     }
 
     public int randomNumber(int x){     //Function to create random numbers between 0 and x
@@ -107,7 +93,4 @@ public class Equation1Activity extends AppCompatActivity implements View.OnClick
         } while(random1 == random2);
     }
 
-    public void setScoreText(){
-        ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score));
-    }
 }

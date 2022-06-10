@@ -13,11 +13,15 @@ import android.widget.TextView;
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
 
+import java.util.Arrays;
+
 public class SommeActivity extends GameMaster{
 
     Operation op;
 
     int[] prop;
+    
+    public final static String id="SommeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class SommeActivity extends GameMaster{
     }
 
     public void generate(){
+        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1)).setText(String.valueOf(this.op.getA()));

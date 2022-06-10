@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class GameMaster extends AppCompatActivity implements View.OnClickListener {
@@ -20,14 +21,14 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     Button choix2Button;
     Button choix3Button;
     Point score;
+    GameStats stats;
     int delta_point;
     ProgressBar pb;
     int[] currentProgress;
 
-    Point score_max_profil;
-    Point score_profil;
-
     private PlayerProfile player;
+
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,23 +71,30 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.delta_point = 1;
         this.score.setSensibility(this.delta_point);
 
-        this.score_max_profil = new Point();
-        this.score_profil = new Point();
         ((TextView) findViewById(R.id.delta)).setText("");
+    }
+
+    public void setId(String id) {
+        this.id = id;
+        this.stats = this.player.getStats().getGameStatsById(id);
+        if (this.stats==null){
+            this.player.getStats().addGameStats(id);
+        }
+        this.stats = this.player.getStats().getGameStatsById(id);
     }
 
     public void generate(){
         int maxi = 250;
-        if (this.score_max_profil.getScore()==0){
+
+        if (this.stats.getTotalAnswered()==0){
             maxi+=250;
         }
         else{
-            maxi+=500*(1-((double)this.score.getScore())/((double)this.score_max_profil.getScore()))-1;
+            maxi+=500*(1-((double)this.stats.getTotalCorrects())/((double)this.stats.getTotalAnswered()))-1;
         }
         this.currentProgress[0] = maxi;
         this.pb.setMax(maxi);
         ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score.getScore()));
-        this.score_max_profil.incr();
     }
 
     @Override
@@ -117,10 +125,10 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                 ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                 ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
             }
-
         }
-        if(correct) this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
-        else this.player.getStats().updateSingleplayerScore(- this.score.getSensibility());
+        this.stats.update(correct);
+        if (correct) this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
+        else this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
     }
 
     public void setProp(@NonNull String[] prop){

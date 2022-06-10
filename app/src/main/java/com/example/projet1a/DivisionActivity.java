@@ -16,6 +16,8 @@ import com.example.projet1a.point.Point;
 public class DivisionActivity extends GameMaster {
     Operation op;
 
+    public final static String id="DivisionActivity";
+
     int[] prop;
 
     @Override
@@ -30,6 +32,7 @@ public class DivisionActivity extends GameMaster {
     }
 
     public void generate(){
+        super.setId(this.id);
         super.generate();
         this.op.generate_div();
         ((TextView) findViewById(R.id.op1_div)).setText(String.valueOf(this.op.getA()));

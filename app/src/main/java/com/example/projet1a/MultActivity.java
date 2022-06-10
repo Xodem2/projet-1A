@@ -17,6 +17,7 @@ public class MultActivity extends GameMaster{
     Operation op;
 
     int[] prop;
+    public final static String id="MultActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MultActivity extends GameMaster{
 
     @Override
     public void generate(){
+        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1_mult)).setText(String.valueOf(this.op.getA()));

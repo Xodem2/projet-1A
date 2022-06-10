@@ -17,12 +17,15 @@ import com.example.projet1a.point.Point;
 
 import java.util.Random;
 
-public class FractionActivity extends AppCompatActivity implements View.OnClickListener {
-    private ProgressBar progressBar;
+public class FractionActivity extends GameMaster {
     private TextView num;
     private TextView den;
+    private ProgressBar progressBar;
     Rect rNum;
     Rect rDen;
+
+    public final static String id="FractionActivity";
+
 
     private TextView num1;
     private TextView num2;
@@ -48,57 +51,19 @@ public class FractionActivity extends AppCompatActivity implements View.OnClickL
 
     int[] prime = {2, 3, 5, 7};
 
-    Button choix1;
-    Button choix2;
-    Button choix3;
-
-    Point score;
-    Point score_max;
-
-    ProgressBar pb;
-    int[] currentProgress;
-
     int[] bon_choix;
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         bon_choix = new int[2];
-        score = new Point();
-        this.score_max = new Point(this.score);
         choix = new int[3][2];
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fraction);
-
-        this.pb = findViewById(R.id.progressBarToday);
-
-        // for eg: if countdown is to go for 30 seconds
-        this.pb.setMax(500);
-
-        // the progress in our progressbar decreases with the decrement
-        // in the remaining time for countdown to be over
-        this.pb.setProgress(500);
-
-        this.currentProgress = new int[1];
-        this.currentProgress[0] = 500;
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                currentProgress[0] -= 1;
-                pb.setProgress(currentProgress[0]);
-                if(currentProgress[0] != 0){
-                    new Handler().postDelayed(this, 10);
-                }
-                else{
-                    currentProgress[0] = pb.getProgress();
-                    new Handler().postDelayed(this, 10);
-                }
-            }
-        }, 1000);
+        super.onCreate(savedInstanceState);
+        this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         random = new Random();
 
-        this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
         this.num = (TextView) findViewById(R.id.num);
         this.den = (TextView) findViewById(R.id.den);
         this.rNum = new Rect();
@@ -123,84 +88,19 @@ public class FractionActivity extends AppCompatActivity implements View.OnClickL
         this.r3Den = new Rect();
 
         generate();
-        this.choix1 = (Button) findViewById(R.id.choice1ID);
-        this.choix1.setOnClickListener(this);
-        this.choix2 = (Button) findViewById(R.id.choice2ID);
-        this.choix2.setOnClickListener(this);
-        this.choix3 = (Button) findViewById(R.id.choice3ID);
-        this.choix3.setOnClickListener(this);
-        ((TextView) findViewById(R.id.delta)).setText("");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onClick(View v) {
-        if (this.currentProgress[0]>0) {
-            if (v.getId() == this.choix1.getId()) {
-                if (this.num1.getText() == String.valueOf(this.bon_choix[0]) && this.den1.getText() == String.valueOf(this.bon_choix[1])) {
-                    score.incr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
-            if (v.getId() == this.choix2.getId()) {
-                if (this.num2.getText() == String.valueOf(this.bon_choix[0]) && this.den2.getText() == String.valueOf(this.bon_choix[1])) {
-                    score.incr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
-            if (v.getId() == this.choix3.getId()) {
-                if (this.num3.getText() == String.valueOf(this.bon_choix[0]) && this.den3.getText() == String.valueOf(this.bon_choix[1])) {
-                    score.incr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
+        if (v.getId() == this.choix1Button.getId()){
+            super.update(this.num1.getText() == String.valueOf(this.bon_choix[0]) && this.den1.getText() == String.valueOf(this.bon_choix[1]));
+        }
+        else if(v.getId() == this.choix2Button.getId()){
+            super.update(this.num2.getText() == String.valueOf(this.bon_choix[0]) && this.den2.getText() == String.valueOf(this.bon_choix[1]));
         }
         else{
-            if (v.getId() == this.choix1.getId()) {
-                if (this.num1.getText() == String.valueOf(this.bon_choix[0]) && this.den1.getText() == String.valueOf(this.bon_choix[1])) {
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+0");
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
-            if (v.getId() == this.choix2.getId()) {
-                if (this.num2.getText() == String.valueOf(this.bon_choix[0]) && this.den2.getText() == String.valueOf(this.bon_choix[1])) {
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+0");
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
-            if (v.getId() == this.choix3.getId()) {
-                if (this.num3.getText() == String.valueOf(this.bon_choix[0]) && this.den3.getText() == String.valueOf(this.bon_choix[1])) {
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                    ((TextView) findViewById(R.id.delta)).setText("+0");
-                } else {
-                    score.decr();
-                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-                }
-            }
+            super.update(this.num3.getText() == String.valueOf(this.bon_choix[0]) && this.den3.getText() == String.valueOf(this.bon_choix[1]));
         }
         generate();
     }
@@ -227,18 +127,11 @@ public class FractionActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    private void generate(){
-        int maxi = 250;
-        if (this.score_max.getScore()==0){
-            maxi+=250;
-        }
-        else{
-            maxi+=500*(1-((double)this.score.getScore())/((double)this.score_max.getScore()))-1;
-        }
-        this.currentProgress[0] = maxi;
-        this.pb.setMax(maxi);
-        ((TextView) findViewById(R.id.Score)).setText(String.valueOf(this.score.getScore()));
-        int length = random.nextInt(5)+2;
+    @Override
+    public void generate(){
+        super.setId(this.id);
+        super.generate();
+        int length = random.nextInt(3)+2;
         this.b = this.prime[random.nextInt(this.prime.length)];
         this.a = b;
 
@@ -312,6 +205,5 @@ public class FractionActivity extends AppCompatActivity implements View.OnClickL
         this.den3.getPaint().getTextBounds(this.den3.getText(), 0, this.den3.getText().length(), r3Den);
         this.progressBar3.setMinWidth((int)(Math.max(r3Num.width(), r3Den.width())*1.1));
         this.progressBar3.setMaxWidth((int)(Math.max(r3Num.width(), r3Den.width())*1.1));
-        this.score_max.incr();
     }
 }
