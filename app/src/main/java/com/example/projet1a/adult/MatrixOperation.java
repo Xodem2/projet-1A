@@ -156,7 +156,12 @@ public class MatrixOperation {
                                 if(((M1f.get(j, k) < 0 && M2f.get(j, k) > 0)
                                         || (M1f.get(j, k) > 0 && M2f.get(j, k) < 0))
                                         && this.random.nextInt(3) == 0) {
-                                    M1f.set(j, k, -M1f.get(j, k));
+                                    if(this.random.nextInt(2) == 0) {
+                                        M1f.set(j, k, -M1f.get(j, k));
+                                    }
+                                    else {
+                                        M2f.set(j, k, -M2f.get(j, k));
+                                    }
                                 }
                             }
                         }
