@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 public class TeenActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private ImageButton FractionButton;
-    private Button Equation1Button;
+    private ImageButton Equation1Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         setContentView(R.layout.activity_teen);
         this.FractionButton = (ImageButton) findViewById(R.id.button_fraction);
         this.FractionButton.setOnClickListener(this);
-        this.Equation1Button = (Button)  findViewById(R.id.button_Equation1);
+        this.Equation1Button = (ImageButton)  findViewById(R.id.button_Equation1);
         this.Equation1Button.setOnClickListener(this);
     }
 
