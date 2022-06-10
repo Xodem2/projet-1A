@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 public class GameMaster extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,9 +27,12 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     Point score_max_profil;
     Point score_profil;
 
+    private PlayerProfile player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.player = DataProvider.getInstance().getPlayer();
         this.pb = findViewById(R.id.progressBarToday);
 
         // for eg: if countdown is to go for 30 seconds
@@ -87,7 +91,6 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-
     }
 
     public void update(boolean correct){
@@ -116,6 +119,8 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
             }
 
         }
+        if(correct) this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
+        else this.player.getStats().updateSingleplayerScore(- this.score.getSensibility());
     }
 
     public void setProp(@NonNull String[] prop){
