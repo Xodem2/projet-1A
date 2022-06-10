@@ -1,6 +1,10 @@
 package com.example.projet1a.adult;
 
+import com.example.projet1a.list.ListNumbers;
+
 import junit.framework.TestCase;
+
+import java.util.ArrayList;
 
 public class MatrixTest extends TestCase {
     public void testIs() {
@@ -87,8 +91,21 @@ public class MatrixTest extends TestCase {
         assert M.detAns() == 0;
     }
 
+    public void testPropDet() {
+        Matrix matrix = new Matrix();
+        ListNumbers props = matrix.propDet();
+        System.out.println("det\n" + matrix.toString() + " = ?\n");
+        int correct = matrix.detAns();
+        for(int i = 0; i < matrix.getNProps(); i++) {
+            int prop = props.getNumber(i);
+            System.out.println(prop);
+            assert (prop != correct && !(matrix.det(prop))) || (prop == correct && matrix.det(prop));
+        }
+    }
+
     public void testGenerate() {
         Matrix M = new Matrix(3, 2);
-        System.out.print(M.toString());
+        System.out.println(M.toString());
     }
+
 }

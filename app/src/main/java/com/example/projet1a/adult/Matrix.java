@@ -1,5 +1,7 @@
 package com.example.projet1a.adult;
 
+import com.example.projet1a.list.ListNumbers;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,12 +12,20 @@ public class Matrix {
     private Random random;
     private int nMin = -9;
     private int nMax = 9;
-    private int n_props = 3;
+    private int nProps = 3;
+    public Matrix() {
+        this.random = new Random();
+        this.m = this.random.nextInt(2)+2; //m lignes
+        this.n = this.m; //n colonnes
+        this.M = new int[this.m][this.n];
+        this.generate();
+    }
+
     public Matrix(int m, int n) {
+        this.random = new Random();
         this.m = m; //m lignes
         this.n = n; //n colonnes
-        this.M = new int[m][n];
-        this.random = new Random();
+        this.M = new int[this.m][this.n];
         this.generate();
     }
 
@@ -46,6 +56,8 @@ public class Matrix {
     public int getN() {
         return n;
     }
+
+    public int getNProps() { return nProps; }
 
     public Matrix getMatrix() {
         Matrix M = new Matrix(this.m, this.n);
@@ -127,7 +139,7 @@ public class Matrix {
         return tM;
     }
 
-    public float detAns() {
+    public int detAns() {
         assert this.getM() <= 3;
         assert this.getN() <= 3;
         assert m == n;
@@ -147,6 +159,33 @@ public class Matrix {
                     -this.get(0, 0)*this.get(1, 2)*this.get(2, 1);
         }
         return d;
+    }
+
+    public ListNumbers propDet() {
+        ListNumbers choices = new ListNumbers(this.nProps);
+        int correctProp = detAns();
+        int correctPropPos = this.random.nextInt(this.nProps);
+        for(int i = 0; i < nProps; i++) {
+            if(i == correctPropPos)
+                choices.add(correctProp);
+            else {
+                int falseProp;
+                do {
+                    falseProp = correctProp;
+                    if(this.random.nextInt(2) == 0) {
+                        falseProp = -falseProp;
+                    }
+                    if(this.random.nextInt(2) == 0) {
+                        falseProp = falseProp+this.random.nextInt(3)+1;
+                    }
+                    if(this.random.nextInt(2) == 0) {
+                        falseProp = falseProp-this.random.nextInt(3)-1;
+                    }
+                } while(choices.contains(falseProp) || falseProp == correctProp);
+                choices.add(falseProp);
+            }
+        }
+        return choices;
     }
 
     public boolean det(int d) {
