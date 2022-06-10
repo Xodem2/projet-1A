@@ -1,5 +1,6 @@
 package com.example.projet1a.adult;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Matrix {
@@ -158,5 +159,12 @@ public class Matrix {
                 this.set(i, j, this.random.nextInt(nMax-nMin+1)+nMin);
             }
         }
+    }
+
+    public boolean inArray(ArrayList<Matrix> ML) {
+        for(int i = 0; i < ML.size(); i++)
+            if(ML.get(i).is(this.getMatrix()))
+                return true;
+        return false;
     }
 }

@@ -60,7 +60,7 @@ public class TrigoTest extends TestCase {
         Trigo trigo = new Trigo();
         int correct = trigo.ansSin2();
         ListNumbers props = trigo.prop(correct);
-        System.out.println("Soit un triangle rectangle en A avec AC = " + trigo.getSeg() + " cm  (côté opposé à l'angle ABC) et angle ABC = " + trigo.getAngle() + "°. Calculer BC (l'hypothénuse) et choisir la valeur la plus proche en cm.");
+        System.out.println("Soit un triangle rectangle en A avec AC = " + trigo.getSeg() + " cm (côté opposé à l'angle ABC) et angle ABC = " + trigo.getAngle() + "°. Calculer BC (l'hypothénuse) et choisir la valeur la plus proche en cm.");
         for(int i = 0; i < trigo.getNProps(); i++) {
             int prop = props.getNumber(i);
             System.out.println(prop);

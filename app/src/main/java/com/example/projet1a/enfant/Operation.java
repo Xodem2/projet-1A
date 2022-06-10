@@ -90,15 +90,18 @@ public class Operation {
             else {
                 int falseProp;
                 do {
-                    int r = this.random.nextInt(3);
+                    falseProp = correctProp;
+                    int r = this.random.nextInt(4);
                     if(r == 0) {
-                        falseProp = correctProp+this.random.nextInt(3)+1;
+                        falseProp = falseProp+this.random.nextInt(3)+1;
                     }
                     else if(r == 1) {
-                        falseProp = correctProp-this.random.nextInt(3)-1;
+                        falseProp = falseProp-this.random.nextInt(3)-1;
                     }
                     else {
-                        falseProp = correctProp-10;
+                        if(this.a%10+this.b%10 >= 10) { //oubli de retenue
+                            falseProp = falseProp - 10;
+                        }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);
@@ -117,18 +120,21 @@ public class Operation {
             else {
                 int falseProp;
                 do {
-                    int r = this.random.nextInt(4);
+                    falseProp = correctProp;
+                    int r = this.random.nextInt(5);
                     if(r == 0) {
-                        falseProp = correctProp+this.random.nextInt(3)+1;
+                        falseProp = falseProp+this.random.nextInt(3)+1;
                     }
                     else if(r == 1) {
-                        falseProp = correctProp-this.random.nextInt(3)-1;
+                        falseProp = falseProp-this.random.nextInt(3)-1;
                     }
                     else if(r == 2) {
-                        falseProp = correctProp+10;
+                        falseProp = ansPlus();
                     }
                     else {
-                        falseProp = ansPlus();
+                        if(this.a%10-this.b%10 < 0) { //oubli de retenue
+                            falseProp = falseProp + 10;
+                        }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);
@@ -147,18 +153,19 @@ public class Operation {
             else {
                 int falseProp;
                 do {
+                    falseProp = correctProp;
                     int r = this.random.nextInt(4);
                     if(r == 0) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
                     }
                     else if(r == 1) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
                     }
                     else if(r == 2) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
                     }
                     else {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);
@@ -177,18 +184,19 @@ public class Operation {
             else {
                 int falseProp;
                 do {
+                    falseProp = correctProp;
                     int r = this.random.nextInt(4);
                     if(r == 0) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
                     }
                     else if(r == 1) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
                     }
                     else if(r == 2) {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
                     }
                     else {
-                        falseProp = correctProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
+                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);

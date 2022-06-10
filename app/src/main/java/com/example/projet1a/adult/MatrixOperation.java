@@ -52,36 +52,31 @@ public class MatrixOperation {
 
     public ArrayList<Matrix> propSum() {
         ArrayList<Matrix> choices = new ArrayList<>();
-        Matrix correctProp = ansSum();
+        Matrix correctProp = ansSum().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
-                choices.add(correctProp);
+                choices.add(correctProp.getMatrix());
             else {
-                Matrix falseProp = correctProp.getMatrix();
+                Matrix falseProp;
                 do {
-                    for(int j = 0; j < falseProp.getM(); j++) {
-                        for(int k = 0; k < falseProp.getN(); k++) {
-                            int r = this.random.nextInt(24);
+                    falseProp = correctProp.getMatrix();
+                    for (int j = 0; j < falseProp.getM(); j++) {
+                        for (int k = 0; k < falseProp.getN(); k++) {
                             int v = correctProp.get(j, k);
-                            if(r == 0)
-                                v = M1.get(j, k)+M2.get(j, k)+this.random.nextInt(3)+1;
-                            else if(r == 1)
-                                v = M1.get(j, k)+M2.get(j, k)-this.random.nextInt(3)-1;
-                            else if(r == 2)
-                                v = M1.get(j, k)+M2.get(j, k)+10;
-                            else if(r == 3)
-                                v = M1.get(j, k)+M2.get(j, k)-10;
-                            else if(r == 4)
-                                v = M1.get(j, k)-M2.get(j, k);
-                            else if(r == 5)
-                                v = -M1.get(j, k)+M2.get(j, k);
-                            else if(r >= 6 && r <= 11)
-                                v = -(M1.get(j, k)+M2.get(j, k));
+                            if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 + M2.get(j, k) % 10 >= 10  && random.nextInt(3) == 0) {
+                                v = v - 10;
+                            }
+                            if (M2.get(j, k) < 0 && random.nextInt(3) == 0) {
+                                v = M1.get(j, k) - M2.get(j, k);
+                            }
+                            if (M1.get(j, k) < 0 && random.nextInt(3) == 0) {
+                                v = -M1.get(j, k) - M2.get(j, k);
+                            }
                             falseProp.set(j, k, v);
                         }
                     }
-                } while (choices.contains(falseProp) || falseProp.is(correctProp.getMatrix()));
+                } while (falseProp.inArray(choices) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
         }
@@ -90,36 +85,28 @@ public class MatrixOperation {
 
     public ArrayList<Matrix> propMinus() {
         ArrayList<Matrix> choices = new ArrayList<>();
-        Matrix correctProp = ansMinus();
+        Matrix correctProp = ansMinus().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
-                choices.add(correctProp);
+                choices.add(correctProp.getMatrix());
             else {
-                Matrix falseProp = correctProp.getMatrix();
+                Matrix falseProp;
                 do {
-                    for(int j = 0; j < falseProp.getM(); j++) {
-                        for(int k = 0; k < falseProp.getN(); k++) {
-                            int r = this.random.nextInt(24);
+                    falseProp = correctProp.getMatrix();
+                    for (int j = 0; j < falseProp.getM(); j++) {
+                        for (int k = 0; k < falseProp.getN(); k++) {
                             int v = correctProp.get(j, k);
-                            if(r == 0)
-                                v = M1.get(j, k)+M2.get(j, k)+this.random.nextInt(3)+1;
-                            else if(r == 1)
-                                v = M1.get(j, k)+M2.get(j, k)-this.random.nextInt(3)-1;
-                            else if(r == 2)
-                                v = M1.get(j, k)+M2.get(j, k)+10;
-                            else if(r == 3)
-                                v = M1.get(j, k)+M2.get(j, k)-10;
-                            else if(r == 4)
-                                v = M1.get(j, k)-M2.get(j, k);
-                            else if(r == 5)
-                                v = -M1.get(j, k)+M2.get(j, k);
-                            else if(r >= 6 && r <= 11)
-                                v = -(M1.get(j, k)+M2.get(j, k));
+                            if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 - M2.get(j, k) % 10 < 0 && random.nextInt(3) == 0) {
+                                v = v + 10;
+                            }
+                            if ((M1.get(j, k) < 0 || M2.get(j, k) < 0) && random.nextInt(3) == 0) {
+                                v = M1.get(j, k) + M2.get(j, k);
+                            }
                             falseProp.set(j, k, v);
                         }
                     }
-                } while (choices.contains(falseProp) || falseProp.is(correctProp.getMatrix()));
+                } while (falseProp.inArray(choices) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
         }
@@ -128,15 +115,16 @@ public class MatrixOperation {
 
     public ArrayList<Matrix> propProd() {
         ArrayList<Matrix> choices = new ArrayList<>();
-        Matrix correctProp = ansProd();
+        Matrix correctProp = ansProd().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
                 choices.add(correctProp.getMatrix());
             else {
-                Matrix falseProp = correctProp.getMatrix();
+                Matrix falseProp;
                 do {
-                    int r = this.random.nextInt(9);
+                    falseProp = correctProp.getMatrix();
+                    int r = this.random.nextInt(3);
                     if(r == 0) {
                         for(int j = 0; j < falseProp.getM(); j++) {
                             for(int k = 0; k < falseProp.getN(); k++) {
@@ -147,28 +135,19 @@ public class MatrixOperation {
                     else if (r == 1) {
                         falseProp = M2.prod(M1);
                     }
-                    else if (r == 2) {
-                        falseProp = M1.prod(M2.t());
-                    }
                     else {
                         for(int j = 0; j < falseProp.getM(); j++) {
                             for(int k = 0; k < falseProp.getN(); k++) {
-                                int r2 = this.random.nextInt(21);
                                 int v = correctProp.get(j, k);
-                                if(r2 == 0)
-                                    v = (this.random.nextInt(2)+2)*falseProp.get(j, k);
-                                else if(r2 == 1)
-                                    v = -(this.random.nextInt(2)+2)*falseProp.get(j, k);
-                                else if(r2 >= 2 && r2 <= 3)
-                                    v = M1.get(j, k)*M2.get(j, k);
-                                else if(r2 >= 4 && r2 <= 6)
+                                if(this.random.nextInt(3) == 0) {
                                     v = -falseProp.get(j, k);
+                                }
                                 falseProp.set(j, k, v);
                             }
                         }
                     }
-                } while (choices.contains(falseProp.getMatrix()) || falseProp.is(correctProp.getMatrix()));
-                choices.add(falseProp.getMatrix());
+                } while (falseProp.inArray(choices) || falseProp.is(correctProp.getMatrix()));
+                choices.add(falseProp);
             }
         }
         return choices;
