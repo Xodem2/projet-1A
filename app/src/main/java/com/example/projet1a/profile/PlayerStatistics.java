@@ -9,13 +9,14 @@ public class PlayerStatistics {
     private int singleplayerScore;
     private int multiplayerScore;
     private int totalScore;
-
+    private PlayerLevel level;
     private ArrayMap<String, GameStats> gStats;
 
     public PlayerStatistics(int spScore, int mpScore){
         this.singleplayerScore = spScore;
         this.multiplayerScore = mpScore;
         this.updateTotalScore();
+        this.level = new PlayerLevel();
         this.gStats = new ArrayMap<>();
     }
 
@@ -51,6 +52,10 @@ public class PlayerStatistics {
 
     public void addGameStats(String id){
         this.gStats.put(id, new GameStats(id));
+    }
+
+    public PlayerLevel getLevel(){
+        return this.level;
     }
 
 }
