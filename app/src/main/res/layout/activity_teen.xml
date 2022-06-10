@@ -8,7 +8,7 @@
     tools:context=".TeenActivity">
 
     <ImageButton
-        android:id="@+id/button_moins"
+        android:id="@+id/button_fraction"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"

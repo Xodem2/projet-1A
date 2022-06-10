@@ -3,20 +3,22 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class TeenActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private Button FractionButton;
+    private ImageButton FractionButton;
     private Button Equation1Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teen);
-        this.FractionButton = (Button) findViewById(R.id.button_fraction);
+        this.FractionButton = (ImageButton) findViewById(R.id.button_fraction);
         this.FractionButton.setOnClickListener(this);
         this.Equation1Button = (Button)  findViewById(R.id.button_Equation1);
         this.Equation1Button.setOnClickListener(this);

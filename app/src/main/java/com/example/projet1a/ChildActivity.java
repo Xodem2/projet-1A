@@ -23,7 +23,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         this.sommeButton = (ImageButton) findViewById(R.id.button_somme);
         this.sommeButton.setOnClickListener(this);
 
-        this.diffButton = (ImageButton) findViewById(R.id.button_moins);
+        this.diffButton = (ImageButton) findViewById(R.id.button_fraction);
         this.diffButton.setOnClickListener(this);
 
         this.multButton = (ImageButton) findViewById(R.id.button_Mult);
