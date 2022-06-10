@@ -7,7 +7,8 @@ public class GameStats {
     private int totalAnswered;
     private int correctsInARow;
 
-    public GameStats(){
+    public GameStats(String gameId){
+        this.gameId = gameId;
         this.totalCorrects = 0;
         this.totalAnswered = 0;
         this.correctsInARow = 0;

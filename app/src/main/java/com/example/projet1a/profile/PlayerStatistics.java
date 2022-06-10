@@ -50,7 +50,7 @@ public class PlayerStatistics {
     }
 
     public void addGameStats(String id){
-        this.gStats.put(id, new GameStats());
+        this.gStats.put(id, new GameStats(id));
     }
 
 }
