@@ -7,48 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".ChildActivity">
 
+
     <ImageButton
         android:id="@+id/button_Mult"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="344dp"
-        android:layout_marginEnd="257dp"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiplication" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/button_somme"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="118dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="220dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icone_somme" />
+
+    <ImageButton
         android:id="@+id/button_moins"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="416dp"
-        android:text="Calcul de difference"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="118dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="220dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/difference" />
 
     <Button
         android:id="@+id/button_division"
         android:layout_width="168dp"
         android:layout_height="69dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="328dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="284dp"
         android:text="Calcul de division"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button_somme"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="416dp"
-        android:text="Calcul de somme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 
 public class ChildActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button sommeButton;
-    private Button diffButton;
+    private ImageButton sommeButton;
+    private ImageButton diffButton;
     private ImageButton multButton;
     private Button divButton;
 
@@ -20,10 +20,10 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child);
-        this.sommeButton = (Button) findViewById(R.id.button_somme);
+        this.sommeButton = (ImageButton) findViewById(R.id.button_somme);
         this.sommeButton.setOnClickListener(this);
 
-        this.diffButton = (Button) findViewById(R.id.button_moins);
+        this.diffButton = (ImageButton) findViewById(R.id.button_moins);
         this.diffButton.setOnClickListener(this);
 
         this.multButton = (ImageButton) findViewById(R.id.button_Mult);
