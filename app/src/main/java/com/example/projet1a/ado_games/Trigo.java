@@ -1,33 +1,28 @@
 package com.example.projet1a.ado_games;
 
+import com.example.projet1a.list.ListNumbers;
+
 import java.util.Random;
 import java.lang.Math;
 
 public class Trigo {
-    private int[] segs = new int[3];
     private int nMax = 999;
+    private int nProps = 3;
     int seg;
     int angle;
-    int rSin1;
-    int rSin2;
-    int rCos1;
-    int rCos2;
-    int rTan1;
-    int rTan2;
+    int nAngles = 3;
+    private int[] angles = new int[nAngles];
     private Random random = new Random();
     public Trigo() {
         generate();
     }
 
     public void generate() {
-        seg = random.nextInt(nMax - 1) + 1;
-        angle = random.nextInt(89)+1;
-        rSin1 = Math.round((long) (Math.sin(Math.toRadians(angle))*seg));
-        rSin2 = Math.round((long) (seg/Math.sin(Math.toRadians(angle))));
-        rCos1 = Math.round((long) (Math.cos(Math.toRadians(angle))*seg));
-        rCos2 = Math.round((long) (seg/Math.cos(Math.toRadians(angle))));
-        rTan1 = Math.round((long) (Math.tan(Math.toRadians(angle))*seg));
-        rTan2 = Math.round((long) (seg/Math.tan(Math.toRadians(angle))));
+        seg = random.nextInt(nMax-1)+1;
+        angles[0] = 30;
+        angles[1] = 45;
+        angles[2] = 60;
+        angle = angles[random.nextInt(nAngles)];
     }
 
     public int getSeg() {
@@ -39,27 +34,33 @@ public class Trigo {
     }
 
     public int ansSin1() {
-        return rSin1;
+        double fct = Math.sin(Math.toRadians(angle));
+        return Math.round((long) (fct*seg));
     }
 
     public int ansSin2() {
-        return rSin2;
+        double fct = Math.sin(Math.toRadians(angle));
+        return Math.round((long) (seg/fct));
     }
 
     public int ansCos1() {
-        return rCos1;
+        double fct = Math.cos(Math.toRadians(angle));
+        return Math.round((long) (fct*seg));
     }
 
     public int ansCos2() {
-        return rCos2;
+        double fct = Math.cos(Math.toRadians(angle));
+        return Math.round((long) (seg/fct));
     }
 
     public int ansTan1() {
-        return rTan1;
+        double fct = Math.tan(Math.toRadians(angle));
+        return Math.round((long) (fct*seg));
     }
 
     public int ansTan2() {
-        return rTan2;
+        double fct = Math.tan(Math.toRadians(angle));
+        return Math.round((long) (seg/fct));
     }
 
     public boolean sin1(int ans) {
@@ -84,5 +85,44 @@ public class Trigo {
 
     public boolean tan2(int ans) {
         return ans == ansTan2();
+    }
+
+    public ListNumbers prop(int correctProp) {
+        ListNumbers choices = new ListNumbers(this.nProps);
+        int correctPropPos = this.random.nextInt(this.nProps);
+        for(int i = 0; i < nProps; i++) {
+            if(i == correctPropPos)
+                choices.add(correctProp);
+            else {
+                int falseProp;
+                do {
+                    int r = this.random.nextInt(6);
+                    if(r == 0) {
+                        falseProp = ansSin1();
+                    }
+                    else if(r == 1) {
+                        falseProp = ansSin2();
+                    }
+                    else if(r == 2) {
+                        falseProp = ansCos1();
+                    }
+                    else if(r == 3) {
+                        falseProp = ansCos2();
+                    }
+                    else if(r == 4) {
+                        falseProp = ansTan1();
+                    }
+                    else {
+                        falseProp = ansTan2();
+                    }
+                } while(choices.contains(falseProp) || falseProp == correctProp);
+                choices.add(falseProp);
+            }
+        }
+        return choices;
+    }
+
+    public int getNProps() {
+        return this.nProps;
     }
 }

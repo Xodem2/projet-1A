@@ -11,7 +11,7 @@ public class Operation {
     private Random random;
 
     private int nMax = 50;
-    int nProps = 3;
+    private int nProps = 3;
 
     public Operation() {
         this.random = new Random();
@@ -83,7 +83,7 @@ public class Operation {
     public ListNumbers propPlus() {
         ListNumbers choices = new ListNumbers(this.nProps);
         int correctProp = ansPlus();
-        int correctPropPos = this.random.nextInt(nProps);
+        int correctPropPos = this.random.nextInt(this.nProps);
         for(int i = 0; i < nProps; i++) {
             if(i == correctPropPos)
                 choices.add(correctProp);
