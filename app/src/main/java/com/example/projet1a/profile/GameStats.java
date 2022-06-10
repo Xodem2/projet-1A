@@ -25,6 +25,10 @@ public class GameStats {
         this.correctsInARow++;
     }
 
+    public void resetCorrectsInARow(){
+        this.correctsInARow = 0;
+    }
+
     public int getTotalCorrects() {
         return totalCorrects;
     }
@@ -35,5 +39,16 @@ public class GameStats {
 
     public int getCorrectsInARow() {
         return correctsInARow;
+    }
+
+    public void update(boolean correct){
+        if(correct){
+            this.incrCorrectsInARow();
+            this.incrTotalCorrects();
+        }
+        else {
+            this.resetCorrectsInARow();
+        }
+        this.incrTotalAnswered();
     }
 }
