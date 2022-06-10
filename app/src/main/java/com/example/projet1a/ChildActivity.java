@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ChildActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button sommeButton;
     private Button diffButton;
-    private Button multButton;
+    private ImageButton multButton;
     private Button divButton;
 
 
@@ -25,7 +26,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         this.diffButton = (Button) findViewById(R.id.button_moins);
         this.diffButton.setOnClickListener(this);
 
-        this.multButton = (Button) findViewById(R.id.button_Mult);
+        this.multButton = (ImageButton) findViewById(R.id.button_Mult);
         this.multButton.setOnClickListener(this);
 
         this.divButton = (Button) findViewById(R.id.button_division);

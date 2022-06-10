@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.projet1a.profile.PlayerProfile;
@@ -23,7 +22,7 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
         this.player = DataProvider.getInstance().getPlayer();
 
-        this.vectorButton = (ImageButton) findViewById(R.id.adultPageVectorActivityID);
+        this.vectorButton = (ImageButton) findViewById(R.id.button_Mult);
         this.vectorButton.setOnClickListener(this);
     }
 

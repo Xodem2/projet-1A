@@ -9,7 +9,7 @@
 
 
     <ImageButton
-        android:id="@+id/adultPageVectorActivityID"
+        android:id="@+id/button_Mult"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"

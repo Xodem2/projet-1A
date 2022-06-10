@@ -7,15 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ChildActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/button_Mult"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="328dp"
-        android:text="Calcul de Multiplication"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="118dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="344dp"
+        android:layout_marginEnd="257dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/multiplication" />
 
     <Button
         android:id="@+id/button_moins"
