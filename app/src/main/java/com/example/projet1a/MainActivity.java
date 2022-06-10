@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showAdultPage() {
-        Intent adultActivityIntent = new Intent(this, AdultActivity.class);
+        Intent adultActivityIntent = new Intent(this, ProfileActivity.class);
         startActivity(adultActivityIntent);
     }
 
@@ -82,9 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.finishAffinity();
     }
 
-
     private void showProfilePage() {
-        Intent profileActivityIntent = new Intent(this, ProfileActivity.class);
+        Intent profileActivityIntent = new Intent(this, AdultActivity.class);
         startActivity(profileActivityIntent);
     }
 

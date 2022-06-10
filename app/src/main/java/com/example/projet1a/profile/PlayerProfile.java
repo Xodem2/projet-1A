@@ -21,7 +21,7 @@ public class PlayerProfile {
         this.id = id;
     }
 
-    private void setAge(int age){
+    public void setAge(int age){
         this.age = age;
     }
 

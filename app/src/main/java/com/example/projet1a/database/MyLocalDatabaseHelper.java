@@ -27,6 +27,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_PLAYER_NAME = "Player";
     private static final String TABLE_PLAYER_COLUMN_ID = "_playerId"; // primary key
     private static final String TABLE_PLAYER_COLUMN_NICKNAME = "_playerNickname";
+    private static final String TABLE_PLAYER_COLUMN_AGE = "_playerAge";
 
     // table : player stats
     private static final String TABLE_PLAYER_STATS_NAME = "PlayerStats";
@@ -55,7 +56,8 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         String queryPlayer =
                 "CREATE TABLE " + TABLE_PLAYER_NAME
                 + " (" + TABLE_PLAYER_COLUMN_ID + " VARCHAR(256) PRIMARY KEY, "
-                + TABLE_PLAYER_COLUMN_NICKNAME + " VARCHAR(256));";
+                + TABLE_PLAYER_COLUMN_NICKNAME + " VARCHAR(256), "
+                + TABLE_PLAYER_COLUMN_AGE + " INTEGER);";
 
         String queryPlayerStats =
                 "CREATE TABLE " + TABLE_PLAYER_STATS_NAME
@@ -95,6 +97,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         // player
         cv.put(TABLE_PLAYER_COLUMN_ID, player.getID());
         cv.put(TABLE_PLAYER_COLUMN_NICKNAME, player.getNickname());
+        cv.put(TABLE_PLAYER_COLUMN_AGE, player.getAge());
         db.insert(TABLE_PLAYER_NAME, null, cv);
 
         // stats
@@ -132,11 +135,14 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         Cursor cursorPlayer = db.rawQuery(queryPlayer, null);
         int idIndex = cursorPlayer.getColumnIndex(TABLE_PLAYER_COLUMN_ID);
         int nicknameIndex = cursorPlayer.getColumnIndex(TABLE_PLAYER_COLUMN_NICKNAME);
+        int ageIndex = cursorPlayer.getColumnIndex(TABLE_PLAYER_COLUMN_AGE);
         if(!cursorPlayer.moveToFirst()) return null;
         String playerId = cursorPlayer.getString(idIndex);
         String nickname = cursorPlayer.getString(nicknameIndex);
+        int playerAge = cursorPlayer.getInt(ageIndex);
         player.setId(playerId);
         player.setNickname(nickname);
+        player.setAge(playerAge);
 
         // TODO : stats + game stats
 
