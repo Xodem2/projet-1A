@@ -13,6 +13,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
 
     private ImageButton FractionButton;
     private ImageButton Equation1Button;
+    private Button Equation2Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,15 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.FractionButton.setOnClickListener(this);
         this.Equation1Button = (ImageButton)  findViewById(R.id.button_Equation1);
         this.Equation1Button.setOnClickListener(this);
+        this.Equation2Button = (Button)  findViewById(R.id.button_Equation2);
+        this.Equation2Button.setOnClickListener(this);
     }
 
 @Override
     public void onClick(View v) {
         if (v.getId() == this.FractionButton.getId()) this.showFractionPage();
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
+        else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
 }
 
     private void showFractionPage(){
@@ -36,7 +40,12 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     }
 
     private void showEquation1Page(){
-        Intent equationActivityIntent = new Intent(this, Equation1Activity.class);
-        startActivity(equationActivityIntent);
+        Intent equation1ActivityIntent = new Intent(this, Equation1Activity.class);
+        startActivity(equation1ActivityIntent);
+    }
+
+    private void showEquation2Page(){
+        Intent equation2ActivityIntent = new Intent(this, Equation2Activity.class);
+        startActivity(equation2ActivityIntent);
     }
 }

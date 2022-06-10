@@ -8,7 +8,7 @@ public class EquationSecond {
     private int c;
     private int x1;
     private int x2;
-    private float delta;
+    private int delta;
     private static final int MAXIMUM_RANDOM = 10;
 
     public EquationSecond(){
@@ -16,17 +16,20 @@ public class EquationSecond {
             a = randomNumber();
             b = randomNumber();
             c = randomNumber();
-        } while((delta() < 0) && (calc_x1() == (int)calc_x1() && calc_x2() == (int)calc_x2()));
+            delta();
+            calc_x2();
+            calc_x1();
+        } while((delta <= 0) || (Math.sqrt(delta) != (int)Math.sqrt(delta) ) || (a == 0));
     }
 
-    public int  delta(){
+    public int delta(){
         delta = b*b - 4*a*c;
-        return (int)delta;
+        return delta;
     }
 
     public int calc_x1(){
         if(delta > 0) {
-            x1 = (int) ((-b - Math.sqrt(delta))/2*a);
+            x1 = (int)((-b - Math.sqrt(delta))/2*a);
         }
         else{
             x1 = -b /2*a;
@@ -59,4 +62,6 @@ public class EquationSecond {
     public int getC(){
         return c;
     }
+    public int getX1(){ return x1; }
+    public int getX2(){ return x2; }
 }

@@ -32,12 +32,12 @@
         app:srcCompat="@drawable/equation" />
 
     <Button
-        android:id="@+id/button_Vector3"
+        android:id="@+id/button_Equation2"
         android:layout_width="168dp"
         android:layout_height="69dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="328dp"
-        android:text="Calcul de vecteur"
+        android:text="Résolution d'équation du second degré"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
