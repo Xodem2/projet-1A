@@ -14,6 +14,10 @@ public class GameStats {
         this.correctsInARow = 0;
     }
 
+    public String getId(){
+        return this.gameId;
+    }
+
     public void incrTotalCorrects(){
         this.totalCorrects++;
     }

@@ -17,6 +17,10 @@ public class PlayerProfile {
         this.stats = new PlayerStatistics(0, 0);
     }
 
+    public void setId(String id){
+        this.id = id;
+    }
+
     private void setAge(int age){
         this.age = age;
     }

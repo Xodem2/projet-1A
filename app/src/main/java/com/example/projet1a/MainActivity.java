@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,8 +27,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO: load player profile from XML if existing
-        this.player = new PlayerProfile();
+        MyLocalDatabaseHelper myDatabase = new MyLocalDatabaseHelper(this);
+        myDatabase.getWritableDatabase();
+        DataProvider.getInstance().setMyLocalDatabase(myDatabase);
+
+        // load player from SQLite (local)
+        this.player = myDatabase.loadPlayer();
+        if(this.player == null){
+            this.player = new PlayerProfile();
+            myDatabase.addPlayer(this.player);
+        }
         DataProvider.getInstance().setPlayer(this.player);
 
         this.adultButton = (Button) findViewById(R.id.button_adult);
