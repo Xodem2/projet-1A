@@ -145,7 +145,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         player.setAge(playerAge);
 
         // stats
-        String queryStats = "SELECt * FROM " + TABLE_PLAYER_STATS_NAME;
+        String queryStats = "SELECT * FROM " + TABLE_PLAYER_STATS_NAME;
         Cursor cursorStats = db.rawQuery(queryStats, null);
         int spScoreIndex = cursorStats.getColumnIndex(TABLE_PLAYER_STATS_COLUMN_SPSCORE);
         int mpScoreIndex = cursorStats.getColumnIndex(TABLE_PLAYER_STATS_COLUMN_MPSCORE);

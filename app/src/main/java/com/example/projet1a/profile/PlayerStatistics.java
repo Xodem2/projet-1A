@@ -58,6 +58,10 @@ public class PlayerStatistics {
         this.gStats.put(id, new GameStats(id));
     }
 
+    public void addGameStats(GameStats gStats){
+        this.gStats.put(gStats.getId(), gStats);
+    }
+
     public PlayerLevel getLevel(){
         return this.level;
     }

@@ -2,10 +2,12 @@ package com.example.projet1a;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
+import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.ArrayList;
