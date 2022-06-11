@@ -144,9 +144,44 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         player.setNickname(nickname);
         player.setAge(playerAge);
 
-        // TODO : stats + game stats
+        // stats
+        String queryStats = "SELECt * FROM " + TABLE_PLAYER_STATS_NAME;
+        Cursor cursorStats = db.rawQuery(queryStats, null);
+        int spScoreIndex = cursorStats.getColumnIndex(TABLE_PLAYER_STATS_COLUMN_SPSCORE);
+        int mpScoreIndex = cursorStats.getColumnIndex(TABLE_PLAYER_STATS_COLUMN_MPSCORE);
+        if(!cursorStats.moveToFirst()) return null;
+        int spScore = cursorStats.getInt(spScoreIndex);
+        int mpScore = cursorStats.getInt(mpScoreIndex);
+        player.getStats().updateSingleplayerScore(spScore);
+        player.getStats().updateMultiplayerScore(mpScore);
+
+        // TODO : game stats
 
         return player;
+    }
+
+    public void savePlayer(PlayerProfile player){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        if(player == null) return;
+        String playerId = player.getID();
+
+        // player
+        ContentValues cv = new ContentValues();
+        cv.put(TABLE_PLAYER_COLUMN_NICKNAME, player.getNickname());
+        cv.put(TABLE_PLAYER_COLUMN_AGE, player.getAge());
+        db.update(TABLE_PLAYER_NAME, cv, TABLE_PLAYER_COLUMN_ID + "=?", new String[]{playerId});
+
+        // stats
+        PlayerStatistics stats = player.getStats();
+        if(stats == null) return;
+        cv = new ContentValues();
+        cv.put(TABLE_PLAYER_STATS_COLUMN_SPSCORE, stats.getSingleplayerScore());
+        cv.put(TABLE_PLAYER_STATS_COLUMN_MPSCORE, stats.getMultiplayerScore());
+        cv.put(TABLE_PLAYER_STATS_COLUMN_TOTALSCORE, stats.getTotalScore());
+        db.update(TABLE_PLAYER_STATS_NAME, cv, TABLE_PLAYER_STATS_COLUMN_PLAYERID + "=?", new String[]{playerId});
+
+        // TODO : game stats
     }
 
 }

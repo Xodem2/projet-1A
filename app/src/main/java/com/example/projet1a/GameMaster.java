@@ -129,6 +129,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.stats.update(correct);
         if (correct) this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
         else this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+        DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
     }
 
     public void setProp(@NonNull String[] prop){

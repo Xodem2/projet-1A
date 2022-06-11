@@ -10,10 +10,12 @@ public class PlayerProfile {
     private String id;
     private String nickname;
     private int age;
+    private PlayerLevel level;
     private final PlayerStatistics stats;
 
     public PlayerProfile(){
         this.generateID();
+        this.level = new PlayerLevel();
         this.stats = new PlayerStatistics(0, 0);
     }
 
