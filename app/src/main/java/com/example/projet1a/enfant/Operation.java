@@ -195,14 +195,13 @@ public class Operation {
                 int falseProp;
                 do {
                     falseProp = correctProp;
-                    for (int p = 1; p <= Math.log10(nMax); p++) {
-                        int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(3);
-                        if (r == 0) {
-                            falseProp = falseProp + np * (this.random.nextInt(3) + 1);
-                        }
-                        else {
-                            falseProp = falseProp - np * (this.random.nextInt(3) + 1);
+                    int r = this.random.nextInt(3);
+                    if (r == 0) {
+                        falseProp = falseProp + (this.random.nextInt(3) + 1);
+                    }
+                    else {
+                        if (falseProp - (this.random.nextInt(3) + 1) >= 0) {
+                            falseProp = falseProp - (this.random.nextInt(3) + 1);
                         }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
