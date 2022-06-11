@@ -40,6 +40,7 @@ public class VectorActivity extends GameMaster {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_vector);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         this.vector1TW = (TextView) findViewById(R.id.vector1ID);
         this.vector2TW = (TextView) findViewById(R.id.vector2ID2);
@@ -75,7 +76,6 @@ public class VectorActivity extends GameMaster {
 
     @Override
     public void generate(){
-        super.setId(this.id);
         super.generate();
         int operation = this.chooseRandomQuestion();
 

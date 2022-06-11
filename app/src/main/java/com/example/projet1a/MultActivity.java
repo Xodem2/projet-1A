@@ -23,6 +23,7 @@ public class MultActivity extends GameMaster{
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mult);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         ((TextView) findViewById(R.id.prop1_mult)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_mult)).setText(String.valueOf(""));
@@ -34,7 +35,6 @@ public class MultActivity extends GameMaster{
 
     @Override
     public void generate(){
-        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1_mult)).setText(String.valueOf(this.op.getA()));

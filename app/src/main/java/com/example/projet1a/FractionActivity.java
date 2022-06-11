@@ -56,13 +56,14 @@ public class FractionActivity extends GameMaster {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        bon_choix = new int[2];
-        choix = new int[3][2];
         setContentView(R.layout.activity_fraction);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
+        this.bon_choix = new int[2];
+        this.choix = new int[3][2];
         this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        random = new Random();
+        this.random = new Random();
 
         this.num = (TextView) findViewById(R.id.num);
         this.den = (TextView) findViewById(R.id.den);
@@ -129,7 +130,6 @@ public class FractionActivity extends GameMaster {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void generate(){
-        super.setId(this.id);
         super.generate();
         int length = random.nextInt(3)+2;
         this.b = this.prime[random.nextInt(this.prime.length)];

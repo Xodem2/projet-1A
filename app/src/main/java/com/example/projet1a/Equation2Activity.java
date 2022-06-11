@@ -10,6 +10,7 @@ import com.example.projet1a.ado_games.EquationSecond;
 import java.util.Random;
 
 public class Equation2Activity extends GameMaster {
+    public final static String id="Equation2Activity";
 
     private TextView equation;
 
@@ -25,7 +26,7 @@ public class Equation2Activity extends GameMaster {
     protected void onCreate(Bundle savedInstanceState){
         setContentView(R.layout.activity_equation2);
         super.onCreate(savedInstanceState);
-        super.setId("Equation2Activity");
+        super.setId(this.id);
         generate();
     }
 

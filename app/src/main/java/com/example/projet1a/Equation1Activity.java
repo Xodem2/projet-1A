@@ -24,6 +24,7 @@ public class Equation1Activity extends GameMaster {
 
         setContentView(R.layout.activity_equation1);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         generate();
     }
@@ -46,7 +47,6 @@ public class Equation1Activity extends GameMaster {
 
     @Override
     public void generate(){
-        super.setId(this.id);
         super.generate();
         this.equation = (TextView) findViewById(R.id.EQ1);
         this.eq1 = new EquationPremier();

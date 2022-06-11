@@ -27,6 +27,7 @@ public class SommeActivity extends GameMaster{
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_somme);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         ((TextView) findViewById(R.id.prop1)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2)).setText(String.valueOf(""));
@@ -37,7 +38,6 @@ public class SommeActivity extends GameMaster{
     }
 
     public void generate(){
-        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1)).setText(String.valueOf(this.op.getA()));

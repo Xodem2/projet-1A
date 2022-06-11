@@ -46,7 +46,7 @@
         android:layout_marginBottom="5dp"
         android:text="100"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/pg1"
         app:layout_constraintEnd_toStartOf="@+id/flow5" />
 
     <TextView
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@+id/flow5" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/pg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -71,13 +71,13 @@
         app:layout_constraintTop_toTopOf="@+id/flow5" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/pd1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text=")"
         android:textSize="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/pg1"
         app:layout_constraintStart_toEndOf="@+id/m1_22" />
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -136,7 +136,7 @@
         android:layout_marginBottom="5dp"
         android:text="100"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintBottom_toBottomOf="@+id/pg2"
         app:layout_constraintEnd_toStartOf="@+id/flow6" />
 
     <TextView
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toEndOf="@+id/flow6" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/pg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -161,13 +161,13 @@
         app:layout_constraintTop_toTopOf="@+id/flow6" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/pd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text=")"
         android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintBottom_toBottomOf="@+id/pg2"
         app:layout_constraintStart_toEndOf="@+id/m2_22" />
 
     <TextView
@@ -220,26 +220,26 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/pg4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="35dp"
         android:text="("
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView37"
+        app:layout_constraintBottom_toBottomOf="@+id/pd3"
         app:layout_constraintEnd_toStartOf="@+id/flow7"
-        app:layout_constraintTop_toTopOf="@+id/textView37" />
+        app:layout_constraintTop_toTopOf="@+id/pd3" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/pd4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:text=")"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintBottom_toBottomOf="@+id/pg4"
         app:layout_constraintStart_toEndOf="@+id/flow7"
-        app:layout_constraintTop_toTopOf="@+id/textView28" />
+        app:layout_constraintTop_toTopOf="@+id/pg4" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow8"
@@ -292,7 +292,7 @@
         app:layout_constraintTop_toBottomOf="@+id/flow8" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/pg3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="35dp"
@@ -303,15 +303,15 @@
         app:layout_constraintEnd_toStartOf="@+id/flow8" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/pd3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:text=")"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView36"
+        app:layout_constraintBottom_toBottomOf="@+id/pg3"
         app:layout_constraintStart_toEndOf="@+id/flow8"
-        app:layout_constraintTop_toTopOf="@+id/textView36" />
+        app:layout_constraintTop_toTopOf="@+id/pg3" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow9"
@@ -364,26 +364,26 @@
         app:layout_constraintTop_toBottomOf="@+id/flow9" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/pg5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="35dp"
         android:text="("
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView30"
+        app:layout_constraintBottom_toBottomOf="@+id/pd4"
         app:layout_constraintEnd_toStartOf="@+id/flow9"
-        app:layout_constraintTop_toTopOf="@+id/textView30" />
+        app:layout_constraintTop_toTopOf="@+id/pd4" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/pd5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:text=")"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView42"
+        app:layout_constraintBottom_toBottomOf="@+id/pg5"
         app:layout_constraintStart_toEndOf="@+id/flow9"
-        app:layout_constraintTop_toTopOf="@+id/textView42" />
+        app:layout_constraintTop_toTopOf="@+id/pg5" />
 
     <Button
         android:id="@+id/button3"
@@ -401,6 +401,7 @@
         android:id="@+id/matrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
         android:text="aux"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/include5"
@@ -421,5 +422,35 @@
         app:layout_constraintStart_toEndOf="@+id/matrice"
         app:layout_constraintTop_toTopOf="@+id/matrice"
         tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/det1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/flow8"
+        app:layout_constraintEnd_toEndOf="@+id/flow8"
+        app:layout_constraintStart_toStartOf="@+id/flow8"
+        app:layout_constraintTop_toTopOf="@+id/flow8" />
+
+    <TextView
+        android:id="@+id/det2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/flow7"
+        app:layout_constraintEnd_toEndOf="@+id/flow7"
+        app:layout_constraintStart_toStartOf="@+id/flow7"
+        app:layout_constraintTop_toTopOf="@+id/flow7" />
+
+    <TextView
+        android:id="@+id/det3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/flow9"
+        app:layout_constraintEnd_toEndOf="@+id/flow9"
+        app:layout_constraintStart_toStartOf="@+id/flow9"
+        app:layout_constraintTop_toTopOf="@+id/flow9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
