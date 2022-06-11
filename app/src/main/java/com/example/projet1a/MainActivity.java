@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.VideoView;
 
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button childButton;
     private Button quitButton;
     private Button profil;
+    private VideoView videocar;
+    MediaPlayer mMediaPlayer;
+    int mCurrentVideoPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.profil = (Button) findViewById(R.id.profil);
         this.profil.setOnClickListener(this);
+
+        // video adding main page
+
+        videocar = (VideoView) findViewById(R.id.videocar);
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.driveway;
+        Uri uri = Uri.parse(uriPath);
+        videocar.setVideoURI(uri);
+        videocar.start();
+        videocar.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPlayer = mediaPlayer;
+                // We want our video to play over and over so we set looping to true.
+                mMediaPlayer.setLooping(true);
+                // We then seek to the current posistion if it has been set and play the video.
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPlayer.seekTo(mCurrentVideoPosition);
+                    mMediaPlayer.start();
+                }
+            }
+        });
+    }
+
+
+    @Override
+    protected void onPostResume() {
+        videocar.resume();
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        videocar.start();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        videocar.suspend();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        videocar.stopPlayback();
+        super.onDestroy();
     }
 
     @Override
