@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button teenButton;
     private Button childButton;
     private Button quitButton;
+    private Button profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.quitButton = (Button) findViewById(R.id.quitButtonId);
         this.quitButton.setOnClickListener(this);
+
+        this.profil = (Button) findViewById(R.id.profil);
+        this.profil.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
+        else if(v.getId() == this.profil.getId()) this.showProfilePage();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
     }

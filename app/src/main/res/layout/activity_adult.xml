@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/phonebackground_cropped"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/phonebackground_cropped"
     tools:context=".AdultActivity">
 
 
@@ -13,59 +13,62 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="257dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53"
+        app:layout_constraintBottom_toTopOf="@+id/flow2"
+        app:layout_constraintEnd_toStartOf="@+id/flow2"
         app:srcCompat="@drawable/icone_vector_cropped" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="170dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/flow2"
+        app:layout_constraintStart_toEndOf="@+id/flow2" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="170dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/flow2"
+        app:layout_constraintTop_toBottomOf="@+id/flow2" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="170dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2" />
+        app:layout_constraintEnd_toStartOf="@+id/flow2"
+        app:layout_constraintTop_toBottomOf="@+id/flow2" />
 
     <TextView
         android:id="@+id/title_Mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginBottom="30dp"
         android:scaleX="2"
         android:scaleY="2"
         android:text="CHOISI TON MODE DE JEU"
-        android:textColor="#FFFFFF"
 
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button_Mult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -13,11 +13,11 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/flow3"
+        app:layout_constraintTop_toBottomOf="@+id/flow3"
         app:srcCompat="@drawable/multiplication" />
 
     <ImageButton
@@ -25,11 +25,11 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/flow3"
+        app:layout_constraintEnd_toStartOf="@+id/flow3"
         app:srcCompat="@drawable/icone_somme" />
 
     <ImageButton
@@ -37,33 +37,42 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="118dp"
         android:layout_height="113dp"
-        android:layout_marginStart="228dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/flow3"
+        app:layout_constraintStart_toEndOf="@+id/flow3"
         app:srcCompat="@drawable/difference" />
 
     <Button
         android:id="@+id/button_division"
         android:layout_width="168dp"
         android:layout_height="69dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Calcul de division"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/flow3"
+        app:layout_constraintTop_toBottomOf="@+id/flow3" />
 
     <TextView
         android:id="@+id/title_Mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_marginBottom="30dp"
         android:scaleX="2"
         android:scaleY="2"
         android:text="CHOISI TON MODE DE JEU"
-        android:textColor="#FFFFFF"
 
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button_somme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
