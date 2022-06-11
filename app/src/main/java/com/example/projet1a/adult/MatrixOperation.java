@@ -66,8 +66,13 @@ public class MatrixOperation {
                     for (int j = 0; j < falseProp.getM(); j++) {
                         for (int k = 0; k < falseProp.getN(); k++) {
                             int v = correctProp.get(j, k);
-                            if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 + M2.get(j, k) % 10 >= 10  && random.nextInt(3) == 0) {
-                                v = v - 10;
+                            if(random.nextInt(3) == 0) {
+                                if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 + M2.get(j, k) % 10 >= 10) { //oubli de retenue
+                                    v = v - 10;
+                                }
+                                else { //retenue qui n'existe pas
+                                    v = v + 10;
+                                }
                             }
                             if (M2.get(j, k) < 0 && random.nextInt(3) == 0) {
                                 v = M1.get(j, k) - M2.get(j, k);
@@ -99,8 +104,13 @@ public class MatrixOperation {
                     for (int j = 0; j < falseProp.getM(); j++) {
                         for (int k = 0; k < falseProp.getN(); k++) {
                             int v = correctProp.get(j, k);
-                            if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 - M2.get(j, k) % 10 < 0 && random.nextInt(3) == 0) {
-                                v = v + 10;
+                            if (random.nextInt(3) == 0) {
+                                if (M1.get(j, k) > 0 && M2.get(j, k) > 0 && M1.get(j, k) % 10 - M2.get(j, k) % 10 < 0) { //oubli de retenue
+                                    v = v + 10;
+                                }
+                                else { //retenue qui n'existe pas
+                                    v = v - 10;
+                                }
                             }
                             if ((M1.get(j, k) < 0 || M2.get(j, k) < 0) && random.nextInt(3) == 0) {
                                 v = M1.get(j, k) + M2.get(j, k);
