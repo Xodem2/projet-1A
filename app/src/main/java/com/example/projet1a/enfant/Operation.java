@@ -2,6 +2,7 @@ package com.example.projet1a.enfant;
 import com.example.projet1a.list.ListNumbers;
 
 import java.util.Random;
+import java.lang.Math;
 
 public class Operation {
 
@@ -10,7 +11,7 @@ public class Operation {
 
     private Random random;
 
-    private int nMax = 50;
+    private int nMax = 99;
     private int nProps = 3;
 
     public Operation() {
@@ -91,16 +92,22 @@ public class Operation {
                 int falseProp;
                 do {
                     falseProp = correctProp;
-                    int r = this.random.nextInt(4);
-                    if(r == 0) {
-                        falseProp = falseProp+this.random.nextInt(3)+1;
-                    }
-                    else if(r == 1) {
-                        falseProp = falseProp-this.random.nextInt(3)-1;
-                    }
-                    else {
-                        if(this.a%10+this.b%10 >= 10) { //oubli de retenue
-                            falseProp = falseProp - 10;
+                    for (int p = 1; p <= Math.log10(nMax); p++) {
+                        int np = (int) Math.pow(10, p);
+                        int r = this.random.nextInt(6);
+                        if (r == 0) {
+                            falseProp = falseProp + np * (this.random.nextInt(3) + 1);
+                        }
+                        else if (r == 1) {
+                            falseProp = falseProp - np * (this.random.nextInt(3) - 1);
+                        }
+                        else if (r == 2) {
+                            if (this.a % np + this.b % np >= np) { //oubli de retenue
+                                falseProp = falseProp - np;
+                            }
+                            else { //retenue qui n'existe pas
+                                falseProp = falseProp + np;
+                            }
                         }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
@@ -121,19 +128,25 @@ public class Operation {
                 int falseProp;
                 do {
                     falseProp = correctProp;
-                    int r = this.random.nextInt(5);
-                    if(r == 0) {
-                        falseProp = falseProp+this.random.nextInt(3)+1;
-                    }
-                    else if(r == 1) {
-                        falseProp = falseProp-this.random.nextInt(3)-1;
-                    }
-                    else if(r == 2) {
-                        falseProp = ansPlus();
-                    }
-                    else {
-                        if(this.a%10-this.b%10 < 0) { //oubli de retenue
-                            falseProp = falseProp + 10;
+                    for (int p = 1; p <= Math.log10(nMax); p++) {
+                        int np = (int) Math.pow(10, p);
+                        int r = this.random.nextInt(8);
+                        if (r == 0) {
+                            falseProp = falseProp + np * (this.random.nextInt(3) + 1);
+                        }
+                        else if (r == 1) {
+                            falseProp = falseProp - np * (this.random.nextInt(3) + 1);
+                        }
+                        else if (r == 2) {
+                            falseProp = ansPlus();
+                        }
+                        else if (r == 3) {
+                            if (this.a % np + this.b % np >= np) { //oubli de retenue
+                                falseProp = falseProp - np;
+                            }
+                            else { //retenue qui n'existe pas
+                                falseProp = falseProp + np;
+                            }
                         }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
@@ -154,18 +167,15 @@ public class Operation {
                 int falseProp;
                 do {
                     falseProp = correctProp;
-                    int r = this.random.nextInt(4);
-                    if(r == 0) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
-                    }
-                    else if(r == 1) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
-                    }
-                    else if(r == 2) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
-                    }
-                    else {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
+                    for (int p = 1; p <= Math.log10(nMax); p++) {
+                        int np = (int) Math.pow(10, p);
+                        int r = this.random.nextInt(4);
+                        if (r == 0) {
+                            falseProp = falseProp + np * (this.random.nextInt(3) + 1);
+                        }
+                        else if (r == 1) {
+                            falseProp = falseProp - np * (this.random.nextInt(3) + 1);
+                        }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);
@@ -185,18 +195,15 @@ public class Operation {
                 int falseProp;
                 do {
                     falseProp = correctProp;
-                    int r = this.random.nextInt(4);
-                    if(r == 0) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)+1;
-                    }
-                    else if(r == 1) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)+this.random.nextInt(3)-1;
-                    }
-                    else if(r == 2) {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)+1;
-                    }
-                    else {
-                        falseProp = falseProp*(this.random.nextInt(3)+1)-this.random.nextInt(3)-1;
+                    for (int p = 1; p <= Math.log10(nMax); p++) {
+                        int np = (int) Math.pow(10, p);
+                        int r = this.random.nextInt(3);
+                        if (r == 0) {
+                            falseProp = falseProp + np * (this.random.nextInt(3) + 1);
+                        }
+                        else {
+                            falseProp = falseProp - np * (this.random.nextInt(3) + 1);
+                        }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
                 choices.add(falseProp);

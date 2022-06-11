@@ -21,12 +21,12 @@
         app:srcCompat="@drawable/icone_vector_cropped" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/matrice"
         android:layout_width="170dp"
         android:layout_height="75dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
-        android:text="Button"
+        android:text="Matrice"
         app:layout_constraintBottom_toTopOf="@+id/flow2"
         app:layout_constraintStart_toEndOf="@+id/flow2" />
 
