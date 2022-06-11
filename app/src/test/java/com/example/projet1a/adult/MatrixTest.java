@@ -103,6 +103,18 @@ public class MatrixTest extends TestCase {
         }
     }
 
+    public void testPropTrans() {
+        Matrix matrix = new Matrix();
+        ArrayList<Matrix> props = matrix.propTrans();
+        System.out.println("t \n" + matrix.toString() + " = ?\n");
+        Matrix correct = matrix.t();
+        for(int i = 0; i < matrix.getNProps(); i++) {
+            Matrix prop = props.get(i);
+            System.out.println(prop);
+            assert (!prop.is(correct) && !matrix.trans(prop)) || (prop.is(correct) && matrix.trans(prop));
+        }
+    }
+
     public void testGenerate() {
         Matrix M = new Matrix(3, 2);
         System.out.println(M.toString());

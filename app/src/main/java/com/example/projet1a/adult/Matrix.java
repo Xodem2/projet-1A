@@ -78,8 +78,9 @@ public class Matrix {
     public boolean is(Matrix N) {
         int m = this.getM();
         int n = this.getN();
-        if(m != n)
+        if(m != n) {
             return false;
+        }
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if(this.get(i, j) != N.get(i, j))
@@ -147,6 +148,10 @@ public class Matrix {
         return tM;
     }
 
+    public boolean trans(Matrix M) {
+        return this.t().is(M);
+    }
+
     public int detAns() {
         assert this.getM() <= 3;
         assert this.getN() <= 3;
@@ -190,6 +195,46 @@ public class Matrix {
                         falseProp = falseProp-this.random.nextInt(3)-1;
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
+                choices.add(falseProp);
+            }
+        }
+        return choices;
+    }
+
+    public ArrayList<Matrix> propTrans() {
+        ArrayList<Matrix> choices = new ArrayList<>();
+        Matrix correctProp = t().getMatrix();
+        int correctPropPos = this.random.nextInt(nProps);
+        for (int i = 0; i < nProps; i++) {
+            if (i == correctPropPos)
+                choices.add(correctProp.getMatrix());
+            else {
+                Matrix falseProp;
+                do {
+                    falseProp = new Matrix(this.getM(), this.getN());
+                    int r = this.random.nextInt(4);
+                    if(r == 0) {
+                        for (int j = 0; j < falseProp.getM(); j++) {
+                            for (int k = 0; k < falseProp.getN(); k++) {
+                                falseProp.set(j, k, this.get(k, falseProp.getM() - j - 1));
+                            }
+                        }
+                    }
+                    else if(r == 1) {
+                        for (int j = 0; j < falseProp.getM(); j++) {
+                            for (int k = 0; k < falseProp.getN(); k++) {
+                                falseProp.set(j, k, this.get(falseProp.getN() - k - 1, j));
+                            }
+                        }
+                    }
+                    else if(r == 2) {
+                        for (int j = 0; j < falseProp.getM(); j++) {
+                            for (int k = 0; k < falseProp.getN(); k++) {
+                                falseProp.set(j, k, this.get(falseProp.getN() - k - 1, falseProp.getM() - j - 1));
+                            }
+                        }
+                    }
+                } while (falseProp.inArray(choices) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
         }
