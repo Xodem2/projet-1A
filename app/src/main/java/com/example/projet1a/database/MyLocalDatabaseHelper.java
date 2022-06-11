@@ -17,8 +17,6 @@ import com.example.projet1a.profile.PlayerStatistics;
 
 public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
-    // TODO : updatePlayer() mehtod
-
     // db settings
     private static final String DATABASE_NAME = "player.db";
     private static final int DATABASE_VERSION = 1;
@@ -53,30 +51,39 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        this.createTablePlayer(db);
+        this.createTablePlayerStats(db);
+        this.createTableGameStats(db);
+    }
+
+    private void createTablePlayer(SQLiteDatabase db){
         String queryPlayer =
                 "CREATE TABLE " + TABLE_PLAYER_NAME
-                + " (" + TABLE_PLAYER_COLUMN_ID + " VARCHAR(256) PRIMARY KEY, "
-                + TABLE_PLAYER_COLUMN_NICKNAME + " VARCHAR(256), "
-                + TABLE_PLAYER_COLUMN_AGE + " INTEGER);";
+                        + " (" + TABLE_PLAYER_COLUMN_ID + " VARCHAR(256) PRIMARY KEY, "
+                        + TABLE_PLAYER_COLUMN_NICKNAME + " VARCHAR(256), "
+                        + TABLE_PLAYER_COLUMN_AGE + " INTEGER);";
+        db.execSQL(queryPlayer);
+    }
 
+    private void createTablePlayerStats(SQLiteDatabase db){
         String queryPlayerStats =
                 "CREATE TABLE " + TABLE_PLAYER_STATS_NAME
-                + " (" + TABLE_PLAYER_STATS_COLUMN_SPSCORE + " INTEGER, "
-                + TABLE_PLAYER_STATS_COLUMN_MPSCORE + " INTEGER, "
-                + TABLE_PLAYER_STATS_COLUMN_TOTALSCORE + " INTEGER, "
-                + TABLE_PLAYER_STATS_COLUMN_PLAYERID + " VARCHAR(256) PRIMARY KEY);";
+                        + " (" + TABLE_PLAYER_STATS_COLUMN_SPSCORE + " INTEGER, "
+                        + TABLE_PLAYER_STATS_COLUMN_MPSCORE + " INTEGER, "
+                        + TABLE_PLAYER_STATS_COLUMN_TOTALSCORE + " INTEGER, "
+                        + TABLE_PLAYER_STATS_COLUMN_PLAYERID + " VARCHAR(256) PRIMARY KEY);";
+        db.execSQL(queryPlayerStats);
+    }
 
+    private void createTableGameStats(SQLiteDatabase db){
         String queryGameStats =
                 "CREATE TABLE " + TABLE_GAMESTATS_NAME
-                + " (" + TABLE_GAMESTATS_COLUMN_GAMEID + " VARCHAR(256), "
-                + TABLE_GAMESTATS_COLUMN_TOTALCORRECT + " INTEGER, "
-                + TABLE_GAMESTATS_COLUMN_TOTALANSWERED + " INTEGER, "
-                + TABLE_GAMESTATS_COLUMN_ANSWERSINAROW + " INTEGER, "
-                + TABLE_GAMESTATS_COLUMN_PLAYERID + " VARCHAR(256), "
-                + "PRIMARY KEY("+ TABLE_GAMESTATS_COLUMN_PLAYERID + ", " + TABLE_GAMESTATS_COLUMN_GAMEID + "));";
-
-        db.execSQL(queryPlayer);
-        db.execSQL(queryPlayerStats);
+                        + " (" + TABLE_GAMESTATS_COLUMN_GAMEID + " VARCHAR(256), "
+                        + TABLE_GAMESTATS_COLUMN_TOTALCORRECT + " INTEGER, "
+                        + TABLE_GAMESTATS_COLUMN_TOTALANSWERED + " INTEGER, "
+                        + TABLE_GAMESTATS_COLUMN_ANSWERSINAROW + " INTEGER, "
+                        + TABLE_GAMESTATS_COLUMN_PLAYERID + " VARCHAR(256), "
+                        + "PRIMARY KEY("+ TABLE_GAMESTATS_COLUMN_PLAYERID + ", " + TABLE_GAMESTATS_COLUMN_GAMEID + "));";
         db.execSQL(queryGameStats);
     }
 
@@ -155,7 +162,22 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         player.getStats().updateSingleplayerScore(spScore);
         player.getStats().updateMultiplayerScore(mpScore);
 
-        // TODO : game stats
+        String queryGameStats = "SELECT * FROM " + TABLE_GAMESTATS_NAME;
+        Cursor cursorGameStats = db.rawQuery(queryGameStats, null);
+        while(cursorGameStats.moveToNext()){
+            int gameIdIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_GAMEID);
+            int totalAnsweredIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_TOTALANSWERED);
+            int totalCorrectIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_TOTALCORRECT);
+            int inARowIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW);
+
+
+            String gameId = cursorGameStats.getString(gameIdIndex);
+            int totalAnswered = cursorGameStats.getInt(totalAnsweredIndex);
+            int totalCorrect = cursorGameStats.getInt(totalCorrectIndex);
+            int inARow = cursorGameStats.getInt(inARowIndex);
+
+            player.getStats().addGameStats(new GameStats(gameId, totalCorrect, totalAnswered, inARow));
+        }
 
         return player;
     }
@@ -181,7 +203,23 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         cv.put(TABLE_PLAYER_STATS_COLUMN_TOTALSCORE, stats.getTotalScore());
         db.update(TABLE_PLAYER_STATS_NAME, cv, TABLE_PLAYER_STATS_COLUMN_PLAYERID + "=?", new String[]{playerId});
 
-        // TODO : game stats
+        // game stats
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMESTATS_NAME);
+        this.createTableGameStats(db);
+        ArrayMap<String, GameStats> gameStats = stats.getGameStats();
+        if(gameStats == null) return;
+        for(int i = 0; i < gameStats.size(); i++){
+            GameStats gStats = gameStats.valueAt(i);
+            cv = new ContentValues();
+            cv.put(TABLE_GAMESTATS_COLUMN_GAMEID, gStats.getId());
+            cv.put(TABLE_GAMESTATS_COLUMN_TOTALANSWERED, gStats.getTotalAnswered());
+            cv.put(TABLE_GAMESTATS_COLUMN_TOTALCORRECT, gStats.getTotalCorrects());
+            cv.put(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW, gStats.getCorrectsInARow());
+            cv.put(TABLE_GAMESTATS_COLUMN_PLAYERID, playerId);
+
+            db.insert(TABLE_GAMESTATS_NAME, null, cv);
+
+        }
     }
 
 }
