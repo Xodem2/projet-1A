@@ -94,20 +94,15 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 0; p <= Math.log10(correctProp); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(4);
+                        int r = this.random.nextInt(8);
                         if (r == 0 && p != Math.log10(correctProp)) {
                             falseProp = falseProp + np * (this.random.nextInt(3) + 1);
                         }
                         else if (r == 1 && p != Math.log10(correctProp)) {
                             falseProp = falseProp - np * (this.random.nextInt(3) - 1);
                         }
-                        else if (r == 2) {
-                            if (this.a % np + this.b % np >= np) { //oubli de retenue
-                                falseProp = falseProp - np;
-                            }
-                            else { //retenue qui n'existe pas
-                                falseProp = falseProp + np;
-                            }
+                        else if (r >= 2 && r <= 4 && this.a % np + this.b % np >= np) { //oubli de retenue
+                            falseProp = falseProp - np;
                         }
                     }
                 } while(choices.contains(falseProp) || falseProp == correctProp);
@@ -130,32 +125,21 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 0; p <= Math.log10(nMax); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r;
-                        if(p == 0) {
-                            r = this.random.nextInt(6);
-                        }
-                        else {
-                            r = this.random.nextInt(4);
-                        }
+                        int r = this.random.nextInt(8);
                         if (r == 0 && p != Math.log10(correctProp)) {
                             falseProp = falseProp + np * (this.random.nextInt(3) + 1);
                         }
                         else if (r == 1 && p != Math.log10(correctProp)) {
                             falseProp = falseProp - np * (this.random.nextInt(3) + 1);
                         }
-                        else if (r == 2) {
-                            if (this.a % np - this.b % np < 0) { //oubli de retenue
-                                falseProp = falseProp - np;
-                            }
-                            else { //retenue qui n'existe pas
-                                falseProp = falseProp + np;
-                            }
+                        else if (r >= 2 && r <= 4 && this.a % np - this.b % np < 0) {
+                            falseProp = falseProp + np;
                         }
-                        else if (r == 3 && p == 0) {
+                        else if (r == 5 && p == 0) {
                             falseProp = ansPlus();
                             break;
                         }
-                        else if (r == 4 && p == 0 && correctProp < 0) {
+                        else if (r == 6 && p == 0 && correctProp < 0) {
                             falseProp = -correctProp;
                             break;
                         }
