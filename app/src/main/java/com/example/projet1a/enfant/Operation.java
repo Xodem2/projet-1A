@@ -100,7 +100,7 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 0; p <= Math.log10(correctProp); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(8);
+                        int r = this.random.nextInt(6);
                         if (r == 0 && p != Math.log10(correctProp)) {
                             falseProp = falseProp + np * (this.random.nextInt(2) + 1);
                         }
@@ -110,7 +110,7 @@ public class Operation {
                                 falseProp = fp;
                             }
                         }
-                        else if (r >= 2 && r <= 4 && p != Math.log10(correctProp) && this.a % np + this.b % np >= np) { //oubli de retenue
+                        else if (r >= 2 && r <= 3 && p != 0 && p != Math.log10(correctProp) && this.a % np + this.b % np >= np) { //oubli de retenue
                             int fp = falseProp - np;
                             if (fp >= 0) {
                                 falseProp = fp;
@@ -137,21 +137,21 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 0; p <= Math.log10(nMax); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(8);
+                        int r = this.random.nextInt(6);
                         if (r == 0 && p != Math.log10(nMax)) {
                             falseProp = falseProp + np * (this.random.nextInt(2) + 1);
                         }
                         else if (r == 1 && p != Math.log10(nMax)) {
                             falseProp = falseProp - np * (this.random.nextInt(2) + 1);
                         }
-                        else if (r >= 2 && r <= 4 && p != Math.log10(nMax) && this.a % np - this.b % np < 0) { //oubli de retenue
+                        else if (r >= 2 && r <= 3 && p != 0 && p != Math.log10(nMax) && this.a % np - this.b % np < 0) { //oubli de retenue
                             falseProp = falseProp + np;
                         }
-                        else if (r == 5 && p == 0) {
+                        else if (r == 2 && p == 0) {
                             falseProp = ansPlus();
                             break;
                         }
-                        else if (r == 6 && p == 0 && correctProp < 0) {
+                        else if (r == 3 && p == 0 && correctProp < 0) {
                             falseProp = -correctProp;
                             break;
                         }
