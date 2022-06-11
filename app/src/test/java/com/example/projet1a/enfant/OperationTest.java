@@ -120,16 +120,4 @@ public class OperationTest extends TestCase {
             assert (prop != correct && !(op.div(prop))) || prop == correct && op.div(prop);
         }
     }
-
-    public void test() {
-        Operation op = new Operation(31, 18);
-        ListNumbers props = op.propMinus();
-        System.out.println(op.getA() + " - " + op.getB() + " = ?");
-        int correct = op.ansMinus();
-        for(int i = 0; i < op.getNProps(); i++) {
-            int prop = props.getNumber(i);
-            System.out.println(prop);
-            assert (prop != correct && !(op.minus(prop))) || prop == correct && op.minus(prop);
-        }
-    }
 }
