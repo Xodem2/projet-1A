@@ -3,22 +3,26 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.projet1a.profile.PlayerProfile;
 import com.example.projet1a.profile.PlayerStatistics;
 
+import org.w3c.dom.Text;
 
-public class ProfileActivity extends AppCompatActivity {
+
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     private PlayerProfile player;
 
-    private TextView nicknameTW;
-    private TextView ageTW;
-    private TextView idTW;
-    private TextView totalScoreTW;
-    private TextView spScoreTW;
-    private TextView mpScoreTW;
+    private EditText editNickname;
+    private EditText editAge;
+    private TextView playerId;
+    private Button updateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,37 +31,38 @@ public class ProfileActivity extends AppCompatActivity {
 
         this.player = DataProvider.getInstance().getPlayer();
 
-        this.nicknameTW = (TextView) findViewById(R.id.profilePagePseudoFillID);
-        this.ageTW = (TextView) findViewById(R.id.profilePageAgeFillID);
-        this.idTW = (TextView) findViewById(R.id.profilePageIdFillID);
-        this.totalScoreTW = (TextView) findViewById(R.id.profilePageStatsScoreTotFillID);
-        this.spScoreTW = (TextView) findViewById(R.id.profilePageStatsScoreSoloFillID);
-        this.mpScoreTW = (TextView) findViewById(R.id.profilePageStatsScoreMultFillID);
+        this.editNickname = (EditText) findViewById(R.id.profilePageEditNicknameId);
+        this.editAge = (EditText) findViewById(R.id.profilePageEditAgeId);
+        this.playerId = (TextView) findViewById(R.id.profilePagePlayerIdFillId);
+        this.updateButton = (Button) findViewById(R.id.profilePageUpdateButtonId);
+        this.updateButton.setOnClickListener(this);
 
         this.showPlayerInfo();
-        this.showPlayerStats();
     }
 
     @Override
     protected void onResume() {
-
         super.onResume();
         this.showPlayerInfo();
-        this.showPlayerStats();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == this.updateButton.getId()) this.updatePlayer();
+    }
+
+    private void updatePlayer() {
+        this.player.setNickname(this.editNickname.getText().toString());
+        this.player.setAge(Integer.parseInt(this.editAge.getText().toString()));
+
+        // update database
+        DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
     }
 
     private void showPlayerInfo(){
-        this.nicknameTW.setText(this.player.getNickname());
-        this.ageTW.setText(String.valueOf(this.player.getAge()) + " ans");
-        this.idTW.setText(this.player.getID());
+        this.playerId.setText(this.player.getID());
+        this.editNickname.setText(this.player.getNickname());
+        this.editAge.setText(String.valueOf(this.player.getAge()));
     }
-
-    private void showPlayerStats(){
-        PlayerStatistics stats = this.player.getStats();
-        this.totalScoreTW.setText(String.valueOf(stats.getTotalScore()) + "points");
-        this.spScoreTW.setText(String.valueOf(stats.getSingleplayerScore()) + "points");
-        this.mpScoreTW.setText(String.valueOf(stats.getMultiplayerScore()) + "points");
-    }
-
 
 }
