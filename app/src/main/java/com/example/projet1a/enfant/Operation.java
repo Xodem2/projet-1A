@@ -94,14 +94,14 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 1; p <= Math.log10(nMax); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(4);
+                        int r = this.random.nextInt(6);
                         if (r == 0) {
                             falseProp = falseProp + np * (this.random.nextInt(3) + 1);
                         }
                         else if (r == 1) {
                             falseProp = falseProp - np * (this.random.nextInt(3) - 1);
                         }
-                        else {
+                        else if (r == 2) {
                             if (this.a % np + this.b % np >= np) { //oubli de retenue
                                 falseProp = falseProp - np;
                             }
@@ -130,7 +130,7 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 1; p <= Math.log10(nMax); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(5);
+                        int r = this.random.nextInt(8);
                         if (r == 0) {
                             falseProp = falseProp + np * (this.random.nextInt(3) + 1);
                         }
@@ -140,7 +140,7 @@ public class Operation {
                         else if (r == 2) {
                             falseProp = ansPlus();
                         }
-                        else {
+                        else if (r == 3) {
                             if (this.a % np + this.b % np >= np) { //oubli de retenue
                                 falseProp = falseProp - np;
                             }
@@ -169,11 +169,11 @@ public class Operation {
                     falseProp = correctProp;
                     for (int p = 1; p <= Math.log10(nMax); p++) {
                         int np = (int) Math.pow(10, p);
-                        int r = this.random.nextInt(3);
+                        int r = this.random.nextInt(4);
                         if (r == 0) {
                             falseProp = falseProp + np * (this.random.nextInt(3) + 1);
                         }
-                        else {
+                        else if (r == 1) {
                             falseProp = falseProp - np * (this.random.nextInt(3) + 1);
                         }
                     }

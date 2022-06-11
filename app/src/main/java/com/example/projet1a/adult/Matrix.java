@@ -57,6 +57,14 @@ public class Matrix {
         return n;
     }
 
+    public int getNMin() {
+        return nMin;
+    }
+
+    public int getNMax() {
+        return nMax;
+    }
+
     public int getNProps() { return nProps; }
 
     public Matrix getMatrix() {
