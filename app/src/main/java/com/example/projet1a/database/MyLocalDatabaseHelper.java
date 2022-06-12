@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
 import com.example.projet1a.profile.PlayerStatistics;
+import com.example.projet1a.profile.PlayerSuccess;
+import com.example.projet1a.profile.Success;
 
 public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
@@ -42,6 +44,13 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_GAMESTATS_COLUMN_ANSWERSINAROW = "_gameStatsCorrectInARow";
     private static final String TABLE_GAMESTATS_COLUMN_PLAYERID = "_gameStatsplayerId"; // primary key (2)
 
+    // table : success
+    private static final String TABLE_SUCCESS_NAME = "Success";
+    private static final String TABLE_SUCCESS_COLUMN_SUCCESSID = "_succesId"; // primary key (1)
+    private static final String TABLE_SUCCESS_COLUMN_SUCCESSTITLE = "_successTitle";
+    private static final String TABLE_SUCCESS_COLUMN_ACQUIRED = "_successAcquired";
+    private static final String TABLE_SUCCESS_COLUMN_PLAYERID = "_successPlayerId"; // primary key(2)
+
     private Context context;
 
     public MyLocalDatabaseHelper(@Nullable Context context) {
@@ -54,6 +63,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         this.createTablePlayer(db);
         this.createTablePlayerStats(db);
         this.createTableGameStats(db);
+        this.createTableSuccess(db);
     }
 
     private void createTablePlayer(SQLiteDatabase db){
@@ -87,11 +97,23 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(queryGameStats);
     }
 
+    private void createTableSuccess(SQLiteDatabase db){
+        String querySuccess =
+                "CREATE TABLE " + TABLE_SUCCESS_NAME
+                + " (" + TABLE_SUCCESS_COLUMN_SUCCESSID + " VARCHAR(256), "
+                + TABLE_SUCCESS_COLUMN_SUCCESSTITLE + " VARCHAR(256), "
+                + TABLE_SUCCESS_COLUMN_ACQUIRED + " BIT, "
+                + TABLE_SUCCESS_COLUMN_PLAYERID + " VARCHAR(256), "
+                + "PRIMARY KEY(" + TABLE_SUCCESS_COLUMN_SUCCESSID + ", " + TABLE_SUCCESS_COLUMN_PLAYERID + "));";
+        db.execSQL(querySuccess);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAYER_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAYER_STATS_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMESTATS_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUCCESS_NAME);
         onCreate(db);
     }
 
@@ -129,6 +151,21 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             cv.put(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW, gStat.getCorrectsInARow());
             cv.put(TABLE_GAMESTATS_COLUMN_PLAYERID, player.getID());
             db.insert(TABLE_GAMESTATS_NAME, null, cv);
+        }
+
+        // success
+        PlayerSuccess success = player.getSuccess();
+        if(success == null) return;
+        ArrayMap<String, Success> allSuccess = success.getAllSuccess();
+        for(int i = 0; i < allSuccess.size(); i++){
+            cv = new ContentValues();
+            Success succ = allSuccess.valueAt(i);
+            cv.put(TABLE_SUCCESS_COLUMN_SUCCESSID, succ.getId());
+            cv.put(TABLE_SUCCESS_COLUMN_SUCCESSTITLE, succ.getTitle());
+            if(succ.isAcquired()) cv.put(TABLE_SUCCESS_COLUMN_ACQUIRED, 1);
+            else cv.put(TABLE_SUCCESS_COLUMN_ACQUIRED, 0);
+            cv.put(TABLE_SUCCESS_COLUMN_PLAYERID, player.getID());
+            db.insert(TABLE_SUCCESS_NAME, null, cv);
         }
     }
 
@@ -170,13 +207,31 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             int totalCorrectIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_TOTALCORRECT);
             int inARowIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW);
 
-
             String gameId = cursorGameStats.getString(gameIdIndex);
             int totalAnswered = cursorGameStats.getInt(totalAnsweredIndex);
             int totalCorrect = cursorGameStats.getInt(totalCorrectIndex);
             int inARow = cursorGameStats.getInt(inARowIndex);
 
             player.getStats().addGameStats(new GameStats(gameId, totalCorrect, totalAnswered, inARow));
+        }
+
+        // success
+        player.getSuccess().resetSuccess(); // important
+        String querySuccess = "SELECT * FROM " + TABLE_SUCCESS_NAME;
+        Cursor cursorSuccess = db.rawQuery(querySuccess, null);
+        while(cursorSuccess.moveToNext()){
+            int succIdIndex = cursorSuccess.getColumnIndex(TABLE_SUCCESS_COLUMN_SUCCESSID);
+            int succTitleIndex = cursorSuccess.getColumnIndex(TABLE_SUCCESS_COLUMN_SUCCESSTITLE);
+            int acquiredIndex = cursorSuccess.getColumnIndex(TABLE_SUCCESS_COLUMN_ACQUIRED);
+
+            String successId = cursorSuccess.getString(succIdIndex);
+            String successTitle = cursorSuccess.getString(succTitleIndex);
+            int acquired = cursorSuccess.getInt(acquiredIndex);
+            boolean successAcquired = false;
+            if(acquired == 1) successAcquired = true;
+
+            player.getSuccess().addSuccess(new Success(successId, successTitle));
+            if(successAcquired) player.getSuccess().getSuccessById(successId).acquire();
         }
 
         return player;
@@ -219,6 +274,23 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
             db.insert(TABLE_GAMESTATS_NAME, null, cv);
 
+        }
+
+        // success
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUCCESS_NAME);
+        this.createTableSuccess(db);
+        ArrayMap<String, Success> success = player.getSuccess().getAllSuccess();
+        if(success == null) return;
+        for(int i = 0; i < success.size(); i++){
+            Success succ = success.valueAt(i);
+            cv = new ContentValues();
+            cv.put(TABLE_SUCCESS_COLUMN_SUCCESSID, succ.getId());
+            cv.put(TABLE_SUCCESS_COLUMN_SUCCESSTITLE, succ.getTitle());
+            if(succ.isAcquired()) cv.put(TABLE_SUCCESS_COLUMN_ACQUIRED, 1);
+            else cv.put(TABLE_SUCCESS_COLUMN_ACQUIRED, 0);
+            cv.put(TABLE_SUCCESS_COLUMN_PLAYERID, player.getID());
+
+            db.insert(TABLE_SUCCESS_NAME, null, cv);
         }
     }
 

@@ -11,12 +11,14 @@ public class PlayerProfile {
     private String nickname;
     private int age;
     private PlayerLevel level;
+    private PlayerSuccess success;
     private final PlayerStatistics stats;
 
     public PlayerProfile(){
         this.generateID();
         this.level = new PlayerLevel();
         this.stats = new PlayerStatistics(0, 0);
+        this.success = new PlayerSuccess();
     }
 
     public void setId(String id){
@@ -34,6 +36,10 @@ public class PlayerProfile {
     private void generateID() {
         // generate random unique ID
         this.id = UUID.randomUUID().toString();
+    }
+
+    public PlayerSuccess getSuccess(){
+        return this.success;
     }
 
     public String getID(){
