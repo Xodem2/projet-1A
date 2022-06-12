@@ -98,7 +98,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
     }
 
     public void update(boolean correct){

@@ -156,27 +156,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else if (this.correct == 1){
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
@@ -189,27 +189,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else{
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(somme.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(somme.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(somme.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(somme.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
@@ -251,27 +251,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else if (this.correct == 1){
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
@@ -284,27 +284,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else{
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(diff.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(diff.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(diff.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(diff.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
@@ -346,27 +346,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else if (this.correct == 1){
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
@@ -379,27 +379,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else{
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(prod.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(prod.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(prod.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(prod.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
@@ -523,27 +523,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else if (this.correct == 1){
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
@@ -556,27 +556,27 @@ public class MatricesActivity extends GameMaster {
 
 //                Choix 3
                 this.pg5.setText("(");
-                this.c3_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c3_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c3_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c3_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c3_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c3_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c3_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c3_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd5.setText(")");
             }
             else{
 //                Choix 1
                 this.pg3.setText("(");
-                this.c1_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c1_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c1_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c1_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c1_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c1_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c1_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c1_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd3.setText(")");
 
 //                Choix 2
                 this.pg4.setText("(");
-                this.c2_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(10)));
-                this.c2_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(10)));
-                this.c2_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(10)));
-                this.c2_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(10)));
+                this.c2_11.setText(String.valueOf(trans.get(0, 0)+this.random.nextInt(20)-10));
+                this.c2_12.setText(String.valueOf(trans.get(0, 1)+this.random.nextInt(20)-10));
+                this.c2_21.setText(String.valueOf(trans.get(1, 0)+this.random.nextInt(20)-10));
+                this.c2_22.setText(String.valueOf(trans.get(1, 1)+this.random.nextInt(20)-10));
                 this.pd4.setText(")");
 
 //                Choix 3

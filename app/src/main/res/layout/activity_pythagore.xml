@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PythagoreActivity">
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/game_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar8"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:progress="100"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar9"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar9"
+        app:layout_constraintStart_toStartOf="@+id/progressBar9"
+        app:layout_constraintTop_toTopOf="@+id/progressBar9" />
+
+    <ProgressBar
+        android:id="@+id/progressBar9"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:progress="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar10"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:progress="100"
+        android:rotation="37"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar8"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar9"
+        app:layout_constraintStart_toStartOf="@+id/progressBar9"
+        app:layout_constraintTop_toTopOf="@+id/progressBar8" />
+
+    <TextView
+        android:id="@+id/cote1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar8"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar10"
+        app:layout_constraintTop_toTopOf="@+id/progressBar8" />
+
+    <TextView
+        android:id="@+id/cote2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar9"
+        app:layout_constraintStart_toStartOf="@+id/progressBar9"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar9" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar10"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar9"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="@+id/progressBar9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
