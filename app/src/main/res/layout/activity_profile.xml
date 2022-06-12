@@ -28,6 +28,78 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/profilePageSpScoreId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="score solo :"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageSpScoreFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="40dp"
+        android:text="points solo"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageMpScoreFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="104dp"
+        android:text="points multi"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageTotalScoreFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="184dp"
+        android:text="points totaux"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageMpScoreId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="score multijoueur :"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId" />
+
+    <TextView
+        android:id="@+id/profilePageTotalScoreId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:text="score total :"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageMpScoreId" />
+
+    <TextView
         android:id="@+id/profilePageAgeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,6 +171,19 @@
         android:text="Mettre à jour"
         android:textColor="#FFFFFF"
         android:backgroundTint="@android:color/holo_purple"
+        android:textColorHighlight="#673AB7"
+        app:iconTint="#6D3CC3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePagePlayerIdFillId" />
+
+    <Button
+        android:id="@+id/profilePageGameStatsButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="364dp"
+        android:backgroundTint="@android:color/holo_purple"
+        android:text="Stats de chaque jeu"
+        android:textColor="#FFFFFF"
         android:textColorHighlight="#673AB7"
         app:iconTint="#6D3CC3"
         app:layout_constraintStart_toStartOf="parent"
