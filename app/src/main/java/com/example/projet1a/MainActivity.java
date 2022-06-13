@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton adultButton;
     private ImageButton teenButton;
     private ImageButton childButton;
-    private ImageButton quitButton;
     private ImageButton profil;
     private VideoView videocar;
     MediaPlayer mMediaPlayer;
@@ -60,9 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.childButton = (ImageButton) findViewById(R.id.button_child);
         this.childButton.setOnClickListener(this);
-
-        this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
-        this.quitButton.setOnClickListener(this);
 
         this.profil = (ImageButton) findViewById(R.id.profil);
         this.profil.setOnClickListener(this);
@@ -122,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == this.adultButton.getId()) this.showAdultPage();
         else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
-        else if(v.getId() == this.quitButton.getId()) this.quitApp();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
         else if(v.getId() == this.multiplayerButton.getId()) this.showMultiplayerPage();
         //if(v.getId() == this.childButton.getId()){

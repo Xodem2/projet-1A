@@ -6,19 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MultiplayerActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private Button joinMultiplayer;
-    private Button createMultiplayer;
+    private ImageButton joinMultiplayer;
+    private ImageButton createMultiplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multijoueur);
-        this.joinMultiplayer = (Button) findViewById(R.id.button_join_session);
+        this.joinMultiplayer = (ImageButton) findViewById(R.id.button_join_session);
         this.joinMultiplayer.setOnClickListener(this);
-        this.createMultiplayer = (Button)  findViewById(R.id.button_create_session);
+        this.createMultiplayer = (ImageButton)  findViewById(R.id.button_create_session);
         this.createMultiplayer.setOnClickListener(this);
     }
 
