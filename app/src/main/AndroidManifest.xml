@@ -87,6 +87,14 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".MultiplayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
