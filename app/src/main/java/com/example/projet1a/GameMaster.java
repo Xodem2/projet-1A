@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet1a.database.DataBase;
 import com.example.projet1a.point.Point;
 import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
@@ -30,11 +31,16 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
     private String id;
 
+    DataBase db;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.player = DataProvider.getInstance().getPlayer();
         this.pb = findViewById(R.id.progressBarToday);
+
+        this.db = new DataBase();
 
         // for eg: if countdown is to go for 30 seconds
         this.pb.setMax(500);
@@ -131,6 +137,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         else this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
         this.player.getLevel().update(this.player.getStats().getTotalScore());
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
+        this.db.update_score(this.player.getStats().getTotalScore(), "total");
     }
 
     public void setProp(@NonNull String[] prop){
