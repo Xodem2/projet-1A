@@ -26,7 +26,7 @@ public class SuccessActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.successPageRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        CustomAdapter customAdapter = new CustomAdapter(successId);
+        CustomSuccessAdapter customAdapter = new CustomSuccessAdapter(successId);
         recyclerView.setAdapter(customAdapter);
     }
 }

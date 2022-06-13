@@ -8,10 +8,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projet1a.profile.PlayerSuccess;
 import com.example.projet1a.profile.Success;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CustomSuccessAdapter extends RecyclerView.Adapter<CustomSuccessAdapter.ViewHolder> {
 
     private String[] localDataSet;
 
@@ -40,7 +39,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CustomAdapter(String[] dataSet) {
+    public CustomSuccessAdapter(String[] dataSet) {
         localDataSet = dataSet;
     }
 
