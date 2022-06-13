@@ -12,9 +12,12 @@ import android.widget.TextView;
 
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 public class MultActivity extends GameMaster{
     Operation op;
+
+    PlayerProfile player;
 
     int[] prop;
     public final static String id="MultActivity";
@@ -24,6 +27,8 @@ public class MultActivity extends GameMaster{
         setContentView(R.layout.activity_mult);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         ((TextView) findViewById(R.id.prop1_mult)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_mult)).setText(String.valueOf(""));
@@ -55,5 +60,14 @@ public class MultActivity extends GameMaster{
             super.update(op.mult(this.prop[2]));
         }
         this.generate();
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcmult").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcmult").acquire();
+        }
     }
 }

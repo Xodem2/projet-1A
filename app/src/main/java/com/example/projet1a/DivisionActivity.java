@@ -12,11 +12,14 @@ import android.widget.TextView;
 
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 public class DivisionActivity extends GameMaster {
     Operation op;
 
     public final static String id="DivisionActivity";
+
+    private PlayerProfile player;
 
     int[] prop;
 
@@ -26,6 +29,9 @@ public class DivisionActivity extends GameMaster {
         super.onCreate(savedInstanceState);
         super.setId(this.id);
         this.op = new Operation();
+
+        this.player = DataProvider.getInstance().getPlayer();
+
         ((TextView) findViewById(R.id.prop1_div)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_div)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop3_div)).setText(String.valueOf(""));
@@ -53,5 +59,14 @@ public class DivisionActivity extends GameMaster {
             super.update(op.div(this.prop[2]));
         }
         this.generate();
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcdiv").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcdiv").acquire();
+        }
     }
 }
