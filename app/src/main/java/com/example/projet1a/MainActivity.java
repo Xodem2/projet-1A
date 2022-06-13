@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton adultButton;
     private ImageButton teenButton;
     private ImageButton childButton;
-    private Button quitButton;
-    private Button profil;
+    private ImageButton quitButton;
+    private ImageButton profil;
     private VideoView videocar;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.childButton = (ImageButton) findViewById(R.id.button_child);
         this.childButton.setOnClickListener(this);
 
-        this.quitButton = (Button) findViewById(R.id.quitButtonId);
+        this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
         this.quitButton.setOnClickListener(this);
 
-        this.profil = (Button) findViewById(R.id.profil);
+        this.profil = (ImageButton) findViewById(R.id.profil);
         this.profil.setOnClickListener(this);
 
         // video adding main page
