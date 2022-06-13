@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class PythagoreActivity extends GameMaster {
 
-    private final static String id="PythagoreActivity";
+    public final static String id="PythagoreActivity";
     private Pythagore pythagore;
     private TextView cote1;
     private TextView cote2;
