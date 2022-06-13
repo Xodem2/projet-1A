@@ -28,7 +28,7 @@ public class PlayerLevel {
     }
 
     public void update(int score){
-        this.currentXp = score;
+        if(score > this.currentXp) this.currentXp = score;
         if(this.currentXp > this.neededXp) {
             this.increaseLevel();
             this.neededXp = (int) INCREASE_RATE * this.neededXp;
