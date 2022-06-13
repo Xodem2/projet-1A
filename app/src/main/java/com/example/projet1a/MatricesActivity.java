@@ -310,6 +310,13 @@ public class MatricesActivity extends GameMaster {
 //            transpose
             ArrayList<Matrix> prop = this.m.getM2().propTrans();
             this.correct = this.m.getCorrect();
+            this.pg1.setText("");
+            this.m1_11.setText("");
+            this.m1_12.setText("");
+            this.m1_21.setText("");
+            this.m1_22.setText("");
+            this.pd1.setText("");
+
             ((TextView) findViewById(R.id.operation)).setText("transpose");
 
             this.pg2.setText("(");
