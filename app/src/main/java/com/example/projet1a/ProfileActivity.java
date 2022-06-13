@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.projet1a.database.DataBase;
 import com.example.projet1a.profile.PlayerLevel;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -60,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.player.setNickname(this.nickname.getText().toString());
         this.player.setAge(Integer.parseInt(this.age.getText().toString()));
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
+        (new DataBase()).update_player(this.nickname.getText().toString());
     }
 
     private void showPlayerInfo(){

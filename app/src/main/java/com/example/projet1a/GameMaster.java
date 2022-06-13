@@ -50,21 +50,15 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.pb.setProgress(500);
 
         this.currentProgress = new int[1];
-        this.currentProgress[0] = 500;
+        this.currentProgress[0] = this.pb.getProgress();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 currentProgress[0] -= 1;
                 pb.setProgress(currentProgress[0]);
-                if(currentProgress[0] != 0){
-                    new Handler().postDelayed(this, 10);
-                }
-                else{
-                    currentProgress[0] = pb.getProgress();
-                    new Handler().postDelayed(this, 10);
-                }
+                new Handler().postDelayed(this, 10);
             }
-        }, 1000);
+        }, 0);
 
         this.choix1Button = (Button) findViewById(R.id.choice1ID);
         this.choix1Button.setOnClickListener(this);
