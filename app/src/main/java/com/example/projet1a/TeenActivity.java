@@ -14,6 +14,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton FractionButton;
     private ImageButton Equation1Button;
     private Button Equation2Button;
+    private Button pythagoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.Equation1Button.setOnClickListener(this);
         this.Equation2Button = (Button)  findViewById(R.id.button_Equation2);
         this.Equation2Button.setOnClickListener(this);
+        this.pythagoreButton = (Button)  findViewById(R.id.pythagore);
+        this.pythagoreButton.setOnClickListener(this);
     }
 
 @Override
@@ -32,6 +35,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         if (v.getId() == this.FractionButton.getId()) this.showFractionPage();
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
+        else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
 }
 
     private void showFractionPage(){
@@ -47,5 +51,10 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private void showEquation2Page(){
         Intent equation2ActivityIntent = new Intent(this, Equation2Activity.class);
         startActivity(equation2ActivityIntent);
+    }
+
+    private void showPythagorePage(){
+        Intent pythagoreActivityIntent = new Intent(this, PythagoreActivity.class);
+        startActivity(pythagoreActivityIntent);
     }
 }

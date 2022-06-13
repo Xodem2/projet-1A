@@ -13,7 +13,7 @@ public class Pythagore {
         do {
             this.a = randomNumber();
             this.b = randomNumber();
-        } while((solvePythagore() != (int)solvePythagore()) || (this.a == 0) || (this.b == 0));
+        } while((solvePythagore()%1 != 0) || (this.a == 0) || (this.b == 0));
     }
 
     public double solvePythagore() {
@@ -30,16 +30,16 @@ public class Pythagore {
     public int getA(){
         return a;
     }
+
     public int getB(){
         return b;
     }
+
     public double getC(){
         return c;
     }
+
     public boolean getSmaller(){
-        if( this.a < this.b){
-            return true;
-        }
-        return false;
+        return this.a<this.b;
     }
 }

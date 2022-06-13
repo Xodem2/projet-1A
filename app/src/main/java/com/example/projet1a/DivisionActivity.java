@@ -24,6 +24,7 @@ public class DivisionActivity extends GameMaster {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_division);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
         this.op = new Operation();
         ((TextView) findViewById(R.id.prop1_div)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_div)).setText(String.valueOf(""));
@@ -32,7 +33,6 @@ public class DivisionActivity extends GameMaster {
     }
 
     public void generate(){
-        super.setId(this.id);
         super.generate();
         this.op.generate_div();
         ((TextView) findViewById(R.id.op1_div)).setText(String.valueOf(this.op.getA()));

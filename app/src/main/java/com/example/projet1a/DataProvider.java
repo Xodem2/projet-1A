@@ -1,5 +1,6 @@
 package com.example.projet1a;
 
+import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
 
@@ -11,6 +12,7 @@ https://stackoverflow.com/questions/36548479/updating-a-parcelable-object-that-w
 public class DataProvider {
 
     private PlayerProfile player;
+    private MyLocalDatabaseHelper myLocalDatabase;
 
     private static DataProvider ourInstance = new DataProvider();
 
@@ -28,6 +30,14 @@ public class DataProvider {
 
     public PlayerProfile getPlayer(){
         return this.player;
+    }
+
+    public void setMyLocalDatabase(MyLocalDatabaseHelper db){
+        this.myLocalDatabase = db;
+    }
+
+    public MyLocalDatabaseHelper getMyLocalDatabase(){
+        return this.myLocalDatabase;
     }
 
 }

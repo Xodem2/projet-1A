@@ -46,12 +46,20 @@ public class PlayerStatistics {
         return this.totalScore;
     }
 
+    public ArrayMap<String, GameStats> getGameStats(){
+        return this.gStats;
+    }
+
     public GameStats getGameStatsById(String id){
         return this.gStats.get(id);
     }
 
     public void addGameStats(String id){
         this.gStats.put(id, new GameStats(id));
+    }
+
+    public void addGameStats(GameStats gStats){
+        this.gStats.put(gStats.getId(), gStats);
     }
 
     public PlayerLevel getLevel(){

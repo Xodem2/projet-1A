@@ -24,6 +24,7 @@ public class MoinsActivity extends GameMaster{
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_moins);this.pb = findViewById(R.id.progressBarToday);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         ((TextView) findViewById(R.id.prop1_moins)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_moins)).setText(String.valueOf(""));
@@ -32,8 +33,8 @@ public class MoinsActivity extends GameMaster{
         this.op = new Operation();
         generate();
     }
+
     public void generate(){
-        super.setId(this.id);
         super.generate();
         this.op.generate();
         ((TextView) findViewById(R.id.op1_moins)).setText(String.valueOf(this.op.getA()));

@@ -1,5 +1,7 @@
 package com.example.projet1a.list;
 
+import com.example.projet1a.adult.Matrix;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -66,4 +68,5 @@ public class ListNumbers {
         }
         return retour;
     }
+
 }

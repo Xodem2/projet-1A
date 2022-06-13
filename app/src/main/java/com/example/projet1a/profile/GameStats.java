@@ -14,6 +14,17 @@ public class GameStats {
         this.correctsInARow = 0;
     }
 
+    public GameStats(String gameId, int totalCorrects, int totalAnswered, int correctsInARow){
+        this(gameId);
+        this.totalCorrects = totalCorrects;
+        this.totalAnswered = totalAnswered;
+        this.correctsInARow = correctsInARow;
+    }
+
+    public String getId(){
+        return this.gameId;
+    }
+
     public void incrTotalCorrects(){
         this.totalCorrects++;
     }

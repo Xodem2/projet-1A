@@ -2,10 +2,12 @@ package com.example.projet1a;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.projet1a.adult.VectorQuestion;
+import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.ArrayList;
@@ -38,6 +40,7 @@ public class VectorActivity extends GameMaster {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_vector);
         super.onCreate(savedInstanceState);
+        super.setId(this.id);
 
         this.vector1TW = (TextView) findViewById(R.id.vector1ID);
         this.vector2TW = (TextView) findViewById(R.id.vector2ID2);
@@ -73,7 +76,6 @@ public class VectorActivity extends GameMaster {
 
     @Override
     public void generate(){
-        super.setId(this.id);
         super.generate();
         int operation = this.chooseRandomQuestion();
 
