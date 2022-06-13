@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/phonebackground_cropped"
+    android:background="@drawable/background_profil"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -58,20 +58,6 @@
         android:background="@null"
         app:srcCompat="@drawable/icone_pythagore"/>
 
-    <TextView
-        android:id="@+id/title_Mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:text="CHOISI TON MODE DE JEU"
-
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button_Equation1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow4"
         android:layout_width="wrap_content"
@@ -93,4 +79,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icone_thales" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="303dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_choose" />
 </androidx.constraintlayout.widget.ConstraintLayout>
