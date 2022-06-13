@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Projet1A"
         tools:targetApi="31">
         <activity
+            android:name=".SuccessActivity"
+            android:exported="false" />
+        <activity
             android:name=".MemorisationActivity"
             android:exported="false" />
         <activity
@@ -61,6 +64,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

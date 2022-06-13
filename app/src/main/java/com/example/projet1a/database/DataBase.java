@@ -15,18 +15,20 @@ import java.util.concurrent.atomic.AtomicMarkableReference;
 public class DataBase {
 
     private DataProvider profil;
-    FirebaseAuth firebaseAuth;
     FirebaseDatabase database;
     DatabaseReference reference_player;
 
+    public static boolean test_id(String id){
+        return FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("userdata").child(id) == null;
+    }
+
     public DataBase(){
         this.profil = DataProvider.getInstance();
-        this.firebaseAuth = FirebaseAuth.getInstance();
         this.database = FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/");
         this.reference_player = database.getReference("userdata").child(this.profil.getPlayer().getID());
     }
 
-    public void update_score(int score, String activity){
+    public void update_player(int score, String activity){
         reference_player.child(activity).setValue(score);
     }
 

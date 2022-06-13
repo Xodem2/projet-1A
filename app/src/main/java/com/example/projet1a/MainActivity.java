@@ -11,16 +11,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
+import com.example.projet1a.database.DataBase;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private PlayerProfile player;
+    private ImageButton resultsButton;
     private ImageButton adultButton;
     private ImageButton teenButton;
     private ImageButton childButton;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         MyLocalDatabaseHelper myDatabase = new MyLocalDatabaseHelper(this);
         myDatabase.getWritableDatabase();
         DataProvider.getInstance().setMyLocalDatabase(myDatabase);
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             myDatabase.addPlayer(this.player);
         }
         DataProvider.getInstance().setPlayer(this.player);
+
+        this.resultsButton = (ImageButton) findViewById(R.id.results);
+        this.resultsButton.setOnClickListener(this);
 
         this.adultButton = (ImageButton) findViewById(R.id.button_adult);
         this.adultButton.setOnClickListener(this);
@@ -82,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+        if (DataBase.test_id(this.player.getID())) {
+            (new DataBase()).update_player(0, "total");
+        }
     }
 
 
@@ -116,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
+        else if(v.getId() == this.resultsButton.getId()) this.showResultsPage();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
     }
@@ -145,6 +154,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(profileActivityIntent);
     }
 
+    private void showResultsPage() {
+        Intent resultsActivityIntent = new Intent(this, ResultsActivity.class);
+        startActivity(resultsActivityIntent);
+    }
+
     private void showTeenPage() {
         Intent vectorActivityIntent = new Intent(this, TeenActivity.class);
         startActivity(vectorActivityIntent);
@@ -162,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId() == R.id.activity_main) startActivity((new Intent(this, MainActivity.class)));
+        else if(item.getItemId() == R.id.results) startActivity((new Intent(this, ResultsActivity.class)));
         else if(item.getItemId() == R.id.activity_profile) startActivity((new Intent(this, ProfileActivity.class)));
         else if(item.getItemId() == R.id.profile_layout) startActivity((new Intent(this, ProfileActivity.class)));
         return super.onOptionsItemSelected(item);

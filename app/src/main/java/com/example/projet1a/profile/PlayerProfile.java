@@ -3,6 +3,8 @@ package com.example.projet1a.profile;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.projet1a.database.DataBase;
+
 import java.util.UUID;
 
 public class PlayerProfile {
@@ -35,7 +37,9 @@ public class PlayerProfile {
 
     private void generateID() {
         // generate random unique ID
-        this.id = UUID.randomUUID().toString();
+        do {
+            this.id = UUID.randomUUID().toString();
+        } while (DataBase.test_id(this.id));
     }
 
     public PlayerLevel getLevel(){
