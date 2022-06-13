@@ -12,11 +12,14 @@ import android.widget.TextView;
 
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 public class MoinsActivity extends GameMaster{
     Operation op;
 
     public final static String id="MoinsActivity";
+
+    private PlayerProfile player;
 
     int[] prop;
 
@@ -25,6 +28,8 @@ public class MoinsActivity extends GameMaster{
         setContentView(R.layout.activity_moins);this.pb = findViewById(R.id.progressBarToday);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         ((TextView) findViewById(R.id.prop1_moins)).setText(String.valueOf(""));
         ((TextView) findViewById(R.id.prop2_moins)).setText(String.valueOf(""));
@@ -55,5 +60,14 @@ public class MoinsActivity extends GameMaster{
             super.update(op.minus(this.prop[2]));
         }
         this.generate();
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcdiff").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcdiff").acquire();
+        }
     }
 }

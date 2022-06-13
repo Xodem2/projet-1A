@@ -102,6 +102,15 @@ public class VectorActivity extends GameMaster {
         super.setProp(prop);
     }
 
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcvect").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcvect").acquire();
+        }
+    }
+
     private void doAddition(){
         this.vq.addition();
         this.answer = this.vq.getResult();

@@ -3,6 +3,8 @@ package com.example.projet1a;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.ArrayMap;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -15,6 +17,7 @@ import com.example.projet1a.database.DataBase;
 import com.example.projet1a.point.Point;
 import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
+import com.example.projet1a.profile.PlayerSuccess;
 
 public class GameMaster extends AppCompatActivity implements View.OnClickListener {
 
@@ -130,8 +133,21 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         if (correct) this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
         else this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
         this.player.getLevel().update(this.player.getStats().getTotalScore());
+
+        this.checkSuccess();
+
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
         this.db.update_player(this.player.getStats().getTotalScore(), "total");
+    }
+
+    public void checkSuccess(){
+        if(!player.getSuccess().getSuccessById("o10rcda").isAcquired()) {
+            ArrayMap<String, GameStats> gameStats = this.player.getStats().getGameStats();
+            for (int i = 0; i < gameStats.size(); i++) {
+                if (gameStats.valueAt(i).getCorrectsInARow() >= 10)
+                    this.player.getSuccess().getSuccessById("o10rcda").acquire();
+            }
+        }
     }
 
     public void setProp(@NonNull String[] prop){
