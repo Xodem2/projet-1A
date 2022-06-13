@@ -11,10 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
+import com.example.projet1a.database.DataBase;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         MyLocalDatabaseHelper myDatabase = new MyLocalDatabaseHelper(this);
         myDatabase.getWritableDatabase();
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+        if (DataBase.test_id(this.player.getID())) {
+            (new DataBase()).update_player(0, "total");
+        }
     }
 
 
