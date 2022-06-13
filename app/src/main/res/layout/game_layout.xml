@@ -94,4 +94,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/Score"
         app:layout_constraintStart_toEndOf="@+id/Score" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="102dp"
+        android:layout_height="105dp"
+        app:srcCompat="@drawable/indice"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="63dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
