@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton profil;
     private VideoView videocar;
     private Animation animation_adultButton;
+    private Animation animation_teenButton;
+    private Animation animation_childButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.adultButton.setOnClickListener(this);
 
         this.teenButton = (ImageButton) findViewById(R.id.button_teen);
+        animation_teenButton = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
         this.teenButton.setOnClickListener(this);
 
         this.childButton = (ImageButton) findViewById(R.id.button_child);
@@ -122,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v.getId() == this.adultButton.getId()){ this.showAdultPage();
             adultButton.startAnimation(animation_adultButton);}
-        else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
+        else if(v.getId() == this.teenButton.getId()) { this.showTeenPage();
+            teenButton.startAnimation(animation_teenButton);}
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
         else if(v.getId() == this.multiplayerButton.getId()) this.showMultiplayerPage();
