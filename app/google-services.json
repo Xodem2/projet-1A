@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1067849556705",
+    "project_id": "einstein-6af82",
+    "storage_bucket": "einstein-6af82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067849556705:android:2e1f09f15888d4702ccda0",
+        "android_client_info": {
+          "package_name": "com.example.projet1a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067849556705-6g6gcc13341jqhtrs0a76bspv4mkdbue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi84Ov5STcQI7bzC6E4ElEkMdHCXIXHfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067849556705-6g6gcc13341jqhtrs0a76bspv4mkdbue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,8 +8,16 @@ public class MatrixOperation {
     private Random random = new Random();
     private Matrix M1;
     private Matrix M2;
+    private int correct;
+
     public MatrixOperation() {
         int dim = random.nextInt(2)+2;
+        M1 = new Matrix(dim, dim);
+        M2 = new Matrix(dim, dim);
+        this.generate();
+    }
+
+    public MatrixOperation(int dim) {
         M1 = new Matrix(dim, dim);
         M2 = new Matrix(dim, dim);
         this.generate();
@@ -20,12 +28,18 @@ public class MatrixOperation {
         this.M2.generate();
     }
 
+    public int getCorrect() {
+        return correct;
+    }
+
     public Matrix getM1() {
         return this.M1;
     }
+
     public Matrix getM2() {
         return this.M2;
     }
+
     public int getNProps() { return this.nProps; }
 
     public Matrix ansSum() {
@@ -56,6 +70,7 @@ public class MatrixOperation {
         ArrayList<Matrix> choices = new ArrayList<>();
         Matrix correctProp = ansSum().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
+        this.correct = correctPropPos;
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
                 choices.add(correctProp.getMatrix());
@@ -86,6 +101,7 @@ public class MatrixOperation {
         ArrayList<Matrix> choices = new ArrayList<>();
         Matrix correctProp = ansMinus().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
+        this.correct = correctPropPos;
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
                 choices.add(correctProp.getMatrix());
@@ -116,6 +132,7 @@ public class MatrixOperation {
         ArrayList<Matrix> choices = new ArrayList<>();
         Matrix correctProp = ansProd().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
+        this.correct = correctPropPos;
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
                 choices.add(correctProp.getMatrix());
