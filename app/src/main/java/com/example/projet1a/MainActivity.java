@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.childButton = (ImageButton) findViewById(R.id.button_child);
         this.childButton.setOnClickListener(this);
 
-        this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
-        this.quitButton.setOnClickListener(this);
+       // this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
+      //  this.quitButton.setOnClickListener(this);
 
         this.profil = (ImageButton) findViewById(R.id.profil);
         this.profil.setOnClickListener(this);
