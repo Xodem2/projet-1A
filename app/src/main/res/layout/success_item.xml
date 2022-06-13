@@ -8,19 +8,29 @@
     app:cardElevation="5dp"
     app:contentPadding="10dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/trophy_1" />
 
         <TextView
             android:id="@+id/successItemTextFillId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="success title"
+            android:textAlignment="center"
             android:textSize="20dp" />
 
-
-
     </LinearLayout>
+
+
 </androidx.cardview.widget.CardView>

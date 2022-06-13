@@ -1,5 +1,6 @@
 package com.example.projet1a;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Success success = DataProvider.getInstance().getPlayer().getSuccess().getSuccessById(localDataSet[position]);
+        if(success.isAcquired()) viewHolder.getTextView().setTextColor(Color.parseColor("#00ff00"));
+        else viewHolder.getTextView().setTextColor(Color.parseColor("#ff0000"));
         viewHolder.getTextView().setText(success.getTitle());
     }
 
