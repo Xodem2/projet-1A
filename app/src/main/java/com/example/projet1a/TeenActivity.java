@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.projet1a.ado_games.Thales;
+
 public class TeenActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private ImageButton FractionButton;
     private ImageButton Equation1Button;
     private Button Equation2Button;
     private Button pythagoreButton;
+    private Button thalesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.Equation2Button.setOnClickListener(this);
         this.pythagoreButton = (Button)  findViewById(R.id.pythagore);
         this.pythagoreButton.setOnClickListener(this);
+        this.thalesButton = (Button)  findViewById(R.id.button_thales);
+        this.thalesButton.setOnClickListener(this);
     }
 
 @Override
@@ -36,6 +41,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
         else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
+        else if(v.getId() == this.thalesButton.getId()) this.showThalesPage();
 }
 
     private void showFractionPage(){
@@ -56,5 +62,10 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private void showPythagorePage(){
         Intent pythagoreActivityIntent = new Intent(this, PythagoreActivity.class);
         startActivity(pythagoreActivityIntent);
+    }
+
+    private void showThalesPage(){
+        Intent thalesActivityIntent = new Intent(this, ThalesActivity.class);
+        startActivity(thalesActivityIntent);
     }
 }

@@ -7,7 +7,7 @@ public class Pythagore {
     private int a;
     private int b;
     private double c;
-    private static final int MAXIMUM_RANDOM = 10;
+    private static final int MAXIMUM_RANDOM = 100;
 
     public Pythagore(){
         do {

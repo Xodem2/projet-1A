@@ -28,6 +28,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
         app:srcCompat="@drawable/button_quit" />
 
     <ImageButton
@@ -41,6 +42,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
         app:srcCompat="@drawable/button_profil" />
 
     <ImageButton
@@ -56,6 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
         app:srcCompat="@drawable/button_easy" />
 
     <ImageButton
@@ -71,6 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
         app:srcCompat="@drawable/button_medium" />
 
     <ImageButton
@@ -86,6 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
         app:srcCompat="@drawable/button_hard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

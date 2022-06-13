@@ -49,13 +49,13 @@
         android:id="@+id/profilePageUpdateButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="484dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Mettre à jour"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#B73A5D"
         app:iconTint="#6D3CC3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePagePlayerIdFillId" />
 
@@ -63,14 +63,14 @@
         android:id="@+id/profilePageGameStatsButtonId"
         android:layout_width="0dp"
         android:layout_height="51dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="@color/dark_blue"
         android:text="Stats de chaque jeu"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#673AB7"
         app:iconTint="#6D3CC3"
-        app:layout_constraintBottom_toTopOf="@+id/profilePageUpdateButtonId"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
