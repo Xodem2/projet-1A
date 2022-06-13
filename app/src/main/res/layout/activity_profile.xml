@@ -224,7 +224,7 @@
         android:layout_marginTop="12dp"
         android:text="score solo"
         android:textColor="#03A9F4"
-        android:textSize="26"
+        android:textSize="26dp"
         app:layout_constraintStart_toEndOf="@+id/profilePageSpScoreFillId"
         app:layout_constraintTop_toBottomOf="@+id/profilePageGlobalStatId" />
 
