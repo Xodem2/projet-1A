@@ -7,15 +7,16 @@
     tools:context=".MainActivity">
 
 
-
     <VideoView
         android:id="@+id/videocar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/quitButtonId"
@@ -25,10 +26,10 @@
 
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@null"
         app:srcCompat="@drawable/button_quit" />
 
     <ImageButton
@@ -39,20 +40,7 @@
         android:layout_marginEnd="10dp"
 
         android:layout_marginBottom="644dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@null"
-        app:srcCompat="@drawable/button_profil" />
-
-    <ImageButton
-        android:id="@+id/results"
-        style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="179dp"
-        android:layout_height="71dp"
-        android:layout_marginEnd="8dp"
-
-        android:layout_marginBottom="572dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,12 +54,12 @@
         android:layout_marginStart="146dp"
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="192dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@null"
         app:srcCompat="@drawable/button_easy" />
 
     <ImageButton
@@ -82,12 +70,12 @@
         android:layout_marginStart="146dp"
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="300dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@null"
         app:srcCompat="@drawable/button_medium" />
 
     <ImageButton
@@ -98,30 +86,26 @@
         android:layout_marginStart="146dp"
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="404dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@null"
         app:srcCompat="@drawable/button_hard" />
 
 
     <ImageButton
         android:id="@+id/button_multiplayer"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="279dp"
-        android:layout_height="113dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="288dp"
+        android:layout_width="179dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@null"
-        android:rotation="-50"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil"
         app:srcCompat="@drawable/button_multiplayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

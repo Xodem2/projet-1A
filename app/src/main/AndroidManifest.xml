@@ -67,6 +67,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".JoinActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
