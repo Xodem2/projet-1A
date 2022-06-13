@@ -27,6 +27,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView spScore;
     private TextView mpScore;
     private TextView totalScore;
+    private TextView level;
+    private TextView currentXp;
+    private TextView neededXp;
     private Button gameStatsButton;
 
     @Override
@@ -44,12 +47,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.mpScore = (TextView) findViewById(R.id.profilePageMpScoreFillId);
         this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.gameStatsButton = (Button) findViewById(R.id.profilePageGameStatsButtonId);
+        this.level = (TextView) findViewById(R.id.profilePageLevelFillId);
+        this.currentXp = (TextView) findViewById(R.id.profilePageCurrentXpFillId);
+        this.neededXp = (TextView) findViewById(R.id.profilePageNeededXpFillId);
 
         this.updateButton.setOnClickListener(this);
         this.gameStatsButton.setOnClickListener(this);
 
         this.showPlayerInfo();
         this.showPlayerStats();
+        this.showPlayerLevel();
     }
 
     @Override
@@ -57,6 +64,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onResume();
         this.showPlayerInfo();
         this.showPlayerStats();
+        this.showPlayerLevel();
     }
 
     @Override
@@ -87,6 +95,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.spScore.setText(String.valueOf(this.player.getStats().getSingleplayerScore()));
         this.mpScore.setText(String.valueOf(this.player.getStats().getMultiplayerScore()));
         this.totalScore.setText(String.valueOf(this.player.getStats().getTotalScore()));
+    }
+
+    private void showPlayerLevel(){
+        this.level.setText(String.valueOf(this.player.getLevel().getLevel()));
+        this.currentXp.setText(String.valueOf(this.player.getLevel().getCurrentXp()));
+        this.neededXp.setText(String.valueOf(this.player.getLevel().getNeededXp()));
+
+        Log.v("profileActivity", String.valueOf(this.player.getLevel().getCurrentXp()));
     }
 
 }

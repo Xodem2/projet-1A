@@ -76,6 +76,42 @@
         app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
 
     <TextView
+        android:id="@+id/profilePageLevelFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="248dp"
+        android:text="level fill"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageCurrentXpFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="304dp"
+        android:text="needed fill"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
+        android:id="@+id/profilePageNeededXpFillId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="344dp"
+        android:text="needed fill"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
+
+    <TextView
         android:id="@+id/profilePageMpScoreId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,6 +134,54 @@
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageMpScoreId" />
+
+    <TextView
+        android:id="@+id/profilePageLevelId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="niveau : "
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageTotalScoreId" />
+
+    <TextView
+        android:id="@+id/profilePageLevelId3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="niveau : "
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageTotalScoreId" />
+
+    <TextView
+        android:id="@+id/profilePageCurrentXpId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="88dp"
+        android:text="xp actuelle : "
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageTotalScoreId" />
+
+    <TextView
+        android:id="@+id/profilePageNeededXpId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="128dp"
+        android:text="xp nécessaire : "
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageTotalScoreId" />
 
     <TextView
         android:id="@+id/profilePageAgeId"
@@ -180,7 +264,7 @@
         android:id="@+id/profilePageGameStatsButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="364dp"
+        android:layout_marginTop="456dp"
         android:backgroundTint="@android:color/holo_purple"
         android:text="Stats de chaque jeu"
         android:textColor="#FFFFFF"
