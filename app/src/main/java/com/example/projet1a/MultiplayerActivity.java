@@ -25,14 +25,14 @@ public class MultiplayerActivity extends AppCompatActivity  implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        /*if (v.getId() == this.createMultiplayer.getId()) this.showCreatePage();*/
-        if(v.getId() == this.joinMultiplayer.getId()) this.showJoinPage();
+        if (v.getId() == this.createMultiplayer.getId()) this.showCreatePage();
+        else if(v.getId() == this.joinMultiplayer.getId()) this.showJoinPage();
     }
 
-    /*private void showCreatePage(){
-        Intent createActivityIntent = new Intent(this, .class);
-        startActivity(fractionActivityIntent);
-    }*/
+    private void showCreatePage(){
+        Intent createActivityIntent = new Intent(this, CreateActivity.class);
+        startActivity(createActivityIntent);
+    }
 
     private void showJoinPage(){
         Intent joinActivityIntent = new Intent(this, JoinActivity.class);
