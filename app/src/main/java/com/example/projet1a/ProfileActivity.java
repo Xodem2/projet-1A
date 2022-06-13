@@ -3,8 +3,6 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.example.projet1a.database.DataBase;
 import com.example.projet1a.profile.PlayerLevel;
@@ -33,9 +30,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView mpScore;
     private TextView totalScore;
     private ImageButton successButton;
-    private VideoView profileback;
-    MediaPlayer mMediaPlayer;
-    int mCurrentVideoPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,50 +51,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
-        // video adding main page
-
-        profileback = (VideoView) findViewById(R.id.profileback);
-        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.run;
-        Uri uri = Uri.parse(uriPath);
-        profileback.setVideoURI(uri);
-        profileback.start();
-        profileback.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mMediaPlayer = mediaPlayer;
-                // We want our video to play over and over so we set looping to true.
-                mMediaPlayer.setLooping(true);
-                // We then seek to the current posistion if it has been set and play the video.
-                if (mCurrentVideoPosition != 0) {
-                    mMediaPlayer.seekTo(mCurrentVideoPosition);
-                    mMediaPlayer.start();
-                }
-            }
-        });
-    }
-    @Override
-    protected void onPostResume() {
-        profileback.resume();
-        super.onPostResume();
     }
 
-    @Override
-    protected void onRestart() {
-        profileback.start();
-        super.onRestart();
-    }
-
-    @Override
-    protected void onPause() {
-        profileback.suspend();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        profileback.stopPlayback();
-        super.onDestroy();
-    }
     @Override
     public void onClick(View v) {
         if(v.getId() == this.updateButton.getId()) this.doUpdate();
