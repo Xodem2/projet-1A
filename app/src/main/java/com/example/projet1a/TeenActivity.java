@@ -15,9 +15,9 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
 
     private ImageButton FractionButton;
     private ImageButton Equation1Button;
-    private Button Equation2Button;
-    private Button pythagoreButton;
-    private Button thalesButton;
+    private ImageButton Equation2Button;
+    private ImageButton pythagoreButton;
+    private ImageButton thalesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,11 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.FractionButton.setOnClickListener(this);
         this.Equation1Button = (ImageButton)  findViewById(R.id.button_Equation1);
         this.Equation1Button.setOnClickListener(this);
-        this.Equation2Button = (Button)  findViewById(R.id.button_Equation2);
+        this.Equation2Button = (ImageButton)  findViewById(R.id.button_Equation2);
         this.Equation2Button.setOnClickListener(this);
-        this.pythagoreButton = (Button)  findViewById(R.id.pythagore);
+        this.pythagoreButton = (ImageButton)  findViewById(R.id.pythagore);
         this.pythagoreButton.setOnClickListener(this);
-        this.thalesButton = (Button)  findViewById(R.id.button_thales);
+        this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
     }
 
