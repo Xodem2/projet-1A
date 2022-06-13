@@ -56,7 +56,7 @@ public class Equation1Activity extends GameMaster {
     }
 
     public void writeiteration(){
-        this.equation.setText(this.eq1.getA() + "x+" + this.eq1.getB() + "=0");
+        this.equation.setText(this.eq1.getA() + "x+" + this.eq1.getB() + "=" + this.eq1.getC());
     }
 
     public void writeInDisorder(){
