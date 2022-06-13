@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.example.projet1a.ado_games.EquationPremier;
 import com.example.projet1a.ado_games.Thales;
+import com.example.projet1a.profile.PlayerProfile;
 
 
 import java.util.Random;
@@ -24,6 +25,8 @@ public class ThalesActivity extends GameMaster {
     private int answer;
     private int whichAnswer;
 
+    private PlayerProfile player;
+
     private Thales thales;
 
     public final static String id="Equation1Activity";
@@ -33,6 +36,8 @@ public class ThalesActivity extends GameMaster {
         setContentView(R.layout.activity_thales);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         this.thales = new Thales();
         chooseRandomLine();
@@ -130,4 +135,5 @@ public class ThalesActivity extends GameMaster {
         else if(this.whichAnswer == 4){ this.answer = this.thales.getDE(); }
         else if(this.whichAnswer== 5){ this.answer = this.thales.getBC(); }
     }
+
 }

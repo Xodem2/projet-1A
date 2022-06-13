@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.projet1a.ado_games.Pythagore;
+import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.Random;
 
@@ -18,6 +19,7 @@ public class PythagoreActivity extends GameMaster {
     private TextView cote2;
     private int correct;
     private Random random;
+    private PlayerProfile player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class PythagoreActivity extends GameMaster {
         this.cote1 = (TextView) findViewById(R.id.cote1);
         this.cote2 = (TextView) findViewById(R.id.cote2);
         this.random = new Random();
+        this.player = DataProvider.getInstance().getPlayer();
         this.generate();
     }
 
@@ -89,4 +92,14 @@ public class PythagoreActivity extends GameMaster {
         }
         this.generate();
     }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcpythagore").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcpythagore").acquire();
+        }
+    }
+
 }

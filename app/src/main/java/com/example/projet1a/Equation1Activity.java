@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.example.projet1a.ado_games.EquationPremier;
+import com.example.projet1a.profile.PlayerProfile;
 
 
 import java.util.Random;
@@ -16,6 +17,8 @@ public class Equation1Activity extends GameMaster {
     private int random1;
     private int random2;
 
+    private PlayerProfile player;
+
     private EquationPremier eq1;
 
     public final static String id="Equation1Activity";
@@ -25,6 +28,8 @@ public class Equation1Activity extends GameMaster {
         setContentView(R.layout.activity_equation1);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         generate();
     }
@@ -91,6 +96,15 @@ public class Equation1Activity extends GameMaster {
             random1 = randomNumber(10);
             random2 = randomNumber(10);
         } while(random1 == random2);
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rceq1deg").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rceq1deg").acquire();
+        }
     }
 
 }

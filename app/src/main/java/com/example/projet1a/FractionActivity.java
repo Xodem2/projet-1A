@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.projet1a.point.Point;
+import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.Random;
 
@@ -51,6 +52,8 @@ public class FractionActivity extends GameMaster {
 
     int[] prime = {2, 3, 5, 7};
 
+    private PlayerProfile player;
+
     int[] bon_choix;
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -87,6 +90,8 @@ public class FractionActivity extends GameMaster {
         this.den3 = (TextView) findViewById(R.id.den3);
         this.r3Num = new Rect();
         this.r3Den = new Rect();
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         generate();
     }
@@ -205,5 +210,14 @@ public class FractionActivity extends GameMaster {
         this.den3.getPaint().getTextBounds(this.den3.getText(), 0, this.den3.getText().length(), r3Den);
         this.progressBar3.setMinWidth((int)(Math.max(r3Num.width(), r3Den.width())*1.1));
         this.progressBar3.setMaxWidth((int)(Math.max(r3Num.width(), r3Den.width())*1.1));
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcfrac").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcfrac").acquire();
+        }
     }
 }

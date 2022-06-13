@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.example.projet1a.adult.Matrix;
 import com.example.projet1a.adult.MatrixOperation;
+import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -55,6 +56,8 @@ public class MatricesActivity extends GameMaster {
     int operation;
     Random random;
 
+    private PlayerProfile player;
+
     int correct;
 
     @Override
@@ -63,6 +66,8 @@ public class MatricesActivity extends GameMaster {
         super.onCreate(savedInstanceState);
         super.setId(this.id);
         this.m = new MatrixOperation(2);
+
+        this.player = DataProvider.getInstance().getPlayer();
 
         this.pg1 = (TextView) findViewById(R.id.pg1);
         this.m1_11 = (TextView) findViewById(R.id.m1_11);
@@ -366,5 +371,14 @@ public class MatricesActivity extends GameMaster {
             super.update(this.correct==2);
         }
         this.generate();
+    }
+
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcmat").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+                this.player.getSuccess().getSuccessById("o100rcmat").acquire();
+        }
     }
 }
