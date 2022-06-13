@@ -40,10 +40,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SquareActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".SommeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

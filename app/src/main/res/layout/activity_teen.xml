@@ -10,8 +10,8 @@
     <ImageButton
         android:id="@+id/button_fraction"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="118dp"
-        android:layout_height="113dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:scaleType="fitCenter"
@@ -22,8 +22,8 @@
     <ImageButton
         android:id="@+id/button_Equation1"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="118dp"
-        android:layout_height="113dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:scaleType="fitCenter"
@@ -31,25 +31,32 @@
         app:layout_constraintStart_toEndOf="@+id/flow4"
         app:srcCompat="@drawable/equation" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_Equation2"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:scaleType="fitCenter"
         android:text="Résolution d'équation du second degré"
         app:layout_constraintStart_toEndOf="@+id/flow4"
-        app:layout_constraintTop_toBottomOf="@+id/flow4" />
+        app:layout_constraintTop_toBottomOf="@+id/flow4"
+        android:background="@null"
+        app:srcCompat="@drawable/icone_equation2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/pythagore"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+
         android:text="Pythagore"
         app:layout_constraintBottom_toTopOf="@+id/flow4"
-        app:layout_constraintEnd_toStartOf="@+id/flow4" />
+        app:layout_constraintEnd_toStartOf="@+id/flow4"
+        android:scaleType="fitCenter"
+        android:background="@null"
+        app:srcCompat="@drawable/icone_pythagore"/>
 
     <TextView
         android:id="@+id/title_Mode"
@@ -74,15 +81,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_thales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thales"
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="56dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        app:srcCompat="@drawable/icone_thales" />
 </androidx.constraintlayout.widget.ConstraintLayout>

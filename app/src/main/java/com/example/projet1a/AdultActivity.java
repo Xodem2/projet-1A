@@ -27,7 +27,7 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
         this.vectorButton = (ImageButton) findViewById(R.id.button_Mult);
         this.vectorButton.setOnClickListener(this);
 
-        this.matriceButton = (Button) findViewById(R.id.matrice);
+        this.matriceButton = (Button) findViewById(R.id.icone_Matrice);
         this.matriceButton.setOnClickListener(this);
     }
 

@@ -395,14 +395,14 @@
         android:layout_height="wrap_content"
         android:text="aux"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/matrice"
-        app:layout_constraintEnd_toStartOf="@+id/matrice"
+        app:layout_constraintBottom_toBottomOf="@+id/icone_Matrice"
+        app:layout_constraintEnd_toStartOf="@+id/icone_Matrice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/matrice"
+        app:layout_constraintTop_toTopOf="@+id/icone_Matrice"
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/matrice"
+        android:id="@+id/icone_Matrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
@@ -421,10 +421,10 @@
         android:cursorVisible="false"
         android:text="aux"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/matrice"
+        app:layout_constraintBottom_toBottomOf="@+id/icone_Matrice"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/matrice"
-        app:layout_constraintTop_toTopOf="@+id/matrice"
+        app:layout_constraintStart_toEndOf="@+id/icone_Matrice"
+        app:layout_constraintTop_toTopOf="@+id/icone_Matrice"
         tools:visibility="visible" />
 
     <TextView
