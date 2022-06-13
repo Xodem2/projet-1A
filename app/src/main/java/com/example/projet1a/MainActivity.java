@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton childButton;
     private ImageButton profil;
     private VideoView videocar;
+    private Animation animation_adultButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
 
@@ -52,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.multiplayerButton.setOnClickListener(this);
 
         this.adultButton = (ImageButton) findViewById(R.id.button_adult);
+        animation_adultButton = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
+
         this.adultButton.setOnClickListener(this);
 
         this.teenButton = (ImageButton) findViewById(R.id.button_teen);
@@ -115,11 +120,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == this.adultButton.getId()) this.showAdultPage();
+        if(v.getId() == this.adultButton.getId()){ this.showAdultPage();
+            adultButton.startAnimation(animation_adultButton);}
         else if(v.getId() == this.teenButton.getId()) this.showTeenPage();
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
         else if(v.getId() == this.multiplayerButton.getId()) this.showMultiplayerPage();
+
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
     }
