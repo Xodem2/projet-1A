@@ -25,6 +25,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView playerIdFill;
     private Button updateButton;
     private ProgressBar xpBar;
+    private TextView levelText;
+    private TextView spScore;
+    private TextView mpScore;
+    private TextView totalScore;
     private ImageButton successButton;
 
     @Override
@@ -39,6 +43,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.playerIdFill = (TextView) findViewById(R.id.profilePagePlayerIdFillId);
         this.updateButton = (Button) findViewById(R.id.profilePageUpdateButtonId);
         this.xpBar = (ProgressBar) findViewById(R.id.profilePageProgressBarId);
+        this.levelText = (TextView) findViewById(R.id.profilePageLevelFillId);
+        this.spScore = (TextView) findViewById(R.id.profilePageSpScoreFillId);
+        this.mpScore = (TextView) findViewById(R.id.profilePageMpScoreFillId);
+        this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
 
         this.updateButton.setOnClickListener(this);
@@ -68,10 +76,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.nickname.setText(this.player.getNickname());
         this.age.setText(String.valueOf(this.player.getAge()));
         this.playerIdFill.setText(this.player.getID());
+        this.spScore.setText(String.valueOf(this.player.getStats().getSingleplayerScore()));
+        this.mpScore.setText(String.valueOf(this.player.getStats().getMultiplayerScore()));
+        this.totalScore.setText(String.valueOf(this.player.getStats().getTotalScore()));
 
         PlayerLevel level = this.player.getLevel();
         int progress = (int) ((float) level.getCurrentXp() * 100 / level.getNeededXp());
         this.xpBar.setProgress(progress);
+        this.levelText.setText(String.valueOf(level.getLevel()));
     }
 
     private void showSuccessPage(){
