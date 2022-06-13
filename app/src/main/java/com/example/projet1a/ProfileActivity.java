@@ -34,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView totalScore;
     private ImageButton successButton;
     private VideoView profileback;
+    private Button gameStatsButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
 
@@ -54,9 +55,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.mpScore = (TextView) findViewById(R.id.profilePageMpScoreFillId);
         this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
+        this.gameStatsButton = (Button) findViewById(R.id.profilePageGameStatsButtonId);
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
+        this.gameStatsButton.setOnClickListener(this);
+
         profileback = (VideoView) findViewById(R.id.profileback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.profileback;
         Uri uri = Uri.parse(uriPath);
@@ -104,6 +108,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if(v.getId() == this.updateButton.getId()) this.doUpdate();
         if(v.getId() == this.successButton.getId()) this.showSuccessPage();
+        if(v.getId() == this.gameStatsButton.getId()) this.showGameStatsPage();
+    }
+
+    private void showGameStatsPage() {
+        startActivity(new Intent(this, GameStatsActivity.class));
     }
 
     @Override
