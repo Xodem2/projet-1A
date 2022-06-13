@@ -240,6 +240,11 @@ public class Matrix {
                             }
                         }
                     }
+                    else if(r == 3) {
+                        for (int j = 0; j < falseProp.getM(); j++) {
+                            falseProp.set(j, j, this.get(j, j));
+                        }
+                    }
                 } while (falseProp.inArray(choices) || falseProp.is(correctProp.getMatrix()));
                 choices.add(falseProp);
             }
