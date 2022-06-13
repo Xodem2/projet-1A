@@ -21,7 +21,7 @@ import com.example.projet1a.profile.PlayerProfile;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private PlayerProfile player;
-    private ImageButton resultsButton;
+    private ImageButton multiplayerButton;
     private ImageButton adultButton;
     private ImageButton teenButton;
     private ImageButton childButton;
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         DataProvider.getInstance().setPlayer(this.player);
 
-        this.resultsButton = (ImageButton) findViewById(R.id.results);
-        this.resultsButton.setOnClickListener(this);
+        this.multiplayerButton = (ImageButton) findViewById(R.id.button_multiplayer);
+        this.multiplayerButton.setOnClickListener(this);
 
         this.adultButton = (ImageButton) findViewById(R.id.button_adult);
         this.adultButton.setOnClickListener(this);
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.childButton = (ImageButton) findViewById(R.id.button_child);
         this.childButton.setOnClickListener(this);
 
-       // this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
-      //  this.quitButton.setOnClickListener(this);
+        this.quitButton = (ImageButton) findViewById(R.id.quitButtonId);
+        this.quitButton.setOnClickListener(this);
 
         this.profil = (ImageButton) findViewById(R.id.profil);
         this.profil.setOnClickListener(this);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
-        else if(v.getId() == this.resultsButton.getId()) this.showResultsPage();
+        else if(v.getId() == this.multiplayerButton.getId()) this.showJoinPage();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
     }
@@ -154,9 +154,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(profileActivityIntent);
     }
 
-    private void showResultsPage() {
-        Intent resultsActivityIntent = new Intent(this, ResultsActivity.class);
-        startActivity(resultsActivityIntent);
+    private void showJoinPage() {
+        Intent joinActivityIntent = new Intent(this, JoinActivity.class);
+        startActivity(joinActivityIntent);
     }
 
     private void showTeenPage() {
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId() == R.id.activity_main) startActivity((new Intent(this, MainActivity.class)));
-        else if(item.getItemId() == R.id.results) startActivity((new Intent(this, ResultsActivity.class)));
+        else if(item.getItemId() == R.id.button_multiplayer) startActivity((new Intent(this, JoinActivity.class)));
         else if(item.getItemId() == R.id.activity_profile) startActivity((new Intent(this, ProfileActivity.class)));
         else if(item.getItemId() == R.id.profile_layout) startActivity((new Intent(this, ProfileActivity.class)));
         return super.onOptionsItemSelected(item);
