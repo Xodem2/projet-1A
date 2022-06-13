@@ -38,6 +38,10 @@ public class PlayerProfile {
         this.id = UUID.randomUUID().toString();
     }
 
+    public PlayerLevel getLevel(){
+        return this.level;
+    }
+
     public PlayerSuccess getSuccess(){
         return this.success;
     }

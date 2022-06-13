@@ -12,6 +12,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.projet1a.profile.GameStats;
+import com.example.projet1a.profile.PlayerLevel;
 import com.example.projet1a.profile.PlayerProfile;
 import com.example.projet1a.profile.PlayerStatistics;
 import com.example.projet1a.profile.PlayerSuccess;
@@ -21,7 +22,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
     // db settings
     private static final String DATABASE_NAME = "player.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // table : player
     private static final String TABLE_PLAYER_NAME = "Player";
@@ -51,6 +52,13 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_SUCCESS_COLUMN_ACQUIRED = "_successAcquired";
     private static final String TABLE_SUCCESS_COLUMN_PLAYERID = "_successPlayerId"; // primary key(2)
 
+    // table : level
+    private static final String TABLE_LEVEL_NAME = "Level";
+    private static final String TABLE_LEVEL_COLUMN_LEVEL = "_playerLevel";
+    private static final String TABLE_LEVEL_COLUMN_CURRENTXP = "_currentXP";
+    private static final String TABLE_LEVEL_COLUMN_NEEDEDXP = "_neededXP";
+    private static final String TABLE_LEVEL_COLUMN_PLAYERID = "_levelPlayerId"; // primary key
+
     private Context context;
 
     public MyLocalDatabaseHelper(@Nullable Context context) {
@@ -64,6 +72,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         this.createTablePlayerStats(db);
         this.createTableGameStats(db);
         this.createTableSuccess(db);
+        this.createTableLevel(db);
     }
 
     private void createTablePlayer(SQLiteDatabase db){
@@ -97,6 +106,16 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(queryGameStats);
     }
 
+    private void createTableLevel(SQLiteDatabase db){
+        String queryLevel =
+                "CREATE TABLE " + TABLE_LEVEL_NAME
+                + " (" + TABLE_LEVEL_COLUMN_LEVEL + " INTEGER, "
+                + TABLE_LEVEL_COLUMN_CURRENTXP + " INTEGER, "
+                + TABLE_LEVEL_COLUMN_NEEDEDXP + " INTEGER, "
+                + TABLE_LEVEL_COLUMN_PLAYERID + " VARCHAR(256) PRIMARY KEY);";
+        db.execSQL(queryLevel);
+    }
+
     private void createTableSuccess(SQLiteDatabase db){
         String querySuccess =
                 "CREATE TABLE " + TABLE_SUCCESS_NAME
@@ -114,6 +133,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAYER_STATS_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMESTATS_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUCCESS_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LEVEL_NAME);
         onCreate(db);
     }
 
@@ -167,6 +187,16 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             cv.put(TABLE_SUCCESS_COLUMN_PLAYERID, player.getID());
             db.insert(TABLE_SUCCESS_NAME, null, cv);
         }
+
+        // level
+        PlayerLevel level = player.getLevel();
+        if(level == null) return;
+        cv = new ContentValues();
+        cv.put(TABLE_LEVEL_COLUMN_LEVEL, level.getLevel());
+        cv.put(TABLE_LEVEL_COLUMN_CURRENTXP, level.getCurrentXp());
+        cv.put(TABLE_LEVEL_COLUMN_NEEDEDXP, level.getNeededXp());
+        cv.put(TABLE_LEVEL_COLUMN_PLAYERID, player.getID());
+        db.insert(TABLE_LEVEL_NAME, null, cv);
     }
 
     public PlayerProfile loadPlayer(){
@@ -234,6 +264,20 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             if(successAcquired) player.getSuccess().getSuccessById(successId).acquire();
         }
 
+        // level
+        String queryLevel = "SELECT * FROM " + TABLE_LEVEL_NAME;
+        Cursor cursorLevel = db.rawQuery(queryLevel, null);
+        int levelIndex = cursorLevel.getColumnIndex(TABLE_LEVEL_COLUMN_LEVEL);
+        int currentXpIndex = cursorLevel.getColumnIndex(TABLE_LEVEL_COLUMN_CURRENTXP);
+        int neededXpIndex = cursorLevel.getColumnIndex(TABLE_LEVEL_COLUMN_NEEDEDXP);
+        if(!cursorLevel.moveToFirst()) return null;
+        int level = cursorLevel.getInt(levelIndex);
+        int currentXp = cursorLevel.getInt(currentXpIndex);
+        int neededXp = cursorLevel.getInt(neededXpIndex);
+        player.getLevel().setLevel(level);
+        player.getLevel().setCurrentXp(currentXp);
+        player.getLevel().setNeededXp(neededXp);
+
         return player;
     }
 
@@ -292,6 +336,15 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
             db.insert(TABLE_SUCCESS_NAME, null, cv);
         }
+
+        // level
+        PlayerLevel level = player.getLevel();
+        if(level == null) return;
+        cv = new ContentValues();
+        cv.put(TABLE_LEVEL_COLUMN_LEVEL, level.getLevel());
+        cv.put(TABLE_LEVEL_COLUMN_CURRENTXP, level.getCurrentXp());
+        cv.put(TABLE_LEVEL_COLUMN_NEEDEDXP, level.getNeededXp());
+        db.update(TABLE_LEVEL_NAME, cv, TABLE_LEVEL_COLUMN_PLAYERID + "=?", new String[]{playerId});
     }
 
 }
