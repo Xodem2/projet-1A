@@ -76,8 +76,9 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Equation2Activity"
-            android:exported="false" />
+            android:name=".ThalesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
