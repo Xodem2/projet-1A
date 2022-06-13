@@ -27,7 +27,7 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
         playersName[0] = "Test1";
         playersScore[0] = 19;
         ((TextView) findViewById(R.id.textView)).setText(playersName[0]);
-        //((TextView) findViewById(R.id.textView2)).setText(playersScore[0]);
+        ((TextView) findViewById(R.id.textView2)).setText(String.valueOf(playersScore[0]));
     }
 
     @Override
