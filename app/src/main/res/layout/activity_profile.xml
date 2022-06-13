@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_profil_rickandmorty2"
     tools:context=".ProfileActivity">
-
-    <VideoView
-        android:id="@+id/profileback"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/profilePageSuccesButtonId"
@@ -24,7 +14,7 @@
         android:layout_height="43dp"
         android:layout_marginEnd="124dp"
 
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="172dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,9 +35,10 @@
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageGameStatsButtonId" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePageGameStatsButtonId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/profilePageEditNicknameId"
@@ -59,7 +50,7 @@
         android:inputType="textPersonName"
         android:text="pseudo"
         android:textAlignment="center"
-        android:textColor="#0026FB"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +64,7 @@
         android:inputType="number"
         android:text="age"
         android:textAlignment="center"
-        android:textColor="#0529F4"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageEditNicknameId" />
 
@@ -169,7 +160,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="31dp"
         android:text="Statistiques Globales"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +176,7 @@
         android:layout_marginTop="12dp"
         android:text="10"
         android:textAlignment="textEnd"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageGlobalStatId" />
@@ -198,7 +189,7 @@
         android:layout_marginTop="12dp"
         android:text="10"
         android:textAlignment="textEnd"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreFillId" />
@@ -211,7 +202,7 @@
         android:layout_marginTop="12dp"
         android:text="10"
         android:textAlignment="textEnd"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageMpScoreFillId" />
@@ -223,7 +214,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
         android:text="score solo"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toEndOf="@+id/profilePageSpScoreFillId"
         app:layout_constraintTop_toBottomOf="@+id/profilePageGlobalStatId" />
@@ -235,7 +226,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
         android:text="score multijoueur"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toEndOf="@+id/profilePageMpScoreFillId"
         app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId" />
@@ -247,7 +238,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:text="score total"
-        android:textColor="#03A9F4"
+        android:textColor="#000000"
         android:textSize="26dp"
         app:layout_constraintStart_toEndOf="@+id/profilePageTotalScoreFillId"
         app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId2" />

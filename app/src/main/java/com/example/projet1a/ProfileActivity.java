@@ -33,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView mpScore;
     private TextView totalScore;
     private ImageButton successButton;
-    private VideoView profileback;
+  //  private VideoView profileback;
     private Button gameStatsButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.successButton.setOnClickListener(this);
         this.gameStatsButton.setOnClickListener(this);
 
-        profileback = (VideoView) findViewById(R.id.profileback);
+     /*   profileback = (VideoView) findViewById(R.id.profileback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.profileback;
         Uri uri = Uri.parse(uriPath);
         profileback.setVideoURI(uri);
@@ -78,8 +78,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     mMediaPlayer.start();
                 }
             }
-        });
+        });*/
     }
+    /*
     @Override
     protected void onPostResume() {
         profileback.resume();
@@ -103,6 +104,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         profileback.stopPlayback();
         super.onDestroy();
     }
+
+     */
 
     @Override
     public void onClick(View v) {
