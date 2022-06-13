@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.projet1a.database.DataBase;
 import com.example.projet1a.enfant.Operation;
 import com.example.projet1a.point.Point;
 
@@ -20,7 +21,7 @@ public class SommeActivity extends GameMaster{
     Operation op;
 
     int[] prop;
-    
+
     public final static String id="SommeActivity";
 
     @Override
