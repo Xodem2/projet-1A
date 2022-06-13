@@ -7,6 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+
+    <ImageButton
+        android:id="@+id/profilePageSuccesButtonId"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="164dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="220dp"
+
+        android:layout_marginBottom="36dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/button_succes" />
+
     <TextView
         android:id="@+id/profilePagePlayerIdFillId"
         android:layout_width="275dp"
@@ -63,8 +78,8 @@
         android:id="@+id/profilePageGameStatsButtonId"
         android:layout_width="0dp"
         android:layout_height="51dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/dark_blue"
         android:text="Stats de chaque jeu"
         android:textColor="#FFFFFF"
