@@ -87,6 +87,12 @@ public class MatrixOperation {
                             if (M1.get(j, k) < 0 && random.nextInt(3) == 0) {
                                 v = -M1.get(j, k) - M2.get(j, k);
                             }
+                            if (random.nextInt(9) == 0) {
+                                v += random.nextInt(2)+1;
+                            }
+                            if (random.nextInt(9) == 0) {
+                                v -= random.nextInt(2)+1;
+                            }
                             falseProp.set(j, k, v);
                         }
                     }
@@ -117,6 +123,12 @@ public class MatrixOperation {
                             }
                             if (M1.get(j, k) < 0 && random.nextInt(3) == 0) {
                                 v = -M1.get(j, k) + M2.get(j, k);
+                            }
+                            if (random.nextInt(9) == 0) {
+                                v += random.nextInt(2)+1;
+                            }
+                            if (random.nextInt(9) == 0) {
+                                v -= random.nextInt(2)+1;
                             }
                             falseProp.set(j, k, v);
                         }

@@ -44,15 +44,17 @@
         app:layout_constraintStart_toEndOf="@+id/flow3"
         app:srcCompat="@drawable/difference" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_division"
-        android:layout_width="168dp"
-        android:layout_height="69dp"
+        android:layout_width="117dp"
+        android:layout_height="114dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:scaleType="fitCenter"
         android:text="Calcul de division"
         app:layout_constraintStart_toEndOf="@+id/flow3"
-        app:layout_constraintTop_toBottomOf="@+id/flow3" />
+        app:layout_constraintTop_toBottomOf="@+id/flow3"
+        app:srcCompat="@drawable/icone_division" />
 
     <TextView
         android:id="@+id/title_Mode"

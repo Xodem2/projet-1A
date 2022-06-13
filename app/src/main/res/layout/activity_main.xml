@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <VideoView
         android:id="@+id/videocar"
         android:layout_width="match_parent"
@@ -15,52 +17,80 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_adult"
-        android:layout_width="240dp"
-        android:layout_height="72dp"
-        android:text="Adulte ( 18-77  ans )"
-        app:layout_constraintBottom_toTopOf="@+id/button_teen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_teen"
-        android:layout_width="240dp"
-        android:layout_height="72dp"
-        android:text="Ados ( 11-18 ans )"
-        app:layout_constraintBottom_toTopOf="@+id/button_child"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_child"
-        android:layout_width="240dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="64dp"
-        android:text="Enfant ( 1 - 10 ans )"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
+    <ImageButton
         android:id="@+id/quitButtonId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="4dp"
-        android:text="Quitter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="179dp"
+        android:layout_height="71dp"
 
-    <Button
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
+        app:srcCompat="@drawable/button_quit" />
+
+    <ImageButton
         android:id="@+id/profil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:text="profil"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="179dp"
+        android:layout_height="71dp"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginBottom="644dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@null"
+        app:srcCompat="@drawable/button_profil" />
+
+    <ImageButton
+        android:id="@+id/button_child"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="179dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="192dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
+        app:srcCompat="@drawable/button_easy" />
+
+    <ImageButton
+        android:id="@+id/button_teen"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="179dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="300dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
+        app:srcCompat="@drawable/button_medium" />
+
+    <ImageButton
+        android:id="@+id/button_adult"
+        style="@android:style/Widget.Holo.ImageButton"
+        android:layout_width="179dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="404dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
+        app:srcCompat="@drawable/button_hard" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

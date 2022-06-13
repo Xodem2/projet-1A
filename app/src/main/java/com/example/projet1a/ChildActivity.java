@@ -13,7 +13,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton sommeButton;
     private ImageButton diffButton;
     private ImageButton multButton;
-    private Button divButton;
+    private ImageButton divButton;
 
 
     @Override
@@ -29,7 +29,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         this.multButton = (ImageButton) findViewById(R.id.button_Mult);
         this.multButton.setOnClickListener(this);
 
-        this.divButton = (Button) findViewById(R.id.button_division);
+        this.divButton = (ImageButton) findViewById(R.id.button_division);
         this.divButton.setOnClickListener(this);
     }
 

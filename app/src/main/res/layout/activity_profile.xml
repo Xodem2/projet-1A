@@ -1,192 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background_profil"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/phonebackground_cropped" />
-
-    <TextView
-        android:id="@+id/profilePageNicknameId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:text="pseudo :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/profilePageSpScoreId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:text="score solo :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
-
-    <TextView
-        android:id="@+id/profilePageSpScoreFillId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="40dp"
-        android:text="points solo"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
-
-    <TextView
-        android:id="@+id/profilePageMpScoreFillId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="104dp"
-        android:text="points multi"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
-
-    <TextView
-        android:id="@+id/profilePageTotalScoreFillId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="184dp"
-        android:text="points totaux"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId" />
-
-    <TextView
-        android:id="@+id/profilePageMpScoreId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
-        android:text="score multijoueur :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId" />
-
-    <TextView
-        android:id="@+id/profilePageTotalScoreId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
-        android:text="score total :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageMpScoreId" />
-
-    <TextView
-        android:id="@+id/profilePageAgeId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="24dp"
-        android:text="age :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageNicknameId" />
-
-    <TextView
-        android:id="@+id/profilePagePlayerIdId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="76dp"
-        android:text="id :"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageNicknameId" />
-
     <TextView
         android:id="@+id/profilePagePlayerIdFillId"
         android:layout_width="275dp"
         android:layout_height="21dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="28dp"
         android:text="123e4567-e89b-12d3-a456-556642440000"
         android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/profilePagePlayerIdId"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageEditAgeId" />
 
     <EditText
         android:id="@+id/profilePageEditNicknameId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="pseudo"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/profilePageNicknameId"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/profilePageEditAgeId"
+        app:layout_constraintStart_toStartOf="@+id/profilePageEditAgeId" />
 
     <EditText
         android:id="@+id/profilePageEditAgeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="number"
         android:text="age"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/profilePageAgeId"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/profilePagePlayerIdFillId"
         app:layout_constraintTop_toBottomOf="@+id/profilePageEditNicknameId" />
 
     <Button
         android:id="@+id/profilePageUpdateButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Mettre à jour"
         android:textColor="#FFFFFF"
-        android:backgroundTint="@android:color/holo_purple"
-        android:textColorHighlight="#673AB7"
+        android:textColorHighlight="#B73A5D"
         app:iconTint="#6D3CC3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePagePlayerIdFillId" />
 
     <Button
         android:id="@+id/profilePageGameStatsButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="364dp"
-        android:backgroundTint="@android:color/holo_purple"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="@color/dark_blue"
         android:text="Stats de chaque jeu"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#673AB7"
         app:iconTint="#6D3CC3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePagePlayerIdFillId" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@drawable/avatar1_2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="122dp"
+        android:layout_height="122dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@drawable/frame_bromze"
+        tools:layout_editor_absoluteY="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
