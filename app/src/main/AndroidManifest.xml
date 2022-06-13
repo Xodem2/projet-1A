@@ -71,6 +71,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ResultsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Equation1Activity"
             android:exported="false"
             android:screenOrientation="portrait" />
