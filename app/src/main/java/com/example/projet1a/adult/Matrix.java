@@ -13,6 +13,7 @@ public class Matrix {
     private int nMin = -9;
     private int nMax = 9;
     private int nProps = 3;
+    private int correct;
     public Matrix() {
         this.random = new Random();
         this.m = this.random.nextInt(2)+2; //m lignes
@@ -39,6 +40,10 @@ public class Matrix {
         }
         str += "\n";
         return str;
+    }
+
+    public int getCorrect() {
+        return correct;
     }
 
     public void set(int m, int n, int value) {
@@ -205,6 +210,7 @@ public class Matrix {
         ArrayList<Matrix> choices = new ArrayList<>();
         Matrix correctProp = t().getMatrix();
         int correctPropPos = this.random.nextInt(nProps);
+        this.correct = correctPropPos;
         for (int i = 0; i < nProps; i++) {
             if (i == correctPropPos)
                 choices.add(correctProp.getMatrix());
