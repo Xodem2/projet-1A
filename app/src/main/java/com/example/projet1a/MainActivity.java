@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(v.getId() == this.childButton.getId()) this.showChildPage();
         else if(v.getId() == this.quitButton.getId()) this.quitApp();
         else if(v.getId() == this.profil.getId()) this.showProfilePage();
-        else if(v.getId() == this.multiplayerButton.getId()) this.showJoinPage();
+        else if(v.getId() == this.multiplayerButton.getId()) this.showMultiplayerPage();
         //if(v.getId() == this.childButton.getId()){
         //    AlertDialog.Builder myPopup = new AlertDialog.Builder((activity))
     }
@@ -154,9 +154,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(profileActivityIntent);
     }
 
-    private void showJoinPage() {
-        Intent joinActivityIntent = new Intent(this, JoinActivity.class);
-        startActivity(joinActivityIntent);
+    private void showMultiplayerPage() {
+        Intent multiplayerActivityIntent = new Intent(this, MultiplayerActivity.class);
+        startActivity(multiplayerActivityIntent);
     }
 
     private void showTeenPage() {
