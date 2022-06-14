@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.VideoView;
 
 import com.example.projet1a.database.DataBase;
+import com.example.projet1a.database.DataBaseV2;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -144,9 +145,12 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
     private void showVectorActivity() {
         this.idGame = VectorActivity.id;
-        DataBase dataBase = new DataBase();
-        this.id_session = dataBase.create_private_game(this.idGame);
-        launchActivity();
+        DataBaseV2 db = DataProvider.getInstance().getDataBaseV2();
+        int id = db.create_private_game(this.idGame);
+        System.out.println(id);
+//        DataBase dataBase = new DataBase();
+//        this.id_session = dataBase.create_private_game(this.idGame);
+//        launchActivity();
     }
 
     private void showMatriceActivity() {

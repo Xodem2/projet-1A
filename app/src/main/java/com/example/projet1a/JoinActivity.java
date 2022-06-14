@@ -23,9 +23,9 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
-        DataBase.run();
+//        DataBase.run();
 
-        this.db = new DataBase();
+//        this.db = new DataBase();
 
         this.joinButton = (Button) findViewById(R.id.joinButton);
         this.joinButton.setOnClickListener(this);
@@ -38,11 +38,11 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
     public void join(String game) {
 //        this.db.join_private_game(-1, "");
-        if (this.db.join_private_game(Integer.valueOf(game), "test")){
-            System.out.println(game);
-        }
-        else{
-            System.out.println("non");
-        }
+//        if (this.db.join_private_game(Integer.valueOf(game), "test")){
+//            System.out.println(game);
+//        }
+//        else{
+//            System.out.println("non");
+//        }
     }
 }

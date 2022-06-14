@@ -70,6 +70,7 @@ public class DataBase {
     }
 
     public DataBase(){
+//        DataBase.run();
         this.profil = DataProvider.getInstance();
         this.dataBase = FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/");
         this.reference_player = dataBase.getReference("userdata").child(this.profil.getPlayer().getID());
@@ -86,7 +87,6 @@ public class DataBase {
     }
 
     public int create_private_game(String name_game){
-        DataBase.run();
         this.reference_game = this.game_table.child(String.valueOf(id_game));
         this.reference_game.child("etat").setValue("debut");
         this.reference_game.child("prof").setValue(this.profil.getPlayer().getID());

@@ -45,9 +45,10 @@ public class PlayerProfile {
 
     private void generateID() {
         // generate random unique ID
-        do {
-            this.id = UUID.randomUUID().toString();
-        } while (!DataBase.test_id(this.id));
+//        do {
+//            this.id = UUID.randomUUID().toString();
+//        } while (!DataBase.test_id(this.id));
+        this.id = UUID.randomUUID().toString();
         FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("userdata").child(id).setValue(0);
     }
 
