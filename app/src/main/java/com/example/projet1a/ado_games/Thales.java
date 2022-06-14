@@ -20,11 +20,11 @@ public class Thales {
             AC = randomNumber();
             DE = randomNumber();
             BC = randomNumber();
-        }while(this.AD == 0 || this.AB == 0 || this.AE == 0|| this.AC == 0 || this.DE == 0 || this.BC == 0 || !isInt(AD, AB) || !isInt(AE, AC) || !isInt(DE, BC) || !solveThales());
+        }while(this.AD == 0 || this.AB == 0 || this.AE == 0 || this.AC == 0 || this.DE == 0 || this.BC == 0 || !isInt(AD, AB) || !isInt(AE, AC) || !isInt(DE, BC) || solveThales() == false);
     }
 
     public boolean solveThales(){
-        if((AD/AB) == (AE/AC) && (AE/AC) == (DE/BC)){return true;}
+        if((float)(AD/AB) == (float)(AE/AC) && (float)(AE/AC) == (float)(DE/BC)){return true;}
         else{ return false; }
     }
 
@@ -60,4 +60,5 @@ public class Thales {
     public int get1(){ return this.AD/this.AB; }
     public int get2(){ return AE/AC; }
     public int get3(){ return DE/BC; }
+    public boolean getBool(){ return solveThales(); }
 }

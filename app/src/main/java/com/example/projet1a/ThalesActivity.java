@@ -115,6 +115,11 @@ public class ThalesActivity extends GameMaster {
         else if(this.whichAnswer == 3 ){ this.L3.setText("?");}
         else if(this.whichAnswer == 4 ){ this.L5.setText("?");}
         else if(this.whichAnswer == 5 ){ this.L6.setText("?");}
+        System.out.println(this.answer);
+        System.out.println(this.thales.getBool());
+        System.out.println(this.thales.get1());
+        System.out.println(this.thales.get2());
+        System.out.println(this.thales.get3());
     }
 
     public int randomNumber(int x){     //Function to create random numbers between 0 and x

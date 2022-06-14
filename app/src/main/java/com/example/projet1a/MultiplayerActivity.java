@@ -30,7 +30,7 @@ public class MultiplayerActivity extends AppCompatActivity  implements View.OnCl
     }
 
     private void showCreatePage(){
-        Intent createActivityIntent = new Intent(this, CreateActivity.class);
+        Intent createActivityIntent = new Intent(this, MainMultiplayerActivity.class);
         startActivity(createActivityIntent);
     }
 

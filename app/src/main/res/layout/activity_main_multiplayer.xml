@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_vector"
+                android:layout_width="119dp"
+                android:layout_height="116dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_vector" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_thales"
+                android:layout_width="121dp"
+                android:layout_height="121dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_thales" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_mult"
+                android:layout_width="119dp"
+                android:layout_height="113dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/multiplication" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_matrice"
+                android:layout_width="119dp"
+                android:layout_height="117dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_matrice" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_pythagore"
+                android:layout_width="118dp"
+                android:layout_height="118dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_pythagore" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_division"
+                android:layout_width="123dp"
+                android:layout_height="127dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_division" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_equation2"
+                android:layout_width="122dp"
+                android:layout_height="118dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_equation2" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_equation1"
+                android:layout_width="124dp"
+                android:layout_height="117dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/equation" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_fraction"
+                android:layout_width="122dp"
+                android:layout_height="125dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/fraction" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_somme"
+                android:layout_width="114dp"
+                android:layout_height="118dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_somme" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_difference"
+                android:layout_width="123dp"
+                android:layout_height="118dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/difference" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

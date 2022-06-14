@@ -102,6 +102,15 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".MainMultiplayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DuplicateActivity" />
+        <activity
+            android:name=".RoomActivity"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
