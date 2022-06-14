@@ -21,7 +21,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
     private ImageButton thalesButton;
-    private ImageButton trigoButton;
+    private Button trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView backteen;
@@ -40,7 +40,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.pythagoreButton.setOnClickListener(this);
         this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
-        this.trigoButton = (ImageButton) findViewById(R.id.button_trigo);
+        this.trigoButton = (Button) findViewById(R.id.button_trigo);
         this.trigoButton.setOnClickListener(this);
 
         backteen = (VideoView) findViewById(R.id.backteen);
