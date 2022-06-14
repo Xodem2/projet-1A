@@ -1,4 +1,4 @@
-package com.example.projet1a.ado_games;
+package com.example.projet1a.adult;
 
 import com.example.projet1a.list.ListNumbers;
 
@@ -6,11 +6,11 @@ import java.util.Random;
 import java.lang.Math;
 
 public class Trigo {
-    private int nMax = 999;
-    private int nProps = 3;
+    private static final int nMax = 999;
+    private static final int nProps = 3;
     int seg;
     int angle;
-    int nAngles = 3;
+    private static final int nAngles = 3;
     private int[] angles = new int[nAngles];
     private Random random = new Random();
     private String fctChoice;

@@ -17,6 +17,8 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
     private ImageButton vectorButton;
     private ImageButton matriceButton;
+    //private ImageButton trigoButton;
+    private Button trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView adultback;
@@ -35,6 +37,8 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
         this.matriceButton = (ImageButton) findViewById(R.id.icone_Matrice);
         this.matriceButton.setOnClickListener(this);
+        this.trigoButton = (Button) findViewById(R.id.button_trigo);
+        this.trigoButton.setOnClickListener(this);
         adultback = (VideoView) findViewById(R.id.adultback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
         Uri uri = Uri.parse(uriPath);
@@ -81,7 +85,8 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v.getId() == this.vectorButton.getId()) this.showVectorActivity();
-        if(v.getId() == this.matriceButton.getId()) this.showMatriceActivity();
+        else if(v.getId() == this.matriceButton.getId()) this.showMatriceActivity();
+        else if(v.getId() == this.trigoButton.getId()) this.showTrigoPage();
     }
 
     private void showVectorActivity() {
@@ -92,5 +97,10 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
     private void showMatriceActivity() {
         Intent matriceActivityIntent = new Intent(this, MatricesActivity.class);
         startActivity(matriceActivityIntent);
+    }
+
+    private void showTrigoPage(){
+        Intent trigoActivityIntent = new Intent(this, TrigoActivity.class);
+        startActivity(trigoActivityIntent);
     }
 }

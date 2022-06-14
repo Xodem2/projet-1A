@@ -11,7 +11,7 @@ public class Suite extends ListNumbers {
     private int c;
     private int lengthMaxGenerate;
     private Random random;
-    private int nMax = 9;
+    private static final int nMax = 9;
     public Suite() {
         super(5);
         lengthMaxGenerate = 4;

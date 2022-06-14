@@ -6,7 +6,7 @@ public class Memo {
     private Random random;
     private int n = 0;
     private int a = 0;
-    private int nMax = 99;
+    private static final int nMax = 99;
     public Memo() {
         this.random = new Random();
         generate();

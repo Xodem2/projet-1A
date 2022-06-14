@@ -19,6 +19,8 @@ public class Indices {
         indices.put("produitMat","Attention aux signes !");
         indices.put("transMat","Inverser les lignes et les colonnes.");
         indices.put("detMat","a d-b c");
+        indices.put("sqr", "Multiplier le nombre par lui-même.");
+        indices.put("sqrt", "Chercher la valeur approchée si le nombre est irréductible.");
         indices.put("trigo","Pour calculer une longueur ou un angle, on utilise les formules de trigo ! Petit moyen mnémotechnique CAH SOH TOA ! (casses-toi !).");
         indices.put("produitScalCoord","x1*x2 + y1*y2");
         indices.put("pythagore","Dans un triangle rectangle, le carré de l'hypoténuse est égale à la somme des carrés des deux autres côtés.");
