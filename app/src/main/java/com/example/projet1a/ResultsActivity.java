@@ -4,12 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.example.projet1a.enfant.Operation;
-
-import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,8 +21,8 @@ public class ResultsActivity extends AppCompatActivity implements View.OnClickLi
 
         playersName[0] = "Test1";
         playersScore[0] = 19;
-        ((TextView) findViewById(R.id.textView)).setText(playersName[0]);
-        ((TextView) findViewById(R.id.textView2)).setText(String.valueOf(playersScore[0]));
+        ((TextView) findViewById(R.id.player1)).setText(playersName[0]);
+        ((TextView) findViewById(R.id.playerScore1)).setText(String.valueOf(playersScore[0]));
     }
 
     @Override

@@ -22,7 +22,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join);
 
-        this.joinButton = (Button) findViewById(R.id.button4);
+        this.joinButton = (Button) findViewById(R.id.joinButton);
     }
 
     @Override

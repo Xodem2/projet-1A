@@ -1,5 +1,6 @@
 package com.example.projet1a;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -124,6 +125,7 @@ public class MatricesActivity extends GameMaster {
 
         if (this.operation==0){
 //            somme
+            this.setIdInd("sommeMat");
             ArrayList<Matrix> prop = this.m.propSum();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -168,6 +170,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==1){
 //            différence
+            this.setIdInd("diffMat");
             ArrayList<Matrix> prop = this.m.propMinus();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -212,6 +215,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==2){
 //            produit
+            this.setIdInd("produitMat");
             ArrayList<Matrix> prop = this.m.propProd();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -256,6 +260,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==3){
 //            determinant
+            this.setIdInd("detMat");
             this.pg1.setText("");
             this.m1_11.setText("");
             this.m1_12.setText("");
@@ -313,6 +318,7 @@ public class MatricesActivity extends GameMaster {
         }
         else{
 //            transpose
+            this.setIdInd("transMat");
             ArrayList<Matrix> prop = this.m.getM2().propTrans();
             this.correct = this.m.getM2().getCorrect();
             this.pg1.setText("");
@@ -381,4 +387,5 @@ public class MatricesActivity extends GameMaster {
                 this.player.getSuccess().getSuccessById("o100rcmat").acquire();
         }
     }
+
 }

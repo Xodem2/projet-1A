@@ -24,6 +24,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     Button choix1Button;
     Button choix2Button;
     Button choix3Button;
+    androidx.appcompat.widget.AppCompatButton buttonInd;
     Point score;
     GameStats stats;
     int delta_point;
@@ -33,6 +34,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     private PlayerProfile player;
 
     private String id;
+    private String idInd;
 
     DataBase db;
 
@@ -69,6 +71,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.choix2Button.setOnClickListener(this);
         this.choix3Button = (Button) findViewById(R.id.choice3ID);
         this.choix3Button.setOnClickListener(this);
+        this.buttonInd = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.buttonInd);
 
         this.score = new Point();
         this.delta_point = 1;
@@ -84,6 +87,14 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
             this.player.getStats().addGameStats(id);
         }
         this.stats = this.player.getStats().getGameStatsById(id);
+    }
+
+    public void setIdInd(String id) {
+        this.idInd = id;
+    }
+
+    public String getIdInd() {
+        return this.idInd;
     }
 
     public void generate(){
@@ -102,6 +113,10 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == this.buttonInd.getId()) {
+            ((TextView) findViewById(R.id.textInd)).setTextColor(Color.parseColor("#00ff00"));
+            ((TextView) findViewById(R.id.textInd)).setText((new Indices()).getInd(this.getIdInd()));
+        }
     }
 
     public void update(boolean correct){
