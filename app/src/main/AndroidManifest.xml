@@ -86,6 +86,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".TrigoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ThalesActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

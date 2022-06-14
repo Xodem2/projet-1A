@@ -1,7 +1,5 @@
 package com.example.projet1a;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -28,8 +26,8 @@ public class PythagoreActivity extends GameMaster {
         super.onCreate(savedInstanceState);
         super.setId(this.id);
         super.setIdInd(this.idInd);
-        this.cote1 = (TextView) findViewById(R.id.cote1);
-        this.cote2 = (TextView) findViewById(R.id.cote2);
+        this.cote1 = (TextView) findViewById(R.id.cote);
+        this.cote2 = (TextView) findViewById(R.id.angle);
         this.random = new Random();
         this.player = DataProvider.getInstance().getPlayer();
         this.generate();

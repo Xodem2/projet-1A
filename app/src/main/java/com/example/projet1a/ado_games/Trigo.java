@@ -13,6 +13,7 @@ public class Trigo {
     int nAngles = 3;
     private int[] angles = new int[nAngles];
     private Random random = new Random();
+    private String fctChoice;
     public Trigo() {
         generate();
     }
@@ -23,6 +24,25 @@ public class Trigo {
         angles[1] = 45;
         angles[2] = 60;
         angle = angles[random.nextInt(nAngles)];
+        int fct = random.nextInt(6);
+        if(fct == 0) {
+            fctChoice = "sin1";
+        }
+        else if(fct == 1) {
+            fctChoice = "sin2";
+        }
+        else if(fct == 2) {
+            fctChoice = "cos1";
+        }
+        else if(fct == 3) {
+            fctChoice = "cos2";
+        }
+        else if(fct == 4) {
+            fctChoice = "tan1";
+        }
+        else {
+            fctChoice = "tan2";
+        }
     }
 
     public int getSeg() {
@@ -85,6 +105,35 @@ public class Trigo {
 
     public boolean tan2(int ans) {
         return ans == ansTan2();
+    }
+
+    public String getFctChoice() {
+        return this.fctChoice;
+    }
+
+    public int ansFct() {
+        if(this.fctChoice == "sin1") {
+            return ansSin1();
+        }
+        else if(this.fctChoice == "sin2") {
+            return ansSin2();
+        }
+        else if(this.fctChoice == "cos1") {
+            return ansCos1();
+        }
+        else if(this.fctChoice == "cos2") {
+            return ansCos2();
+        }
+        else if(this.fctChoice == "tan1") {
+            return ansTan1();
+        }
+        else {
+            return ansTan2();
+        }
+    }
+
+    public boolean fct(int ans) {
+        return ansFct() == ans;
     }
 
     public ListNumbers prop(int correctProp) {

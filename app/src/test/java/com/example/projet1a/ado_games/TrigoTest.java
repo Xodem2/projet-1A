@@ -121,4 +121,10 @@ public class TrigoTest extends TestCase {
         System.out.println("AB = " + trigo.getSeg() + "/tan(" + trigo.getAngle() + "°) = " + trigo.ansTan2() + " cm");
     }
 
+    public void testAnsFct() {
+        Trigo trigo = new Trigo();
+        int correct = trigo.ansFct();
+        assert trigo.fct(correct) && !trigo.fct(Math.round((long) (Math.cos(Math.toRadians(trigo.getAngle()))*trigo.getSeg()))+1);
+    }
+
 }

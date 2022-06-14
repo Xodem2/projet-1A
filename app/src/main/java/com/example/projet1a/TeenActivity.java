@@ -21,6 +21,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
     private ImageButton thalesButton;
+    private ImageButton trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView backteen;
@@ -39,6 +40,8 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.pythagoreButton.setOnClickListener(this);
         this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
+        this.trigoButton = (ImageButton) findViewById(R.id.button_trigo);
+        this.trigoButton.setOnClickListener(this);
 
         backteen = (VideoView) findViewById(R.id.backteen);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backteen;
@@ -91,6 +94,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
         else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
         else if(v.getId() == this.thalesButton.getId()) this.showThalesPage();
+        else if(v.getId() == this.trigoButton.getId()) this.showTrigoPage();
 }
 
     private void showFractionPage(){
@@ -116,5 +120,10 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private void showThalesPage(){
         Intent thalesActivityIntent = new Intent(this, ThalesActivity.class);
         startActivity(thalesActivityIntent);
+    }
+
+    private void showTrigoPage(){
+        Intent trigoActivityIntent = new Intent(this, TrigoActivity.class);
+        startActivity(trigoActivityIntent);
     }
 }

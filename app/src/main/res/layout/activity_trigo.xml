@@ -4,17 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PythagoreActivity">
+    tools:context=".TrigoActivity">
 
     <include
         android:id="@+id/include4"
         layout="@layout/game_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ProgressBar
         android:id="@+id/progressBar8"
@@ -53,31 +51,55 @@
         app:layout_constraintTop_toTopOf="@+id/progressBar8" />
 
     <TextView
-        android:id="@+id/cote"
+        android:id="@+id/cote1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBar8"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar10"
-        app:layout_constraintTop_toTopOf="@+id/progressBar8" />
+        android:layout_marginTop="8dp"
+        android:text="c1"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBar10"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar8" />
 
     <TextView
-        android:id="@+id/angle"
+        android:id="@+id/cote2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar9"
+        android:text="c2"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar10"
         app:layout_constraintStart_toStartOf="@+id/progressBar9"
         app:layout_constraintTop_toBottomOf="@+id/progressBar9" />
 
     <TextView
-        android:id="@+id/ans"
+        android:id="@+id/angle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="x"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar10"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar9"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="@+id/progressBar9" />
+        android:layout_marginBottom="24dp"
+        android:text="angle1"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar8"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar8"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="@+id/progressBar8" />
+
+    <TextView
+        android:id="@+id/angle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="25dp"
+        android:text="angle2"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar9"
+        app:layout_constraintStart_toEndOf="@+id/progressBar8"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar10"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/cote_hyp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hyp"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar10"
+        app:layout_constraintStart_toStartOf="@+id/progressBar10"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

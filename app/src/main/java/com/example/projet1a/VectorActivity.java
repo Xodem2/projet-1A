@@ -136,7 +136,7 @@ public class VectorActivity extends GameMaster {
     }
 
     private void doSubstraction(){
-        super.setIdInd("sommeVect");
+        super.setIdInd("diffVect");
         this.vq.substraction();
         this.answer = vq.getResult();
         ArrayList<Integer>[] vectors = this.vq.getVectors();
