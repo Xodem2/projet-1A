@@ -18,6 +18,7 @@ import android.widget.VideoView;
 
 import com.example.projet1a.database.DataBase;
 import com.example.projet1a.database.DataBaseV2;
+import com.example.projet1a.database.LocalBDDmulti;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         MyLocalDatabaseHelper myDatabase = new MyLocalDatabaseHelper(this);
         myDatabase.getWritableDatabase();
+        LocalBDDmulti dataBase = new LocalBDDmulti(this);
+        dataBase.getWritableDatabase();
         DataProvider.getInstance().setMyLocalDatabase(myDatabase);
 
         // load player from SQLite (local)

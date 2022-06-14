@@ -22,6 +22,8 @@ public class DataBaseV2 {
     public static final String lien="https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/";
 
     int id_game;
+    int rejoint;
+    String game;
 
     public DataBaseV2(){
         this.player = DataProvider.getInstance().getPlayer();
@@ -42,44 +44,22 @@ public class DataBaseV2 {
                 Iterator<DataSnapshot> children = snapshot.getChildren().iterator();
                 while (children.hasNext()){
                     DataSnapshot next = children.next();
-                    int key = Integer.valueOf(next.getKey());
+                    int key = getGameId(next);
                     if (id_game<=key){
                         id_game = key+1;
                     }
-                    System.out.println("child " + key);
+                    if (getGameId(next)==rejoint) {
+                        Iterator<DataSnapshot> data_game = next.getChildren().iterator();
+                        while (data_game.hasNext()) {
+                            DataSnapshot data = data_game.next();
+                            if (data.getKey().equals("name")) {
+                                game = data.getValue(String.class);
+                            }
+                        }
+                    }
+
                 }
 
-
-
-                Iterator<DataSnapshot> game = snapshot.getChildren().iterator();
-                while (game.hasNext()){
-                    boolean joignable = true;
-                    String name="";
-                    DataSnapshot Game = game.next();
-                    Iterator<DataSnapshot> data_game = Game.getChildren().iterator();
-                    while (data_game.hasNext()){
-//                        id1, id2, name etc
-                        DataSnapshot data = data_game.next();
-                        if (data.getKey()=="id2"){
-                            joignable=false;
-                        }
-                        if (data.getKey()=="name") {
-                            name = data.getValue().toString();
-                        }
-                    }
-                    if (joignable){
-                       if (name.equals(VectorActivity.id)){
-                            id_vecteur = Integer.valueOf(Game.getKey());
-                       }
-                    }
-                    else{
-                        if (name.equals(VectorActivity.id)){
-                            id_vecteur = 0;
-                        }
-                    }
-                }
-//                System.out.println("test");
-//                System.out.println(id_vecteur[0]);
             }
 
             @Override
@@ -102,21 +82,22 @@ public class DataBaseV2 {
         this.game_table.child("0").setValue("go1");
     }
 
+    public int getGameId(DataSnapshot dataSnapshot){
+        return Integer.valueOf(dataSnapshot.getKey());
+    }
+
     public int create_private_game(String name_game){
-        if (this.id_vecteur==0) {
-            DatabaseReference reference_game = this.game_table.child(String.valueOf(this.id_game));
-            reference_game.child("id1").setValue(this.player.getID());
-//        reference_game.child("id2").setValue(0);
-            reference_game.child("name").setValue(name_game);
-            return this.id_game;
-        }
-        DatabaseReference reference_game = this.game_table.child(String.valueOf(this.id_vecteur));
-        reference_game.child("id2").setValue(this.player.getID());
-        return this.id_vecteur;
+        DatabaseReference reference_game = this.game_table.child(String.valueOf(this.id_game));
+        reference_game.child("name").setValue(name_game);
+        return this.id_game;
 
     }
 
-    public void rejoindre(String name_game){
-
+    public void rejoindre(int numbre_game){
+        if (numbre_game!=this.rejoint) {
+            this.rejoint = numbre_game;
+            game = "remise a zero";
+        }
+        System.out.println(game);
     }
 }
