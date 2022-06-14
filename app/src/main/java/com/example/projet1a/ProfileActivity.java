@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.player.setNickname(this.nickname.getText().toString());
         this.player.setAge(Integer.parseInt(this.age.getText().toString()));
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
-        (new DataBase()).update_player(this.nickname.getText().toString());
+//        (new DataBase()).update_player(this.nickname.getText().toString());
 
         Toast toast = Toast.makeText(this, "Profil mis à jour", Toast.LENGTH_SHORT);
         toast.show();

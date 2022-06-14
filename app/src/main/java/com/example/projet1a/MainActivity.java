@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.VideoView;
 
 import com.example.projet1a.database.DataBase;
+import com.example.projet1a.database.DataBaseV2;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-        DataBase.run();
+//        DataBase.run();
+        DataProvider.getInstance().setDataBaseV2(new DataBaseV2());
     }
 
 

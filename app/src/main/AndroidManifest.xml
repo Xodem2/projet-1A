@@ -89,7 +89,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TrigoActivity"
+            android:name=".SqrActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -98,6 +98,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MultiplayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TrigoActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

@@ -3,7 +3,6 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
-import com.example.projet1a.ado_games.Thales;
-
 public class TeenActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private ImageButton FractionButton;
@@ -21,7 +18,8 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
     private ImageButton thalesButton;
-    private Button trigoButton;
+    //private ImageButton sqrButton;
+    private Button sqrButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView backteen;
@@ -40,8 +38,8 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.pythagoreButton.setOnClickListener(this);
         this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
-        this.trigoButton = (Button) findViewById(R.id.button_trigo);
-        this.trigoButton.setOnClickListener(this);
+        this.sqrButton = (Button)  findViewById(R.id.button_sqr);
+        this.sqrButton.setOnClickListener(this);
 
         backteen = (VideoView) findViewById(R.id.backteen);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backteen;
@@ -94,7 +92,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
         else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
         else if(v.getId() == this.thalesButton.getId()) this.showThalesPage();
-        else if(v.getId() == this.trigoButton.getId()) this.showTrigoPage();
+        else if(v.getId() == this.sqrButton.getId()) this.showSqrPage();
 }
 
     private void showFractionPage(){
@@ -122,8 +120,9 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         startActivity(thalesActivityIntent);
     }
 
-    private void showTrigoPage(){
-        Intent trigoActivityIntent = new Intent(this, TrigoActivity.class);
-        startActivity(trigoActivityIntent);
+    private void showSqrPage(){
+        Intent sqrActivityIntent = new Intent(this, SqrActivity.class);
+        startActivity(sqrActivityIntent);
     }
+
 }

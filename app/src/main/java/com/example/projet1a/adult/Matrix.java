@@ -10,9 +10,9 @@ public class Matrix {
     private int n;
     private int[][] M;
     private Random random;
-    private int nMin = -9;
-    private int nMax = 9;
-    private int nProps = 3;
+    private static final int nMin = -9;
+    private static final int nMax = 9;
+    private static final int nProps = 3;
     private int correct;
     public Matrix() {
         this.random = new Random();

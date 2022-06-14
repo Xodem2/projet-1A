@@ -47,7 +47,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.player = DataProvider.getInstance().getPlayer();
         this.pb = findViewById(R.id.progressBarToday);
 
-        this.db = new DataBase();
+//        this.db = new DataBase();
 
         // for eg: if countdown is to go for 30 seconds
         this.pb.setMax(500);
@@ -163,7 +163,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.checkSuccess();
 
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
-        this.db.update_player(this.player.getStats().getTotalScore(), "total");
+//        this.db.update_player(this.player.getStats().getTotalScore(), "total");
     }
 
     public void checkSuccess(){

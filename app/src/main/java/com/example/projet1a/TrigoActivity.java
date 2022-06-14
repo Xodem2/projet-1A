@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.projet1a.ado_games.Trigo;
+import com.example.projet1a.adult.Trigo;
 import com.example.projet1a.profile.PlayerProfile;
 
 import java.util.Random;

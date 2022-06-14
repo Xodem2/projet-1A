@@ -1,5 +1,6 @@
 package com.example.projet1a.ado_games;
 
+import com.example.projet1a.adult.Trigo;
 import com.example.projet1a.list.ListNumbers;
 
 import junit.framework.TestCase;

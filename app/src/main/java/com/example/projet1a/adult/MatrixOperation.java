@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MatrixOperation {
-    int nProps = 3;
+    private static final int nProps = 3;
     private Random random = new Random();
     private Matrix M1;
     private Matrix M2;

@@ -15,7 +15,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageButton
         android:id="@+id/button_Mult"
         style="@android:style/Widget.Holo.ImageButton"
@@ -23,10 +24,10 @@
         android:layout_height="120dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/flow2"
         app:layout_constraintEnd_toStartOf="@+id/flow2"
-        android:background="@null"
         app:srcCompat="@drawable/icone_vector_cropped" />
 
 
@@ -42,26 +43,6 @@
         app:layout_constraintBottom_toTopOf="@+id/flow2"
         app:layout_constraintStart_toEndOf="@+id/button_Mult"
         app:srcCompat="@drawable/icone_matrice" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="170dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/flow2"
-        app:layout_constraintTop_toBottomOf="@+id/flow2" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="170dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/flow2"
-        app:layout_constraintTop_toBottomOf="@+id/flow2" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow2"
@@ -85,4 +66,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
+
+    <Button
+        android:id="@+id/button_trigo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Trigonométrie"
+        app:layout_constraintEnd_toStartOf="@+id/flow2"
+        app:layout_constraintTop_toBottomOf="@+id/flow2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,17 +21,17 @@ public class CreateActivity extends AppCompatActivity  implements View.OnClickLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        DataBase.run();
+//        DataBase.run();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        this.db = new DataBase();
+//        this.db = new DataBase();
 
         this.text = (TextView) findViewById(R.id.idParty);
         this.text.setText(String.valueOf(this.id_game));
         ((Button) findViewById(R.id.button7)).setOnClickListener(this);
         this.text.setText("");
-        this.id_game = this.db.create_private_game("Test");
+//        this.id_game = this.db.create_private_game("Test");
         if (this.id_game!=0) {
             this.text.setText(String.valueOf(this.id_game));
         }
@@ -40,7 +40,7 @@ public class CreateActivity extends AppCompatActivity  implements View.OnClickLi
     @Override
     protected void onResume() {
         super.onResume();
-        this.id_game = this.db.create_private_game("Test");
+//        this.id_game = this.db.create_private_game("Test");
         if (this.id_game!=0) {
             this.text.setText(String.valueOf(this.id_game));
         }
@@ -49,7 +49,7 @@ public class CreateActivity extends AppCompatActivity  implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        this.id_game = this.db.create_private_game("Test");
+//        this.id_game = this.db.create_private_game("Test");
         if (this.id_game!=0) {
             this.text.setText(String.valueOf(this.id_game));
         }
