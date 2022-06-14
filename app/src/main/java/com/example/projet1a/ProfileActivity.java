@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView totalScore;
     private ImageButton successButton;
     private ImageButton gameStatsButton;
+    private ImageView profilePicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +57,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
         this.gameStatsButton = (ImageButton) findViewById(R.id.profilePageGameStatsButtonId);
+        this.profilePicture = (ImageView) findViewById(R.id.profilePageProfilePictureId);
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
         this.gameStatsButton.setOnClickListener(this);
+        this.profilePicture.setOnClickListener(this);
+
 
     }
 
@@ -66,6 +72,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if(v.getId() == this.updateButton.getId()) this.doUpdate();
         if(v.getId() == this.successButton.getId()) this.showSuccessPage();
         if(v.getId() == this.gameStatsButton.getId()) this.showGameStatsPage();
+        if(v.getId() == this.profilePicture.getId()) this.showProfilePictureDialog();
+    }
+
+    private void showProfilePictureDialog() {
+        ProfilePictureDialog dialog = new ProfilePictureDialog(this);
+        dialog.show();
     }
 
     private void showGameStatsPage() {
