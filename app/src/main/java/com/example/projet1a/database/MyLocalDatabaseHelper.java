@@ -22,7 +22,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
     // db settings
     private static final String DATABASE_NAME = "player.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // table : player
     private static final String TABLE_PLAYER_NAME = "Player";
@@ -43,6 +43,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_GAMESTATS_COLUMN_TOTALCORRECT = "_gameStatsTotalCorrect";
     private static final String TABLE_GAMESTATS_COLUMN_TOTALANSWERED = "_gameStatsTotalAnswered";
     private static final String TABLE_GAMESTATS_COLUMN_ANSWERSINAROW = "_gameStatsCorrectInARow";
+    private static final String TABLE_GAMESTATS_COLUMN_MAXCORRECTINAROW = "_gameStatsMaxCorrectInARow";
     private static final String TABLE_GAMESTATS_COLUMN_PLAYERID = "_gameStatsplayerId"; // primary key (2)
 
     // table : success
@@ -102,6 +103,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
                         + TABLE_GAMESTATS_COLUMN_TOTALANSWERED + " INTEGER, "
                         + TABLE_GAMESTATS_COLUMN_ANSWERSINAROW + " INTEGER, "
                         + TABLE_GAMESTATS_COLUMN_PLAYERID + " VARCHAR(256), "
+                        + TABLE_GAMESTATS_COLUMN_MAXCORRECTINAROW + " INTEGER, "
                         + "PRIMARY KEY("+ TABLE_GAMESTATS_COLUMN_PLAYERID + ", " + TABLE_GAMESTATS_COLUMN_GAMEID + "));";
         db.execSQL(queryGameStats);
     }
@@ -169,6 +171,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             cv.put(TABLE_GAMESTATS_COLUMN_TOTALCORRECT, gStat.getTotalCorrects());
             cv.put(TABLE_GAMESTATS_COLUMN_TOTALANSWERED, gStat.getTotalAnswered());
             cv.put(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW, gStat.getCorrectsInARow());
+            cv.put(TABLE_GAMESTATS_COLUMN_MAXCORRECTINAROW, gStat.getMaxCorrectsInARow());
             cv.put(TABLE_GAMESTATS_COLUMN_PLAYERID, player.getID());
             db.insert(TABLE_GAMESTATS_NAME, null, cv);
         }
@@ -229,6 +232,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         player.getStats().updateSingleplayerScore(spScore);
         player.getStats().updateMultiplayerScore(mpScore);
 
+        // game stats
         String queryGameStats = "SELECT * FROM " + TABLE_GAMESTATS_NAME;
         Cursor cursorGameStats = db.rawQuery(queryGameStats, null);
         while(cursorGameStats.moveToNext()){
@@ -236,13 +240,15 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             int totalAnsweredIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_TOTALANSWERED);
             int totalCorrectIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_TOTALCORRECT);
             int inARowIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW);
+            int maxInARowIndex = cursorGameStats.getColumnIndex(TABLE_GAMESTATS_COLUMN_MAXCORRECTINAROW);
 
             String gameId = cursorGameStats.getString(gameIdIndex);
             int totalAnswered = cursorGameStats.getInt(totalAnsweredIndex);
             int totalCorrect = cursorGameStats.getInt(totalCorrectIndex);
             int inARow = cursorGameStats.getInt(inARowIndex);
+            int maxInARow = cursorGameStats.getInt(maxInARowIndex);
 
-            player.getStats().addGameStats(new GameStats(gameId, totalCorrect, totalAnswered, inARow));
+            player.getStats().addGameStats(new GameStats(gameId, totalCorrect, totalAnswered, inARow, maxInARow));
         }
 
         // success
@@ -314,6 +320,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
             cv.put(TABLE_GAMESTATS_COLUMN_TOTALANSWERED, gStats.getTotalAnswered());
             cv.put(TABLE_GAMESTATS_COLUMN_TOTALCORRECT, gStats.getTotalCorrects());
             cv.put(TABLE_GAMESTATS_COLUMN_ANSWERSINAROW, gStats.getCorrectsInARow());
+            cv.put(TABLE_GAMESTATS_COLUMN_MAXCORRECTINAROW, gStats.getMaxCorrectsInARow());
             cv.put(TABLE_GAMESTATS_COLUMN_PLAYERID, playerId);
 
             db.insert(TABLE_GAMESTATS_NAME, null, cv);

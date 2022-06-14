@@ -29,6 +29,7 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
         private final TextView totalAnswer;
         private final TextView correctInARow;
         private final TextView rate;
+        private final TextView maxCorrectInARow;
 
         public ViewHolder(View view) {
             super(view);
@@ -39,6 +40,7 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
             totalAnswer = (TextView) view.findViewById(R.id.gameStatsItemTotalAnswerIFilld);
             correctInARow = (TextView) view.findViewById(R.id.gameStatsItemInARowFillId);
             rate = (TextView) view.findViewById(R.id.gameStatsItemRateFillId);
+            maxCorrectInARow = (TextView) view.findViewById(R.id.gameStatsItemMaxInARowFillId);
         }
 
         public TextView getCorrectAnswer(){
@@ -59,6 +61,10 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
 
         public TextView getRate(){
             return rate;
+        }
+
+        public TextView getMaxCorrectInARow(){
+            return maxCorrectInARow;
         }
     }
 
@@ -93,6 +99,7 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
         viewHolder.getTotalAnswer().setText(String.valueOf(gameStat.getTotalAnswered()));
         viewHolder.getCorrectInARow().setText(String.valueOf(gameStat.getCorrectsInARow()));
         viewHolder.getGameTitle().setText(this.translateTitle(gameStat.getId()));
+        viewHolder.getMaxCorrectInARow().setText(String.valueOf(gameStat.getMaxCorrectsInARow()));
 
         int rate = (int)( (float) gameStat.getTotalCorrects() * 100 / gameStat.getTotalAnswered());
         if(rate < 40) viewHolder.getRate().setTextColor(Color.parseColor("#ff0000"));
