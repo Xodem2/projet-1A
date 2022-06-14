@@ -1,6 +1,5 @@
 package com.example.projet1a.database;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -68,7 +67,8 @@ public class LocalBDDmulti extends SQLiteOpenHelper {
 
     public int find_game(String idPersonne, String nameGame){
         SQLiteDatabase db = this.getReadableDatabase();
-        String queryPartie = "SELECT * FROM " + TABLE_PARTIE_NAME + " WHERE " + TABLE_PARTIE_COLUMN_JOIGNABLE + " = false;";
+        String queryPartie = "SELECT * FROM " + TABLE_PARTIE_NAME + " WHERE " + TABLE_PARTIE_COLUMN_JOIGNABLE + " = 0;";
+//        TODO verifier que c'est bien 0 qu'il faut pour false
         Cursor cursorPartie = db.rawQuery(queryPartie, null);
 
         while(cursorPartie.moveToNext()){
@@ -107,22 +107,39 @@ public class LocalBDDmulti extends SQLiteOpenHelper {
         return retour;
     }
 
-    public void update(String requete){
+    public void execute(String requete){
         SQLiteDatabase db = this.getReadableDatabase();
         db.execSQL(requete);
     }
 
-    public String add_partie(String nomGame){
+    public String get_add_partie_requete(String nomGame){
         int id = new_id_game();
         String requete = "ADD INTO "+TABLE_PARTIE_NAME+" VALUES("+String.valueOf(id)+", "+nomGame+", 0);";
 //        TODO verifier que c'est bien 0 pour pouvoir rejoindre
         return requete;
     }
 
-    public String add_partie(String nomGame, int idPartie){
+    public String get_add_partie_requete(String nomGame, int idPartie){
         String requete = "ADD INTO "+TABLE_PARTIE_NAME+" VALUES("+String.valueOf(idPartie)+", "+nomGame+", 0);";
 //        TODO verifier que c'est bien 0 pour pouvoir rejoindre
         return requete;
+    }
+
+    public String get_join_partie_requete(int idPartie){
+//        on verifie que cette partie est encore en cours
+        boolean en_cours = false;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryEnCours = "SELECT * FROM " + TABLE_PARTIE_NAME + " WHERE " + TABLE_PARTIE_COLUMN_JOIGNABLE + "=1 AND "+TABLE_PARTIE_COLUMN_GAME_ID+"="+idPartie+";";
+//        TODO verifier que c'est bien 1 qu'il faut pour true
+        Cursor cursorPartie = db.rawQuery(queryEnCours, null);
+        while(cursorPartie.moveToNext()) {
+            en_cours = true;
+        }
+        if (en_cours){
+//            si on est en cours on peut rejoindre
+//            TODO ecrire la requete pour rejoindre une game
+        }
+        return "";
     }
 }
 
