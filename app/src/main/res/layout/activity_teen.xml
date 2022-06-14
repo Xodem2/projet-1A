@@ -6,24 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TeenActivity">
+
     <VideoView
         android:id="@+id/backteen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/button_fraction"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="28dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/flow4"
         app:layout_constraintTop_toBottomOf="@+id/flow4"
@@ -45,13 +46,13 @@
         android:id="@+id/button_Equation2"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         android:text="Résolution d'équation du second degré"
         app:layout_constraintStart_toEndOf="@+id/flow4"
         app:layout_constraintTop_toBottomOf="@+id/flow4"
-        android:background="@null"
         app:srcCompat="@drawable/icone_equation2" />
 
     <ImageButton
@@ -82,8 +83,8 @@
         android:layout_width="120dp"
 
         android:layout_height="120dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="84dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
