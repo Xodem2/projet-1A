@@ -67,6 +67,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/mascotte3_1" />
 
+
+
             </LinearLayout>
         </ScrollView>
 
@@ -114,6 +116,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/frame_gold" />
+
+
+                <ImageView
+                    android:id="@+id/profilePageFrame4Id"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginBottom="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/frame_diamond" />
 
             </LinearLayout>
         </ScrollView>
