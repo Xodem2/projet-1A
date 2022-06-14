@@ -1,7 +1,5 @@
 package com.example.projet1a.database;
 
-import android.util.Log;
-
 import com.example.projet1a.DataProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -9,8 +7,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class DataBase {
 
@@ -20,13 +19,14 @@ public class DataBase {
     DatabaseReference game_table;
     DatabaseReference reference_game;
     static int id_game=0;
+    static int place=0;
+    static ArrayList<Integer> game_on = new ArrayList<>();
     private static boolean est_libre=false;
 
     public static void run(){
         FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.v("data", "debut");
                 Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator();
                 String key;
                 while (it.hasNext()){
@@ -34,7 +34,6 @@ public class DataBase {
                     if (Integer.valueOf(key)>=id_game){
                         id_game = Integer.valueOf(key)+1;
                     }
-                    System.out.println(key);
                 }
             }
 
@@ -87,6 +86,7 @@ public class DataBase {
     }
 
     public int create_private_game(String name_game){
+        DataBase.run();
         this.reference_game = this.game_table.child(String.valueOf(id_game));
         this.reference_game.child("etat").setValue("debut");
         this.reference_game.child("prof").setValue(this.profil.getPlayer().getID());
@@ -95,17 +95,42 @@ public class DataBase {
     }
 
     public boolean join_private_game(int id_game, String id_player){
-        if (game_table.child(String.valueOf(id_game))==null){
-            return false;
-        }
-        this.reference_game = game_table.child(String.valueOf(id_game));
-        while (this.reference_game.child("joueur_suivant")==null){
-            this.reference_game = this.reference_game.child("joueur_suivant");
-            if (this.reference_game.child(id_player)!=null){
-                return false;
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterator<DataSnapshot> it = dataSnapshot.child(String.valueOf(id_game)).getChildren().iterator();
+                String key;
+                while (it.hasNext()){
+                    key = it.next().getKey();
+                    try {
+                        if (Integer.valueOf(key) >= DataBase.place) {
+                            DataBase.place = Integer.valueOf(key) + 1;
+                        }
+                    }
+                    catch (Exception e){
+                        System.out.println("new pb");
+                        System.out.println(key);
+                        e.printStackTrace();
+                    }
+                }
             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").child(String.valueOf(id_game)).setValue("go1");
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").child(String.valueOf(id_game)).setValue("go2");
+
+        if (DataBase.place!=0) {
+            this.reference_game = this.game_table.child(String.valueOf(id_game));
+            this.reference_game.child("prof").setValue(this.profil.getPlayer().getID());
+            this.reference_game.child(String.valueOf(DataBase.place)).setValue(id_player);
+            DataBase.place=0;
+            return true;
         }
-        this.reference_game.child("joueur_suivant").setValue(String.valueOf(id_player));
-        return true;
+        return false;
     }
 }
