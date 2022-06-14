@@ -3,10 +3,7 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
-import com.example.projet1a.database.DataBase;
 import com.example.projet1a.profile.PlayerLevel;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -57,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
         this.gameStatsButton = (ImageButton) findViewById(R.id.profilePageGameStatsButtonId);
-        this.profilePicture = (ImageView) findViewById(R.id.profilePageProfilePictureId);
+        this.profilePicture = (ImageView) findViewById(R.id.avatar1);
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
