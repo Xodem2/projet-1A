@@ -117,8 +117,10 @@ public class VectorActivity extends GameMaster {
     public void checkSuccess(){
         super.checkSuccess();
         if(!this.player.getSuccess().getSuccessById("o100rcvect").isAcquired()){
-            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100) {
                 this.player.getSuccess().getSuccessById("o100rcvect").acquire();
+                this.showSuccessPopup(this.player.getSuccess().getSuccessById("o100rcvect").getTitle());
+            }
         }
     }
 

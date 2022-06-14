@@ -71,8 +71,10 @@ public class MultActivity extends GameMaster{
     public void checkSuccess(){
         super.checkSuccess();
         if(!this.player.getSuccess().getSuccessById("o100rcmult").isAcquired()){
-            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100) {
                 this.player.getSuccess().getSuccessById("o100rcmult").acquire();
+                this.showSuccessPopup(this.player.getSuccess().getSuccessById("o100rcmult").getTitle());
+            }
         }
     }
 }
