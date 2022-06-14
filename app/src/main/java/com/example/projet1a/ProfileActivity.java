@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView mpScore;
     private TextView totalScore;
     private ImageButton successButton;
-    private Button gameStatsButton;
+    private ImageButton gameStatsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.mpScore = (TextView) findViewById(R.id.profilePageMpScoreFillId);
         this.totalScore = (TextView) findViewById(R.id.profilePageTotalScoreFillId);
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
-        this.gameStatsButton = (Button) findViewById(R.id.profilePageGameStatsButtonId);
+        this.gameStatsButton = (ImageButton) findViewById(R.id.profilePageGameStatsButtonId);
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
