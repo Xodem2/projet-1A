@@ -14,6 +14,7 @@ import java.util.Random;
 public class PythagoreActivity extends GameMaster {
 
     public final static String id="PythagoreActivity";
+    public final static String idInd="pythagore";
     private Pythagore pythagore;
     private TextView cote1;
     private TextView cote2;
@@ -26,6 +27,7 @@ public class PythagoreActivity extends GameMaster {
         setContentView(R.layout.activity_pythagore);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
         this.cote1 = (TextView) findViewById(R.id.cote1);
         this.cote2 = (TextView) findViewById(R.id.cote2);
         this.random = new Random();
@@ -81,16 +83,18 @@ public class PythagoreActivity extends GameMaster {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        if (v.getId() == this.choix1Button.getId()){
+        if (v.getId() == this.choix1Button.getId()) {
             super.update(this.correct == 0);
+            this.generate();
         }
-        else if (v.getId() == this.choix2Button.getId()){
+        else if (v.getId() == this.choix2Button.getId()) {
             super.update(this.correct == 1);
+            this.generate();
         }
-        else{
+        else if (v.getId() == this.choix3Button.getId()) {
             super.update(this.correct == 2);
+            this.generate();
         }
-        this.generate();
     }
 
     @Override

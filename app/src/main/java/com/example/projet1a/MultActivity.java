@@ -21,12 +21,14 @@ public class MultActivity extends GameMaster{
 
     int[] prop;
     public final static String id="MultActivity";
+    public final static String idInd="opération";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_mult);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
 
         this.player = DataProvider.getInstance().getPlayer();
 
@@ -50,16 +52,19 @@ public class MultActivity extends GameMaster{
 
     @Override
     public void onClick(View v){
+        super.onClick(v);
         if (v.getId() == this.choix1Button.getId()) {
             super.update(op.mult(this.prop[0]));
+            this.generate();
         }
-        else if (v.getId() == this.choix2Button.getId()){
+        else if (v.getId() == this.choix2Button.getId()) {
             super.update(op.mult(this.prop[1]));
+            this.generate();
         }
-        else{
+        else if (v.getId() == this.choix3Button.getId()) {
             super.update(op.mult(this.prop[2]));
+            this.generate();
         }
-        this.generate();
     }
 
     @Override

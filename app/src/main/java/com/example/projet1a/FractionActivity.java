@@ -26,7 +26,7 @@ public class FractionActivity extends GameMaster {
     Rect rDen;
 
     public final static String id="FractionActivity";
-
+    public final static String idInd="sommeFrac";
 
     private TextView num1;
     private TextView num2;
@@ -62,6 +62,7 @@ public class FractionActivity extends GameMaster {
         setContentView(R.layout.activity_fraction);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
         this.bon_choix = new int[2];
         this.choix = new int[3][2];
         this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -99,16 +100,19 @@ public class FractionActivity extends GameMaster {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onClick(View v) {
-        if (v.getId() == this.choix1Button.getId()){
+        super.onClick(v);
+        if (v.getId() == this.choix1Button.getId()) {
             super.update(this.num1.getText() == String.valueOf(this.bon_choix[0]) && this.den1.getText() == String.valueOf(this.bon_choix[1]));
+            generate();
         }
-        else if(v.getId() == this.choix2Button.getId()){
+        else if(v.getId() == this.choix2Button.getId()) {
             super.update(this.num2.getText() == String.valueOf(this.bon_choix[0]) && this.den2.getText() == String.valueOf(this.bon_choix[1]));
+            generate();
         }
-        else{
+        else if(v.getId() == this.choix3Button.getId()) {
             super.update(this.num3.getText() == String.valueOf(this.bon_choix[0]) && this.den3.getText() == String.valueOf(this.bon_choix[1]));
+            generate();
         }
-        generate();
     }
 
     public void shuffle(){

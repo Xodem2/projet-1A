@@ -125,7 +125,7 @@ public class MatricesActivity extends GameMaster {
 
         if (this.operation==0){
 //            somme
-            this.setIdInd("sommeMat");
+            super.setIdInd("sommeMat");
             ArrayList<Matrix> prop = this.m.propSum();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -170,7 +170,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==1){
 //            différence
-            this.setIdInd("diffMat");
+            super.setIdInd("diffMat");
             ArrayList<Matrix> prop = this.m.propMinus();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -215,7 +215,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==2){
 //            produit
-            this.setIdInd("produitMat");
+            super.setIdInd("produitMat");
             ArrayList<Matrix> prop = this.m.propProd();
             this.correct = this.m.getCorrect();
             this.pg1.setText("(");
@@ -260,7 +260,7 @@ public class MatricesActivity extends GameMaster {
         }
         else if (this.operation==3){
 //            determinant
-            this.setIdInd("detMat");
+            super.setIdInd("detMat");
             this.pg1.setText("");
             this.m1_11.setText("");
             this.m1_12.setText("");
@@ -318,7 +318,7 @@ public class MatricesActivity extends GameMaster {
         }
         else{
 //            transpose
-            this.setIdInd("transMat");
+            super.setIdInd("transMat");
             ArrayList<Matrix> prop = this.m.getM2().propTrans();
             this.correct = this.m.getM2().getCorrect();
             this.pg1.setText("");
@@ -369,14 +369,16 @@ public class MatricesActivity extends GameMaster {
         super.onClick(v);
         if (v.getId()==this.choix1Button.getId()){
             super.update(this.correct==0);
+            this.generate();
         }
         else if (v.getId()==this.choix2Button.getId()){
             super.update(this.correct==1);
+            this.generate();
         }
-        else{
+        else if (v.getId()==this.choix3Button.getId()){
             super.update(this.correct==2);
+            this.generate();
         }
-        this.generate();
     }
 
     @Override

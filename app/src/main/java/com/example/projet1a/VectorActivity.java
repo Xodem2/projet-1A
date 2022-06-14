@@ -56,16 +56,27 @@ public class VectorActivity extends GameMaster {
 
     @Override
     public void onClick(View v) {
+        super.onClick(v);
         String userAnswer = "";
 
-        if(v.getId() == this.choix1Button.getId()) userAnswer = (String) this.choix1Button.getText();
-        else if(v.getId() == this.choix2Button.getId()) userAnswer = (String) this.choix2Button.getText();
-        else if(v.getId() == this.choix3Button.getId()) userAnswer = (String) this.choix3Button.getText();
-
-        super.update(userAnswer.equals(this.answer.toString()));
-
-        this.vq = new VectorQuestion();
-        this.generate();
+        if(v.getId() == this.choix1Button.getId()) {
+            userAnswer = (String) this.choix1Button.getText();
+            super.update(userAnswer.equals(this.answer.toString()));
+            this.vq = new VectorQuestion();
+            this.generate();
+        }
+        else if(v.getId() == this.choix2Button.getId()) {
+            userAnswer = (String) this.choix2Button.getText();
+            super.update(userAnswer.equals(this.answer.toString()));
+            this.vq = new VectorQuestion();
+            this.generate();
+        }
+        else if(v.getId() == this.choix3Button.getId()) {
+            userAnswer = (String) this.choix3Button.getText();
+            super.update(userAnswer.equals(this.answer.toString()));
+            this.vq = new VectorQuestion();
+            this.generate();
+        }
     }
 
     private int chooseRandomQuestion(){
@@ -112,6 +123,7 @@ public class VectorActivity extends GameMaster {
     }
 
     private void doAddition(){
+        super.setIdInd("sommeVect");
         this.vq.addition();
         this.answer = this.vq.getResult();
         ArrayList<Integer>[] vectors = this.vq.getVectors();
@@ -122,6 +134,7 @@ public class VectorActivity extends GameMaster {
     }
 
     private void doSubstraction(){
+        super.setIdInd("sommeVect");
         this.vq.substraction();
         this.answer = vq.getResult();
         ArrayList<Integer>[] vectors = this.vq.getVectors();
@@ -132,6 +145,7 @@ public class VectorActivity extends GameMaster {
     }
 
     private void doScalarProduct(){
+        super.setIdInd("produitScalCoord");
         this.vq.scalarProduct();
         this.answer = vq.getResult();
         ArrayList<Integer>[] vectors = this.vq.getVectors();

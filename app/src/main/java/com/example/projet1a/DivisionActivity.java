@@ -18,6 +18,7 @@ public class DivisionActivity extends GameMaster {
     Operation op;
 
     public final static String id="DivisionActivity";
+    public final static String idInd="opération";
 
     private PlayerProfile player;
 
@@ -28,6 +29,7 @@ public class DivisionActivity extends GameMaster {
         setContentView(R.layout.activity_division);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
         this.op = new Operation();
 
         this.player = DataProvider.getInstance().getPlayer();
@@ -49,16 +51,20 @@ public class DivisionActivity extends GameMaster {
 
     @Override
     public void onClick(View v){
+        super.onClick(v);
         if (v.getId() == this.choix1Button.getId()) {
             super.update(op.div(this.prop[0]));
+            this.generate();
         }
-        else if (v.getId() == this.choix2Button.getId()){
+        else if (v.getId() == this.choix2Button.getId()) {
             super.update(op.div(this.prop[1]));
+            this.generate();
         }
-        else{
+        else if (v.getId() == this.choix3Button.getId()) {
             super.update(op.div(this.prop[2]));
+            this.generate();
         }
-        this.generate();
+
     }
 
     @Override

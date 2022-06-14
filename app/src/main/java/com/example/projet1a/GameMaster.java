@@ -72,6 +72,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.choix3Button = (Button) findViewById(R.id.choice3ID);
         this.choix3Button.setOnClickListener(this);
         this.buttonInd = (androidx.appcompat.widget.AppCompatButton) findViewById(R.id.buttonInd);
+        this.buttonInd.setOnClickListener(this);
 
         this.score = new Point();
         this.delta_point = 1;
@@ -114,8 +115,10 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v.getId() == this.buttonInd.getId()) {
-            ((TextView) findViewById(R.id.textInd)).setTextColor(Color.parseColor("#00ff00"));
             ((TextView) findViewById(R.id.textInd)).setText((new Indices()).getInd(this.getIdInd()));
+        }
+        else {
+            ((TextView) findViewById(R.id.textInd)).setText("");
         }
     }
 

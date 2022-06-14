@@ -12,6 +12,7 @@ import java.util.Random;
 
 public class Equation2Activity extends GameMaster {
     public final static String id="Equation2Activity";
+    public final static String idInd="équation2nd";
 
     private TextView equation;
 
@@ -30,6 +31,7 @@ public class Equation2Activity extends GameMaster {
         setContentView(R.layout.activity_equation2);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
 
         this.player = DataProvider.getInstance().getPlayer();
 
@@ -37,16 +39,19 @@ public class Equation2Activity extends GameMaster {
     }
 
     public void onClick(View v) {
-        if (v.getId()==this.choix1Button.getId()){
+        super.onClick(v);
+        if (v.getId()==this.choix1Button.getId()) {
             super.update(this.goodAnswerPosition == 0);
+            generate();
         }
-        else if (v.getId()==this.choix2Button.getId()){
+        else if (v.getId()==this.choix2Button.getId()) {
             super.update(this.goodAnswerPosition == 1);
+            generate();
         }
-        else{
+        else if (v.getId()==this.choix3Button.getId()) {
             super.update(this.goodAnswerPosition == 2);
+            generate();
         }
-        generate();
     }
 
     @Override

@@ -22,12 +22,14 @@ public class Equation1Activity extends GameMaster {
     private EquationPremier eq1;
 
     public final static String id="Equation1Activity";
+    public final static String idInd="équation";
 
     protected void onCreate(Bundle savedInstanceState){
 
         setContentView(R.layout.activity_equation1);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
 
         this.player = DataProvider.getInstance().getPlayer();
 
@@ -36,18 +38,20 @@ public class Equation1Activity extends GameMaster {
 
     public void onClick(View v) {
         // Code here executes on main thread after user presses button
-
-        if(v.getId() == this.choix1Button.getId()){
+        super.onClick(v);
+        if(v.getId() == this.choix1Button.getId()) {
             super.update(this.goodAnswerPosition == 0);
+            generate();
         }
-        else if(v.getId() == this.choix2Button.getId()){
+        else if(v.getId() == this.choix2Button.getId()) {
             super.update(this.goodAnswerPosition == 1);
+            generate();
         }
-        else{
+        else if(v.getId() == this.choix3Button.getId()) {
             super.update(this.goodAnswerPosition == 2);
+            generate();
         }
 
-        generate();
     }
 
     @Override

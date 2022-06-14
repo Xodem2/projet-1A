@@ -18,6 +18,7 @@ public class MoinsActivity extends GameMaster{
     Operation op;
 
     public final static String id="MoinsActivity";
+    public final static String idInd="opération";
 
     private PlayerProfile player;
 
@@ -25,9 +26,11 @@ public class MoinsActivity extends GameMaster{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_moins);this.pb = findViewById(R.id.progressBarToday);
+        setContentView(R.layout.activity_moins);
+        this.pb = findViewById(R.id.progressBarToday);
         super.onCreate(savedInstanceState);
         super.setId(this.id);
+        super.setIdInd(this.idInd);
 
         this.player = DataProvider.getInstance().getPlayer();
 
@@ -50,16 +53,19 @@ public class MoinsActivity extends GameMaster{
 
     @Override
     public void onClick(View v){
+        super.onClick(v);
         if (v.getId() == this.choix1Button.getId()) {
             super.update(op.minus(this.prop[0]));
+            this.generate();
         }
-        else if (v.getId() == this.choix2Button.getId()){
+        else if (v.getId() == this.choix2Button.getId()) {
             super.update(op.minus(this.prop[1]));
+            this.generate();
         }
-        else{
+        else if (v.getId() == this.choix3Button.getId()) {
             super.update(op.minus(this.prop[2]));
+            this.generate();
         }
-        this.generate();
     }
 
     @Override
