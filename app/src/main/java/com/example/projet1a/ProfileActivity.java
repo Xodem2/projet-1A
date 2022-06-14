@@ -32,7 +32,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView totalScore;
     private ImageButton successButton;
     private ImageButton gameStatsButton;
+
     private ImageView profilePicture;
+    private ImageView frame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +55,24 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         this.successButton = (ImageButton) findViewById(R.id.profilePageSuccesButtonId);
         this.gameStatsButton = (ImageButton) findViewById(R.id.profilePageGameStatsButtonId);
         this.profilePicture = (ImageView) findViewById(R.id.avatar1);
+        this.frame = (ImageView) findViewById(R.id.frame1);
 
         this.updateButton.setOnClickListener(this);
         this.successButton.setOnClickListener(this);
         this.gameStatsButton.setOnClickListener(this);
         this.profilePicture.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == this.updateButton.getId()) this.doUpdate();
-        if(v.getId() == this.successButton.getId()) this.showSuccessPage();
-        if(v.getId() == this.gameStatsButton.getId()) this.showGameStatsPage();
-        if(v.getId() == this.profilePicture.getId()) this.showProfilePictureDialog();
+        else if(v.getId() == this.successButton.getId()) this.showSuccessPage();
+        else if(v.getId() == this.gameStatsButton.getId()) this.showGameStatsPage();
+        else if(v.getId() == this.profilePicture.getId()) this.showProfilePictureDialog();
     }
 
     private void showProfilePictureDialog() {
-        ProfilePictureDialog dialog = new ProfilePictureDialog(this);
+        ProfilePictureDialog dialog = new ProfilePictureDialog(this, profilePicture, this.frame);
         dialog.show();
     }
 
