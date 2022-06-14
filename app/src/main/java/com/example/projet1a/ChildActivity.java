@@ -3,10 +3,13 @@ package com.example.projet1a;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.VideoView;
 
 public class ChildActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -14,6 +17,9 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton diffButton;
     private ImageButton multButton;
     private ImageButton divButton;
+    MediaPlayer mMediaPlayer;
+    int mCurrentVideoPosition;
+    private VideoView childback;
 
 
     @Override
@@ -31,6 +37,47 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
 
         this.divButton = (ImageButton) findViewById(R.id.button_division);
         this.divButton.setOnClickListener(this);
+        childback = (VideoView) findViewById(R.id.childback);
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.childback;
+        Uri uri = Uri.parse(uriPath);
+        childback.setVideoURI(uri);
+        childback.start();
+        childback.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPlayer = mediaPlayer;
+                // We want our video to play over and over so we set looping to true.
+                mMediaPlayer.setLooping(true);
+                // We then seek to the current posistion if it has been set and play the video.
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPlayer.seekTo(mCurrentVideoPosition);
+                    mMediaPlayer.start();
+                }
+            }
+        });
+    }
+    @Override
+    protected void onPostResume() {
+        childback.resume();
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        childback.start();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        childback.suspend();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        childback.stopPlayback();
+        super.onDestroy();
     }
 
     @Override
