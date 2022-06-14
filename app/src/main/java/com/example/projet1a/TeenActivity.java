@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.VideoView;
 
 import com.example.projet1a.ado_games.Thales;
 
@@ -18,6 +21,9 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
     private ImageButton thalesButton;
+    MediaPlayer mMediaPlayer;
+    int mCurrentVideoPosition;
+    private VideoView backteen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,49 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.pythagoreButton.setOnClickListener(this);
         this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
+
+        backteen = (VideoView) findViewById(R.id.backteen);
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backteen;
+        Uri uri = Uri.parse(uriPath);
+        backteen.setVideoURI(uri);
+        backteen.start();
+        backteen.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPlayer = mediaPlayer;
+                // We want our video to play over and over so we set looping to true.
+                mMediaPlayer.setLooping(true);
+                // We then seek to the current posistion if it has been set and play the video.
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPlayer.seekTo(mCurrentVideoPosition);
+                    mMediaPlayer.start();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onPostResume() {
+        backteen.resume();
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        backteen.start();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        backteen.suspend();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        backteen.stopPlayback();
+        super.onDestroy();
     }
 
 @Override
