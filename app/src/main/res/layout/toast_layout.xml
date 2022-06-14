@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="30dp"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="5dp"
+    app:contentPadding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/toastLayoutItemTropyImageId"
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/trophy_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/toastLayoutItemSuccessId"
+                android:layout_width="246dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Succès obtenu !"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/toastLayoutItemSuccessTitleId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="success title"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

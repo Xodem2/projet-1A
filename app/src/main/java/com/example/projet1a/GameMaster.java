@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -162,10 +164,21 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         if(!player.getSuccess().getSuccessById("o10rcda").isAcquired()) {
             ArrayMap<String, GameStats> gameStats = this.player.getStats().getGameStats();
             for (int i = 0; i < gameStats.size(); i++) {
-                if (gameStats.valueAt(i).getCorrectsInARow() >= 10)
+                if (gameStats.valueAt(i).getCorrectsInARow() >= 10) {
                     this.player.getSuccess().getSuccessById("o10rcda").acquire();
+                    this.showSuccessPopup(this.player.getSuccess().getSuccessById("o10rcda").getTitle());
+                }
             }
         }
+    }
+
+    public void showSuccessPopup(String successTitle){
+        Toast customToast = new Toast(this);
+        View view = getLayoutInflater().inflate(R.layout.toast_layout, null);
+        ((TextView)view.findViewById(R.id.toastLayoutItemSuccessTitleId)).setText(successTitle);
+        customToast.setGravity(Gravity.CENTER, 0, 0);
+        customToast.setView(view);
+        customToast.show();
     }
 
     public void setProp(@NonNull String[] prop){
