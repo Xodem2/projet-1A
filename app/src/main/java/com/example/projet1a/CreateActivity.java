@@ -29,13 +29,15 @@ public class CreateActivity extends AppCompatActivity  implements View.OnClickLi
         this.text = (TextView) findViewById(R.id.idParty);
         this.text.setText(String.valueOf(this.id_game));
         ((Button) findViewById(R.id.button7)).setOnClickListener(this);
+        this.text.setText("");
+
     }
 
     @Override
     public void onClick(View v) {
-        System.out.println("tset");
         this.id_game = this.db.create_private_game("Test");
-        System.out.println(this.id_game);
-        this.text.setText(String.valueOf(this.id_game));
+        if (this.id_game!=0) {
+            this.text.setText(String.valueOf(this.id_game));
+        }
     }
 }

@@ -19,8 +19,33 @@ public class DataBase {
     DatabaseReference reference_player;
     DatabaseReference game_table;
     DatabaseReference reference_game;
-    int id_game=0;
+    static int id_game=0;
     private static boolean est_libre=false;
+
+    public static void run(){
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.v("data", "debut");
+                Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator();
+                String key;
+                while (it.hasNext()){
+                    key = it.next().getKey();
+                    if (Integer.valueOf(key)>=id_game){
+                        id_game = Integer.valueOf(key)+1;
+                    }
+                    System.out.println(key);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").child("0").setValue("go1");
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("gamedata").child("0").setValue("go2");
+    }
 
     public static boolean test_id(String id){
         DataBase.est_libre = true;
@@ -51,25 +76,6 @@ public class DataBase {
         this.reference_player = dataBase.getReference("userdata").child(this.profil.getPlayer().getID());
         this.game_table = dataBase.getReference("gamedata");
         this.id_game = 0;
-        this.game_table.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator();
-                String key;
-                while (it.hasNext()){
-                    key = it.next().getKey();
-                    if (Integer.valueOf(key)>id_game){
-                        id_game = Integer.valueOf(key)+1;
-                    }
-                    System.out.println(key);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
     }
 
     public void update_player(int score, String activity){
@@ -81,27 +87,6 @@ public class DataBase {
     }
 
     public int create_private_game(String name_game){
-
-        this.game_table.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterator<DataSnapshot> it = dataSnapshot.getChildren().iterator();
-                int key;
-                while (it.hasNext()){
-                    key = Integer.valueOf(it.next().getKey());
-                    if (key>=id_game){
-                        id_game = key+1;
-                    }
-                    System.out.println(key);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-
         this.reference_game = this.game_table.child(String.valueOf(id_game));
         this.reference_game.child("etat").setValue("debut");
         this.reference_game.child("prof").setValue(this.profil.getPlayer().getID());
