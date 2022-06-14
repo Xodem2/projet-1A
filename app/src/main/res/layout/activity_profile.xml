@@ -25,20 +25,23 @@
 
     <TextView
         android:id="@+id/profilePagePlayerIdFillId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
+        android:lines="2"
+        android:maxLines="2"
         android:text="123e4567-e89b-12d3-a456-556642440000"
         android:textAlignment="textStart"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageGameStatsButtonId"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/profilePageEditNicknameId"
