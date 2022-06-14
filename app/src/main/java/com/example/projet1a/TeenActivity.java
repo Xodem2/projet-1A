@@ -19,7 +19,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton pythagoreButton;
     private ImageButton thalesButton;
     //private ImageButton sqrButton;
-    private Button sqrButton;
+    private ImageButton sqrButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView backteen;
@@ -38,7 +38,7 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.pythagoreButton.setOnClickListener(this);
         this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
         this.thalesButton.setOnClickListener(this);
-        this.sqrButton = (Button)  findViewById(R.id.button_sqr);
+        this.sqrButton = (ImageButton)  findViewById(R.id.button_sqr);
         this.sqrButton.setOnClickListener(this);
 
         backteen = (VideoView) findViewById(R.id.backteen);

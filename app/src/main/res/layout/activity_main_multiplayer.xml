@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_adult">
+
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -19,55 +21,60 @@
 
             <ImageButton
                 android:id="@+id/main_multiplayer_vector"
-                android:layout_width="119dp"
-                android:layout_height="116dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/icone_vector" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_thales"
-                android:layout_width="121dp"
-                android:layout_height="121dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@null"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icone_thales" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_mult"
-                android:layout_width="119dp"
-                android:layout_height="113dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/multiplication" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_matrice"
-                android:layout_width="119dp"
-                android:layout_height="117dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/icone_matrice" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_pythagore"
-                android:layout_width="118dp"
-                android:layout_height="118dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/icone_pythagore" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_division"
-                android:layout_width="123dp"
-                android:layout_height="127dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/icone_division" />
 
         </LinearLayout>
     </ScrollView>
 
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="200dp"
         android:layout_height="fill_parent"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="104dp"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/scrollView3">
 
@@ -77,38 +84,43 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/main_multiplayer_equation2"
-                android:layout_width="122dp"
-                android:layout_height="118dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icone_equation2" />
-
-            <ImageButton
                 android:id="@+id/main_multiplayer_equation1"
-                android:layout_width="124dp"
-                android:layout_height="117dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@null"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/equation" />
 
             <ImageButton
-                android:id="@+id/main_multiplayer_fraction"
-                android:layout_width="122dp"
-                android:layout_height="125dp"
+                android:id="@+id/main_multiplayer_equation2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@null"
                 android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_equation2" />
+
+            <ImageButton
+                android:id="@+id/main_multiplayer_fraction"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/fraction" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_somme"
-                android:layout_width="114dp"
-                android:layout_height="118dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/icone_somme" />
 
             <ImageButton
                 android:id="@+id/main_multiplayer_difference"
-                android:layout_width="123dp"
-                android:layout_height="118dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="fitCenter"
+                android:background="@null"
                 app:srcCompat="@drawable/difference" />
         </LinearLayout>
     </ScrollView>

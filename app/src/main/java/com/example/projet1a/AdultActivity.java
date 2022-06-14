@@ -18,7 +18,7 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton vectorButton;
     private ImageButton matriceButton;
     //private ImageButton trigoButton;
-    private Button trigoButton;
+    private ImageButton trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView adultback;
@@ -37,7 +37,7 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
         this.matriceButton = (ImageButton) findViewById(R.id.icone_Matrice);
         this.matriceButton.setOnClickListener(this);
-        this.trigoButton = (Button) findViewById(R.id.button_trigo);
+        this.trigoButton = (ImageButton) findViewById(R.id.button_trigo);
         this.trigoButton.setOnClickListener(this);
         adultback = (VideoView) findViewById(R.id.adultback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;

@@ -18,15 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_sqr"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="84dp"
         android:text="Carrés et racines"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/icone_sqrt"/>
 
     <ImageButton
         android:id="@+id/button_fraction"
@@ -36,6 +39,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="28dp"
         android:scaleType="fitCenter"
+        android:background="@null"
         app:layout_constraintEnd_toStartOf="@+id/flow4"
         app:layout_constraintTop_toBottomOf="@+id/flow4"
         app:srcCompat="@drawable/fraction" />
@@ -48,6 +52,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:scaleType="fitCenter"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@+id/flow4"
         app:layout_constraintStart_toEndOf="@+id/flow4"
         app:srcCompat="@drawable/equation" />

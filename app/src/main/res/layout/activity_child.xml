@@ -16,6 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="1.0" />
     <ImageButton
         android:id="@+id/button_Mult"
@@ -53,6 +54,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/flow3"
         app:layout_constraintStart_toEndOf="@+id/flow3"
+        android:background="@null"
         app:srcCompat="@drawable/difference" />
 
     <ImageButton
