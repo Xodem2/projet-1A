@@ -16,12 +16,16 @@ public class PlayerProfile {
     private PlayerLevel level;
     private PlayerSuccess success;
     private final PlayerStatistics stats;
+    private int isFinished;
+    private int numberOfSucceses;
 
     public PlayerProfile(){
         this.generateID();
         this.level = new PlayerLevel();
         this.stats = new PlayerStatistics(0, 0);
         this.success = new PlayerSuccess();
+        this.isFinished = -1;
+        this.numberOfSucceses = 0;
     }
 
     public PlayerProfile(boolean loadingFromDB){
@@ -51,6 +55,14 @@ public class PlayerProfile {
         this.id = UUID.randomUUID().toString();
         FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("userdata").child(id).setValue(0);
     }
+
+    public void setIsFinished(int number){ this.isFinished = number;}
+
+    public void incNumberOfSucces(){ this.numberOfSucceses += 1; }
+
+    public void decIsFinished(){ this.isFinished -= 1;}
+
+    public int getIsFinished(){ return this.isFinished;}
 
     public PlayerLevel getLevel(){
         return this.level;

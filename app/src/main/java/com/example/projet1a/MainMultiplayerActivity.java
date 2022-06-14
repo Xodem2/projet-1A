@@ -204,8 +204,8 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     }
 
     public void launchActivity(){
-        Intent vectorActivityIntent = new Intent(this, RoomActivity.class);
-        startActivity(vectorActivityIntent);
+        Intent roomActivityIntent = new Intent(this, RoomActivity.class);
+        startActivity(roomActivityIntent);
     }
 
     public String getIdGame(){
