@@ -15,6 +15,6 @@ public class ProfilePictureDialog extends Dialog {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
-        setContentView(R.layout.game_stats_item);
+        setContentView(R.layout.profile_picture_dialog);
     }
 }

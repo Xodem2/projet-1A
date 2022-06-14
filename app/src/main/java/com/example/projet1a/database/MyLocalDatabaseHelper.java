@@ -205,7 +205,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
     public PlayerProfile loadPlayer(){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        PlayerProfile player = new PlayerProfile();
+        PlayerProfile player = new PlayerProfile(true);
 
         // player
         String queryPlayer = "SELECT * FROM " + TABLE_PLAYER_NAME;

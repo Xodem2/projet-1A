@@ -24,6 +24,13 @@ public class PlayerProfile {
         this.success = new PlayerSuccess();
     }
 
+    public PlayerProfile(boolean loadingFromDB){
+        if(!loadingFromDB) this.generateID();
+        this.level = new PlayerLevel();
+        this.stats = new PlayerStatistics(0, 0);
+        this.success = new PlayerSuccess();
+    }
+
     public void setId(String id){
         this.id = id;
     }
