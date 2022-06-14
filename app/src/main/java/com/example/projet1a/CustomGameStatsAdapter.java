@@ -95,17 +95,23 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         GameStats gameStat = DataProvider.getInstance().getPlayer().getStats().getGameStatsById(localDataSet[position]);
+
         viewHolder.getCorrectAnswer().setText(String.valueOf(gameStat.getTotalCorrects()));
         viewHolder.getTotalAnswer().setText(String.valueOf(gameStat.getTotalAnswered()));
         viewHolder.getCorrectInARow().setText(String.valueOf(gameStat.getCorrectsInARow()));
         viewHolder.getGameTitle().setText(this.translateTitle(gameStat.getId()));
         viewHolder.getMaxCorrectInARow().setText(String.valueOf(gameStat.getMaxCorrectsInARow()));
 
-        int rate = (int)( (float) gameStat.getTotalCorrects() * 100 / gameStat.getTotalAnswered());
-        if(rate < 40) viewHolder.getRate().setTextColor(Color.parseColor("#ff0000"));
-        else if(40 <= rate && rate <= 60) viewHolder.getRate().setTextColor(Color.parseColor("#ffa500"));
-        else if(rate > 60) viewHolder.getRate().setTextColor(Color.parseColor("#00ff00"));
-        viewHolder.getRate().setText(String.valueOf(rate) + "%");
+        int rate;
+        if(gameStat.getTotalAnswered() > 0) {
+            rate = (int) ((float) gameStat.getTotalCorrects() * 100 / gameStat.getTotalAnswered());
+            if (rate < 40) viewHolder.getRate().setTextColor(Color.parseColor("#ff0000"));
+            else if (40 <= rate && rate <= 60)
+                viewHolder.getRate().setTextColor(Color.parseColor("#ffa500"));
+            else if (rate > 60) viewHolder.getRate().setTextColor(Color.parseColor("#00ff00"));
+            viewHolder.getRate().setText(String.valueOf(rate) + "%");
+        }
+        else viewHolder.getRate().setText("-%");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
