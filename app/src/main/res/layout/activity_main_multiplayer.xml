@@ -6,13 +6,16 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/main_multiplayer_vector"
@@ -56,6 +59,23 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icone_division" />
 
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="200dp"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="112dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scrollView3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/main_multiplayer_equation2"
                 android:layout_width="122dp"
@@ -92,5 +112,4 @@
                 app:srcCompat="@drawable/difference" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
