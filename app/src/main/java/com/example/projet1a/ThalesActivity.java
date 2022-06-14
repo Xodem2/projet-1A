@@ -139,4 +139,15 @@ public class ThalesActivity extends GameMaster {
         else if(this.whichAnswer== 5){ this.answer = this.thales.getBC(); }
     }
 
+    @Override
+    public void checkSuccess(){
+        super.checkSuccess();
+        if(!this.player.getSuccess().getSuccessById("o100rcthales").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100) {
+                this.player.getSuccess().getSuccessById("o100rcthales").acquire();
+                this.showSuccessPopup(this.player.getSuccess().getSuccessById("o100rcthales").getTitle());
+            }
+        }
+    }
+
 }
