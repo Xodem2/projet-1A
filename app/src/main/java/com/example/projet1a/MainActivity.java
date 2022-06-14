@@ -91,9 +91,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-        if (DataBase.test_id(this.player.getID())) {
-            (new DataBase()).update_player(0, "total");
-        }
     }
 
 

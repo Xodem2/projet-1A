@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
 
-
     <VideoView
         android:id="@+id/videocar"
         android:layout_width="match_parent"
@@ -20,14 +19,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-
     <ImageButton
         android:id="@+id/profil"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="179dp"
         android:layout_height="71dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,15 +37,14 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_teen"
         app:srcCompat="@drawable/button_easy" />
 
     <ImageButton
@@ -55,15 +52,14 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="556dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_adult"
         app:srcCompat="@drawable/button_medium" />
 
     <ImageButton
@@ -71,27 +67,26 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="632dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/button_hard" />
 
     <ImageButton
         android:id="@+id/button_multiplayer"
         android:layout_width="179dp"
         android:layout_height="71dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/button_multiplayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

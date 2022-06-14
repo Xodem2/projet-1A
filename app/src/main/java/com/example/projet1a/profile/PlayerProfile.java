@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.example.projet1a.database.DataBase;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.UUID;
 
@@ -39,7 +40,8 @@ public class PlayerProfile {
         // generate random unique ID
         do {
             this.id = UUID.randomUUID().toString();
-        } while (DataBase.test_id(this.id));
+        } while (!DataBase.test_id(this.id));
+        FirebaseDatabase.getInstance("https://einstein-6af82-default-rtdb.europe-west1.firebasedatabase.app/").getReference("userdata").child(id).setValue(0);
     }
 
     public PlayerLevel getLevel(){
