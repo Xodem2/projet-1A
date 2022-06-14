@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.projet1a.DataProvider;
+
 public class LocalBDDmulti extends SQLiteOpenHelper {
 
     // db settings
@@ -54,7 +56,7 @@ public class LocalBDDmulti extends SQLiteOpenHelper {
                         + " (" + TABLE_JOUE_COLUMN_GAME_ID + " INT REFERENCES "+TABLE_PARTIE_NAME+"("+TABLE_PARTIE_COLUMN_GAME_ID+") ON DELETE CASCADE, "
                         + TABLE_JOUE_COLUMN_PLAYER_ID + " VARCHAR(256), "
                         + TABLE_JOUE_COLUMN_SCORE + " INT, "
-                        + TABLE_JOUE_COLUMN_TERMINE + " boolean, PRIMARY KEY("+TABLE_JOUE_COLUMN_GAME_ID+", "+TABLE_JOUE_COLUMN_PLAYER_ID+"));";
+                        + TABLE_JOUE_COLUMN_TERMINE + " INT, PRIMARY KEY("+TABLE_JOUE_COLUMN_GAME_ID+", "+TABLE_JOUE_COLUMN_PLAYER_ID+"));";
         db.execSQL(queryPlayer);
     }
 
@@ -135,12 +137,23 @@ public class LocalBDDmulti extends SQLiteOpenHelper {
         while(cursorPartie.moveToNext()) {
             en_cours = true;
         }
+
+        String requete = "";
+
         if (en_cours){
 //            si on est en cours on peut rejoindre
-//            TODO ecrire la requete pour rejoindre une game
+            requete = "INSERT INTO "+TABLE_JOUE_NAME+" VALUES("+idPartie+", "+DataProvider.getInstance().getPlayer().getID()+", 0, 0"+")";
+//            TODO verifier que 0 est bien la valeur pour false
         }
-        return "";
+        return requete;
     }
+
+
+//    "CREATE TABLE " + TABLE_JOUE_NAME
+//                        + " (" + TABLE_JOUE_COLUMN_GAME_ID + " INT REFERENCES "+TABLE_PARTIE_NAME+"("+TABLE_PARTIE_COLUMN_GAME_ID+") ON DELETE CASCADE, "
+//            + TABLE_JOUE_COLUMN_PLAYER_ID + " VARCHAR(256), "
+//            + TABLE_JOUE_COLUMN_SCORE + " INT, "
+//            + TABLE_JOUE_COLUMN_TERMINE + " boolean, PRIMARY KEY("+TABLE_JOUE_COLUMN_GAME_ID+", "+TABLE_JOUE_COLUMN_PLAYER_ID+"));";
 }
 
 
