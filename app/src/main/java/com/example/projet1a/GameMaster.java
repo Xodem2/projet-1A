@@ -1,5 +1,6 @@
 package com.example.projet1a;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,7 +49,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.pb = findViewById(R.id.progressBarToday);
 
 //        this.db = new DataBase();
-
+        this.player.setIsFinished(10);
         // for eg: if countdown is to go for 30 seconds
         this.pb.setMax(500);
 
@@ -125,14 +126,23 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     }
 
     public void update(boolean correct){
+        if(this.player.getIsFinished() == 0){
+            System.out.println("envoie");
+            this.player.decIsFinished();
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntent);
+        }
         if (this.currentProgress[0]>0) {
             if (correct){
                 this.score.incr();
+                this.player.incNumberOfSucces();
+                this.player.decIsFinished();
                 ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                 ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
             }
             else{
                 this.score.decr();
+                this.player.decIsFinished();
                 ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                 ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
             }
@@ -140,11 +150,14 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         else{
             if (correct){
                 this.score.incr();
+                this.player.incNumberOfSucces();
+                this.player.decIsFinished();
                 ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                 ((TextView) findViewById(R.id.delta)).setText("+0");
             }
             else{
                 this.score.decr();
+                this.player.decIsFinished();
                 ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                 ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
             }
