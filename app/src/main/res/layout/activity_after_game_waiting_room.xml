@@ -76,6 +76,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/afterGameWaitingRoomPlayer2FillId"
-        app:srcCompat="@drawable/button_quit" />
+        app:srcCompat="@drawable/button_quitter" />
 </androidx.constraintlayout.widget.ConstraintLayout>

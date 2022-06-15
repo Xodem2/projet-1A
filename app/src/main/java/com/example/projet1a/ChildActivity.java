@@ -17,7 +17,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton diffButton;
     private ImageButton multButton;
     private ImageButton divButton;
-    private Button operatorButton;
+    private ImageButton operatorButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView childback;
@@ -39,7 +39,7 @@ public class ChildActivity extends AppCompatActivity implements View.OnClickList
         this.divButton = (ImageButton) findViewById(R.id.button_division);
         this.divButton.setOnClickListener(this);
 
-        this.operatorButton = (Button) findViewById(R.id.button_operator);
+        this.operatorButton = (ImageButton) findViewById(R.id.button_operator);
         this.operatorButton.setOnClickListener(this);
         childback = (VideoView) findViewById(R.id.childback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.childback;
