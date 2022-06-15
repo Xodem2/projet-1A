@@ -57,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar8"
         app:layout_constraintEnd_toStartOf="@+id/progressBar10"
         app:layout_constraintTop_toTopOf="@+id/progressBar8" />
@@ -65,6 +66,7 @@
         android:id="@+id/angle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40dp"
         android:text="4"
         app:layout_constraintEnd_toEndOf="@+id/progressBar9"
         app:layout_constraintStart_toStartOf="@+id/progressBar9"
@@ -74,6 +76,7 @@
         android:id="@+id/ans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40dp"
         android:text="x"
         app:layout_constraintBottom_toTopOf="@+id/progressBar10"
         app:layout_constraintEnd_toEndOf="@+id/progressBar9"
