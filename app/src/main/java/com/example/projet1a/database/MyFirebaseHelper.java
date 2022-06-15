@@ -137,14 +137,17 @@ public class MyFirebaseHelper implements ValueEventListener {
         if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
             p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
 
+        Log.v("localDB", "p1Id = " + p1Id);
+        Log.v("localDB", "p2Id = " + p2Id);
+
         int remainingP1 = TOTAL_QUESTIONS;
         int remainingP2 = TOTAL_QUESTIONS;
 
         if(playerId.equals(p1Id)){ // player is p1
-            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(TOTAL_QUESTIONS);
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
             if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).exists())
                 this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(
-                        this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString()
+                        Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString())
                 );
             else
                 this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
@@ -153,10 +156,14 @@ public class MyFirebaseHelper implements ValueEventListener {
             this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(TOTAL_QUESTIONS);
             if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).exists())
                 this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(
-                        this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString()
+                        Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString())
                 );
             else
-                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP2);
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
+        }
+        else{ // should never happen
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
         }
     }
 
@@ -276,6 +283,8 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public boolean playerFinished(String gameId){
         // return true if player has remaining questions equals to 0
+
+        // test with remaining
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
@@ -301,6 +310,12 @@ public class MyFirebaseHelper implements ValueEventListener {
         }
         else if(DataProvider.getInstance().getPlayer().getID().equals(p2Id)){
             if(remainingP2 <= 1) finished = true;
+        }
+
+        // test with score
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()
+        || this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
+            finished = true;
         }
 
         return finished;
