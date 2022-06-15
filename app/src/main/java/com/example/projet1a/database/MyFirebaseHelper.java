@@ -91,15 +91,8 @@ public class MyFirebaseHelper implements ValueEventListener {
         }
     }
 
-    public void createGame(String gameId){
-        this.deleteGamesCreatedByPlayer();
-        this.databaseReferenceGame.child(this.generateUniqueGameId(gameId)).child(NODE_GAME_GAMEID_P1ID).setValue(
-                DataProvider.getInstance().getPlayer().getID()
-        );
-    }
-
-    public void joinGame(String gameId){
-        // remove game joined by player
+    private void removePlayerInExistingGame(){
+        // remove player in existing joined game
         if(this.gameSnapshot != null) {
             this.deleteGamesCreatedByPlayer();
             Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
@@ -115,6 +108,18 @@ public class MyFirebaseHelper implements ValueEventListener {
                 }
             }
         }
+    }
+
+    public void createGame(String gameId){
+        this.deleteGamesCreatedByPlayer();
+        this.removePlayerInExistingGame();
+        this.databaseReferenceGame.child(this.generateUniqueGameId(gameId)).child(NODE_GAME_GAMEID_P1ID).setValue(
+                DataProvider.getInstance().getPlayer().getID()
+        );
+    }
+
+    public void joinGame(String gameId){
+        this.removePlayerInExistingGame();
         this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_P2ID).setValue(
                 DataProvider.getInstance().getPlayer().getID()
         );
@@ -128,7 +133,6 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public void updateGame(String gameId){
         // called when user answers a queston
-        // TODO : finish updateGame
 
         String p1Id = "";
         String p2Id = "";

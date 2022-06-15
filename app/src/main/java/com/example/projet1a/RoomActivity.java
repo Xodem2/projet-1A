@@ -19,6 +19,7 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
     private TextView roomtext;
     private TextView player1Nickname;
     private TextView player2Nickname;
+    private Button startButton;
     private ImageButton launchButton;
 
     public final static String id="Room";
@@ -39,11 +40,20 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         String[] playerNicknames = DataProvider.getInstance().getMyFirebaseHelper().getPlayersNickname();
         this.player1Nickname.setText(playerNicknames[0]);
         this.player2Nickname.setText(playerNicknames[1]);
+
+        this.startButton = (Button) findViewById(R.id.activityRoomStartButtonId);
+        this.startButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         //if (v.getId() == this.launchButton.getId()) this.showFractionPage();
+        if(v.getId() == this.startButton.getId()) this.doStart();
+    }
+
+    private void doStart() {
+        DataProvider.getInstance().getMyFirebaseHelper().startGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
+        startActivity(new Intent(this, TestGameActivity.class));
     }
 
     public void showWaitingRoom(){

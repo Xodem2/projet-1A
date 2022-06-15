@@ -63,13 +63,14 @@
             app:layout_constraintVertical_bias="0.383" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/activityRoomStartButtonId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:text="Joindre"
+            android:layout_marginTop="380dp"
+            android:text="Commencer"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="322dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/activityRoomPlayer1NicknameFillId"
