@@ -2,6 +2,8 @@ package com.example.projet1a;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.ArrayMap;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +36,9 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     int[] currentProgress;
 
     private PlayerProfile player;
+    MediaPlayer mMediaPlayer;
+    int mCurrentVideoPosition;
+    private VideoView backgame;
 
     private String id;
     private String idInd;
@@ -80,6 +86,27 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.score.setSensibility(this.delta_point);
 
         ((TextView) findViewById(R.id.delta)).setText("");
+
+
+
+        backgame = (VideoView) findViewById(R.id.backgame);
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
+        Uri uri = Uri.parse(uriPath);
+        backgame.setVideoURI(uri);
+        backgame.start();
+        backgame.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPlayer = mediaPlayer;
+                // We want our video to play over and over so we set looping to true.
+                mMediaPlayer.setLooping(true);
+                // We then seek to the current position if it has been set and play the video.
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPlayer.seekTo(mCurrentVideoPosition);
+                    mMediaPlayer.start();
+                }
+            }
+        });
     }
 
     public void setId(String id) {
