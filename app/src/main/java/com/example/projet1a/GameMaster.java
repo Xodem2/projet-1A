@@ -151,45 +151,80 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     }
 
     public void update(boolean correct){
-        if (this.currentProgress[0]>0) {
-            if (correct){
-                this.score.incr();
-                this.player.incNumberOfSucces();
-                this.player.decIsFinished();
-                ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
+        if(this.player.getIsFinished() == -1){
+            if (this.currentProgress[0]>0) {
+                if (correct){
+                    this.score.incr();
+                    this.player.incNumberOfSucces();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
+                    ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
+                }
+                else{
+                    this.score.decr();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
+                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                }
+                this.stats.update(correct);
+                this.player.getLevel().update(this.player.getStats().getTotalScore());
             }
             else{
-                this.score.decr();
-                this.player.decIsFinished();
-                ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                if (correct){
+                    this.score.setSensibility(0);
+                    this.score.incr();
+                    this.score.setSensibility(1);
+                    this.player.incNumberOfSucces();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
+                    ((TextView) findViewById(R.id.delta)).setText("+0");
+                    this.player.getStats().updateSingleplayerScore(0);
+                }
+                else{
+                    this.score.decr();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
+                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                }
             }
         }
         else{
-            if (correct){
-                this.score.incr();
-                this.player.incNumberOfSucces();
+            if (this.currentProgress[0]>0) {
                 this.player.decIsFinished();
-                ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
-                ((TextView) findViewById(R.id.delta)).setText("+0");
+                if (correct){
+                    this.score.incr();
+                    this.player.incNumberOfSucces();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
+                    ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                }
+                else{
+                    this.score.decr();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
+                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                }
+                this.stats.update(correct);
+                this.player.getLevel().update(this.player.getStats().getTotalScore());
             }
             else{
-                this.score.decr();
-                this.player.decIsFinished();
-                ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
-                ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                if (correct){
+                    this.score.setSensibility(0);
+                    this.score.incr();
+                    this.score.setSensibility(1);
+                    this.player.incNumberOfSucces();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
+                    ((TextView) findViewById(R.id.delta)).setText("+0");
+                    this.player.getStats().updateSingleplayerScore(0);
+                }
+                else{
+                    this.score.decr();
+                    ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
+                    ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                }
             }
         }
         this.stats.update(correct);
-        if (correct){
-            this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
-            // play sound
-            }
-        else {
-            this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
-            // play sound
-        }
         this.player.getLevel().update(this.player.getStats().getTotalScore());
 
         this.checkSuccess();
