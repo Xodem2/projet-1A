@@ -78,11 +78,11 @@ public class SqrActivity extends GameMaster{
     @Override
     public void checkSuccess(){
         super.checkSuccess();
-        /* if(!this.player.getSuccess().getSuccessById("o100rcsqr").isAcquired()){
+        if(!this.player.getSuccess().getSuccessById("o100rcsqr").isAcquired()){
             if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100) {
                 this.player.getSuccess().getSuccessById("o100rcsqr").acquire();
                 this.showSuccessPopup(this.player.getSuccess().getSuccessById("o100rcsqr").getTitle());
             }
-        } */
+        }
     }
 }

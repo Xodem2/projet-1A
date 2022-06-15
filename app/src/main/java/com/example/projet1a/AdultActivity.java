@@ -17,7 +17,6 @@ public class AdultActivity extends AppCompatActivity implements View.OnClickList
 
     private ImageButton vectorButton;
     private ImageButton matriceButton;
-    //private ImageButton trigoButton;
     private ImageButton trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;

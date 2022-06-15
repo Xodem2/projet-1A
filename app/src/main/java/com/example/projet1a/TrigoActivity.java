@@ -47,7 +47,6 @@ public class TrigoActivity extends GameMaster {
         this.cote_hyp.setText("");
         this.angle1.setText("");
         this.angle2.setText("");
-        System.out.println(this.currentProgress[0]);
         this.trigo = new Trigo();
         this.prop = new int[3];
         int ans = this.trigo.ansFct();
@@ -111,10 +110,12 @@ public class TrigoActivity extends GameMaster {
     @Override
     public void checkSuccess(){
         super.checkSuccess();
-        /*if(!this.player.getSuccess().getSuccessById("o100rctrigo").isAcquired()){
-            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100)
+        if(!this.player.getSuccess().getSuccessById("o100rctrigo").isAcquired()){
+            if(this.player.getStats().getGameStatsById(id).getTotalCorrects() >= 100) {
                 this.player.getSuccess().getSuccessById("o100rctrigo").acquire();
-        }*/
+                this.showSuccessPopup(this.player.getSuccess().getSuccessById("o100rctrigo").getTitle());
+            }
+        }
     }
 
 }

@@ -42,6 +42,7 @@ public class PlayerSuccess {
         this.addSuccess(new Success("o100rcmat", "Obtenir 100 réponses correctes (matrices)"));
         this.addSuccess(new Success("o100rcpythagore", "Obtenir 100 réponses correctes (Pythagore)"));
         this.addSuccess(new Success("o100rctrigo", "Obtenir 100 réponses correctes (trigonométrie)"));
+        this.addSuccess(new Success("o100rcsqr", "Obtenir 100 réponses correctes (carrés et racines)"));
         this.addSuccess(new Success("o100rcthales", "Obtenir 100 réponses correctes (Thalès)"));
         this.addSuccess(new Success("o100rceq1deg", "Obtenir 100 réponses correctes (équations 1er degré)"));
         this.addSuccess(new Success("o100rceq2deg", "Obtenir 100 réponses correctes (équations 2ème degré)"));

@@ -131,6 +131,8 @@ public class CustomGameStatsAdapter extends RecyclerView.Adapter<CustomGameStats
         else if(gameTitle.equals(MoinsActivity.id)) translated = "Différences";
         else if(gameTitle.equals(MultActivity.id)) translated = "Multiplications";
         else if(gameTitle.equals(PythagoreActivity.id)) translated = "Pythagore";
+        else if(gameTitle.equals(SqrActivity.id)) translated = "Carrés et racines";
+        else if(gameTitle.equals(TrigoActivity.id)) translated = "Trigonométrie";
         else if(gameTitle.equals(SommeActivity.id)) translated = "Sommes";
         else if(gameTitle.equals(ThalesActivity.id)) translated = "Thales";
         else if(gameTitle.equals(VectorActivity.id)) translated = "Calcul vectoriel";
