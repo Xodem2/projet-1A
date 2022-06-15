@@ -23,6 +23,8 @@ import com.example.projet1a.point.Point;
 import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
 
+import org.w3c.dom.Text;
+
 public class GameMaster extends AppCompatActivity implements View.OnClickListener {
 
     Button choix1Button;
@@ -142,12 +144,16 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == this.buttonInd.getId()) {
-            ((TextView) findViewById(R.id.textInd)).setText((new Indices()).getInd(this.getIdInd()));
-        }
-        else {
-            ((TextView) findViewById(R.id.textInd)).setText("");
-        }
+        if (v.getId() == this.buttonInd.getId()) this.showIndices();
+    }
+
+    private void showIndices(){
+        Toast customToast = new Toast(this);
+        View view = getLayoutInflater().inflate(R.layout.indices_item, null);
+        ((TextView)view.findViewById(R.id.indicesFillId)).setText(new Indices().getInd(this.getIdInd()));
+        customToast.setGravity(Gravity.TOP, 0, 0);
+        customToast.setView(view);
+        customToast.show();
     }
 
     public void update(boolean correct){

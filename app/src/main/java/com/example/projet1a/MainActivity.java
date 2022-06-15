@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyFirebaseHelper myFirebaseHelper = new MyFirebaseHelper();
         myFirebaseHelper.savePlayer(this.player);
         DataProvider.getInstance().setMyFirebaseHelper(myFirebaseHelper);
+        DataProvider.getInstance().getPlayer().setIsFinished(-1);
     }
 
 
