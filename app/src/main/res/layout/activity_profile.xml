@@ -12,23 +12,21 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="133dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="124dp"
 
-        android:layout_marginBottom="188dp"
+        android:layout_marginTop="10dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePageTotalScoreId"
         app:srcCompat="@drawable/button_profil_succes" />
 
     <TextView
         android:id="@+id/profilePagePlayerIdFillId"
         android:layout_width="199dp"
         android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:lines="2"
         android:maxLines="2"
         android:text="123e4567-e89b-12d3-a456-556642440000"
@@ -37,18 +35,14 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageGameStatsButtonId"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/profilePageEditNicknameId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="pseudo"
@@ -61,8 +55,8 @@
         android:id="@+id/profilePageEditAgeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="number"
         android:text="age"
@@ -75,28 +69,28 @@
         android:id="@+id/profilePageUpdateButtonId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Mettre à jour"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#B73A5D"
         app:iconTint="#6D3CC3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageEditAgeId" />
 
     <ImageButton
         android:id="@+id/profilePageGameStatsButtonId"
         android:layout_width="0dp"
         android:layout_height="51dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
         android:text="Stats de chaque jeu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitCenter"
-        android:background="@null"
-        app:srcCompat="@drawable/button_profil_stat"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageSuccesButtonId" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePageSuccesButtonId"
+        app:srcCompat="@drawable/button_profil_stat" />
 
     <ImageView
         android:id="@+id/avatar1"
@@ -111,17 +105,15 @@
         android:id="@+id/frame1"
         android:layout_width="122dp"
         android:layout_height="122dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/avatar1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar1"
-        app:srcCompat="@drawable/frame_bromze"
-        tools:layout_editor_absoluteY="25dp" />
+        app:srcCompat="@drawable/frame_bromze" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="409dp"
         android:layout_height="86dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePageUpdateButtonId"
         app:srcCompat="@drawable/xpbar" />
@@ -160,8 +152,6 @@
         android:id="@+id/profilePageGlobalStatId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="31dp"
         android:text="Statistiques Globales"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -175,8 +165,8 @@
         android:id="@+id/profilePageSpScoreFillId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:text="10"
         android:textAlignment="textEnd"
         android:textColor="#000000"
@@ -188,8 +178,8 @@
         android:id="@+id/profilePageMpScoreFillId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:text="10"
         android:textAlignment="textEnd"
         android:textColor="#000000"
@@ -201,8 +191,8 @@
         android:id="@+id/profilePageTotalScoreFillId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:text="10"
         android:textAlignment="textEnd"
         android:textColor="#000000"
@@ -214,36 +204,36 @@
         android:id="@+id/profilePageSpScoreId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="45dp"
         android:text="score solo"
         android:textColor="#000000"
         android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profilePageSpScoreFillId"
         app:layout_constraintStart_toEndOf="@+id/profilePageSpScoreFillId"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageGlobalStatId" />
+        app:layout_constraintTop_toTopOf="@+id/profilePageSpScoreFillId" />
 
     <TextView
         android:id="@+id/profilePageSpScoreId2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="45dp"
         android:text="score multijoueur"
         android:textColor="#000000"
         android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profilePageMpScoreFillId"
         app:layout_constraintStart_toEndOf="@+id/profilePageMpScoreFillId"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId" />
+        app:layout_constraintTop_toTopOf="@+id/profilePageMpScoreFillId" />
 
     <TextView
         android:id="@+id/profilePageTotalScoreId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="45dp"
         android:text="score total"
         android:textColor="#000000"
         android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profilePageTotalScoreFillId"
         app:layout_constraintStart_toEndOf="@+id/profilePageTotalScoreFillId"
-        app:layout_constraintTop_toBottomOf="@+id/profilePageSpScoreId2" />
+        app:layout_constraintTop_toTopOf="@+id/profilePageTotalScoreFillId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
