@@ -314,7 +314,7 @@ public class MyFirebaseHelper implements ValueEventListener {
 
         // test with score
         if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()
-        || this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
+        && this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
             finished = true;
         }
 
@@ -323,6 +323,8 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public boolean opponentFinished(String gameId){
         // return true if player has remaining questions equals to 0
+
+        // test using remaining
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
@@ -348,6 +350,12 @@ public class MyFirebaseHelper implements ValueEventListener {
         }
         else if(this.getOpponentId(gameId).equals(p2Id)){
             if(remainingP2 <= 1) finished = true;
+        }
+
+        // test with score
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()
+                && this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
+            finished = true;
         }
 
         return finished;
