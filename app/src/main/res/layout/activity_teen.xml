@@ -17,17 +17,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
     <ImageButton
         android:id="@+id/button_sqr"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="76dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:text="Carrés et racines"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button_Equation2"
+        app:layout_constraintTop_toTopOf="@+id/button_thales"
         app:srcCompat="@drawable/icone_sqrt" />
 
     <ImageButton
@@ -35,12 +34,10 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="100dp"
         android:layout_height="105dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/flow4"
-        app:layout_constraintTop_toBottomOf="@+id/flow4"
+        app:layout_constraintEnd_toEndOf="@+id/pythagore"
+        app:layout_constraintTop_toTopOf="@+id/button_Equation2"
         app:srcCompat="@drawable/fraction" />
 
     <ImageButton
@@ -48,20 +45,18 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/flow4"
-        app:layout_constraintStart_toEndOf="@+id/flow4"
+        app:layout_constraintBottom_toBottomOf="@+id/pythagore"
+        app:layout_constraintStart_toStartOf="@+id/button_Equation2"
         app:srcCompat="@drawable/equation" />
 
     <ImageButton
         android:id="@+id/button_Equation2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:text="Résolution d'équation du second degré"
@@ -73,8 +68,8 @@
         android:id="@+id/pythagore"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
 
         android:background="@null"
         android:scaleType="fitCenter"
@@ -89,33 +84,28 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <ImageButton
         android:id="@+id/button_thales"
         android:layout_width="100dp"
 
         android:layout_height="100dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginTop="60dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button_fraction"
+        app:layout_constraintTop_toBottomOf="@+id/button_fraction"
         app:srcCompat="@drawable/icone_thales" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="301dp"
         android:layout_height="128dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />

@@ -35,9 +35,9 @@
         android:id="@+id/vectorOperationID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="operation"
         android:textSize="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/vector2ID2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +47,10 @@
         android:id="@+id/vector2ID2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="30dp"
         android:text="vector2"
         android:textSize="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/vectorOperationID" />
 </androidx.constraintlayout.widget.ConstraintLayout>
