@@ -90,7 +90,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
 
         backgame = (VideoView) findViewById(R.id.backgame);
-        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backgame;
         Uri uri = Uri.parse(uriPath);
         backgame.setVideoURI(uri);
         backgame.start();
