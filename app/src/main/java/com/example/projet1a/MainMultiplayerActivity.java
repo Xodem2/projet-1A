@@ -1,24 +1,14 @@
 package com.example.projet1a;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
-import com.example.projet1a.database.DataBase;
-import com.example.projet1a.database.DataBaseV2;
-import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
 public class MainMultiplayerActivity extends AppCompatActivity implements View.OnClickListener {
@@ -68,7 +58,7 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         this.sommeButton = (ImageButton) findViewById(R.id.main_multiplayer_somme);
         this.sommeButton.setOnClickListener(this);
 
-        this.diffButton = (ImageButton) findViewById(R.id.main_multiplayer_difference);
+        this.diffButton = (ImageButton) findViewById(R.id.main_multiplayer_diff);
         this.diffButton.setOnClickListener(this);
 
         this.multButton = (ImageButton) findViewById(R.id.main_multiplayer_mult);

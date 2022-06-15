@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_adult"
+    tools:context=".multiplayerV2">
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_somme"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/flow11"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/flow11"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/icone_somme" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_vecteur"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_sqrt"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_sqrt"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_sqrt"-->
+<!--        app:srcCompat="@drawable/icone_vector_cropped" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_diff"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_somme"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_somme"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_somme"-->
+<!--        app:srcCompat="@drawable/difference" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_equa2"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_equa1"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_equa1"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_equa1"-->
+<!--        app:srcCompat="@drawable/icone_equation2" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_equa1"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_pythagore"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_pythagore"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_pythagore"-->
+<!--        app:srcCompat="@drawable/equation" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_trigo"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_matrice"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_matrice"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_matrice"-->
+<!--        app:srcCompat="@drawable/icone_trigo" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_thales"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_frac"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_frac"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_frac"-->
+<!--        app:srcCompat="@drawable/icone_thales" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_div"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_mult"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_mult"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_mult"-->
+<!--        app:srcCompat="@drawable/icone_division" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_pythagore"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_div"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_div"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_div"-->
+<!--        app:srcCompat="@drawable/icone_pythagore" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_mult"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_diff"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_diff"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_diff"-->
+<!--        app:srcCompat="@drawable/multiplication" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_frac"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/flow12"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/flow12"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/fraction" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_matrice"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_vecteur"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_vecteur"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_vecteur"-->
+<!--        app:srcCompat="@drawable/icone_matrice" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/main_multiplayer_sqrt"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/main_multiplayer_thales"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/main_multiplayer_thales"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/main_multiplayer_thales"-->
+<!--        app:srcCompat="@drawable/icone_sqrt" />-->
+
+<!--    <androidx.constraintlayout.helper.widget.Flow-->
+<!--        android:id="@+id/flow10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.constraintlayout.helper.widget.Flow-->
+<!--        android:id="@+id/flow11"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/flow10"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.constraintlayout.helper.widget.Flow-->
+<!--        android:id="@+id/flow12"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/flow10"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

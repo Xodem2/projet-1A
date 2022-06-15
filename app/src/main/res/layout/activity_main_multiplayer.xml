@@ -116,7 +116,7 @@
                 app:srcCompat="@drawable/icone_somme" />
 
             <ImageButton
-                android:id="@+id/main_multiplayer_difference"
+                android:id="@+id/main_multiplayer_diff"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:scaleType="fitCenter"

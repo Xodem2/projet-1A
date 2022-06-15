@@ -36,12 +36,12 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/flow2"
-        app:layout_constraintStart_toEndOf="@+id/button_Mult"
+        app:layout_constraintStart_toEndOf="@+id/flow2"
         app:srcCompat="@drawable/icone_matrice" />
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -57,11 +57,7 @@
         android:id="@+id/imageView7"
         android:layout_width="303dp"
         android:layout_height="128dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_Mult"
+        app:layout_constraintBottom_toTopOf="@+id/icone_Matrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,13 +67,13 @@
         android:id="@+id/button_trigo"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginTop="30dp"
         android:background="@null"
-        android:text="Trigonométrie"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icone_trigo"/>
+        android:text="Trigonométrie"
+        app:layout_constraintEnd_toEndOf="@+id/flow2"
+        app:layout_constraintStart_toEndOf="@+id/flow2"
+        app:layout_constraintTop_toBottomOf="@+id/flow2"
+        app:srcCompat="@drawable/icone_trigo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

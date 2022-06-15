@@ -18,56 +18,57 @@
         app:layout_constraintTop_toTopOf="parent"
 
         app:layout_constraintVertical_bias="1.0" />
+
     <ImageButton
         android:id="@+id/button_Mult"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="118dp"
-        android:layout_height="113dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/flow3"
         app:layout_constraintTop_toBottomOf="@+id/flow3"
-        android:background="@null"
         app:srcCompat="@drawable/multiplication" />
 
     <ImageButton
         android:id="@+id/button_somme"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="118dp"
-        android:layout_height="113dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/flow3"
         app:layout_constraintEnd_toStartOf="@+id/flow3"
-        android:background="@null"
         app:srcCompat="@drawable/icone_somme" />
 
     <ImageButton
         android:id="@+id/button_fraction"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="118dp"
-        android:layout_height="113dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/flow3"
         app:layout_constraintStart_toEndOf="@+id/flow3"
-        android:background="@null"
         app:srcCompat="@drawable/difference" />
 
     <ImageButton
         android:id="@+id/button_division"
-        android:layout_width="117dp"
-        android:layout_height="114dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:background="@null"
         android:scaleType="fitCenter"
         android:text="Calcul de division"
         app:layout_constraintStart_toEndOf="@+id/flow3"
         app:layout_constraintTop_toBottomOf="@+id/flow3"
-        android:background="@null"
         app:srcCompat="@drawable/icone_division" />
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -83,15 +84,9 @@
         android:id="@+id/imageView7"
         android:layout_width="303dp"
         android:layout_height="128dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_Mult"
+        app:layout_constraintBottom_toTopOf="@+id/button_somme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222"
         app:srcCompat="@drawable/title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
