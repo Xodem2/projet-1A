@@ -89,51 +89,8 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
         this.trigoButton = (ImageButton) findViewById(R.id.main_multiplayer_trigo);
         this.trigoButton.setOnClickListener(this);
-
-        /*adultback = (VideoView) findViewById(R.id.adultback);
-        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
-        Uri uri = Uri.parse(uriPath);
-        adultback.setVideoURI(uri);
-        adultback.start();
-        adultback.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mMediaPlayer = mediaPlayer;
-                // We want our video to play over and over so we set looping to true.
-                mMediaPlayer.setLooping(true);
-                // We then seek to the current posistion if it has been set and play the video.
-                if (mCurrentVideoPosition != 0) {
-                    mMediaPlayer.seekTo(mCurrentVideoPosition);
-                    mMediaPlayer.start();
-                }
-            }
-        });*/
-
-    }/*
-    @Override
-    protected void onPostResume() {
-        adultback.resume();
-        super.onPostResume();
     }
 
-    @Override
-    protected void onRestart() {
-        adultback.start();
-        super.onRestart();
-    }
-
-    @Override
-    protected void onPause() {
-        adultback.suspend();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        adultback.stopPlayback();
-        super.onDestroy();
-    }
-*/
     @Override
     public void onClick(View v) {
         if (v.getId() == this.FractionButton.getId()) this.showFractionPage();
