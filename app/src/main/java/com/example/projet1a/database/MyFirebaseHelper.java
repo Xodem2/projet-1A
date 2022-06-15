@@ -244,4 +244,96 @@ public class MyFirebaseHelper implements ValueEventListener {
 
         return nickname;
     }
+
+    public boolean playerFinished(String gameId){
+        // return true if player has remaining questions equals to 0
+        boolean finished = false;
+        String p1Id = "";
+        String p2Id = "";
+        int remainingP1 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
+        int remainingP2 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString());
+        Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
+        DataSnapshot game;
+        while(games.hasNext()){
+            game = games.next();
+            Iterator<DataSnapshot> gameIterator = game.getChildren().iterator();
+            DataSnapshot gameNode;
+            while(gameIterator.hasNext()){
+                gameNode = gameIterator.next();
+                if(gameNode.getKey().equals(NODE_GAME_GAMEID_P1ID)) p1Id = gameNode.getValue().toString();
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_P2ID)) p2Id = gameNode.getValue().toString();
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_REMAININGP1)) remainingP1 = Integer.parseInt(gameNode.getValue().toString());
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_REMAININGP1)) remainingP2 = Integer.parseInt(gameNode.getValue().toString());
+            }
+        }
+
+        if(DataProvider.getInstance().getPlayer().getID().equals(p1Id)){
+            if(remainingP1 <= 1) finished = true;
+        }
+        else if(DataProvider.getInstance().getPlayer().getID().equals(p2Id)){
+            if(remainingP2 <= 1) finished = true;
+        }
+
+        return finished;
+    }
+
+    public boolean opponentFinished(String gameId){
+        // return true if player has remaining questions equals to 0
+        boolean finished = false;
+        String p1Id = "";
+        String p2Id = "";
+        int remainingP1 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
+        int remainingP2 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString());
+        Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
+        DataSnapshot game;
+        while(games.hasNext()){
+            game = games.next();
+            Iterator<DataSnapshot> gameIterator = game.getChildren().iterator();
+            DataSnapshot gameNode;
+            while(gameIterator.hasNext()){
+                gameNode = gameIterator.next();
+                if(gameNode.getKey().equals(NODE_GAME_GAMEID_P1ID)) p1Id = gameNode.getValue().toString();
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_P2ID)) p2Id = gameNode.getValue().toString();
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_REMAININGP1)) remainingP1 = Integer.parseInt(gameNode.getValue().toString());
+                else if(gameNode.getKey().equals(NODE_GAME_GAMEID_REMAININGP1)) remainingP2 = Integer.parseInt(gameNode.getValue().toString());
+            }
+        }
+
+        if(this.getOpponentId(gameId).equals(p1Id)){
+            if(remainingP1 <= 1) finished = true;
+        }
+        else if(this.getOpponentId(gameId).equals(p2Id)){
+            if(remainingP2 <= 1) finished = true;
+        }
+
+        return finished;
+    }
+
+    public String getOpponentId(String gameId){
+        String p1Id = "";
+        String p2Id = "";
+        Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
+        DataSnapshot game;
+        while(games.hasNext()) {
+            game = games.next();
+            Iterator<DataSnapshot> gameIterator = game.getChildren().iterator();
+            DataSnapshot gameNode;
+            while (gameIterator.hasNext()) {
+                gameNode = gameIterator.next();
+                if (gameNode.getKey().equals(NODE_GAME_GAMEID_P1ID)) p1Id = gameNode.getValue().toString();
+                else if (gameNode.getKey().equals(NODE_GAME_GAMEID_P2ID)) p2Id = gameNode.getValue().toString();
+            }
+        }
+
+        String opponentId = "";
+
+        if(p1Id.equals(DataProvider.getInstance().getPlayer().getID())) opponentId = p2Id;
+        else if(p2Id.equals(DataProvider.getInstance().getPlayer().getID())) opponentId = p1Id;
+
+        return opponentId;
+    }
+
+    public DatabaseReference getFinishedGameStatusReference(){
+        return this.firebaseDatabase.getReference(NODE_GAME);
+    }
 }

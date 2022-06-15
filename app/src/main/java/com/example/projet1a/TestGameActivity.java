@@ -2,6 +2,7 @@ package com.example.projet1a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,5 +27,8 @@ public class TestGameActivity extends AppCompatActivity implements View.OnClickL
 
     private void doPlay() {
         DataProvider.getInstance().getMyFirebaseHelper().updateGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
+        if(DataProvider.getInstance().getMyFirebaseHelper().playerFinished(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn())){
+            startActivity(new Intent(this, AfterGameWaitingRoomActivity.class));
+        }
     }
 }
