@@ -7,6 +7,7 @@
     tools:context=".SommeActivity">
 
     <include
+
         android:id="@+id/include3"
         layout="@layout/game_layout"
         android:layout_width="match_parent"
@@ -80,4 +81,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/prop2" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

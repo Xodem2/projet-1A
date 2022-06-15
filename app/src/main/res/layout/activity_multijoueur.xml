@@ -3,24 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_multi">
 
     <ImageButton
         android:id="@+id/button_join_session"
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="146dp"
+        android:layout_marginTop="604dp"
+        android:layout_marginEnd="272dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/button_create_session"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/button_join" />
 
     <ImageButton
@@ -28,16 +24,23 @@
         style="@android:style/Widget.Holo.ImageButton"
         android:layout_width="161dp"
         android:layout_height="161dp"
-        android:layout_marginStart="125dp"
         android:layout_marginTop="53dp"
-        android:layout_marginEnd="125dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="205dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_join_session"
+        app:layout_constraintVertical_bias="0.48"
         app:srcCompat="@drawable/button_partycreate" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="387dp"
+        android:layout_height="411dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_multi" />
 </androidx.constraintlayout.widget.ConstraintLayout>
