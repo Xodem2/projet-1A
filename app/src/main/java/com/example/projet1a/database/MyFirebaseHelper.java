@@ -288,8 +288,8 @@ public class MyFirebaseHelper implements ValueEventListener {
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
-        int remainingP1 =Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
-        int remainingP2 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString());
+        int remainingP1 = TOTAL_QUESTIONS;
+        int remainingP2 = TOTAL_QUESTIONS;
         Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
         DataSnapshot game;
         while(games.hasNext()){
