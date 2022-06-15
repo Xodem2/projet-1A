@@ -151,12 +151,6 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
     }
 
     public void update(boolean correct){
-        if(this.player.getIsFinished() == 0){
-            System.out.println("envoie");
-            this.player.decIsFinished();
-            Intent mainActivityIntent = new Intent(this, MainActivity.class);
-            startActivity(mainActivityIntent);
-        }
         if (this.currentProgress[0]>0) {
             if (correct){
                 this.score.incr();
@@ -203,6 +197,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
         DataProvider.getInstance().getMyFirebaseHelper().savePlayer(this.player);
 //        this.db.update_player(this.player.getStats().getTotalScore(), "total");
+
+        if(this.player.getIsFinished() == 0){
+            System.out.println("envoie");
+            this.player.decIsFinished();
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntent);
+        }
     }
 
     public void checkSuccess(){
