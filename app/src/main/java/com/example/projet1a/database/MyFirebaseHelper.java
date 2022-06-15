@@ -401,8 +401,106 @@ public class MyFirebaseHelper implements ValueEventListener {
         if(playerId.equals(p1Id)){ // player is p1
             this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).setValue(playerScore);
         }
-        else if(playerId.equals(p2Id)){
+        else if(playerId.equals(p2Id)){ // player is p2
             this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).setValue(playerScore);
         }
+    }
+
+    public int getPlayerScore(String gameId){
+        int playerScore = 0;
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        if(playerId.equals(p1Id)){ // player is p1
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists())
+                playerScore = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).getValue().toString());
+        }
+        else if(playerId.equals(p2Id)){ // player is p2
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).setValue(playerScore);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists())
+                playerScore = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).getValue().toString());
+        }
+        return playerScore;
+    }
+
+    public int getOpponentScore(String gameId){
+        int opponentScore = 0;
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        if(!playerId.equals(p1Id)){ // opponent is p1
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists())
+                opponentScore = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).getValue().toString());
+        }
+        else if(!playerId.equals(p2Id)){ // player is p2
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).setValue(opponentScore);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists())
+                opponentScore = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).getValue().toString());
+        }
+        return opponentScore;
+    }
+
+    public int getPlayer1Score(String gameId){
+        int p1Score = 0;
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists())
+            p1Score = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).getValue().toString());
+        return p1Score;
+    }
+
+    public int getPlayer2Score(String gameId){
+        int p2Score = 0;
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists())
+            p2Score = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).getValue().toString());
+        return p2Score;
+    }
+
+    public void deleteGame(String gameId){
+        if(this.gameSnapshot.child(gameId).exists()){
+            Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
+            DataSnapshot game;
+            while(games.hasNext()){
+                game = games.next();
+                if(game.getKey().equals(gameId))
+                    game.getRef().removeValue();
+            }
+        }
+    }
+
+    public String getPlayer1Id(String gameId){
+        String p1Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).exists())
+            p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        return p1Id;
+    }
+
+    public String getPlayer2Id(String gameId){
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+        return p2Id;
+    }
+
+    public String getPlayer1Nickname(String gameId){
+        String p1Nickname = "";
+        String p1Id = this.getPlayer1Id(gameId);
+        if(this.playerSnapshot.child(p1Id).child(NODE_PLAYERNICKNAME).exists())
+            p1Nickname = this.playerSnapshot.child(p1Id).child(NODE_PLAYERNICKNAME).getValue().toString();
+        else p1Nickname = "player1";
+        return p1Nickname;
+    }
+
+    public String getPlayer2Nickname(String gameId){
+        String p2Nickname = "";
+        String p2Id = this.getPlayer2Id(gameId);
+        if(this.playerSnapshot.child(p2Id).child(NODE_PLAYERNICKNAME).exists())
+            p2Nickname = this.playerSnapshot.child(p2Id).child(NODE_PLAYERNICKNAME).getValue().toString();
+        else p2Nickname = "player2";
+        return p2Nickname;
     }
 }
