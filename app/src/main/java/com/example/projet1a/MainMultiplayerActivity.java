@@ -26,6 +26,8 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
     private ImageButton vectorButton;
     private ImageButton matriceButton;
+    private ImageButton sqrtButton;
+    private ImageButton trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView adultback;
@@ -81,6 +83,13 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
         this.matriceButton = (ImageButton) findViewById(R.id.main_multiplayer_matrice);
         this.matriceButton.setOnClickListener(this);
+
+        this.sqrtButton = (ImageButton) findViewById(R.id.main_multiplayer_sqrt);
+        this.sqrtButton.setOnClickListener(this);
+
+        this.trigoButton = (ImageButton) findViewById(R.id.main_multiplayer_trigo);
+        this.trigoButton.setOnClickListener(this);
+
         /*adultback = (VideoView) findViewById(R.id.adultback);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
         Uri uri = Uri.parse(uriPath);
@@ -138,6 +147,10 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         else if(v.getId() == this.divButton.getId()) this.showDivPage();
         else if(v.getId() == this.vectorButton.getId()) this.showVectorActivity();
         else if(v.getId() == this.matriceButton.getId()) this.showMatriceActivity();
+        else if(v.getId() == this.sqrtButton.getId()) this.showSqrtActivity();
+        else if(v.getId() == this.trigoButton.getId()) this.showTrigoActivity();
+//        sqrtButton
+//        trigoButton
     }
 
     private void showVectorActivity() {
@@ -209,6 +222,18 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     public void launchActivity(){
         Intent roomActivityIntent = new Intent(this, RoomActivity.class);
         startActivity(roomActivityIntent);
+    }
+
+    public void showSqrtActivity(){
+        this.idGame = SqrActivity.id;
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
+    }
+
+    public void showTrigoActivity(){
+        this.idGame = TrigoActivity.id;
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     public String getIdGame(){
