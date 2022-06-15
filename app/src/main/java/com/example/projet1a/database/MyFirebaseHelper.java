@@ -132,8 +132,8 @@ public class MyFirebaseHelper implements ValueEventListener {
 
         String p1Id = "";
         String p2Id = "";
-        int remainingP1 = TOTAL_QUESTIONS;
-        int remainingP2 = TOTAL_QUESTIONS;
+        int remainingP1 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
+        int remainingP2 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString());
         Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
         DataSnapshot game;
         while(games.hasNext()){
@@ -151,8 +151,6 @@ public class MyFirebaseHelper implements ValueEventListener {
 
         if(DataProvider.getInstance().getPlayer().getID().equals(p1Id)) remainingP1--;
         else if(DataProvider.getInstance().getPlayer().getID().equals(p2Id)) remainingP2--;
-
-        Log.v("localDB", String.valueOf(remainingP2));
 
         this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
         this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
