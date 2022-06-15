@@ -17,6 +17,8 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
     int gameId;
     private EditText editTextTextPersonName;
     private TextView roomtext;
+    private TextView player1Nickname;
+    private TextView player2Nickname;
     private ImageButton launchButton;
 
     public final static String id="Room";
@@ -30,9 +32,13 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         //this.launchButton.setOnClickListener(this);
 
         this.roomtext = (TextView) findViewById(R.id.room_id);
+        this.roomtext.setText(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
 
-        MainMultiplayerActivity main = new MainMultiplayerActivity();
-        this.roomtext.setText("id de la room: " + main.getIdSession() );
+        this.player1Nickname = (TextView) findViewById(R.id.activityRoomPlayer1NicknameFillId);
+        this.player2Nickname = (TextView) findViewById(R.id.activityRoomPlayer2NicknameFillId);
+        String[] playerNicknames = DataProvider.getInstance().getMyFirebaseHelper().getPlayersNickname();
+        this.player1Nickname.setText(playerNicknames[0]);
+        this.player2Nickname.setText(playerNicknames[1]);
     }
 
     @Override

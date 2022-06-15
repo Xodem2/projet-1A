@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.ArrayMap;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,6 @@ import com.example.projet1a.database.DataBase;
 import com.example.projet1a.point.Point;
 import com.example.projet1a.profile.GameStats;
 import com.example.projet1a.profile.PlayerProfile;
-import com.example.projet1a.profile.PlayerSuccess;
 
 public class GameMaster extends AppCompatActivity implements View.OnClickListener {
 
@@ -176,6 +174,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.checkSuccess();
 
         DataProvider.getInstance().getMyLocalDatabase().savePlayer(this.player);
+        DataProvider.getInstance().getMyFirebaseHelper().savePlayer(this.player);
 //        this.db.update_player(this.player.getStats().getTotalScore(), "total");
     }
 

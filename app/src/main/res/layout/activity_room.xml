@@ -22,7 +22,7 @@
             android:scaleX="2"
             android:scaleY="2"
 
-            android:text="JOINDRE UNE PARTIE"
+            android:text="SALLE D'ATTENTE"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
+            android:textSize="26dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.468"
@@ -68,6 +70,30 @@
             android:text="Joindre"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="322dp" />
+
+        <TextView
+            android:id="@+id/activityRoomPlayer1NicknameFillId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:layout_marginBottom="236dp"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/activityRoomPlayer2NicknameFillId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204dp"
+            android:layout_marginBottom="236dp"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

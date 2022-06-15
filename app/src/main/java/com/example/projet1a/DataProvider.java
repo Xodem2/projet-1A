@@ -1,6 +1,7 @@
 package com.example.projet1a;
 
 import com.example.projet1a.database.DataBaseV2;
+import com.example.projet1a.database.MyFirebaseHelper;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
 
@@ -14,15 +15,9 @@ public class DataProvider {
 
     private PlayerProfile player;
     private MyLocalDatabaseHelper myLocalDatabase;
+    private MyFirebaseHelper myFirebaseHelper;
     private DataBaseV2 dataBaseV2;
 
-    public DataBaseV2 getDataBaseV2() {
-        return dataBaseV2;
-    }
-
-    public void setDataBaseV2(DataBaseV2 dataBaseV2) {
-        this.dataBaseV2 = dataBaseV2;
-    }
 
     private static DataProvider ourInstance = new DataProvider();
 
@@ -48,6 +43,22 @@ public class DataProvider {
 
     public MyLocalDatabaseHelper getMyLocalDatabase(){
         return this.myLocalDatabase;
+    }
+
+    public DataBaseV2 getDataBaseV2() {
+        return dataBaseV2;
+    }
+
+    public void setDataBaseV2(DataBaseV2 dataBaseV2) {
+        this.dataBaseV2 = dataBaseV2;
+    }
+
+    public void setMyFirebaseHelper(MyFirebaseHelper firebaseHelper){
+        this.myFirebaseHelper = firebaseHelper;
+    }
+
+    public MyFirebaseHelper getMyFirebaseHelper(){
+        return this.myFirebaseHelper;
     }
 
 }

@@ -145,62 +145,68 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
     private void showVectorActivity() {
         this.idGame = VectorActivity.id;
-        DataBaseV2 db = DataProvider.getInstance().getDataBaseV2();
-        int id = db.create_private_game(this.idGame);
-        System.out.println(id);
-//        DataBase dataBase = new DataBase();
-//        this.id_session = dataBase.create_private_game(this.idGame);
-//        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showMatriceActivity() {
         this.idGame = MatricesActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showFractionPage(){
         this.idGame = FractionActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showEquation1Page(){
         this.idGame = Equation1Activity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showEquation2Page(){
         this.idGame = Equation2Activity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showPythagorePage(){
         this.idGame = PythagoreActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showThalesPage(){
         this.idGame = ThalesActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showSommePage() {
         this.idGame = SommeActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showDiffPage() {
         this.idGame = MoinsActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showMultPage() {
         this.idGame = MultActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     private void showDivPage() {
         this.idGame = DivisionActivity.id;
-        launchActivity();
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     public void launchActivity(){

@@ -16,8 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.VideoView;
 
-import com.example.projet1a.database.DataBase;
-import com.example.projet1a.database.DataBaseV2;
+import com.example.projet1a.database.MyFirebaseHelper;
 import com.example.projet1a.database.LocalBDDmulti;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
 import com.example.projet1a.profile.PlayerProfile;
@@ -96,7 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 //        DataBase.run();
-        DataProvider.getInstance().setDataBaseV2(new DataBaseV2());
+        //DataProvider.getInstance().setDataBaseV2(new DataBaseV2());
+        MyFirebaseHelper myFirebaseHelper = new MyFirebaseHelper();
+        myFirebaseHelper.savePlayer(this.player);
+        DataProvider.getInstance().setMyFirebaseHelper(myFirebaseHelper);
     }
 
 
