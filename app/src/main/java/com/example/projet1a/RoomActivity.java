@@ -43,6 +43,8 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
 
         this.startButton = (Button) findViewById(R.id.activityRoomStartButtonId);
         this.startButton.setOnClickListener(this);
+
+        DataProvider.getInstance().getPlayer().setIsFinished(10);
     }
 
     @Override
@@ -53,7 +55,46 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
 
     private void doStart() {
         DataProvider.getInstance().getMyFirebaseHelper().startGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
-        startActivity(new Intent(this, TestGameActivity.class));
+        String id_game = DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn().split("-")[0];
+        if (id_game.equals(SommeActivity.id)) {
+            startActivity(new Intent(this, SommeActivity.class));
+        }
+        else if (id_game.equals(DivisionActivity.id)) {
+            startActivity(new Intent(this, DivisionActivity.class));
+        }
+        else if (id_game.equals(Equation1Activity.id)) {
+            startActivity(new Intent(this, Equation1Activity.class));
+        }
+        else if (id_game.equals(Equation2Activity.id)) {
+            startActivity(new Intent(this, Equation2Activity.class));
+        }
+        else if (id_game.equals(FractionActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(MatricesActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(MoinsActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(MultActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(PythagoreActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(SqrActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(ThalesActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(TrigoActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
+        else if (id_game.equals(VectorActivity.id)) {
+            startActivity(new Intent(this, FractionActivity.class));
+        }
     }
 
     public void showWaitingRoom(){

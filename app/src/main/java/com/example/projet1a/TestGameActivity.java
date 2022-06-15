@@ -22,6 +22,8 @@ public class TestGameActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        System.out.println("onClick");
+        System.out.println(DataProvider.getInstance().getPlayer().getIsFinished());
         if(v.getId() == this.button.getId()) this.doPlay();
     }
 

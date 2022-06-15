@@ -53,7 +53,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
         this.pb = findViewById(R.id.progressBarToday);
 
 //        this.db = new DataBase();
-        this.player.setIsFinished(10);
+//        this.player.setIsFinished(10);
         // for eg: if countdown is to go for 30 seconds
         this.pb.setMax(500);
 
@@ -235,9 +235,10 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
         if(this.player.getIsFinished() == 0){
             System.out.println("envoie");
+//            DataProvider.getInstance().getMyFirebaseHelper().updateScore(this.score.getScore());
             this.player.decIsFinished();
-            Intent mainActivityIntent = new Intent(this, MainActivity.class);
-            startActivity(mainActivityIntent);
+            Intent afterActivityIntent = new Intent(this, AfterGameWaitingRoomActivity.class);
+            startActivity(afterActivityIntent);
         }
     }
 

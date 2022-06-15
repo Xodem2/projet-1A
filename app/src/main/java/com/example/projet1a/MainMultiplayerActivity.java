@@ -36,9 +36,16 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     private String idGame ;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        DataProvider.getInstance().getPlayer().setIsFinished(-1);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_multiplayer);
+        DataProvider.getInstance().getPlayer().setIsFinished(-1);
 
         this.FractionButton = (ImageButton) findViewById(R.id.main_multiplayer_fraction);
         this.FractionButton.setOnClickListener(this);
