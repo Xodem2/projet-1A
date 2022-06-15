@@ -130,6 +130,7 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
             }
 
             // allow player to leave game
+            this.quitButton.setVisibility(View.VISIBLE);
             this.quitButton.setOnClickListener(this);
 
             // delete game in database

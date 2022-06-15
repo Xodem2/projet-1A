@@ -83,11 +83,12 @@
         android:id="@+id/afterGameWaitingRoomQuitButtonId"
         android:layout_width="144dp"
         android:layout_height="76dp"
+        android:background="@null"
         android:scaleType="fitCenter"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/afterGameWaitingRoomPlayer2FillId"
         app:srcCompat="@drawable/button_quitter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
