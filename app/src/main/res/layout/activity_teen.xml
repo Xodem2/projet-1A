@@ -22,11 +22,13 @@
         android:id="@+id/button_sqr"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="60dp"
         android:background="@null"
         android:scaleType="fitCenter"
         android:text="Carrés et racines"
-        app:layout_constraintStart_toStartOf="@+id/button_Equation2"
-        app:layout_constraintTop_toTopOf="@+id/button_thales"
+        app:layout_constraintEnd_toStartOf="@+id/button_Equation2"
+        app:layout_constraintStart_toEndOf="@+id/button_fraction"
+        app:layout_constraintTop_toBottomOf="@+id/button_Equation2"
         app:srcCompat="@drawable/icone_sqrt" />
 
     <ImageButton
@@ -87,18 +89,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
-
-    <ImageButton
-        android:id="@+id/button_thales"
-        android:layout_width="100dp"
-
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="@+id/button_fraction"
-        app:layout_constraintTop_toBottomOf="@+id/button_fraction"
-        app:srcCompat="@drawable/icone_thales" />
 
     <ImageView
         android:id="@+id/imageView7"

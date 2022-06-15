@@ -29,14 +29,6 @@
                 app:srcCompat="@drawable/icone_vector" />
 
             <ImageButton
-                android:id="@+id/main_multiplayer_thales"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@null"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icone_thales" />
-
-            <ImageButton
                 android:id="@+id/main_multiplayer_mult"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
