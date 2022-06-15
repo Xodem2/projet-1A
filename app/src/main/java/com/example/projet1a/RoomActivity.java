@@ -72,28 +72,28 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, FractionActivity.class));
         }
         else if (id_game.equals(MatricesActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, MatricesActivity.class));
         }
         else if (id_game.equals(MoinsActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, MoinsActivity.class));
         }
         else if (id_game.equals(MultActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, MultActivity.class));
         }
         else if (id_game.equals(PythagoreActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, PythagoreActivity.class));
         }
         else if (id_game.equals(SqrActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, SqrActivity.class));
         }
         else if (id_game.equals(ThalesActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, ThalesActivity.class));
         }
         else if (id_game.equals(TrigoActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, TrigoActivity.class));
         }
         else if (id_game.equals(VectorActivity.id)) {
-            startActivity(new Intent(this, FractionActivity.class));
+            startActivity(new Intent(this, VectorActivity.class));
         }
     }
 
