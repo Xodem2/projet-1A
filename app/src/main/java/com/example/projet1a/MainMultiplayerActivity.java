@@ -17,7 +17,6 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     private ImageButton Equation1Button;
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
-    private ImageButton thalesButton;
 
     private ImageButton sommeButton;
     private ImageButton diffButton;
@@ -61,9 +60,6 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         this.pythagoreButton = (ImageButton)  findViewById(R.id.main_multiplayer_pythagore);
         this.pythagoreButton.setOnClickListener(this);
 
-        this.thalesButton = (ImageButton)  findViewById(R.id.main_multiplayer_thales);
-        this.thalesButton.setOnClickListener(this);
-
         this.sommeButton = (ImageButton) findViewById(R.id.main_multiplayer_somme);
         this.sommeButton.setOnClickListener(this);
 
@@ -97,7 +93,6 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
         else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
-        else if(v.getId() == this.thalesButton.getId()) this.showThalesPage();
         else if(v.getId() == this.sommeButton.getId()) this.showSommePage();
         else if(v.getId() == this.diffButton.getId()) this.showDiffPage();
         else if(v.getId() == this.multButton.getId()) this.showMultPage();
@@ -146,11 +141,6 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         this.launchActivity();
     }
 
-    private void showThalesPage(){
-        this.idGame = ThalesActivity.id;
-        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
-        this.launchActivity();
-    }
 
     private void showSommePage() {
         this.idGame = SommeActivity.id;

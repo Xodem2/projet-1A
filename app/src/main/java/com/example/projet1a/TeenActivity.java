@@ -17,7 +17,6 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
     private ImageButton Equation1Button;
     private ImageButton Equation2Button;
     private ImageButton pythagoreButton;
-    private ImageButton thalesButton;
     //private ImageButton sqrButton;
     private ImageButton sqrButton;
     MediaPlayer mMediaPlayer;
@@ -36,8 +35,6 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         this.Equation2Button.setOnClickListener(this);
         this.pythagoreButton = (ImageButton)  findViewById(R.id.pythagore);
         this.pythagoreButton.setOnClickListener(this);
-        this.thalesButton = (ImageButton)  findViewById(R.id.button_thales);
-        this.thalesButton.setOnClickListener(this);
         this.sqrButton = (ImageButton)  findViewById(R.id.button_sqr);
         this.sqrButton.setOnClickListener(this);
 
@@ -91,7 +88,6 @@ public class TeenActivity extends AppCompatActivity  implements View.OnClickList
         else if(v.getId() == this.Equation1Button.getId()) this.showEquation1Page();
         else if(v.getId() == this.Equation2Button.getId()) this.showEquation2Page();
         else if(v.getId() == this.pythagoreButton.getId()) this.showPythagorePage();
-        else if(v.getId() == this.thalesButton.getId()) this.showThalesPage();
         else if(v.getId() == this.sqrButton.getId()) this.showSqrPage();
 }
 
