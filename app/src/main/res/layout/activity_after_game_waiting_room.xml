@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AfterGameWaitingRoomActivity">
+    tools:context=".AfterGameWaitingRoomActivity"
+    android:background="">
 
+    <VideoView
+        android:id="@+id/backend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
     <TextView
         android:id="@+id/afterGameWaitingRoomStatusFillId"
         android:layout_width="wrap_content"

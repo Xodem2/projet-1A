@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.projet1a.database.MyFirebaseHelper;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +30,9 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
     private TextView player2Score;
     private ImageButton quitButton;
 
+    MediaPlayer mMediaPlayer;
+    int mCurrentVideoPosition;
+    private VideoView backend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +47,50 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
         this.quitButton = (ImageButton) findViewById(R.id.afterGameWaitingRoomQuitButtonId);
 
         DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().addValueEventListener(this);
+        backend = (VideoView) findViewById(R.id.backend);
+        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backend;
+        Uri uri = Uri.parse(uriPath);
+        backend.setVideoURI(uri);
+        backend.start();
+        backend.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mMediaPlayer = mediaPlayer;
+                // We want our video to play over and over so we set looping to true.
+                mMediaPlayer.setLooping(true);
+                // We then seek to the current position if it has been set and play the video.
+                if (mCurrentVideoPosition != 0) {
+                    mMediaPlayer.seekTo(mCurrentVideoPosition);
+                    mMediaPlayer.start();
+                }
+            }
+        });
+
+
+    }
+    @Override
+    protected void onPostResume() {
+        backend.resume();
+        super.onPostResume();
     }
 
+    @Override
+    protected void onRestart() {
+        backend.start();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        backend.suspend();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        backend.stopPlayback();
+        super.onDestroy();
+    }
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         if(DataProvider.getInstance().getMyFirebaseHelper().playerFinished(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn())
