@@ -223,6 +223,9 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
             }
+            if(this.player.getIsFinished() != 0) {
+                DataProvider.getInstance().getMyFirebaseHelper().updateGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
+            }
         }
         this.stats.update(correct);
         this.player.getLevel().update(this.player.getStats().getTotalScore());
@@ -235,8 +238,9 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
         if(this.player.getIsFinished() == 0){
             System.out.println("envoie");
-//            DataProvider.getInstance().getMyFirebaseHelper().updateScore(this.score.getScore());
+            DataProvider.getInstance().getMyFirebaseHelper().updateScore(this.score.getScore());
             this.player.decIsFinished();
+            DataProvider.getInstance().getMyFirebaseHelper().updateGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
             Intent afterActivityIntent = new Intent(this, AfterGameWaitingRoomActivity.class);
             startActivity(afterActivityIntent);
         }

@@ -26,6 +26,8 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
     private ImageButton vectorButton;
     private ImageButton matriceButton;
+    private ImageButton sqrtButton;
+    private ImageButton trigoButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView adultback;
@@ -81,50 +83,14 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
         this.matriceButton = (ImageButton) findViewById(R.id.main_multiplayer_matrice);
         this.matriceButton.setOnClickListener(this);
-        /*adultback = (VideoView) findViewById(R.id.adultback);
-        String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.adultback;
-        Uri uri = Uri.parse(uriPath);
-        adultback.setVideoURI(uri);
-        adultback.start();
-        adultback.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mMediaPlayer = mediaPlayer;
-                // We want our video to play over and over so we set looping to true.
-                mMediaPlayer.setLooping(true);
-                // We then seek to the current posistion if it has been set and play the video.
-                if (mCurrentVideoPosition != 0) {
-                    mMediaPlayer.seekTo(mCurrentVideoPosition);
-                    mMediaPlayer.start();
-                }
-            }
-        });*/
 
-    }/*
-    @Override
-    protected void onPostResume() {
-        adultback.resume();
-        super.onPostResume();
+        this.sqrtButton = (ImageButton) findViewById(R.id.main_multiplayer_sqrt);
+        this.sqrtButton.setOnClickListener(this);
+
+        this.trigoButton = (ImageButton) findViewById(R.id.main_multiplayer_trigo);
+        this.trigoButton.setOnClickListener(this);
     }
 
-    @Override
-    protected void onRestart() {
-        adultback.start();
-        super.onRestart();
-    }
-
-    @Override
-    protected void onPause() {
-        adultback.suspend();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        adultback.stopPlayback();
-        super.onDestroy();
-    }
-*/
     @Override
     public void onClick(View v) {
         if (v.getId() == this.FractionButton.getId()) this.showFractionPage();
@@ -138,6 +104,10 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         else if(v.getId() == this.divButton.getId()) this.showDivPage();
         else if(v.getId() == this.vectorButton.getId()) this.showVectorActivity();
         else if(v.getId() == this.matriceButton.getId()) this.showMatriceActivity();
+        else if(v.getId() == this.sqrtButton.getId()) this.showSqrtActivity();
+        else if(v.getId() == this.trigoButton.getId()) this.showTrigoActivity();
+//        sqrtButton
+//        trigoButton
     }
 
     private void showVectorActivity() {
@@ -209,6 +179,18 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     public void launchActivity(){
         Intent roomActivityIntent = new Intent(this, RoomActivity.class);
         startActivity(roomActivityIntent);
+    }
+
+    public void showSqrtActivity(){
+        this.idGame = SqrActivity.id;
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
+    }
+
+    public void showTrigoActivity(){
+        this.idGame = TrigoActivity.id;
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
     }
 
     public String getIdGame(){

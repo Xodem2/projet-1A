@@ -29,6 +29,8 @@ public class MyFirebaseHelper implements ValueEventListener {
     private static final String NODE_GAME_GAMEID_P2ID = "_player2Id";
     private static final String NODE_GAME_GAMEID_REMAININGP1 = "_remainingP1";
     private static final String NODE_GAME_GAMEID_REMAININGP2 = "_remainingP2";
+    private static final String NODE_GAME_GAMEID_SCOREP1 = "_scoreP1";
+    private static final String NODE_GAME_GAMEID_SCOREP2 = "_scoreP2";
 
     // players
     private static final String NODE_PLAYER = "_player";
@@ -127,8 +129,42 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public void startGame(String gameId){
         // set total questions to precised value
-        this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(TOTAL_QUESTIONS);
-        this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(TOTAL_QUESTIONS);
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+        String p1Id = "";
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).exists())
+            p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        Log.v("localDB", "p1Id = " + p1Id);
+        Log.v("localDB", "p2Id = " + p2Id);
+
+        int remainingP1 = TOTAL_QUESTIONS;
+        int remainingP2 = TOTAL_QUESTIONS;
+
+        if(playerId.equals(p1Id)){ // player is p1
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).exists())
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(
+                        Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString())
+                );
+            else
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
+        }
+        else if(playerId.equals(p2Id)) { // player is p2
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(TOTAL_QUESTIONS);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).exists())
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(
+                        Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString())
+                );
+            else
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
+        }
+        else{ // should never happen
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP1);
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
+        }
     }
 
     public void updateGame(String gameId){
@@ -247,6 +283,8 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public boolean playerFinished(String gameId){
         // return true if player has remaining questions equals to 0
+
+        // test with remaining
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
@@ -274,11 +312,19 @@ public class MyFirebaseHelper implements ValueEventListener {
             if(remainingP2 <= 1) finished = true;
         }
 
+        // test with score
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()
+        && this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
+            finished = true;
+        }
+
         return finished;
     }
 
     public boolean opponentFinished(String gameId){
         // return true if player has remaining questions equals to 0
+
+        // test using remaining
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
@@ -304,6 +350,12 @@ public class MyFirebaseHelper implements ValueEventListener {
         }
         else if(this.getOpponentId(gameId).equals(p2Id)){
             if(remainingP2 <= 1) finished = true;
+        }
+
+        // test with score
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()
+                && this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()){
+            finished = true;
         }
 
         return finished;
@@ -335,5 +387,22 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public DatabaseReference getFinishedGameStatusReference(){
         return this.firebaseDatabase.getReference(NODE_GAME);
+    }
+
+    public void updateScore(int playerScore){
+        String gameId = this.getGameIdWherePlayerIn();
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+
+        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        if(playerId.equals(p1Id)){ // player is p1
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).setValue(playerScore);
+        }
+        else if(playerId.equals(p2Id)){
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).setValue(playerScore);
+        }
     }
 }
