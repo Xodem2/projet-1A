@@ -54,6 +54,10 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
             this.player1Score.setText(String.valueOf(p1Score));
             this.player2Score.setText(String.valueOf(p2Score));
 
+            // send request
+            DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().setValue(1);
+            DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().child("1").removeValue();
+
             // add score to player and save it
             String player1Id = DataProvider.getInstance().getMyFirebaseHelper().getPlayer1Id(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
             String player2Id = DataProvider.getInstance().getMyFirebaseHelper().getPlayer2Id(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());

@@ -17,6 +17,10 @@ import com.example.projet1a.profile.PlayerProfile;
 import com.example.projet1a.profile.PlayerStatistics;
 import com.example.projet1a.profile.PlayerSuccess;
 import com.example.projet1a.profile.Success;
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
@@ -353,5 +357,6 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
         cv.put(TABLE_LEVEL_COLUMN_NEEDEDXP, level.getNeededXp());
         db.update(TABLE_LEVEL_NAME, cv, TABLE_LEVEL_COLUMN_PLAYERID + "=?", new String[]{playerId});
     }
+
 
 }

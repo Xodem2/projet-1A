@@ -288,7 +288,7 @@ public class MyFirebaseHelper implements ValueEventListener {
         boolean finished = false;
         String p1Id = "";
         String p2Id = "";
-        int remainingP1 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
+        int remainingP1 =Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString());
         int remainingP2 = Integer.parseInt(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString());
         Iterator<DataSnapshot> games = this.gameSnapshot.getChildren().iterator();
         DataSnapshot game;
@@ -502,5 +502,37 @@ public class MyFirebaseHelper implements ValueEventListener {
             p2Nickname = this.playerSnapshot.child(p2Id).child(NODE_PLAYERNICKNAME).getValue().toString();
         else p2Nickname = "player2";
         return p2Nickname;
+    }
+
+    public LinkedList<PlayerProfile> getPlayers(){
+        if(this.playerSnapshot == null) return null;
+
+        LinkedList<PlayerProfile> playersList = new LinkedList<>();
+        Iterator<DataSnapshot> players = this.playerSnapshot.getChildren().iterator();
+        DataSnapshot player;
+        while(players.hasNext()){
+            player = players.next();
+            Iterator<DataSnapshot> playerInfo = player.getChildren().iterator();
+            DataSnapshot info;
+            while(playerInfo.hasNext()){
+                info = playerInfo.next();
+                int mpScore = 0;
+                int spScore = 0;
+                String nickname = "player";
+                Log.v("myFirebase", info.getKey());
+                if(info.getKey().equals(NODE_PLAYERNICKNAME))
+                    nickname = info.getValue().toString();
+                else if(info.getKey().equals(NODE_PLAYERMPSCORE))
+                    mpScore = Integer.parseInt(info.getValue().toString());
+                else if(info.getKey().equals(NODE_PLAYERSPSCORE))
+                    spScore = Integer.parseInt(info.getValue().toString());
+                PlayerProfile playerToAdd = new PlayerProfile();
+                playerToAdd.setNickname(nickname);
+                playerToAdd.getStats().updateSingleplayerScore(spScore);
+                playerToAdd.getStats().updateMultiplayerScore(mpScore);
+                playersList.add(playerToAdd);
+            }
+        }
+        return playersList;
     }
 }
