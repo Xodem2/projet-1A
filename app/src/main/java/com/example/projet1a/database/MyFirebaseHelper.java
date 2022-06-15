@@ -363,7 +363,6 @@ public class MyFirebaseHelper implements ValueEventListener {
     }
 
     public DatabaseReference getFinishedGameStatusReference(){
-        this.updateScore(100);
         return this.firebaseDatabase.getReference(NODE_GAME);
     }
 
