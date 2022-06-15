@@ -29,6 +29,8 @@ public class MyFirebaseHelper implements ValueEventListener {
     private static final String NODE_GAME_GAMEID_P2ID = "_player2Id";
     private static final String NODE_GAME_GAMEID_REMAININGP1 = "_remainingP1";
     private static final String NODE_GAME_GAMEID_REMAININGP2 = "_remainingP2";
+    private static final String NODE_GAME_GAMEID_SCOREP1 = "_scoreP1";
+    private static final String NODE_GAME_GAMEID_SCOREP2 = "_scoreP2";
 
     // players
     private static final String NODE_PLAYER = "_player";
@@ -127,8 +129,35 @@ public class MyFirebaseHelper implements ValueEventListener {
 
     public void startGame(String gameId){
         // set total questions to precised value
-        this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(TOTAL_QUESTIONS);
-        this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(TOTAL_QUESTIONS);
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+        String p1Id = "";
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).exists())
+            p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        int remainingP1 = TOTAL_QUESTIONS;
+        int remainingP2 = TOTAL_QUESTIONS;
+
+        if(playerId.equals(p1Id)){ // player is p1
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(TOTAL_QUESTIONS);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).exists())
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(
+                        this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).getValue().toString()
+                );
+            else
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(remainingP2);
+        }
+        else if(playerId.equals(p2Id)) { // player is p2
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP2).setValue(TOTAL_QUESTIONS);
+            if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).exists())
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(
+                        this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).getValue().toString()
+                );
+            else
+                this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_REMAININGP1).setValue(remainingP2);
+        }
     }
 
     public void updateGame(String gameId){
@@ -334,6 +363,24 @@ public class MyFirebaseHelper implements ValueEventListener {
     }
 
     public DatabaseReference getFinishedGameStatusReference(){
+        this.updateScore(100);
         return this.firebaseDatabase.getReference(NODE_GAME);
+    }
+
+    public void updateScore(int playerScore){
+        String gameId = this.getGameIdWherePlayerIn();
+        String playerId = DataProvider.getInstance().getPlayer().getID();
+
+        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        String p2Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
+            p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
+
+        if(playerId.equals(p1Id)){ // player is p1
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).setValue(playerScore);
+        }
+        else if(playerId.equals(p2Id)){
+            this.databaseReferenceGame.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).setValue(playerScore);
+        }
     }
 }
