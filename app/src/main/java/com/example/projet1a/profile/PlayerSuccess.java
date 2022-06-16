@@ -51,5 +51,6 @@ public class PlayerSuccess {
         this.addSuccess(new Success("o100rcdiff", "Obtenir 100 réponses correctes (différences)"));
         this.addSuccess(new Success("o100rcmult", "Obtenir 100 réponses correctes (multiplication)"));
         this.addSuccess(new Success("o100rcdiv", "Obtenir 100 réponses correctes (divisions)"));
+        this.addSuccess(new Success("o100rcop", "Obtenir 100 réponses correctes (opérateur)"));
     }
 }
