@@ -321,6 +321,16 @@ public class MyFirebaseHelper implements ValueEventListener {
         return finished;
     }
 
+    public boolean player1Finished(String gameId){
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()) return true;
+        return false;
+    }
+
+    public boolean player2Finished(String gameId){
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()) return true;
+        return false;
+    }
+
     public boolean opponentFinished(String gameId){
         // return true if player has remaining questions equals to 0
 
@@ -535,4 +545,5 @@ public class MyFirebaseHelper implements ValueEventListener {
         }
         return playersList;
     }
+
 }

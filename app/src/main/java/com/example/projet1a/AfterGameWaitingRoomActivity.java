@@ -45,8 +45,9 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
 
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
-        if(DataProvider.getInstance().getMyFirebaseHelper().playerFinished(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn())
-        && DataProvider.getInstance().getMyFirebaseHelper().opponentFinished(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn())) {
+        String gameId = DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn();
+        if(DataProvider.getInstance().getMyFirebaseHelper().player1Finished(gameId) && DataProvider.getInstance().getMyFirebaseHelper().player2Finished(gameId)) {
+
             // set value
             this.status.setText("Partie terminée !");
             int p1Score = DataProvider.getInstance().getMyFirebaseHelper().getPlayer1Score(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
