@@ -26,7 +26,7 @@ public class MyLocalDatabaseHelper extends SQLiteOpenHelper {
 
     // db settings
     private static final String DATABASE_NAME = "player.db";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
     // table : player
     private static final String TABLE_PLAYER_NAME = "Player";
