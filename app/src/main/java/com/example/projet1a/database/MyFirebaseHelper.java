@@ -403,10 +403,7 @@ public class MyFirebaseHelper implements ValueEventListener {
         String gameId = this.getGameIdWherePlayerIn();
         String playerId = DataProvider.getInstance().getPlayer().getID();
 
-        String p1Id = "";
-        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).exists()){
-            this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
-        }
+        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
         String p2Id = "";
         if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
             p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
