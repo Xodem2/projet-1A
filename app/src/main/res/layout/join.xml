@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/phonebackground_cropped"
+        android:background="@drawable/background_profil_rickandmorty"
         tools:context=".AdultActivity"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">

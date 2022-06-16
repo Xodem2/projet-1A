@@ -48,7 +48,7 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
         this.quitButton = (ImageButton) findViewById(R.id.afterGameWaitingRoomQuitButtonId);
         this.quitButton.setOnClickListener(this);
         DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().addValueEventListener(this);
-        backend = (VideoView) findViewById(R.id.backend);
+      /*  backend = (VideoView) findViewById(R.id.backend);
         String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.backend;
         Uri uri = Uri.parse(uriPath);
         backend.setVideoURI(uri);
@@ -78,9 +78,9 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
     @Override
     protected void onRestart() {
         backend.start();
-        super.onRestart();
+        super.onRestart(); */
     }
-
+/*
     @Override
     protected void onPause() {
         backend.suspend();
@@ -91,7 +91,7 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
     protected void onDestroy() {
         backend.stopPlayback();
         super.onDestroy();
-    }
+    }*/
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         String gameId = DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn();
