@@ -29,6 +29,7 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
     private TextView player2Nickname;
     private TextView player2Score;
     private ImageButton quitButton;
+    private int x=0;
 
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
@@ -148,9 +149,11 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
 
     @Override
     public void onClick(View v) {
+        x++;
         if(v.getId() == this.quitButton.getId()) {
             if (player1Score.getText().toString().equals("p1Score")){
-                DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().addValueEventListener(this);
+                DataProvider.getInstance().getMyFirebaseHelper().updateScore(0);
+                DataProvider.getInstance().getMyFirebaseHelper().updateScore(DataProvider.getInstance().getPlayer().getStats().getMultiplayerScore());
             }
             else {
                 this.doQuit();

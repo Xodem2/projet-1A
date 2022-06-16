@@ -18,6 +18,7 @@ public class PlayerProfile {
     private final PlayerStatistics stats;
     private int isFinished;
     private int numberOfSucceses;
+    public int need;
 
     public PlayerProfile(){
         this.generateID();
