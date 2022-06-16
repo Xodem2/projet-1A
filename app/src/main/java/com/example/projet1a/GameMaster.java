@@ -113,7 +113,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
     public void setId(String id) {
         this.id = id;
-        this.stats = this.player.getStats().getGameStatsById(id);
+        try {
+            this.stats = this.player.getStats().getGameStatsById(id);
+        }
+        catch (Exception e){
+            DataProvider.renew();
+            this.stats = this.player.getStats().getGameStatsById(id);
+        }
         if (this.stats==null){
             this.player.getStats().addGameStats(id);
         }
@@ -173,7 +179,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
                 this.stats.update(correct);
-                this.player.getLevel().update(this.player.getStats().getTotalScore());
+//                this.player.getLevel().update(this.player.getStats().getTotalScore());
             }
             else{
                 if (correct){
@@ -190,6 +196,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
                     this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.stats.update(correct);
                 }
             }
         }
@@ -210,7 +217,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
                 this.stats.update(correct);
-                this.player.getLevel().update(this.player.getStats().getTotalScore());
+//                this.player.getLevel().update(this.player.getStats().getTotalScore());
             }
             else{
                 if (correct){
@@ -227,13 +234,14 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
                     this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.stats.update(correct);
                 }
             }
             if(this.player.getIsFinished() != 0) {
                 DataProvider.getInstance().getMyFirebaseHelper().updateGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());
             }
         }
-        this.stats.update(correct);
+//        this.stats.update(correct);
         this.player.getLevel().update(this.player.getStats().getTotalScore());
 
         this.checkSuccess();
@@ -244,6 +252,7 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
 
         if(this.player.getIsFinished() == 0){
             System.out.println("envoie");
+            DataProvider.getInstance().getPlayer().need = this.score.getScore();
             DataProvider.getInstance().getMyFirebaseHelper().updateScore(this.score.getScore());
             this.player.decIsFinished();
             DataProvider.getInstance().getMyFirebaseHelper().updateGame(DataProvider.getInstance().getMyFirebaseHelper().getGameIdWherePlayerIn());

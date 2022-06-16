@@ -321,6 +321,16 @@ public class MyFirebaseHelper implements ValueEventListener {
         return finished;
     }
 
+    public boolean player1Finished(String gameId){
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP1).exists()) return true;
+        return false;
+    }
+
+    public boolean player2Finished(String gameId){
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_SCOREP2).exists()) return true;
+        return false;
+    }
+
     public boolean opponentFinished(String gameId){
         // return true if player has remaining questions equals to 0
 
@@ -514,6 +524,8 @@ public class MyFirebaseHelper implements ValueEventListener {
             player = players.next();
             Iterator<DataSnapshot> playerInfo = player.getChildren().iterator();
             DataSnapshot info;
+            String id = "";
+            if(player.getKey().equals(NODE_PLAYERID)) id = player.getValue().toString();
             while(playerInfo.hasNext()){
                 info = playerInfo.next();
                 int mpScore = 0;
@@ -530,9 +542,11 @@ public class MyFirebaseHelper implements ValueEventListener {
                 playerToAdd.setNickname(nickname);
                 playerToAdd.getStats().updateSingleplayerScore(spScore);
                 playerToAdd.getStats().updateMultiplayerScore(mpScore);
+                playerToAdd.setId(id);
                 playersList.add(playerToAdd);
             }
         }
         return playersList;
     }
+
 }
