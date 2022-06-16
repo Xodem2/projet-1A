@@ -105,8 +105,7 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
         else if(v.getId() == this.matriceButton.getId()) this.showMatriceActivity();
         else if(v.getId() == this.sqrtButton.getId()) this.showSqrtActivity();
         else if(v.getId() == this.trigoButton.getId()) this.showTrigoActivity();
-//        sqrtButton
-//        trigoButton
+        else if(v.getId() == this.operatorButton.getId()) this.showOperatorActivity();
     }
 
     private void showVectorActivity() {
