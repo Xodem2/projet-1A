@@ -99,9 +99,9 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:text="Opérateurs"
-        app:layout_constraintEnd_toEndOf="@+id/button_Mult"
+        app:layout_constraintEnd_toEndOf="@+id/button_division"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/button_Mult"
+        app:layout_constraintStart_toStartOf="@+id/button_division"
         app:layout_constraintTop_toBottomOf="@+id/button_Mult"
         app:srcCompat="@drawable/icone_operator" />
 
