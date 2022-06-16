@@ -81,6 +81,12 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         else if (id_game.equals(VectorActivity.id)) {
             startActivity(new Intent(this, VectorActivity.class));
         }
+        else if (id_game.equals(VectorActivity.id)) {
+            startActivity(new Intent(this, VectorActivity.class));
+        }
+        else if (id_game.equals(OperatorActivity.id)) {
+            startActivity(new Intent(this, OperatorActivity.class));
+        }
 //        startActivity(new Intent(this, TestGameActivity.class));
     }
 }
