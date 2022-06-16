@@ -170,13 +170,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.incNumberOfSucces();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(this.score.getSensibility());
                 }
                 else{
                     this.score.decr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
                 this.stats.update(correct);
 //                this.player.getLevel().update(this.player.getStats().getTotalScore());
@@ -189,13 +189,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.incNumberOfSucces();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+0");
-//                    this.player.getStats().updateSingleplayerScore(0);
+                    this.player.getStats().updateSingleplayerScore(0);
                 }
                 else{
                     this.score.decr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                     this.stats.update(correct);
                 }
             }
@@ -208,13 +208,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.incNumberOfSucces();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
                 else{
                     this.score.decr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                 }
                 this.stats.update(correct);
 //                this.player.getLevel().update(this.player.getStats().getTotalScore());
@@ -227,13 +227,13 @@ public class GameMaster extends AppCompatActivity implements View.OnClickListene
                     this.player.incNumberOfSucces();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#00ff00"));
                     ((TextView) findViewById(R.id.delta)).setText("+0");
-//                    this.player.getStats().updateSingleplayerScore(0);
+                    this.player.getStats().updateSingleplayerScore(0);
                 }
                 else{
                     this.score.decr();
                     ((TextView) findViewById(R.id.delta)).setTextColor(Color.parseColor("#ff0000"));
                     ((TextView) findViewById(R.id.delta)).setText("-" + String.valueOf(this.score.getSensibility()));
-//                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
+                    this.player.getStats().updateSingleplayerScore(-this.score.getSensibility());
                     this.stats.update(correct);
                 }
             }
