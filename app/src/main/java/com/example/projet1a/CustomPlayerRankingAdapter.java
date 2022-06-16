@@ -1,6 +1,7 @@
 package com.example.projet1a;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,10 @@ public class CustomPlayerRankingAdapter extends RecyclerView.Adapter<CustomPlaye
         PlayerProfile player = localDataSet.get(position);
         viewHolder.getPlayerNickname().setText(player.getNickname() + " (" + String.valueOf(player.getStats().getTotalScore()) + ")");
         viewHolder.getPlayerRank().setText(String.valueOf(position + 1));
+        if(player.getID().equals(DataProvider.getInstance().getPlayer().getID()))
+            viewHolder.getPlayerNickname().setTextColor(Color.parseColor("#0096ff"));
+        else
+            viewHolder.getPlayerNickname().setTextColor(Color.parseColor("#000000"));
     }
 
     // Return the size of your dataset (invoked by the layout manager)

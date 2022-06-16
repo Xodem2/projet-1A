@@ -525,26 +525,26 @@ public class MyFirebaseHelper implements ValueEventListener {
             Iterator<DataSnapshot> playerInfo = player.getChildren().iterator();
             DataSnapshot info;
             String id = "";
+            String nickname = "player";
+            int spScore = 0;
+            int mpScore = 0;
+            PlayerProfile playerToAdd = new PlayerProfile();
             if(player.getKey().equals(NODE_PLAYERID)) id = player.getValue().toString();
             while(playerInfo.hasNext()){
                 info = playerInfo.next();
-                int mpScore = 0;
-                int spScore = 0;
-                String nickname = "player";
-                Log.v("myFirebase", info.getKey());
                 if(info.getKey().equals(NODE_PLAYERNICKNAME))
                     nickname = info.getValue().toString();
                 else if(info.getKey().equals(NODE_PLAYERMPSCORE))
                     mpScore = Integer.parseInt(info.getValue().toString());
                 else if(info.getKey().equals(NODE_PLAYERSPSCORE))
                     spScore = Integer.parseInt(info.getValue().toString());
-                PlayerProfile playerToAdd = new PlayerProfile();
+                playerToAdd.setId(id);
                 playerToAdd.setNickname(nickname);
                 playerToAdd.getStats().updateSingleplayerScore(spScore);
                 playerToAdd.getStats().updateMultiplayerScore(mpScore);
-                playerToAdd.setId(id);
-                playersList.add(playerToAdd);
             }
+            playersList.add(playerToAdd);
+
         }
         return playersList;
     }
