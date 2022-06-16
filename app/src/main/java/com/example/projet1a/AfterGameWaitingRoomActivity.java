@@ -39,7 +39,7 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
         this.player1Score = (TextView) findViewById(R.id.afterGameWaitingRoomP1ScoreFillId);
         this.player2Score = (TextView) findViewById(R.id.afterGameWaitingRoomP2ScoreFillId);
         this.quitButton = (ImageButton) findViewById(R.id.afterGameWaitingRoomQuitButtonId);
-
+        this.quitButton.setOnClickListener(this);
         DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().addValueEventListener(this);
     }
 
@@ -99,7 +99,14 @@ public class AfterGameWaitingRoomActivity extends AppCompatActivity implements V
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == this.quitButton.getId()) this.doQuit();
+        if(v.getId() == this.quitButton.getId()) {
+            if (player1Score.getText().toString().equals("p1Score")){
+                DataProvider.getInstance().getMyFirebaseHelper().getFinishedGameStatusReference().addValueEventListener(this);
+            }
+            else {
+                this.doQuit();
+            }
+        }
     }
 
     private void doQuit() {
