@@ -68,6 +68,13 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icone_trigo" />
 
+            <ImageButton
+                android:id="@+id/main_multiplayer_operator"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icone_operator" />
+
         </LinearLayout>
     </ScrollView>
 

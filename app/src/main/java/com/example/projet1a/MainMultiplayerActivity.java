@@ -27,6 +27,7 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
     private ImageButton matriceButton;
     private ImageButton sqrtButton;
     private ImageButton trigoButton;
+    private ImageButton operatorButton;
     MediaPlayer mMediaPlayer;
     int mCurrentVideoPosition;
     private VideoView adultback;
@@ -85,6 +86,9 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
         this.trigoButton = (ImageButton) findViewById(R.id.main_multiplayer_trigo);
         this.trigoButton.setOnClickListener(this);
+
+        this.operatorButton = (ImageButton) findViewById(R.id.main_multiplayer_operator);
+        this.operatorButton.setOnClickListener(this);
     }
 
     @Override
@@ -179,6 +183,12 @@ public class MainMultiplayerActivity extends AppCompatActivity implements View.O
 
     public void showTrigoActivity(){
         this.idGame = TrigoActivity.id;
+        DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
+        this.launchActivity();
+    }
+
+    public void showOperatorActivity(){
+        this.idGame = OperatorActivity.id;
         DataProvider.getInstance().getMyFirebaseHelper().createGame(this.idGame);
         this.launchActivity();
     }
