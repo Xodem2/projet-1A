@@ -538,11 +538,11 @@ public class MyFirebaseHelper implements ValueEventListener {
                     mpScore = Integer.parseInt(info.getValue().toString());
                 else if(info.getKey().equals(NODE_PLAYERSPSCORE))
                     spScore = Integer.parseInt(info.getValue().toString());
-                playerToAdd.setId(id);
-                playerToAdd.setNickname(nickname);
-                playerToAdd.getStats().updateSingleplayerScore(spScore);
-                playerToAdd.getStats().updateMultiplayerScore(mpScore);
             }
+            playerToAdd.setId(id);
+            playerToAdd.setNickname(nickname);
+            playerToAdd.getStats().updateSingleplayerScore(spScore);
+            playerToAdd.getStats().updateMultiplayerScore(mpScore);
             playersList.add(playerToAdd);
 
         }
