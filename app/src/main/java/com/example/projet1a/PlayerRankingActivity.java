@@ -41,10 +41,11 @@ public class PlayerRankingActivity extends AppCompatActivity {
     }
 
     private void sortByTotalScore(){
+        // desc sort
         this.playerList.sort(new Comparator<PlayerProfile>() {
             @Override
             public int compare(PlayerProfile o1, PlayerProfile o2) {
-                return o1.getStats().getTotalScore() - o2.getStats().getTotalScore();
+                return - (o1.getStats().getTotalScore() - o2.getStats().getTotalScore());
             }
         });
     }

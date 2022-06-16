@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showAdultPage() {
-        Intent adultActivityIntent = new Intent(this, AdultActivity.class);
+        Intent adultActivityIntent = new Intent(this, PlayerRankingActivity.class);
         startActivity(adultActivityIntent);
     }
 

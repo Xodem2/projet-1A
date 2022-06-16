@@ -72,7 +72,7 @@ public class CustomPlayerRankingAdapter extends RecyclerView.Adapter<CustomPlaye
         //Success success = DataProvider.getInstance().getPlayer().getSuccess().getSuccessById(localDataSet[position]);
         PlayerProfile player = localDataSet.get(position);
         viewHolder.getPlayerNickname().setText(player.getNickname() + " (" + String.valueOf(player.getStats().getTotalScore()) + ")");
-        viewHolder.getPlayerRank().setText(String.valueOf(position));
+        viewHolder.getPlayerRank().setText(String.valueOf(position + 1));
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -403,7 +403,10 @@ public class MyFirebaseHelper implements ValueEventListener {
         String gameId = this.getGameIdWherePlayerIn();
         String playerId = DataProvider.getInstance().getPlayer().getID();
 
-        String p1Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        String p1Id = "";
+        if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).exists()){
+            this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P1ID).getValue().toString();
+        }
         String p2Id = "";
         if(this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).exists())
             p2Id = this.gameSnapshot.child(gameId).child(NODE_GAME_GAMEID_P2ID).getValue().toString();
@@ -524,6 +527,8 @@ public class MyFirebaseHelper implements ValueEventListener {
             player = players.next();
             Iterator<DataSnapshot> playerInfo = player.getChildren().iterator();
             DataSnapshot info;
+            String id = "";
+            if(player.getKey().equals(NODE_PLAYERID)) id = player.getValue().toString();
             while(playerInfo.hasNext()){
                 info = playerInfo.next();
                 int mpScore = 0;
@@ -540,6 +545,7 @@ public class MyFirebaseHelper implements ValueEventListener {
                 playerToAdd.setNickname(nickname);
                 playerToAdd.getStats().updateSingleplayerScore(spScore);
                 playerToAdd.getStats().updateMultiplayerScore(mpScore);
+                playerToAdd.setId(id);
                 playersList.add(playerToAdd);
             }
         }
