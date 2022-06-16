@@ -1,5 +1,7 @@
 package com.example.projet1a;
 
+import androidx.arch.core.executor.DefaultTaskExecutor;
+
 import com.example.projet1a.database.DataBaseV2;
 import com.example.projet1a.database.MyFirebaseHelper;
 import com.example.projet1a.database.MyLocalDatabaseHelper;
@@ -27,6 +29,10 @@ public class DataProvider {
 
     public static DataProvider getInstance() {
         return ourInstance;
+    }
+
+    public static void renew(){
+        DataProvider.ourInstance = new DataProvider();
     }
 
     public void setPlayer(PlayerProfile player){

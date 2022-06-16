@@ -80,6 +80,9 @@ public class RoomActivity extends AppCompatActivity implements View.OnClickListe
         else if (id_game.equals(MultActivity.id)) {
             startActivity(new Intent(this, MultActivity.class));
         }
+        else if (id_game.equals(OperatorActivity.id)) {
+            startActivity(new Intent(this, OperatorActivity.class));
+        }
         else if (id_game.equals(PythagoreActivity.id)) {
             startActivity(new Intent(this, PythagoreActivity.class));
         }
